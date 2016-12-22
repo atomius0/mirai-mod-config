@@ -1,0 +1,37 @@
+# use with: mingw32-make -f Makefile.mingw
+
+# -- CHANGE THESE SETTINGS ACCORDING TO YOUR ENVIRONMENT ----------------------
+
+# change this line to point to your wxLua install directory
+WXLUA_PATH = ../../wxLua-2.8.12.3-Lua-5.1.5-MSW-Ansi
+
+# -- END OF SETTINGS. NO NEED TO CHANGE ANYTHING BELOW THIS LINE --------------
+
+VERSION = 0.0.1
+
+# TODO: everything below this line!
+
+# NOTE: use luac.exe from wxLua installation!
+
+LUA_FILES     = main.lua
+OTHER_FILES   = changelog.txt license.txt old_whatsnew.txt readme.md readme_old.txt
+ARCHIVE_FILES = $(LUA_FILES) $(OTHER_FILES)
+ARCHIVE_BASENAME = mirai-mod-config_v$(VERSION)
+
+.PHONY: release
+release: release/$(ARCHIVE_BASENAME).7z release/$(ARCHIVE_BASENAME).zip
+
+
+release/$(ARCHIVE_BASENAME).7z: $(ARCHIVE_FILES)
+	if not exist release mkdir release
+	7z a -mx9 -myx9 -- $@ $(ARCHIVE_FILES)
+
+
+release/$(ARCHIVE_BASENAME).zip: $(ARCHIVE_FILES)
+	if not exist release mkdir release
+	7z a -mx9 -- $@ $(ARCHIVE_FILES)
+
+
+.PHONY: clean
+clean:
+	-rmdir /S/Q release
