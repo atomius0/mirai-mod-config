@@ -7,6 +7,7 @@
 - [ ] write a library for reading/writing Config.lua (original Config.lua is in ./data/Config.lua)
 - [ ] build a GUI with wxFormBuilder and generate an xrc file. (place the xrc file inside ./data/)
 - [ ] write readme.md
+- [ ] add a LICENSE.txt
 
 ##Notes
 
