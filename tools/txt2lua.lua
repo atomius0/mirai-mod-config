@@ -5,6 +5,8 @@
 -- a small tool that converts a text file to a lua source file
 -- that returns a string with the contents of the text file.
 
+-- stringutil is in the parent directory, so we add it to package.path
+package.path = "../?.lua;" .. package.path
 local stringutil = require "stringutil"
 
 
