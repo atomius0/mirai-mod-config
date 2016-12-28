@@ -1,5 +1,7 @@
 # use with: mingw32-make -f Makefile.mingw
 
+# TODO: add steps for converting config.lua to lua source file (in gen folder)
+
 # -- CHANGE THESE SETTINGS ACCORDING TO YOUR ENVIRONMENT ----------------------
 
 # change this line to point to your wxLua install directory
@@ -7,31 +9,57 @@ WXLUA_PATH = ../../wxLua-2.8.12.3-Lua-5.1.5-MSW-Ansi
 
 # -- END OF SETTINGS. NO NEED TO CHANGE ANYTHING BELOW THIS LINE --------------
 
+
+# Directories created by this makefile:
+# build   - contains the final executable and readme files
+# release - contains archives with the contents of the build directory (7z and zip)
+# gen    - contains automatically generated source files
+# _temp   - contains intermediate files created during the build process
+
+
 VERSION = 0.0.1
 
-# TODO: everything below this line!
 
-# NOTE: use luac.exe from wxLua installation!
+TXT2LUA         = tools/txt2lua.lua
+WXLUAFREEZE     = $(WXLUA_PATH)/apps/wxluafreeze/wxluafreeze.lua
+WXLUAFREEZE_APP = $(WXLUA_PATH)/bin/wxLuaFreeze.exe
+LUA             = $(WXLUA_PATH)/bin/lua.exe
+LUAC            = $(WXLUA_PATH)/bin/luac.exe
 
-LUA_FILES     = main.lua
-OTHER_FILES   = changelog.txt license.txt old_whatsnew.txt readme.md readme_old.txt
-ARCHIVE_FILES = $(LUA_FILES) $(OTHER_FILES)
+
+LUA_FILES        = main.lua
+SQUISH_OUTPUT    = _temp/config_sq.lua
+COMPILED_OUTPUT  = _temp/config_sq_comp.lua
+
+APP_NAME         = config.exe
 ARCHIVE_BASENAME = mirai-mod-config_v$(VERSION)
 
-.PHONY: release
 release: release/$(ARCHIVE_BASENAME).7z release/$(ARCHIVE_BASENAME).zip
 
+build: build/$(APP_NAME)
 
-release/$(ARCHIVE_BASENAME).7z: $(ARCHIVE_FILES)
+
+generate: data/Config.lua
+	if not exist gen mkdir gen
+	$(LUA) $(TXT2LUA) data/Config.lua gen/orig_Config.lua
+
+
+build/$(APP_NAME): $(SQUISH_OUTPUT)
 	if not exist release mkdir release
-	7z a -mx9 -myx9 -- $@ $(ARCHIVE_FILES)
+	$(LUA) $(WXLUAFREEZE) $(WXLUAFREEZE_APP) $(SQUISH_OUTPUT) release/$(APP_NAME)
 
 
-release/$(ARCHIVE_BASENAME).zip: $(ARCHIVE_FILES)
-	if not exist release mkdir release
-	7z a -mx9 -- $@ $(ARCHIVE_FILES)
+$(SQUISH_OUTPUT): $(SOURCE_FILES) squishy
+	if not exist _temp mkdir _temp
+	squish
+	$(LUAC) -o $(SQUISH_OUTPUT) $(SQUISH_OUTPUT)
 
 
-.PHONY: clean
 clean:
+	-rmdir /S/Q build
 	-rmdir /S/Q release
+	-rmdir /S/Q _temp
+	-rmdir /S/Q gen
+
+
+.PHONY: release build clean
