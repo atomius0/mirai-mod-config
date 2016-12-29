@@ -44,7 +44,6 @@ build: $(BUILD_DIR)/$(APP_NAME)
 generate: $(GEN_DIR)/orig_Config.lua
 
 
-# TODO: rules for archive files
 $(RELEASE_DIR)/$(ARCHIVE_BASENAME).7z: $(BUILD_DIR)/$(APP_NAME)
 	if not exist $(RELEASE_DIR) mkdir $(RELEASE_DIR)
 	7z a -mx9 -myx9 -- $@ ./$(BUILD_DIR)/*
@@ -64,7 +63,7 @@ $(COMPILED_OUTPUT): $(SQUISH_OUTPUT)
 	$(LUAC) -o $(COMPILED_OUTPUT) $(SQUISH_OUTPUT)
 
 
-$(SQUISH_OUTPUT): squishy $(SOURCE_FILES) $(GEN_DIR)/orig_Config.lua
+$(SQUISH_OUTPUT): squishy $(LUA_FILES) $(GEN_DIR)/orig_Config.lua
 	if not exist $(TEMP_DIR) mkdir $(TEMP_DIR)
 	squish
 
