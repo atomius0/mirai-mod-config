@@ -38,6 +38,7 @@ Thumbs.db
 
 # Custom #
 ##########
-
-_tmp/
+build/
 release/
+gen/
+_temp/
