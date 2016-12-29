@@ -1,6 +1,5 @@
 # use with: mingw32-make -f Makefile.mingw
 
-# TODO: add steps for converting config.lua to lua source file (in gen folder)
 
 # -- CHANGE THESE SETTINGS ACCORDING TO YOUR ENVIRONMENT ----------------------
 
@@ -8,6 +7,7 @@
 WXLUA_PATH = ../../wxLua-2.8.12.3-Lua-5.1.5-MSW-Ansi
 
 # -- END OF SETTINGS. NO NEED TO CHANGE ANYTHING BELOW THIS LINE --------------
+
 
 VERSION = 0.0.1
 
@@ -20,7 +20,6 @@ RELEASE_DIR = release
 GEN_DIR     = gen
 # contains intermediate files created during the build process:
 TEMP_DIR    = _temp
-
 
 
 TXT2LUA         = tools/txt2lua.lua
