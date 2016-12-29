@@ -36,8 +36,8 @@ COMPILED_OUTPUT  = $(TEMP_DIR)/config_sq_comp.lua
 APP_NAME         = config.exe
 ARCHIVE_BASENAME = mirai-mod-config_v$(VERSION)
 
-#TODO: uncomment the line below after writing rules for archive files
-#release: $(RELEASE_DIR)/$(ARCHIVE_BASENAME).7z $(RELEASE_DIR)/$(ARCHIVE_BASENAME).zip
+
+release: $(RELEASE_DIR)/$(ARCHIVE_BASENAME).7z $(RELEASE_DIR)/$(ARCHIVE_BASENAME).zip
 
 build: $(BUILD_DIR)/$(APP_NAME)
 
@@ -45,6 +45,14 @@ generate: $(GEN_DIR)/orig_Config.lua
 
 
 # TODO: rules for archive files
+$(RELEASE_DIR)/$(ARCHIVE_BASENAME).7z: $(BUILD_DIR)/$(APP_NAME)
+	if not exist $(RELEASE_DIR) mkdir $(RELEASE_DIR)
+	7z a -mx9 -myx9 -- $@ ./$(BUILD_DIR)/*
+
+
+$(RELEASE_DIR)/$(ARCHIVE_BASENAME).zip: $(BUILD_DIR)/$(APP_NAME)
+	if not exist $(RELEASE_DIR) mkdir $(RELEASE_DIR)
+	7z a -mx9 -- $@ ./$(BUILD_DIR)/*
 
 
 $(BUILD_DIR)/$(APP_NAME): $(COMPILED_OUTPUT)
