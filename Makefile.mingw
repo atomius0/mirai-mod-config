@@ -31,7 +31,8 @@ LUAC            = $(WXLUA_PATH)/bin/luac.exe
 
 LUA_FILES        = main.lua
 SQUISH_OUTPUT    = $(TEMP_DIR)/config_sq.lua
-COMPILED_OUTPUT  = $(TEMP_DIR)/config_sq_comp.lua
+# don't compile it, wxLuaFreeze doesn't support lua files with zero-bytes inside them!
+#COMPILED_OUTPUT  = $(TEMP_DIR)/config_sq_comp.lua
 
 APP_NAME         = config.exe
 ARCHIVE_BASENAME = mirai-mod-config_v$(VERSION)
@@ -54,13 +55,13 @@ $(RELEASE_DIR)/$(ARCHIVE_BASENAME).zip: $(BUILD_DIR)/$(APP_NAME)
 	7z a -mx9 -- $@ ./$(BUILD_DIR)/*
 
 
-$(BUILD_DIR)/$(APP_NAME): $(COMPILED_OUTPUT)
+$(BUILD_DIR)/$(APP_NAME): $(SQUISH_OUTPUT)
 	if not exist $(BUILD_DIR) mkdir $(BUILD_DIR)
 	$(LUA) $(WXLUAFREEZE) $(WXLUAFREEZE_APP) $< $(BUILD_DIR)/$(APP_NAME)
 
 
-$(COMPILED_OUTPUT): $(SQUISH_OUTPUT)
-	$(LUAC) -o $(COMPILED_OUTPUT) $(SQUISH_OUTPUT)
+#$(COMPILED_OUTPUT): $(SQUISH_OUTPUT)
+#	$(LUAC) -o $(COMPILED_OUTPUT) $(SQUISH_OUTPUT)
 
 
 $(SQUISH_OUTPUT): squishy $(LUA_FILES) $(GEN_DIR)/orig_Config.lua
