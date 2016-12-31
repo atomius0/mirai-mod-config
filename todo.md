@@ -25,5 +25,6 @@ so that it can restore the original settings.
 http://docs.wxwidgets.org/trunk/classwx_dir.html
 file:///D:/Dateien/Programming/lua/wxLua/wxLua-2.8.12.3-Lua-5.1.5-MSW-Ansi/doc/wxLua/wxluaref.html#wxDir
 
-- Should the "Mod" and "Translation" selectors really both be in the "Extra" tab? It might be better to split them into separate tabs.
+- use wxWindow::SetMaxSize for the wxScrolledWindow in tab "Skills", whenever the window size changes and when the window is initialized. So that the long list inside it won't enlarge the window unnecessarily. (the MaxSize is set to a very low value for this reason) (get the size from TAB_GENERAL's main sizer via wxSizer::GetSize)
+file:///D:/Dateien/Programming/lua/wxLua/docs/html/wx_wxwindow.html#wxwindowsetmaxsize
 
