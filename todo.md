@@ -1,6 +1,7 @@
 
 ## Todo
 
+- [ ] add stuff to Tactics tab in wxFormBuilder project
 - [ ] add rules for archive files to the makefile
 - [ ] should the config.xrc file really be included inside the config.exe file? it makes updates more difficult (what if a user has an older version of the config.xrc after updating the config.exe?)
 - [ ] add 'build', 'release', 'gen' and '_temp' directories to .gitignore
