@@ -266,7 +266,7 @@
                                             <property name="id">wxID_ANY</property>
                                             <property name="label">Homunculus: Attack and Evade</property>
                                             <property name="minimum_size"></property>
-                                            <property name="name">sbSizer1</property>
+                                            <property name="name">Attack_and_Evade</property>
                                             <property name="orient">wxVERTICAL</property>
                                             <property name="parent">1</property>
                                             <property name="permission">none</property>
@@ -1242,7 +1242,7 @@
                                             <property name="id">wxID_ANY</property>
                                             <property name="label">Kind Homunculus</property>
                                             <property name="minimum_size"></property>
-                                            <property name="name">sbSizer2</property>
+                                            <property name="name">Kind_Homunculus</property>
                                             <property name="orient">wxVERTICAL</property>
                                             <property name="parent">1</property>
                                             <property name="permission">none</property>
