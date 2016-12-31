@@ -1,6 +1,7 @@
 
 ## Todo
 
+- [ ] write an image button test using wxBitmapButtons (for the skills tab)
 - [ ] maybe change the wxListBox in the Tactics tab to an excel-like table-thing? (what is the best widget for this?)
 - [x] add a new Dialog to the Form project? for adding new entries to the tactics list.
 - [x] add stuff to Tactics tab in wxFormBuilder project
@@ -31,3 +32,4 @@ file:///D:/Dateien/Programming/lua/wxLua/wxLua-2.8.12.3-Lua-5.1.5-MSW-Ansi/doc/w
 - use wxWindow::SetMaxSize for the wxScrolledWindow in tab "Skills", whenever the window size changes and when the window is initialized. So that the long list inside it won't enlarge the window unnecessarily. (the MaxSize is set to a very low value for this reason) (get the size from TAB_GENERAL's main sizer via wxSizer::GetSize)
 file:///D:/Dateien/Programming/lua/wxLua/docs/html/wx_wxwindow.html#wxwindowsetmaxsize
 
+- translation files should be lua scripts, maybe? (put them in a subdirectory "lang" or "translation"?)
