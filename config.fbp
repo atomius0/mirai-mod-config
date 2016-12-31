@@ -320,7 +320,7 @@
                                                             <property name="permission">none</property>
                                                             <object class="sizeritem" expanded="1">
                                                                 <property name="border">5</property>
-                                                                <property name="flag">wxALL</property>
+                                                                <property name="flag">wxLEFT</property>
                                                                 <property name="proportion">0</property>
                                                                 <object class="wxStaticText" expanded="1">
                                                                     <property name="BottomDockable">1</property>
@@ -403,7 +403,7 @@
                                                             </object>
                                                             <object class="sizeritem" expanded="1">
                                                                 <property name="border">5</property>
-                                                                <property name="flag">wxALL</property>
+                                                                <property name="flag">wxTOP|wxBOTTOM|wxLEFT</property>
                                                                 <property name="proportion">0</property>
                                                                 <object class="wxCheckBox" expanded="1">
                                                                     <property name="BottomDockable">1</property>
@@ -493,8 +493,8 @@
                                                     </object>
                                                     <object class="sizeritem" expanded="1">
                                                         <property name="border">5</property>
-                                                        <property name="flag">wxALL</property>
-                                                        <property name="proportion">2</property>
+                                                        <property name="flag">wxBOTTOM|wxEXPAND|wxTOP</property>
+                                                        <property name="proportion">1</property>
                                                         <object class="wxSlider" expanded="1">
                                                             <property name="BottomDockable">1</property>
                                                             <property name="LeftDockable">1</property>
@@ -601,7 +601,7 @@
                                                     </object>
                                                     <object class="sizeritem" expanded="1">
                                                         <property name="border">5</property>
-                                                        <property name="flag">wxALL</property>
+                                                        <property name="flag">wxTOP|wxBOTTOM</property>
                                                         <property name="proportion">1</property>
                                                         <object class="wxSpinCtrl" expanded="1">
                                                             <property name="BottomDockable">1</property>
@@ -698,7 +698,7 @@
                                                             <property name="permission">none</property>
                                                             <object class="sizeritem" expanded="1">
                                                                 <property name="border">5</property>
-                                                                <property name="flag">wxALL</property>
+                                                                <property name="flag">wxLEFT</property>
                                                                 <property name="proportion">0</property>
                                                                 <object class="wxStaticText" expanded="1">
                                                                     <property name="BottomDockable">1</property>
@@ -781,7 +781,7 @@
                                                             </object>
                                                             <object class="sizeritem" expanded="1">
                                                                 <property name="border">5</property>
-                                                                <property name="flag">wxALL</property>
+                                                                <property name="flag">wxTOP|wxBOTTOM|wxLEFT</property>
                                                                 <property name="proportion">0</property>
                                                                 <object class="wxCheckBox" expanded="1">
                                                                     <property name="BottomDockable">1</property>
@@ -871,7 +871,7 @@
                                                     </object>
                                                     <object class="sizeritem" expanded="1">
                                                         <property name="border">5</property>
-                                                        <property name="flag">wxALL</property>
+                                                        <property name="flag">wxEXPAND|wxTOP|wxBOTTOM</property>
                                                         <property name="proportion">2</property>
                                                         <object class="wxSlider" expanded="1">
                                                             <property name="BottomDockable">1</property>
@@ -979,7 +979,7 @@
                                                     </object>
                                                     <object class="sizeritem" expanded="1">
                                                         <property name="border">5</property>
-                                                        <property name="flag">wxALL</property>
+                                                        <property name="flag">wxTOP|wxBOTTOM</property>
                                                         <property name="proportion">1</property>
                                                         <object class="wxSpinCtrl" expanded="1">
                                                             <property name="BottomDockable">1</property>
