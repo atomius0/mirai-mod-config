@@ -21,3 +21,9 @@ so that it can restore the original settings.
 - the Config.lua will be converted to Config_lua.lua (via txt2lua.lua) and 'require'd by the config program.
 - the .xrc file will also be converted to 
 
+- for the Extras Tab we will need to enumerate all files in the current directory (to find *_Mod.lua files). Use wxDir for that. 
+http://docs.wxwidgets.org/trunk/classwx_dir.html
+file:///D:/Dateien/Programming/lua/wxLua/wxLua-2.8.12.3-Lua-5.1.5-MSW-Ansi/doc/wxLua/wxluaref.html#wxDir
+
+- Should the "Mod" and "Translation" selectors really both be in the "Extra" tab? It might be better to split them into separate tabs.
+
