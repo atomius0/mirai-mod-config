@@ -1,6 +1,7 @@
 
 ## Todo
 
+- [ ] write a simple program in main.lua that loads and displays the main window from the xrc
 - [ ] maybe change the wxListBox in the Tactics tab to an excel-like table-thing? (what is the best widget for this?)
 - [ ] write an image button test using wxBitmapButtons (for the skills tab)
 - [x] add a new Dialog to the Form project? for adding new entries to the tactics list.
