@@ -43,6 +43,7 @@ MainWindow.IDs = {}
 
 
 function MainWindow:init(xmlResource)
+	assert(xmlResource)
 	-- no parent parameter for this function,
 	-- since we will only ever have one instance of MainWindow
 	
@@ -69,11 +70,12 @@ end
 
 xpcall(function() --try
 	local xmlResource = LoadXmlResource(XRC_FILE)
-	local mainWin = MainWindow()
+	local mainWin = MainWindow(xmlResource)
+	
+	print(type(xmlResource)) -- debug
 end, ErrorHandler)
 
 
-print(xmlResource) -- debug
 
 wx.wxGetApp():MainLoop()
 
