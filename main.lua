@@ -27,11 +27,11 @@ function LoadXmlResource(xrcFile)
 	local xmlResource = wx.wxXmlResource()
 	xmlResource:InitAllHandlers()
 	
-	local logNo = wx.wxLogNull() -- temporarily disable wx error messages
+	--local logNo = wx.wxLogNull() -- temporarily disable wx error messages
 	
 	assert(xmlResource:Load(xrcFile), "Error loading File: " .. xrcFile)
 	
-	logNo:delete() -- re-enable error messages
+	--logNo:delete() -- re-enable error messages
 	
 	return xmlResource
 end
