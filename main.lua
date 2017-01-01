@@ -17,12 +17,9 @@ APP_NAME = "MirAI Mod Config"
 
 
 
-function HandleErrors(f, ...)
-	local ok, err = pcall(f, ...)
-	if not ok then
-		wx.wxMessageBox(err, APP_NAME, wx.wxOK + wxICON_EXCLAMATION)
-	end
-	return err -- if ok is true, err will be the return value of the pcall'ed function
+function ErrorHandler(err)
+	print("!!! Error Handler was called !!!")
+	wx.wxMessageBox(err, APP_NAME, wx.wxOK + wx.wxICON_EXCLAMATION)
 end
 
 
@@ -69,7 +66,11 @@ end
 --function MainWindow.LoadXmlResource()
 
 
-xmlResource = LoadXmlResource(XRC_FILE)
+--local xmlResource = LoadXmlResource(XRC_FILE)
+local xmlResource
+--xpcall(function() xmlResource = LoadXmlResource(XRC_FILE) end, ErrorHandler)
+xpcall(function() assert(false) end, ErrorHandler)
 
+print(xmlResource) -- debug
 
 
