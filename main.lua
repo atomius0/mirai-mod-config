@@ -66,13 +66,14 @@ end
 
 
 --local xmlResource = LoadXmlResource(XRC_FILE)
-local xmlResource
 
 xpcall(function() --try
-	xmlResource = LoadXmlResource(XRC_FILE)
+	local xmlResource = LoadXmlResource(XRC_FILE)
+	local mainWin = MainWindow()
 end, ErrorHandler)
 
 
 print(xmlResource) -- debug
 
+wx.wxGetApp():MainLoop()
 
