@@ -1,12 +1,19 @@
 -- mirai-mod-conf
 -- for now, this is just a simple program that loads and displays the mirai-mod-conf MainWindow
 
-require "strict" -- comment this out for release!
-
 package.cpath = package.cpath..";./?.dll;./?.so;../lib/?.so;../lib/vc_dll/?.dll;../lib/bcc_dll/?.dll;../lib/mingw_dll/?.dll;"
 require("wx")
 
 class = require "30log"
+
+DEBUG = true
+
+if DEBUG then
+	require "strict"
+	function DebugLog(...) print("DEBUG: ", ...) end
+else
+	function DebugLog(...) --[[ do nothing ]] end
+end
 
 -- constants:
 XRC_FILE = "config.xrc"
@@ -21,10 +28,6 @@ APP_NAME = "MirAI Mod Config"
 
 function ErrorHandler(err)
 	wx.wxMessageBox(err, APP_NAME, wx.wxOK + wx.wxICON_EXCLAMATION)
-end
-
-function DebugLog(...)
-	print("DEBUG: ", ...)
 end
 
 -- TODO: test this
