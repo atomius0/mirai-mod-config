@@ -1,6 +1,8 @@
 -- mirai-mod-conf
 -- for now, this is just a simple program that loads and displays the mirai-mod-conf MainWindow
 
+require "strict" -- comment this out for release!
+
 package.cpath = package.cpath..";./?.dll;./?.so;../lib/?.so;../lib/vc_dll/?.dll;../lib/bcc_dll/?.dll;../lib/mingw_dll/?.dll;"
 require("wx")
 
