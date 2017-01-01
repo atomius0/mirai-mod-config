@@ -57,7 +57,25 @@ function MainWindow:init(xmlResource)
 	
 	-- TODO: event handler functions, eg: "function handlers.OnSomething(event)"
 	
-	--TODO: next!
+	
+	-- load the dialog:
+	self.dialog = wx.wxDialog()
+	assert(xmlResource:LoadDialog(self.dialog, wx.NULL, "MainWindow"), 
+		"Error loading dialog 'MainWindow'"
+	)
+	
+	-- TODO: initialize the reference variables for all the input fields
+	
+	
+	-- TODO: connect events to handler functions
+	
+	-- connect the closeevent to the OnClose function:
+	-- TODO: next!
+	
+	--TODO: load Config.lua? (and if it doesn't exist, create it)
+	
+	self.dialog:Center()
+	self.dialog:Show(true)
 end
 
 
