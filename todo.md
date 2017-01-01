@@ -1,8 +1,8 @@
 
 ## Todo
 
-- [ ] write an image button test using wxBitmapButtons (for the skills tab)
 - [ ] maybe change the wxListBox in the Tactics tab to an excel-like table-thing? (what is the best widget for this?)
+- [ ] write an image button test using wxBitmapButtons (for the skills tab)
 - [x] add a new Dialog to the Form project? for adding new entries to the tactics list.
 - [x] add stuff to Tactics tab in wxFormBuilder project
 - [ ] add rules for archive files to the makefile
@@ -16,6 +16,8 @@
 - [ ] build a GUI with wxFormBuilder and generate an xrc file. (place the xrc file inside ./data/)
 - [ ] write readme.md
 - [ ] add a LICENSE.txt
+
+- [ ] add preset-feature, where you can save the current config as a preset and load them easily.
 
 ##Notes
 
