@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<resource xmlns="http://www.wxwindows.org/wxxrc" version="2.3.0.1">
+	<object class="wxDialog" name="MainWindow">
+		<style>wxDEFAULT_DIALOG_STYLE</style>
+		<title>MirAI Mod Config</title>
+		<centered>1</centered>
+		<object class="wxBoxSizer">
+			<orient>wxVERTICAL</orient>
+			<object class="sizeritem">
+				<option>1</option>
+				<flag>wxEXPAND | wxALL</flag>
+				<border>5</border>
+				<object class="wxNotebook" name="m_notebook1">
+					<object class="notebookpage">
+						<label>General</label>
+						<selected>1</selected>
+						<object class="wxPanel" name="TAB_GENERAL">
+							<style>wxTAB_TRAVERSAL</style>
+							<object class="wxBoxSizer">
+								<orient>wxVERTICAL</orient>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<object class="wxStaticBoxSizer">
+										<orient>wxVERTICAL</orient>
+										<label>Homunculus: Attack and Evade</label>
+										<object class="sizeritem">
+											<option>1</option>
+											<flag>wxEXPAND</flag>
+											<border>5</border>
+											<object class="wxFlexGridSizer">
+												<rows>0</rows>
+												<cols>3</cols>
+												<vgap>0</vgap>
+												<hgap>0</hgap>
+												<growablecols>1</growablecols>
+												<growablerows></growablerows>
+												<object class="sizeritem">
+													<option>0</option>
+													<flag>wxEXPAND</flag>
+													<border>5</border>
+													<object class="wxBoxSizer">
+														<orient>wxVERTICAL</orient>
+														<object class="sizeritem">
+															<option>0</option>
+															<flag>wxLEFT</flag>
+															<border>5</border>
+															<object class="wxStaticText" name="m_staticText1">
+																<label>Attack when HPs &gt;</label>
+																<wrap>-1</wrap>
+															</object>
+														</object>
+														<object class="sizeritem">
+															<option>0</option>
+															<flag>wxTOP|wxBOTTOM|wxLEFT</flag>
+															<border>5</border>
+															<object class="wxCheckBox" name="m_checkBox1">
+																<label>don&apos;t move</label>
+																<checked>0</checked>
+															</object>
+														</object>
+													</object>
+												</object>
+												<object class="sizeritem">
+													<option>1</option>
+													<flag>wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxTOP|wxBOTTOM</flag>
+													<border>5</border>
+													<object class="wxSlider" name="m_slider1">
+														<style>wxSL_HORIZONTAL</style>
+														<value>75</value>
+														<min>0</min>
+														<max>100</max>
+													</object>
+												</object>
+												<object class="sizeritem">
+													<option>1</option>
+													<flag>wxALIGN_RIGHT|wxTOP|wxBOTTOM</flag>
+													<border>5</border>
+													<object class="wxSpinCtrl" name="m_spinCtrl1">
+														<style>wxSP_ARROW_KEYS</style>
+														<size>50,-1</size>
+														<value>75</value>
+														<min>0</min>
+														<max>100</max>
+													</object>
+												</object>
+												<object class="sizeritem">
+													<option>0</option>
+													<flag>wxEXPAND</flag>
+													<border>5</border>
+													<object class="wxBoxSizer">
+														<orient>wxVERTICAL</orient>
+														<object class="sizeritem">
+															<option>0</option>
+															<flag>wxLEFT</flag>
+															<border>5</border>
+															<object class="wxStaticText" name="m_staticText11">
+																<label>Evade when HPs &gt;</label>
+																<wrap>-1</wrap>
+															</object>
+														</object>
+														<object class="sizeritem">
+															<option>0</option>
+															<flag>wxTOP|wxBOTTOM|wxLEFT</flag>
+															<border>5</border>
+															<object class="wxCheckBox" name="m_checkBox11">
+																<label>cautious</label>
+																<checked>0</checked>
+															</object>
+														</object>
+													</object>
+												</object>
+												<object class="sizeritem">
+													<option>2</option>
+													<flag>wxEXPAND|wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL</flag>
+													<border>5</border>
+													<object class="wxSlider" name="m_slider11">
+														<style>wxSL_HORIZONTAL</style>
+														<value>50</value>
+														<min>0</min>
+														<max>100</max>
+													</object>
+												</object>
+												<object class="sizeritem">
+													<option>1</option>
+													<flag>wxTOP|wxBOTTOM|wxALIGN_RIGHT</flag>
+													<border>5</border>
+													<object class="wxSpinCtrl" name="m_spinCtrl11">
+														<style>wxSP_ARROW_KEYS</style>
+														<size>50,-1</size>
+														<value>75</value>
+														<min>0</min>
+														<max>100</max>
+													</object>
+												</object>
+											</object>
+										</object>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxEXPAND</flag>
+											<border>5</border>
+											<object class="wxBoxSizer">
+												<orient>wxVERTICAL</orient>
+												<object class="sizeritem">
+													<option>0</option>
+													<flag>wxALL</flag>
+													<border>5</border>
+													<object class="wxCheckBox" name="m_checkBox4">
+														<label>Switch target on battle, to go to help the owner</label>
+														<checked>0</checked>
+													</object>
+												</object>
+												<object class="sizeritem">
+													<option>0</option>
+													<flag>wxRIGHT|wxLEFT</flag>
+													<border>5</border>
+													<object class="wxCheckBox" name="m_checkBox5">
+														<label>Take care of homunculus enemies first</label>
+														<checked>0</checked>
+													</object>
+												</object>
+											</object>
+										</object>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<object class="wxStaticBoxSizer">
+										<orient>wxVERTICAL</orient>
+										<label>Kind Homunculus</label>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxBOTTOM|wxRIGHT|wxLEFT</flag>
+											<border>5</border>
+											<object class="wxCheckBox" name="m_checkBox6">
+												<label>Don&apos;t attack moving monsters</label>
+												<checked>0</checked>
+											</object>
+										</object>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxRIGHT|wxLEFT</flag>
+											<border>5</border>
+											<object class="wxCheckBox" name="m_checkBox7">
+												<label>Try to detect area spells and frozen monsters</label>
+												<checked>0</checked>
+											</object>
+										</object>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<object class="wxStaticBoxSizer">
+										<orient>wxVERTICAL</orient>
+										<label>Other</label>
+										<object class="sizeritem">
+											<option>1</option>
+											<flag>wxEXPAND</flag>
+											<border>5</border>
+											<object class="wxFlexGridSizer">
+												<rows>0</rows>
+												<cols>2</cols>
+												<vgap>0</vgap>
+												<hgap>0</hgap>
+												<growablecols></growablecols>
+												<growablerows></growablerows>
+												<object class="sizeritem">
+													<option>0</option>
+													<flag>wxALIGN_CENTER_VERTICAL|wxBOTTOM|wxRIGHT|wxLEFT</flag>
+													<border>5</border>
+													<object class="wxStaticText" name="m_staticText4">
+														<label>Max enemy distance from the alchemist:</label>
+														<wrap>-1</wrap>
+													</object>
+												</object>
+												<object class="sizeritem">
+													<option>1</option>
+													<flag>wxALIGN_RIGHT|wxBOTTOM</flag>
+													<border>5</border>
+													<object class="wxSpinCtrl" name="m_spinCtrl4">
+														<style>wxSP_ARROW_KEYS</style>
+														<value>0</value>
+														<min>2</min>
+														<max>20</max>
+													</object>
+												</object>
+												<object class="sizeritem">
+													<option>0</option>
+													<flag>wxALIGN_CENTER_VERTICAL|wxBOTTOM|wxRIGHT|wxLEFT</flag>
+													<border>5</border>
+													<object class="wxStaticText" name="m_staticText5">
+														<label>Max time for skills (ms):</label>
+														<wrap>-1</wrap>
+													</object>
+												</object>
+												<object class="sizeritem">
+													<option>1</option>
+													<flag>wxALIGN_RIGHT|wxBOTTOM</flag>
+													<border>5</border>
+													<object class="wxSpinCtrl" name="m_spinCtrl5">
+														<style>wxSP_ARROW_KEYS</style>
+														<value>0</value>
+														<min>0</min>
+														<max>999999</max>
+													</object>
+												</object>
+											</object>
+										</object>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxALL</flag>
+											<border>5</border>
+											<object class="wxCheckBox" name="m_checkBox8">
+												<label>Follow the alchemist at once</label>
+												<checked>0</checked>
+											</object>
+										</object>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxBOTTOM|wxRIGHT|wxLEFT</flag>
+											<border>5</border>
+											<object class="wxCheckBox" name="m_checkBox9">
+												<label>Circle around the alchemist when full</label>
+												<checked>0</checked>
+											</object>
+										</object>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxRIGHT|wxLEFT</flag>
+											<border>5</border>
+											<object class="wxCheckBox" name="m_checkBox10">
+												<label>Detect out of potion</label>
+												<checked>0</checked>
+											</object>
+										</object>
+									</object>
+								</object>
+							</object>
+						</object>
+					</object>
+					<object class="notebookpage">
+						<label>Tactics</label>
+						<selected>0</selected>
+						<object class="wxPanel" name="TAB_TACTICS">
+							<style>wxTAB_TRAVERSAL</style>
+							<object class="wxBoxSizer">
+								<orient>wxVERTICAL</orient>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxEXPAND|wxALIGN_CENTER_HORIZONTAL</flag>
+									<border>5</border>
+									<object class="wxBoxSizer">
+										<orient>wxHORIZONTAL</orient>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxTOP|wxRIGHT|wxLEFT</flag>
+											<border>5</border>
+											<object class="wxButton" name="m_button16">
+												<style>wxBU_EXACTFIT</style>
+												<label>Edit</label>
+												<default>0</default>
+											</object>
+										</object>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxTOP|wxRIGHT|wxLEFT</flag>
+											<border>5</border>
+											<object class="wxButton" name="m_button20">
+												<style>wxBU_EXACTFIT</style>
+												<label>Add</label>
+												<default>0</default>
+											</object>
+										</object>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxTOP|wxRIGHT|wxLEFT</flag>
+											<border>5</border>
+											<object class="wxButton" name="m_button17">
+												<style>wxBU_EXACTFIT</style>
+												<label>Remove</label>
+												<default>0</default>
+											</object>
+										</object>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxTOP|wxRIGHT|wxLEFT</flag>
+											<border>5</border>
+											<object class="wxButton" name="m_button18">
+												<style>wxBU_EXACTFIT</style>
+												<label>Up</label>
+												<default>0</default>
+											</object>
+										</object>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxTOP|wxRIGHT|wxLEFT</flag>
+											<border>5</border>
+											<object class="wxButton" name="m_button19">
+												<style>wxBU_EXACTFIT</style>
+												<label>Down</label>
+												<default>0</default>
+											</object>
+										</object>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>1</option>
+									<flag>wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALL</flag>
+									<border>5</border>
+									<object class="wxListBox" name="m_listBox5">
+										<style>wxLB_ALWAYS_SB|wxLB_SINGLE</style>
+										<content />
+									</object>
+								</object>
+							</object>
+						</object>
+					</object>
+					<object class="notebookpage">
+						<label>Skills</label>
+						<selected>0</selected>
+						<object class="wxPanel" name="TAB_SKILLS">
+							<style>wxTAB_TRAVERSAL</style>
+							<object class="wxBoxSizer">
+								<orient>wxVERTICAL</orient>
+								<object class="sizeritem">
+									<option>1</option>
+									<flag>wxEXPAND | wxALL</flag>
+									<border>5</border>
+									<object class="wxScrolledWindow" name="m_scrolledWindow1">
+										<style>wxHSCROLL|wxVSCROLL</style>
+										<scrollrate>5,5</scrollrate>
+										<object class="wxBoxSizer">
+											<orient>wxVERTICAL</orient>
+											<object class="sizeritem">
+												<option>0</option>
+												<flag>wxALL</flag>
+												<border>5</border>
+												<object class="wxStaticText" name="m_staticText7">
+													<label>Please choose the minimum amount of SP for each skill and\nthe skill level to use (OFF = skill disabled).</label>
+													<wrap>-1</wrap>
+												</object>
+											</object>
+											<object class="sizeritem">
+												<option>1</option>
+												<flag>wxEXPAND</flag>
+												<border>5</border>
+												<object class="wxStaticBoxSizer">
+													<orient>wxVERTICAL</orient>
+													<label>Amistr</label>
+													<object class="sizeritem">
+														<option>1</option>
+														<flag>wxEXPAND</flag>
+														<border>5</border>
+														<object class="wxFlexGridSizer">
+															<rows>0</rows>
+															<cols>4</cols>
+															<vgap>0</vgap>
+															<hgap>0</hgap>
+															<growablecols>1</growablecols>
+															<growablerows></growablerows>
+															<object class="sizeritem">
+																<option>0</option>
+																<flag>wxALL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+																<object class="wxBitmapButton" name="m_bpButton2">
+																	<style>wxBU_AUTODRAW</style>
+																	<bitmap></bitmap>
+																	<default>0</default>
+																</object>
+															</object>
+															<object class="sizeritem">
+																<option>0</option>
+																<flag>wxALL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+																<object class="wxStaticText" name="m_staticText8">
+																	<label>Bulwark</label>
+																	<wrap>-1</wrap>
+																</object>
+															</object>
+															<object class="sizeritem">
+																<option>0</option>
+																<flag>wxALL|wxALIGN_CENTER_VERTICAL|wxALIGN_RIGHT</flag>
+																<border>5</border>
+																<object class="wxSpinCtrl" name="m_spinCtrl6">
+																	<style>wxSP_ARROW_KEYS</style>
+																	<value>0</value>
+																	<min>0</min>
+																	<max>10</max>
+																</object>
+															</object>
+															<object class="sizeritem">
+																<option>0</option>
+																<flag>wxALL|wxALIGN_CENTER_VERTICAL|wxALIGN_RIGHT</flag>
+																<border>5</border>
+																<object class="wxChoice" name="m_choice1">
+																	<selection>0</selection>
+																	<content>
+																		<item>OFF</item>
+																		<item>Lvl 1</item>
+																		<item>Lvl 2</item>
+																		<item>Lvl 3</item>
+																		<item>Lvl 4</item>
+																		<item>Lvl 5</item>
+																		<item>Lvl2</item>
+																		<item></item>
+																	</content>
+																</object>
+															</object>
+															<object class="sizeritem">
+																<option>0</option>
+																<flag>wxALL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+																<object class="wxBitmapButton" name="m_bpButton3">
+																	<style>wxBU_AUTODRAW</style>
+																	<bitmap />
+																	<default>0</default>
+																</object>
+															</object>
+															<object class="sizeritem">
+																<option>0</option>
+																<flag>wxALL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+																<object class="wxStaticText" name="m_staticText9">
+																	<label>Castling</label>
+																	<wrap>-1</wrap>
+																</object>
+															</object>
+															<object class="sizeritem">
+																<option>0</option>
+																<flag>wxALL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+																<object class="wxSpinCtrl" name="m_spinCtrl7">
+																	<style>wxSP_ARROW_KEYS</style>
+																	<value>0</value>
+																	<min>0</min>
+																	<max>10</max>
+																</object>
+															</object>
+															<object class="sizeritem">
+																<option>0</option>
+																<flag>wxALL|wxALIGN_CENTER_VERTICAL|wxALIGN_RIGHT</flag>
+																<border>5</border>
+																<object class="wxChoice" name="m_choice2">
+																	<selection>0</selection>
+																	<content>
+																		<item>OFF</item>
+																		<item>Lvl 1</item>
+																		<item>Lvl 2</item>
+																		<item>Lvl 3</item>
+																		<item>Lvl 4</item>
+																		<item>Lvl 5</item>
+																		<item>Lvl2</item>
+																		<item></item>
+																	</content>
+																</object>
+															</object>
+														</object>
+													</object>
+												</object>
+											</object>
+											<object class="sizeritem">
+												<option>1</option>
+												<flag>wxEXPAND</flag>
+												<border>5</border>
+												<object class="wxStaticBoxSizer">
+													<orient>wxVERTICAL</orient>
+													<label>Filir</label>
+												</object>
+											</object>
+											<object class="sizeritem">
+												<option>1</option>
+												<flag>wxEXPAND</flag>
+												<border>5</border>
+												<object class="wxStaticBoxSizer">
+													<orient>wxVERTICAL</orient>
+													<label>Lif</label>
+												</object>
+											</object>
+											<object class="sizeritem">
+												<option>1</option>
+												<flag>wxEXPAND</flag>
+												<border>5</border>
+												<object class="wxStaticBoxSizer">
+													<orient>wxVERTICAL</orient>
+													<label>Vanilmirth</label>
+												</object>
+											</object>
+										</object>
+									</object>
+								</object>
+							</object>
+						</object>
+					</object>
+					<object class="notebookpage">
+						<label>Mod</label>
+						<selected>0</selected>
+						<object class="wxPanel" name="TAB_MOD">
+							<style>wxTAB_TRAVERSAL</style>
+							<object class="wxBoxSizer">
+								<orient>wxVERTICAL</orient>
+								<object class="sizeritem">
+									<option>1</option>
+									<flag>wxALL|wxEXPAND</flag>
+									<border>5</border>
+									<object class="wxListBox" name="m_listBox11">
+										<style>wxLB_ALWAYS_SB|wxLB_SINGLE</style>
+										<content>
+											<item>A</item>
+											<item>B</item>
+											<item>C</item>
+											<item>D</item>
+										</content>
+									</object>
+								</object>
+							</object>
+						</object>
+					</object>
+					<object class="notebookpage">
+						<label>Language</label>
+						<selected>0</selected>
+						<object class="wxPanel" name="TAB_LANGUAGE">
+							<style>wxTAB_TRAVERSAL</style>
+							<object class="wxBoxSizer">
+								<orient>wxVERTICAL</orient>
+								<object class="sizeritem">
+									<option>1</option>
+									<flag>wxALL|wxEXPAND</flag>
+									<border>5</border>
+									<object class="wxListBox" name="m_listBox1">
+										<style>wxLB_ALWAYS_SB|wxLB_SINGLE</style>
+										<content>
+											<item>A</item>
+											<item>B</item>
+											<item>C</item>
+											<item>D</item>
+										</content>
+									</object>
+								</object>
+							</object>
+						</object>
+					</object>
+				</object>
+			</object>
+			<object class="sizeritem">
+				<option>0</option>
+				<flag>wxEXPAND</flag>
+				<border>5</border>
+				<object class="wxBoxSizer">
+					<orient>wxHORIZONTAL</orient>
+					<object class="sizeritem">
+						<option>1</option>
+						<flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+						<border>5</border>
+						<object class="wxButton" name="m_button15">
+							<label>Save configuration</label>
+							<default>0</default>
+						</object>
+					</object>
+					<object class="sizeritem">
+						<option>0</option>
+						<flag>wxALL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+						<object class="wxStaticText" name="m_staticText111">
+							<label>Version</label>
+							<wrap>-1</wrap>
+						</object>
+					</object>
+					<object class="sizeritem">
+						<option>0</option>
+						<flag>wxALL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+						<object class="wxHyperlinkCtrl" name="m_hyperlink1">
+							<label>nyanro.org</label>
+							<url>http://www.wxformbuilder.org</url>
+							<style>wxHL_DEFAULT_STYLE</style>
+						</object>
+					</object>
+				</object>
+			</object>
+		</object>
+	</object>
+	<object class="wxDialog" name="AddTacticDialog">
+		<style>wxDEFAULT_DIALOG_STYLE</style>
+		<title>Add New Tactic</title>
+		<centered>1</centered>
+		<object class="wxBoxSizer">
+			<orient>wxVERTICAL</orient>
+			<object class="sizeritem">
+				<option>1</option>
+				<flag>wxEXPAND</flag>
+				<border>5</border>
+				<object class="wxFlexGridSizer">
+					<rows>0</rows>
+					<cols>2</cols>
+					<vgap>0</vgap>
+					<hgap>0</hgap>
+					<growablecols></growablecols>
+					<growablerows></growablerows>
+					<object class="sizeritem">
+						<option>0</option>
+						<flag>wxALL</flag>
+						<border>5</border>
+						<object class="wxStaticText" name="m_staticText12">
+							<label>ID:</label>
+							<wrap>-1</wrap>
+						</object>
+					</object>
+					<object class="sizeritem">
+						<option>0</option>
+						<flag>wxALL</flag>
+						<border>5</border>
+						<object class="wxTextCtrl" name="m_textCtrl1">
+							<value></value>
+						</object>
+					</object>
+					<object class="sizeritem">
+						<option>0</option>
+						<flag>wxALL</flag>
+						<border>5</border>
+						<object class="wxStaticText" name="m_staticText13">
+							<label>Monster Name:</label>
+							<wrap>-1</wrap>
+						</object>
+					</object>
+					<object class="sizeritem">
+						<option>0</option>
+						<flag>wxALL</flag>
+						<border>5</border>
+						<object class="wxTextCtrl" name="m_textCtrl2">
+							<value></value>
+						</object>
+					</object>
+					<object class="sizeritem">
+						<option>0</option>
+						<flag>wxALL</flag>
+						<border>5</border>
+						<object class="wxStaticText" name="m_staticText14">
+							<label>Behaviour:</label>
+							<wrap>-1</wrap>
+						</object>
+					</object>
+					<object class="sizeritem">
+						<option>0</option>
+						<flag>wxALL</flag>
+						<border>5</border>
+						<object class="wxChoice" name="m_choice3">
+							<selection>0</selection>
+							<content />
+						</object>
+					</object>
+					<object class="sizeritem">
+						<option>0</option>
+						<flag>wxALL</flag>
+						<border>5</border>
+						<object class="wxStaticText" name="m_staticText15">
+							<label>Skill:</label>
+							<wrap>-1</wrap>
+						</object>
+					</object>
+					<object class="sizeritem">
+						<option>0</option>
+						<flag>wxALL</flag>
+						<border>5</border>
+						<object class="wxChoice" name="m_choice4">
+							<selection>0</selection>
+							<content />
+						</object>
+					</object>
+					<object class="sizeritem">
+						<option>0</option>
+						<flag>wxALL</flag>
+						<border>5</border>
+						<object class="wxStaticText" name="m_staticText16">
+							<label>Level:</label>
+							<wrap>-1</wrap>
+						</object>
+					</object>
+					<object class="sizeritem">
+						<option>0</option>
+						<flag>wxALL</flag>
+						<border>5</border>
+						<object class="wxChoice" name="m_choice5">
+							<selection>0</selection>
+							<content />
+						</object>
+					</object>
+				</object>
+			</object>
+		</object>
+	</object>
+</resource>
