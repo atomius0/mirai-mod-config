@@ -12,13 +12,23 @@ APP_NAME = "MirAI Mod Config"
 
 
 -- globals:
-xmlResource = nil
+-- MARK: don't make this global for now, it's probably not needed.
+--xmlResource = nil
 
+
+
+function HandleErrors(f, ...)
+	local ok, err = pcall(f, ...)
+	if not ok then
+		wx.wxMessageBox(err, APP_NAME, wx.wxOK + wxICON_EXCLAMATION)
+	end
+	return err -- if ok is true, err will be the return value of the pcall'ed function
+end
 
 
 -- TODO: test this
 function LoadXmlResource(xrcFile)
-	xmlResource = wx.wxXmlResource()
+	local xmlResource = wx.wxXmlResource()
 	xmlResource:InitAllHandlers()
 	
 	local logNo = wx.wxLogNull() -- temporarily disable wx error messages
@@ -26,6 +36,8 @@ function LoadXmlResource(xrcFile)
 	assert(xmlResource:Load(xrcFile), "Error loading File: " .. xrcFile)
 	
 	logNo:delete() -- re-enable error messages
+	
+	return xmlResource
 end
 
 -- class MainWindow:
@@ -34,8 +46,30 @@ MainWindow = class("MainWindow")
 MainWindow.IDs = {}
 
 
+function MainWindow:init(xmlResource)
+	-- no parent parameter for this function,
+	-- since we will only ever have one instance of MainWindow
+	
+	-- TODO: keep a reference to xmlResource?
+	--       we might need it when MainWindow wants to create a child window.
+	
+	self.dialog = nil
+	-- TODO: self.* reference variables for all input fields (eg. wxSlider, wxSpinCtrl, wxListBox)
+	
+	local handlers = {} -- table for all event handler functions
+	
+	-- TODO: event handler functions, eg: "function handlers.OnSomething(event)"
+	
+	--TODO: next!
+end
+
+
 -- no, function LoadXMLResource will not be a member of class MainWindow, since the xml resource
 -- will possibly be shared among multiple windows/dialogs.
 --function MainWindow.LoadXmlResource()
+
+
+xmlResource = LoadXmlResource(XRC_FILE)
+
 
 
