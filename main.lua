@@ -18,7 +18,6 @@ APP_NAME = "MirAI Mod Config"
 
 
 function ErrorHandler(err)
-	print("!!! Error Handler was called !!!")
 	wx.wxMessageBox(err, APP_NAME, wx.wxOK + wx.wxICON_EXCLAMATION)
 end
 
@@ -68,8 +67,11 @@ end
 
 --local xmlResource = LoadXmlResource(XRC_FILE)
 local xmlResource
---xpcall(function() xmlResource = LoadXmlResource(XRC_FILE) end, ErrorHandler)
-xpcall(function() assert(false) end, ErrorHandler)
+
+xpcall(function() --try
+	xmlResource = LoadXmlResource(XRC_FILE)
+end, ErrorHandler)
+
 
 print(xmlResource) -- debug
 
