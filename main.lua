@@ -21,6 +21,9 @@ function ErrorHandler(err)
 	wx.wxMessageBox(err, APP_NAME, wx.wxOK + wx.wxICON_EXCLAMATION)
 end
 
+function DebugLog(...)
+	print("DEBUG: ", ...)
+end
 
 -- TODO: test this
 function LoadXmlResource(xrcFile)
@@ -55,6 +58,13 @@ function MainWindow:init(xmlResource)
 	
 	local handlers = {} -- table for all event handler functions
 	
+	function handlers.OnClose(event)
+		DebugLog("MainWindow: OnClose")
+		event:Skip()
+		-- TODO: check if there are unsaved changes and warn user before quitting.
+		self.dialog:Show(false)
+		self.dialog:Destroy()
+	end
 	-- TODO: event handler functions, eg: "function handlers.OnSomething(event)"
 	
 	
@@ -70,6 +80,7 @@ function MainWindow:init(xmlResource)
 	-- TODO: connect events to handler functions
 	
 	-- connect the closeevent to the OnClose function:
+	self.dialog:Connect(wx.wxEVT_CLOSE_WINDOW, handlers.OnClose)
 	-- TODO: next!
 	
 	--TODO: load Config.lua? (and if it doesn't exist, create it)
