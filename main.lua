@@ -73,6 +73,8 @@ function MainWindow:init(xmlResource)
 	-- TODO: event handler functions, eg: "function handlers.OnSomething(event)"
 	
 	
+	-- TODO: get IDs / init wxWindow ID values (yes, before loading the dialog)
+	
 	-- load the dialog:
 	self.dialog = wx.wxDialog()
 	assert(xmlResource:LoadDialog(self.dialog, wx.NULL, "MainWindow"), 
