@@ -9,6 +9,7 @@ class = require "30log"
 DEBUG = true
 
 if DEBUG then
+	print("### debug mode enabled ###")
 	require "strict"
 	function DebugLog(...) print("DEBUG: ", ...) end
 else
@@ -108,7 +109,7 @@ xpcall(function() --try
 	local xmlResource = LoadXmlResource(XRC_FILE)
 	local mainWin = MainWindow(xmlResource)
 	
-	print(type(xmlResource)) -- debug
+	DebugLog(type(xmlResource)) -- debug
 end, ErrorHandler)
 
 
