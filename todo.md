@@ -8,7 +8,7 @@
 - [x] add a new Dialog to the Form project? for adding new entries to the tactics list.
 - [x] add stuff to Tactics tab in wxFormBuilder project
 - [x] add rules for archive files to the makefile
-- [ ] should the config.xrc file really be included inside the config.exe file? it makes updates more difficult (what if a user has an older version of the config.xrc after updating the config.exe?)
+- [ ] should the config.xrc file really be included inside the config.exe file? it makes updates more difficult (what if a user has an older version of the config.xrc after updating the config.exe?) -> no. we will put every external file into a folder 'config/'
 - [ ] copy stringutil.lua into project directory when it is finished and tested. (is it?)
 - [x] add 'build', 'release', 'gen' and '_temp' directories to .gitignore
 - [x] put a .gitignore in the project directory.
@@ -19,6 +19,7 @@
 - [ ] write readme.md
 - [ ] add a LICENSE.txt
 
+- [ ] add function to get exe directory (like AppDir in BlitzMax) (see sample: calculator.wx.lua)
 - [ ] add translation loader module
 - [ ] add preset-feature, where you can save the current config as a preset and load them easily.
 - [ ] give names to all of the required widgets in the .fbp
