@@ -144,4 +144,20 @@
 	or a separator, in the form of a lua comment: (where 'Comment' is the name of the separator)
 	
 	-- Comment
-#
+
+
+
+## Homunculus Skills:
+
+Homunculus Skill settings are saved as a table for each skill with two members each:
+- MinSP (minimum amount of SP for the skill)
+
+The Homunculus Skill Tab consists of a Header with the Homunculus' name,
+a spin control for the minimum amount of SP for the skill (.MinSP)
+
+### Amistr:
+Bulwark: 
+
+
+
+
