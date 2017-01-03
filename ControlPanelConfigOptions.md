@@ -115,7 +115,9 @@
 	
 	where:
 		'ID'     is the id of the monster as a number (default=0)
+		
 		'NAME'   is the name of the monster (only for display, the AI ignores this)
+		
 		'BEHA_*' is the behaviour as a constant. one of: (default=BEHA_react)
 		            BEHA_coward,
 					BEHA_react_1st,
@@ -125,23 +127,21 @@
 					BEHA_attack,
 					BEHA_attack_last,
 					BEHA_attack_weak
-		'WITH_*' is TODO!!
+					
+		'WITH_*' is the "Use Skill" setting as a constant. one of: (default=WITH_one_skill)
+		            WITH_no_skill,
+					WITH_one_skill,
+					WITH_two_skills,
+					WITH_max_skills,
+					WITH_full_power,
+					WITH_slow_power
+					
 		'LVL'    is the skill level as a number (1-5) (default=5)
+		
 		'AAA'    is the "Alchemist Auto Attack" level as a number (default=0)
-		         (-1 = OFF, 0 = Standard, 1 to 10 = the level)
+		            (-1 = OFF, 0 = Standard, 1 to 10 = the level)
 	
 	or a separator, in the form of a lua comment: (where 'Comment' is the name of the separator)
 	
 	-- Comment
 #
-
-
-
-
-
-
-
-
-
-
-
