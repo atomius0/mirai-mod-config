@@ -1,8 +1,9 @@
 
 ## Todo
 
-- [ ] write a test program for the table thing mentioned in the line below.
-- [ ] maybe change the wxListBox in the Tactics tab to an excel-like table-thing? (what is the best widget for this?)
+- [ ] write a test program for the table thing mentioned in the line below. (wxListCtrl?)
+- [ ] maybe change the wxListBox in the Tactics tab to an excel-like table-thing? (what is the best widget for this?) (maybe wxListCtrl?) (see sample controls.wx.lua)
+- [ ] write a library for reading/writing Config.lua (original Config.lua is in ./data/Config.lua)
 - [x] replace the wxBitmapButtons in TAB_SKILLS with wxStaticBitmaps?
 - [x] write an image button test using wxBitmapButtons (for the skills tab)
 - [x] write a simple program in main.lua that loads and displays the main window from the xrc
@@ -15,15 +16,14 @@
 - [x] put a .gitignore in the project directory.
 - [x] finish Makefile.mingw (use ./tools/txt2lua.lua for converting the .xrc and Config.lua)
 - [x] put a dummy program into main lua to test the makefile.
-- [ ] write a library for reading/writing Config.lua (original Config.lua is in ./data/Config.lua)
 - [x] build a GUI with wxFormBuilder and generate an xrc file. (place the xrc file inside ./data/)
 - [ ] write readme.md
 - [ ] add a LICENSE.txt
 
-- [ ] add function to get exe directory (like AppDir in BlitzMax) (see sample: calculator.wx.lua)
-- [ ] add translation loader module
-- [ ] add preset-feature, where you can save the current config as a preset and load them easily.
 - [ ] give names to all of the required widgets in the .fbp
+- [ ] add function to get exe directory (like AppDir in BlitzMax) (see sample: calculator.wx.lua)
+- [ ] write translation loader module
+- [ ] implement preset-feature, where you can save the current config as a preset and load them easily.
 
 ##Notes
 
@@ -43,3 +43,6 @@ file:///D:/Dateien/Programming/lua/wxLua/docs/html/wx_wxwindow.html#wxwindowsetm
 
 - maybe move the .xrc file (and all other additional files needed by config.exe) to a subdirectory: "config"
 
+- use wxDialog:ShowModal for the AddTacticDialog
+
+- write a new runtime exe later? (in C or C++)

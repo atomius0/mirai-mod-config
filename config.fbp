@@ -4346,8 +4346,8 @@
             <property name="minimum_size"></property>
             <property name="name">AddTacticDialog</property>
             <property name="pos"></property>
-            <property name="size"></property>
-            <property name="style">wxDEFAULT_DIALOG_STYLE</property>
+            <property name="size">-1,-1</property>
+            <property name="style">wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER</property>
             <property name="subclass"></property>
             <property name="title">Add New Tactic</property>
             <property name="tooltip"></property>
@@ -4399,10 +4399,10 @@
                     <property name="border">5</property>
                     <property name="flag">wxEXPAND</property>
                     <property name="proportion">1</property>
-                    <object class="wxFlexGridSizer" expanded="1">
+                    <object class="wxFlexGridSizer" expanded="0">
                         <property name="cols">2</property>
                         <property name="flexible_direction">wxBOTH</property>
-                        <property name="growablecols"></property>
+                        <property name="growablecols">1</property>
                         <property name="growablerows"></property>
                         <property name="hgap">0</property>
                         <property name="minimum_size"></property>
@@ -4411,11 +4411,11 @@
                         <property name="permission">none</property>
                         <property name="rows">0</property>
                         <property name="vgap">0</property>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxALL</property>
                             <property name="proportion">0</property>
-                            <object class="wxStaticText" expanded="1">
+                            <object class="wxStaticText" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -4494,11 +4494,11 @@
                                 <event name="OnUpdateUI"></event>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
-                            <property name="flag">wxALL</property>
+                            <property name="flag">wxALL|wxEXPAND</property>
                             <property name="proportion">0</property>
-                            <object class="wxTextCtrl" expanded="1">
+                            <object class="wxTextCtrl" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -4544,7 +4544,7 @@
                                 <property name="resize">Resizable</property>
                                 <property name="show">1</property>
                                 <property name="size"></property>
-                                <property name="style"></property>
+                                <property name="style">wxTE_RIGHT</property>
                                 <property name="subclass"></property>
                                 <property name="toolbar_pane">0</property>
                                 <property name="tooltip"></property>
@@ -4585,11 +4585,11 @@
                                 <event name="OnUpdateUI"></event>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxALL</property>
                             <property name="proportion">0</property>
-                            <object class="wxStaticText" expanded="1">
+                            <object class="wxStaticText" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -4668,11 +4668,11 @@
                                 <event name="OnUpdateUI"></event>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
-                            <property name="flag">wxALL</property>
+                            <property name="flag">wxALL|wxEXPAND</property>
                             <property name="proportion">0</property>
-                            <object class="wxTextCtrl" expanded="1">
+                            <object class="wxTextCtrl" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -4759,11 +4759,11 @@
                                 <event name="OnUpdateUI"></event>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxALL</property>
                             <property name="proportion">0</property>
-                            <object class="wxStaticText" expanded="1">
+                            <object class="wxStaticText" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -4842,11 +4842,11 @@
                                 <event name="OnUpdateUI"></event>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
-                            <property name="flag">wxALL</property>
+                            <property name="flag">wxALL|wxEXPAND</property>
                             <property name="proportion">0</property>
-                            <object class="wxChoice" expanded="1">
+                            <object class="wxChoice" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -4860,7 +4860,7 @@
                                 <property name="caption"></property>
                                 <property name="caption_visible">1</property>
                                 <property name="center_pane">0</property>
-                                <property name="choices"></property>
+                                <property name="choices">&quot;avoid&quot; &quot;coward&quot; &quot;react_1st&quot; &quot;react&quot; &quot;react_last&quot; &quot;attack_1st&quot; &quot;attack&quot; &quot;attack_last&quot; &quot;attack_weak&quot; &quot;&quot;</property>
                                 <property name="close_button">1</property>
                                 <property name="context_help"></property>
                                 <property name="context_menu">1</property>
@@ -4890,7 +4890,7 @@
                                 <property name="pin_button">1</property>
                                 <property name="pos"></property>
                                 <property name="resize">Resizable</property>
-                                <property name="selection">0</property>
+                                <property name="selection">3</property>
                                 <property name="show">1</property>
                                 <property name="size"></property>
                                 <property name="style"></property>
@@ -4930,11 +4930,11 @@
                                 <event name="OnUpdateUI"></event>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxALL</property>
                             <property name="proportion">0</property>
-                            <object class="wxStaticText" expanded="1">
+                            <object class="wxStaticText" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -4962,7 +4962,7 @@
                                 <property name="gripper">0</property>
                                 <property name="hidden">0</property>
                                 <property name="id">wxID_ANY</property>
-                                <property name="label">Skill:</property>
+                                <property name="label">Use:</property>
                                 <property name="max_size"></property>
                                 <property name="maximize_button">0</property>
                                 <property name="maximum_size"></property>
@@ -5013,11 +5013,11 @@
                                 <event name="OnUpdateUI"></event>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
-                            <property name="flag">wxALL</property>
+                            <property name="flag">wxALL|wxEXPAND</property>
                             <property name="proportion">0</property>
-                            <object class="wxChoice" expanded="1">
+                            <object class="wxChoice" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -5031,7 +5031,7 @@
                                 <property name="caption"></property>
                                 <property name="caption_visible">1</property>
                                 <property name="center_pane">0</property>
-                                <property name="choices"></property>
+                                <property name="choices">&quot;no_skill&quot; &quot;one_skill&quot; &quot;two_skills&quot; &quot;max_skills&quot; &quot;full_power&quot; &quot;slow_power&quot;</property>
                                 <property name="close_button">1</property>
                                 <property name="context_help"></property>
                                 <property name="context_menu">1</property>
@@ -5061,7 +5061,7 @@
                                 <property name="pin_button">1</property>
                                 <property name="pos"></property>
                                 <property name="resize">Resizable</property>
-                                <property name="selection">0</property>
+                                <property name="selection">1</property>
                                 <property name="show">1</property>
                                 <property name="size"></property>
                                 <property name="style"></property>
@@ -5101,11 +5101,11 @@
                                 <event name="OnUpdateUI"></event>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxALL</property>
                             <property name="proportion">0</property>
-                            <object class="wxStaticText" expanded="1">
+                            <object class="wxStaticText" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -5184,11 +5184,11 @@
                                 <event name="OnUpdateUI"></event>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
-                            <property name="flag">wxALL</property>
+                            <property name="flag">wxALL|wxEXPAND</property>
                             <property name="proportion">0</property>
-                            <object class="wxChoice" expanded="1">
+                            <object class="wxChoice" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -5202,7 +5202,7 @@
                                 <property name="caption"></property>
                                 <property name="caption_visible">1</property>
                                 <property name="center_pane">0</property>
-                                <property name="choices"></property>
+                                <property name="choices">&quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; &quot;5&quot;</property>
                                 <property name="close_button">1</property>
                                 <property name="context_help"></property>
                                 <property name="context_menu">1</property>
@@ -5232,7 +5232,7 @@
                                 <property name="pin_button">1</property>
                                 <property name="pos"></property>
                                 <property name="resize">Resizable</property>
-                                <property name="selection">0</property>
+                                <property name="selection">4</property>
                                 <property name="show">1</property>
                                 <property name="size"></property>
                                 <property name="style"></property>
@@ -5272,6 +5272,32 @@
                                 <event name="OnUpdateUI"></event>
                             </object>
                         </object>
+                    </object>
+                </object>
+                <object class="sizeritem" expanded="1">
+                    <property name="border">5</property>
+                    <property name="flag">wxALIGN_CENTER_HORIZONTAL</property>
+                    <property name="proportion">0</property>
+                    <object class="wxStdDialogButtonSizer" expanded="1">
+                        <property name="Apply">0</property>
+                        <property name="Cancel">1</property>
+                        <property name="ContextHelp">0</property>
+                        <property name="Help">0</property>
+                        <property name="No">0</property>
+                        <property name="OK">1</property>
+                        <property name="Save">0</property>
+                        <property name="Yes">0</property>
+                        <property name="minimum_size"></property>
+                        <property name="name">m_sdbSizer1</property>
+                        <property name="permission">protected</property>
+                        <event name="OnApplyButtonClick"></event>
+                        <event name="OnCancelButtonClick"></event>
+                        <event name="OnContextHelpButtonClick"></event>
+                        <event name="OnHelpButtonClick"></event>
+                        <event name="OnNoButtonClick"></event>
+                        <event name="OnOKButtonClick"></event>
+                        <event name="OnSaveButtonClick"></event>
+                        <event name="OnYesButtonClick"></event>
                     </object>
                 </object>
             </object>
