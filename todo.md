@@ -1,9 +1,10 @@
 
 ## Todo
 
+- [ ] write a test program for the table thing mentioned in the line below.
 - [ ] maybe change the wxListBox in the Tactics tab to an excel-like table-thing? (what is the best widget for this?)
-- [ ] replace the wxBitmapButtons in TAB_SKILLS with wxStaticBitmaps?
-- [ ] write an image button test using wxBitmapButtons (for the skills tab)
+- [x] replace the wxBitmapButtons in TAB_SKILLS with wxStaticBitmaps?
+- [x] write an image button test using wxBitmapButtons (for the skills tab)
 - [x] write a simple program in main.lua that loads and displays the main window from the xrc
 - [x] add a new Dialog to the Form project? for adding new entries to the tactics list.
 - [x] add stuff to Tactics tab in wxFormBuilder project
