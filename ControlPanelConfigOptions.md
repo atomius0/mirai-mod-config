@@ -105,3 +105,43 @@
 	#### Spin control:
 	AST.MinSP=X  (X is the value chosen in the spin control) (default=20)
 
+
+
+## Tact List:
+	The tact list is saved as a table called 'Tact' (Tact = {})
+	each entry in the list is either a line in the form of:
+	
+	Tact[ID] = {"NAME", BEHA_*, WITH_*, LVL, AAA}
+	
+	where:
+		'ID'     is the id of the monster as a number (default=0)
+		'NAME'   is the name of the monster (only for display, the AI ignores this)
+		'BEHA_*' is the behaviour as a constant. one of: (default=BEHA_react)
+		            BEHA_coward,
+					BEHA_react_1st,
+					BEHA_react,
+					BEHA_react_last,
+					BEHA_attack_1st,
+					BEHA_attack,
+					BEHA_attack_last,
+					BEHA_attack_weak
+		'WITH_*' is TODO!!
+		'LVL'    is the skill level as a number (1-5) (default=5)
+		'AAA'    is the "Alchemist Auto Attack" level as a number (default=0)
+		         (-1 = OFF, 0 = Standard, 1 to 10 = the level)
+	
+	or a separator, in the form of a lua comment: (where 'Comment' is the name of the separator)
+	
+	-- Comment
+#
+
+
+
+
+
+
+
+
+
+
+
