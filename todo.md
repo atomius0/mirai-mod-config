@@ -43,3 +43,6 @@ file:///D:/Dateien/Programming/lua/wxLua/docs/html/wx_wxwindow.html#wxwindowsetm
 
 - maybe move the .xrc file (and all other additional files needed by config.exe) to a subdirectory: "config"
 
+- use wxDialog:ShowModal for the AddTacticDialog
+
+- write a new runtime exe later? (in C or C++)
