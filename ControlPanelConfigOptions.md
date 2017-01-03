@@ -204,4 +204,21 @@ In this list box, the user can select the Language of the Control Panel.
 When the user clicks on "Save configuration",
 the content of the selected file is written to the file "language.txt"
 
-# TODO: rest of tab 'Extra'
+
+### Extra Options:
+
+	#### Spin controls:
+	- Max enemy distance from the alchemist:  TOO_FAR_TARGET=X  (default=14, min=2, max=20)
+	- Skill time out (ms) from attack start:  SKILL_TIME_OUT=X  (default=2000)
+
+	#### Checkbox: "Follow at once"
+	- [x]:  FOLLOW_AT_ONCE=1
+	- [ ]:  FOLLOW_AT_ONCE=0
+
+	#### Checkbox: "CIRCLE_ON_IDLE"
+	- [x]:  CIRCLE_ON_IDLE=1
+	- [ ]:  CIRCLE_ON_IDLE=0
+
+	#### Checkbox: "Detect out of potion"
+	- [x]:  CAN_DETECT_NOPOT=true
+	- [ ]:  CAN_DETECT_NOPOT=false
