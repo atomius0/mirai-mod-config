@@ -157,15 +157,20 @@ The Homunculus Skill Tab consists of a Header with the Homunculus' name,
 a spin control for the MinSP, and a dropdown menu for the Level.
 
 ### Amistr:
-	- Bulwark:  Table 'AS_AMI_BULW', MinSP=40, Level=5
-	- Castling: Table 'AS_AMI_CAST', MinSP=10, Level=0
+	- Bulwark:   Table 'AS_AMI_BULW', MinSP=40, Level=5
+	- Castling:  Table 'AS_AMI_CAST', MinSP=10, Level=0
 	
 ### Filir:
-	- Moonlight:          Table 'AS_FIL_MOON', MinSP=20, Level=5
-	- Accelerated Flight: Table 'AS_FIL_ACCL', MinSP=70, Level=0
-	- Flitting:           Table 'AS_FIL_FLTT', MinSP=70, Level=5
+	- Moonlight:           Table 'AS_FIL_MOON', MinSP=20, Level=5
+	- Accelerated Flight:  Table 'AS_FIL_ACCL', MinSP=70, Level=0
+	- Flitting:            Table 'AS_FIL_FLTT', MinSP=70, Level=5
 
 ### Lif:
-	- Healing Touch: Table 'AS_LIF_HEAL', MinSP=40, Level=5
-	- Urgent Escape: Table 'AS_LIF_ESCP', MinSP=40, Level=5
-	- : Table '', MinSP=, Level=
+	- Healing Touch:  Table 'AS_LIF_HEAL', MinSP=40, Level=5
+	- Urgent Escape:  Table 'AS_LIF_ESCP', MinSP=40, Level=5
+
+### Vanilmirth:
+	- Caprice:      Table 'AS_VAN_CAPR', MinSP=30, Level=5
+	- C. Blessing:  Table 'AS_VAN_BLES', MinSP=40, Level=0
+
+# TODO: Tab 'Extra'
