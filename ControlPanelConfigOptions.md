@@ -173,4 +173,24 @@ a spin control for the MinSP, and a dropdown menu for the Level.
 	- Caprice:      Table 'AS_VAN_CAPR', MinSP=30, Level=5
 	- C. Blessing:  Table 'AS_VAN_BLES', MinSP=40, Level=0
 
-# TODO: Tab 'Extra'
+
+
+## Extra:
+
+### Mod:
+When the MirAI Control Panel is started, it looks for files ending with "_Mod.lua",
+and places them into the list box 'Mod'.
+In this list box, the user can select the Mod he wants to use.
+
+When the user clicks on "Save configuration", the selected module is saved to "SelectedMod.lua".
+
+SelectedMod.lua looks like this by default:
+
+	-- Please choose your mod here
+	require "./AI/USER_AI/Standard_Mod.lua"
+
+
+### Language / Translation:
+When the Control Panel is started, it looks for files ending with "_translation.txt"
+
+
