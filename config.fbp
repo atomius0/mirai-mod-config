@@ -4962,7 +4962,7 @@
                                 <property name="gripper">0</property>
                                 <property name="hidden">0</property>
                                 <property name="id">wxID_ANY</property>
-                                <property name="label">Skill:</property>
+                                <property name="label">Use:</property>
                                 <property name="max_size"></property>
                                 <property name="maximize_button">0</property>
                                 <property name="maximum_size"></property>
@@ -5031,7 +5031,7 @@
                                 <property name="caption"></property>
                                 <property name="caption_visible">1</property>
                                 <property name="center_pane">0</property>
-                                <property name="choices"></property>
+                                <property name="choices">&quot;no_skill&quot; &quot;one_skill&quot; &quot;two_skills&quot; &quot;max_skills&quot; &quot;full_power&quot; &quot;slow_power&quot;</property>
                                 <property name="close_button">1</property>
                                 <property name="context_help"></property>
                                 <property name="context_menu">1</property>
@@ -5061,7 +5061,7 @@
                                 <property name="pin_button">1</property>
                                 <property name="pos"></property>
                                 <property name="resize">Resizable</property>
-                                <property name="selection">0</property>
+                                <property name="selection">1</property>
                                 <property name="show">1</property>
                                 <property name="size"></property>
                                 <property name="style"></property>
@@ -5202,7 +5202,7 @@
                                 <property name="caption"></property>
                                 <property name="caption_visible">1</property>
                                 <property name="center_pane">0</property>
-                                <property name="choices"></property>
+                                <property name="choices">&quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; &quot;5&quot;</property>
                                 <property name="close_button">1</property>
                                 <property name="context_help"></property>
                                 <property name="context_menu">1</property>
@@ -5232,7 +5232,7 @@
                                 <property name="pin_button">1</property>
                                 <property name="pos"></property>
                                 <property name="resize">Resizable</property>
-                                <property name="selection">0</property>
+                                <property name="selection">4</property>
                                 <property name="show">1</property>
                                 <property name="size"></property>
                                 <property name="style"></property>
