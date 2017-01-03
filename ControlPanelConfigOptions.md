@@ -180,9 +180,15 @@ a spin control for the MinSP, and a dropdown menu for the Level.
 ### Mod:
 When the MirAI Control Panel is started, it looks for files ending with "_Mod.lua",
 and places them into the list box 'Mod'.
+
 In this list box, the user can select the Mod he wants to use.
 
-When the user clicks on "Save configuration", the selected module is saved to "SelectedMod.lua".
+When the user clicks on "Save configuration", the selected module is written to "SelectedMod.lua"
+as:
+
+	require "./AI/USER_AI/selected_Mod.lua"
+
+where "selected_Mod.lua" is the Mod that the user selected.
 
 SelectedMod.lua looks like this by default:
 
@@ -191,6 +197,11 @@ SelectedMod.lua looks like this by default:
 
 
 ### Language / Translation:
-When the Control Panel is started, it looks for files ending with "_translation.txt"
+When the Control Panel is started, it looks for files ending with "_translation.txt",
+and places them into the list box 'Language'.
 
+In this list box, the user can select the Language of the Control Panel.
+When the user clicks on "Save configuration",
+the content of the selected file is written to the file "language.txt"
 
+# TODO: rest of tab 'Extra'
