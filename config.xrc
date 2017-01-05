@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <resource xmlns="http://www.wxwindows.org/wxxrc" version="2.3.0.1">
 	<object class="wxDialog" name="MainWindow">
-		<style>wxDEFAULT_DIALOG_STYLE</style>
+		<style>wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER</style>
 		<title>MirAI Mod Config</title>
 		<centered>1</centered>
 		<object class="wxBoxSizer">
