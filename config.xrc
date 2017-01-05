@@ -350,11 +350,10 @@
 								</object>
 								<object class="sizeritem">
 									<option>1</option>
-									<flag>wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALL</flag>
+									<flag>wxEXPAND|wxTOP</flag>
 									<border>5</border>
-									<object class="wxListBox" name="m_listBox5">
-										<style>wxLB_ALWAYS_SB|wxLB_SINGLE</style>
-										<content />
+									<object class="wxListCtrl" name="m_listCtrl1">
+										<style>wxLC_HRULES|wxLC_REPORT|wxLC_SINGLE_SEL|wxLC_VRULES</style>
 									</object>
 								</object>
 							</object>
@@ -621,7 +620,7 @@
 		</object>
 	</object>
 	<object class="wxDialog" name="AddTacticDialog">
-		<style>wxDEFAULT_DIALOG_STYLE</style>
+		<style>wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER</style>
 		<title>Add New Tactic</title>
 		<centered>1</centered>
 		<object class="wxBoxSizer">
@@ -635,7 +634,7 @@
 					<cols>2</cols>
 					<vgap>0</vgap>
 					<hgap>0</hgap>
-					<growablecols></growablecols>
+					<growablecols>1</growablecols>
 					<growablerows></growablerows>
 					<object class="sizeritem">
 						<option>0</option>
@@ -648,9 +647,10 @@
 					</object>
 					<object class="sizeritem">
 						<option>0</option>
-						<flag>wxALL</flag>
+						<flag>wxALL|wxEXPAND</flag>
 						<border>5</border>
 						<object class="wxTextCtrl" name="m_textCtrl1">
+							<style>wxTE_RIGHT</style>
 							<value></value>
 						</object>
 					</object>
@@ -665,7 +665,7 @@
 					</object>
 					<object class="sizeritem">
 						<option>0</option>
-						<flag>wxALL</flag>
+						<flag>wxALL|wxEXPAND</flag>
 						<border>5</border>
 						<object class="wxTextCtrl" name="m_textCtrl2">
 							<value></value>
@@ -682,11 +682,22 @@
 					</object>
 					<object class="sizeritem">
 						<option>0</option>
-						<flag>wxALL</flag>
+						<flag>wxALL|wxEXPAND</flag>
 						<border>5</border>
 						<object class="wxChoice" name="m_choice3">
-							<selection>0</selection>
-							<content />
+							<selection>3</selection>
+							<content>
+								<item>avoid</item>
+								<item>coward</item>
+								<item>react_1st</item>
+								<item>react</item>
+								<item>react_last</item>
+								<item>attack_1st</item>
+								<item>attack</item>
+								<item>attack_last</item>
+								<item>attack_weak</item>
+								<item></item>
+							</content>
 						</object>
 					</object>
 					<object class="sizeritem">
@@ -694,17 +705,24 @@
 						<flag>wxALL</flag>
 						<border>5</border>
 						<object class="wxStaticText" name="m_staticText15">
-							<label>Skill:</label>
+							<label>Use:</label>
 							<wrap>-1</wrap>
 						</object>
 					</object>
 					<object class="sizeritem">
 						<option>0</option>
-						<flag>wxALL</flag>
+						<flag>wxALL|wxEXPAND</flag>
 						<border>5</border>
 						<object class="wxChoice" name="m_choice4">
-							<selection>0</selection>
-							<content />
+							<selection>1</selection>
+							<content>
+								<item>no_skill</item>
+								<item>one_skill</item>
+								<item>two_skills</item>
+								<item>max_skills</item>
+								<item>full_power</item>
+								<item>slow_power</item>
+							</content>
 						</object>
 					</object>
 					<object class="sizeritem">
@@ -718,11 +736,38 @@
 					</object>
 					<object class="sizeritem">
 						<option>0</option>
-						<flag>wxALL</flag>
+						<flag>wxALL|wxEXPAND</flag>
 						<border>5</border>
 						<object class="wxChoice" name="m_choice5">
-							<selection>0</selection>
-							<content />
+							<selection>4</selection>
+							<content>
+								<item>1</item>
+								<item>2</item>
+								<item>3</item>
+								<item>4</item>
+								<item>5</item>
+							</content>
+						</object>
+					</object>
+				</object>
+			</object>
+			<object class="sizeritem">
+				<option>0</option>
+				<flag>wxALIGN_CENTER_HORIZONTAL</flag>
+				<border>5</border>
+				<object class="wxStdDialogButtonSizer">
+					<object class="button">
+						<flag>wxALIGN_CENTER_HORIZONTAL|wxALL</flag>
+						<border>5</border>
+						<object class="wxButton" name="wxID_OK">
+							<label>&amp;OK</label>
+						</object>
+					</object>
+					<object class="button">
+						<flag>wxALIGN_CENTER_HORIZONTAL|wxALL</flag>
+						<border>5</border>
+						<object class="wxButton" name="wxID_CANCEL">
+							<label>&amp;Cancel</label>
 						</object>
 					</object>
 				</object>

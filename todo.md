@@ -1,7 +1,8 @@
 
 ## Todo
 
-- [ ] maybe change the wxListBox in the Tactics tab to an excel-like table-thing? (what is the best widget for this?) (maybe wxListCtrl?) (see sample controls.wx.lua) -> wxListCtrl
+- [ ] in wxListCtrl: should we use style 'wxLC_NO_SORT_HEADER'?
+- [x] maybe change the wxListBox in the Tactics tab to an excel-like table-thing? (what is the best widget for this?) (maybe wxListCtrl?) (see sample controls.wx.lua) -> wxListCtrl
 - [ ] write a library for reading/writing Config.lua (original Config.lua is in ./data/Config.lua)
 - [ ] copy stringutil.lua into project directory when it is finished and tested. (is it?)
 - [x] write a test program for the table thing mentioned in the line below. (wxListCtrl?)

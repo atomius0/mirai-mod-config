@@ -2603,9 +2603,9 @@
                                     </object>
                                     <object class="sizeritem" expanded="0">
                                         <property name="border">5</property>
-                                        <property name="flag">wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALL</property>
+                                        <property name="flag">wxEXPAND|wxTOP</property>
                                         <property name="proportion">1</property>
-                                        <object class="wxListBox" expanded="0">
+                                        <object class="wxListCtrl" expanded="0">
                                             <property name="BottomDockable">1</property>
                                             <property name="LeftDockable">1</property>
                                             <property name="RightDockable">1</property>
@@ -2619,7 +2619,6 @@
                                             <property name="caption"></property>
                                             <property name="caption_visible">1</property>
                                             <property name="center_pane">0</property>
-                                            <property name="choices"></property>
                                             <property name="close_button">1</property>
                                             <property name="context_help"></property>
                                             <property name="context_menu">1</property>
@@ -2641,7 +2640,7 @@
                                             <property name="minimize_button">0</property>
                                             <property name="minimum_size"></property>
                                             <property name="moveable">1</property>
-                                            <property name="name">m_listBox5</property>
+                                            <property name="name">m_listCtrl1</property>
                                             <property name="pane_border">1</property>
                                             <property name="pane_position"></property>
                                             <property name="pane_size"></property>
@@ -2651,7 +2650,7 @@
                                             <property name="resize">Resizable</property>
                                             <property name="show">1</property>
                                             <property name="size"></property>
-                                            <property name="style">wxLB_ALWAYS_SB|wxLB_SINGLE</property>
+                                            <property name="style">wxLC_HRULES|wxLC_REPORT|wxLC_SINGLE_SEL|wxLC_VRULES</property>
                                             <property name="subclass"></property>
                                             <property name="toolbar_pane">0</property>
                                             <property name="tooltip"></property>
@@ -2672,8 +2671,26 @@
                                             <event name="OnLeftDClick"></event>
                                             <event name="OnLeftDown"></event>
                                             <event name="OnLeftUp"></event>
-                                            <event name="OnListBox"></event>
-                                            <event name="OnListBoxDClick"></event>
+                                            <event name="OnListBeginDrag"></event>
+                                            <event name="OnListBeginLabelEdit"></event>
+                                            <event name="OnListBeginRDrag"></event>
+                                            <event name="OnListCacheHint"></event>
+                                            <event name="OnListColBeginDrag"></event>
+                                            <event name="OnListColClick"></event>
+                                            <event name="OnListColDragging"></event>
+                                            <event name="OnListColEndDrag"></event>
+                                            <event name="OnListColRightClick"></event>
+                                            <event name="OnListDeleteAllItems"></event>
+                                            <event name="OnListDeleteItem"></event>
+                                            <event name="OnListEndLabelEdit"></event>
+                                            <event name="OnListInsertItem"></event>
+                                            <event name="OnListItemActivated"></event>
+                                            <event name="OnListItemDeselected"></event>
+                                            <event name="OnListItemFocused"></event>
+                                            <event name="OnListItemMiddleClick"></event>
+                                            <event name="OnListItemRightClick"></event>
+                                            <event name="OnListItemSelected"></event>
+                                            <event name="OnListKeyDown"></event>
                                             <event name="OnMiddleDClick"></event>
                                             <event name="OnMiddleDown"></event>
                                             <event name="OnMiddleUp"></event>
