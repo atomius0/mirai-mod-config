@@ -1,9 +1,9 @@
 
 ## Todo
 
-- [ ] name the widgets from AddTacticDialog.
-- [ ] give names to all of the required widgets in the .fbp (WIP, see above)
-- [ ] test filling the TAB_Skills programmatically?
+- [ ] test filling the TAB_Skills programmatically? (in new branch)
+- [x] name the widgets from AddTacticDialog.
+- [x] give names to all of the required widgets in the .fbp
 - [x] in wxListCtrl: should we use style 'wxLC_NO_SORT_HEADER'? -> yes
 - [x] maybe change the wxListBox in the Tactics tab to an excel-like table-thing? (what is the best widget for this?) (maybe wxListCtrl?) (see sample controls.wx.lua) -> wxListCtrl
 - [ ] write a library for reading/writing Config.lua (original Config.lua is in ./data/Config.lua)

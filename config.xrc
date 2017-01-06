@@ -640,7 +640,7 @@
 						<option>0</option>
 						<flag>wxALL</flag>
 						<border>5</border>
-						<object class="wxStaticText" name="m_staticText12">
+						<object class="wxStaticText" name="TXT_ID">
 							<label>ID:</label>
 							<wrap>-1</wrap>
 						</object>
@@ -649,7 +649,7 @@
 						<option>0</option>
 						<flag>wxALL|wxEXPAND</flag>
 						<border>5</border>
-						<object class="wxTextCtrl" name="m_textCtrl1">
+						<object class="wxTextCtrl" name="TC_ID">
 							<style>wxTE_RIGHT</style>
 							<value></value>
 						</object>
@@ -658,7 +658,7 @@
 						<option>0</option>
 						<flag>wxALL</flag>
 						<border>5</border>
-						<object class="wxStaticText" name="m_staticText13">
+						<object class="wxStaticText" name="TXT_MonsterName">
 							<label>Monster Name:</label>
 							<wrap>-1</wrap>
 						</object>
@@ -667,7 +667,7 @@
 						<option>0</option>
 						<flag>wxALL|wxEXPAND</flag>
 						<border>5</border>
-						<object class="wxTextCtrl" name="m_textCtrl2">
+						<object class="wxTextCtrl" name="TC_MonsterName">
 							<value></value>
 						</object>
 					</object>
@@ -675,8 +675,8 @@
 						<option>0</option>
 						<flag>wxALL</flag>
 						<border>5</border>
-						<object class="wxStaticText" name="m_staticText14">
-							<label>Behaviour:</label>
+						<object class="wxStaticText" name="TXT_Behavior">
+							<label>Behavior:</label>
 							<wrap>-1</wrap>
 						</object>
 					</object>
@@ -684,7 +684,7 @@
 						<option>0</option>
 						<flag>wxALL|wxEXPAND</flag>
 						<border>5</border>
-						<object class="wxChoice" name="m_choice3">
+						<object class="wxChoice" name="CHOICE_Behavior">
 							<selection>3</selection>
 							<content>
 								<item>avoid</item>
@@ -704,7 +704,7 @@
 						<option>0</option>
 						<flag>wxALL</flag>
 						<border>5</border>
-						<object class="wxStaticText" name="m_staticText15">
+						<object class="wxStaticText" name="TXT_SkillUse">
 							<label>Use:</label>
 							<wrap>-1</wrap>
 						</object>
@@ -713,7 +713,7 @@
 						<option>0</option>
 						<flag>wxALL|wxEXPAND</flag>
 						<border>5</border>
-						<object class="wxChoice" name="m_choice4">
+						<object class="wxChoice" name="CHOICE_SkillUse">
 							<selection>1</selection>
 							<content>
 								<item>no_skill</item>
@@ -729,7 +729,7 @@
 						<option>0</option>
 						<flag>wxALL</flag>
 						<border>5</border>
-						<object class="wxStaticText" name="m_staticText16">
+						<object class="wxStaticText" name="TXT_Level">
 							<label>Level:</label>
 							<wrap>-1</wrap>
 						</object>
@@ -738,7 +738,7 @@
 						<option>0</option>
 						<flag>wxALL|wxEXPAND</flag>
 						<border>5</border>
-						<object class="wxChoice" name="m_choice5">
+						<object class="wxChoice" name="CHOICE_Level">
 							<selection>4</selection>
 							<content>
 								<item>1</item>
