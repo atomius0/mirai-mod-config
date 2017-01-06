@@ -1,7 +1,8 @@
 
 ## Todo
 
-- [ ] give names to all of the required widgets in the .fbp
+- [ ] name the widgets from TAB_Skills, TAB_Mod, TAB_Language and AddTacticDialog.
+- [ ] give names to all of the required widgets in the .fbp (WIP, see above)
 - [x] in wxListCtrl: should we use style 'wxLC_NO_SORT_HEADER'? -> yes
 - [x] maybe change the wxListBox in the Tactics tab to an excel-like table-thing? (what is the best widget for this?) (maybe wxListCtrl?) (see sample controls.wx.lua) -> wxListCtrl
 - [ ] write a library for reading/writing Config.lua (original Config.lua is in ./data/Config.lua)
@@ -28,12 +29,14 @@
 
 ##Notes
 
+- fill the skills tab in code?
+
 - the original Config.lua is in ./data/Config.lua. it will be placed as a string inside the config program
-so that it can restore the original settings.
+so that it can restore the original settings. (used when no Config.lua is found)
 
 - the Config.lua will be converted to Config_lua.lua (via txt2lua.lua) and 'require'd by the config program.
 
-- for the Extras Tab we will need to enumerate all files in the current directory (to find *_Mod.lua files). Use wxDir for that. 
+- for the Tabs "Mod" and "Language" we will need to enumerate all files in the current directory (to find *_Mod.lua files). Use wxDir for that. 
 http://docs.wxwidgets.org/trunk/classwx_dir.html
 file:///D:/Dateien/Programming/lua/wxLua/wxLua-2.8.12.3-Lua-5.1.5-MSW-Ansi/doc/wxLua/wxluaref.html#wxDir
 
