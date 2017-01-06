@@ -42,11 +42,11 @@
 	- [x]:  DEFAULT_BEHA = BEHA_react
 	- [ ]:  DEFAULT_BEHA = BEHA_attack
 
-	### Checkbox: "Switch target"
+	### Checkbox: "Switch target" / "Switch target on Battle, to go to help the owner"
 	- [x]:  HELP_OWNER_1ST=true
 	- [ ]:  HELP_OWNER_1ST=false
 
-	### Checkbox: "Finish yours first"
+	### Checkbox: "Finish yours first" / "Take care of homunculus enemies first"
 	- [x]:  KILL_YOUR_ENEMIES_1ST=true
 	- [ ]:  KILL_YOUR_ENEMIES_1ST=false
 
@@ -54,11 +54,11 @@
 
 ## GB_Motion:
 
-	### Checkbox: "No moving targets"
+	### Checkbox: "No moving targets" / "Don't attack moving monsters"
 	- [x]:  NO_MOVING_TARGETS=true
 	- [ ]:  NO_MOVING_TARGETS=false
 
-	### Checkbox: "CB_AdvMotion"
+	### Checkbox: "CB_AdvMotion" / "Try to detect area spells and frozen monsters"
 	- [x]:  ADV_MOTION_CHECK=true
 	- [ ]:  ADV_MOTION_CHECK=false
 
@@ -208,14 +208,14 @@ the content of the selected file is written to the file "language.txt"
 ### Extra Options:
 
 	#### Spin controls:
-	- Max enemy distance from the alchemist:  TOO_FAR_TARGET=X  (default=14, min=2, max=20)
-	- Skill time out (ms) from attack start:  SKILL_TIME_OUT=X  (default=2000)
+	- "Max enemy distance from the alchemist":                              TOO_FAR_TARGET=X  (default=14, min=2, max=20)
+	- "Skill time out (ms) from attack start" / "Max time for skills (ms)":  SKILL_TIME_OUT=X  (default=2000)
 
-	#### Checkbox: "Follow at once"
+	#### Checkbox: "Follow at once" / "Follow the alchemist at once"
 	- [x]:  FOLLOW_AT_ONCE=1
 	- [ ]:  FOLLOW_AT_ONCE=0
 
-	#### Checkbox: "CIRCLE_ON_IDLE"
+	#### Checkbox: "CIRCLE_ON_IDLE" / "Circle around the alchemist when full"
 	- [x]:  CIRCLE_ON_IDLE=1
 	- [ ]:  CIRCLE_ON_IDLE=0
 
