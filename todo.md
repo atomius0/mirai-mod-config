@@ -1,7 +1,8 @@
 
 ## Todo
 
-- [ ] test filling the TAB_Skills programmatically? (in new branch)
+- [ ] hide the tab Language for now. (until translation functionality is implemented)
+- [ ] test filling the TAB_Skills programmatically (in new branch) (we will need to remove the contents of BSIZER_Skills, so make a branch before this, so that we can keep it as a reference later)
 - [x] name the widgets from AddTacticDialog.
 - [x] give names to all of the required widgets in the .fbp
 - [x] in wxListCtrl: should we use style 'wxLC_NO_SORT_HEADER'? -> yes
@@ -21,6 +22,7 @@
 - [x] finish Makefile.mingw (use ./tools/txt2lua.lua for converting the .xrc and Config.lua)
 - [x] put a dummy program into main lua to test the makefile.
 - [x] build a GUI with wxFormBuilder and generate an xrc file. (place the xrc file inside ./data/)
+
 - [ ] write readme.md
 - [ ] add a LICENSE.txt
 
@@ -29,6 +31,8 @@
 - [ ] implement preset-feature, where you can save the current config as a preset and load them easily.
 
 ##Notes
+
+- put every external file in folder "config/", including the .xrc, images and translations. (but NOT the Config.lua, that will be included in the exe)
 
 - fill the skills tab in code?
 
