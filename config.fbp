@@ -88,16 +88,16 @@
             <event name="OnSetFocus"></event>
             <event name="OnSize"></event>
             <event name="OnUpdateUI"></event>
-            <object class="wxBoxSizer" expanded="0">
+            <object class="wxBoxSizer" expanded="1">
                 <property name="minimum_size"></property>
                 <property name="name">bSizer1</property>
                 <property name="orient">wxVERTICAL</property>
                 <property name="permission">none</property>
-                <object class="sizeritem" expanded="0">
+                <object class="sizeritem" expanded="1">
                     <property name="border">5</property>
                     <property name="flag">wxEXPAND | wxALL</property>
                     <property name="proportion">1</property>
-                    <object class="wxNotebook" expanded="0">
+                    <object class="wxNotebook" expanded="1">
                         <property name="BottomDockable">1</property>
                         <property name="LeftDockable">1</property>
                         <property name="RightDockable">1</property>
@@ -175,7 +175,7 @@
                         <event name="OnSetFocus"></event>
                         <event name="OnSize"></event>
                         <event name="OnUpdateUI"></event>
-                        <object class="notebookpage" expanded="0">
+                        <object class="notebookpage" expanded="1">
                             <property name="bitmap"></property>
                             <property name="label">General</property>
                             <property name="select">1</property>
@@ -2067,7 +2067,7 @@
                                 </object>
                             </object>
                         </object>
-                        <object class="notebookpage" expanded="0">
+                        <object class="notebookpage" expanded="1">
                             <property name="bitmap"></property>
                             <property name="label">Tactics</property>
                             <property name="select">0</property>
@@ -2709,7 +2709,7 @@
                                 </object>
                             </object>
                         </object>
-                        <object class="notebookpage" expanded="0">
+                        <object class="notebookpage" expanded="1">
                             <property name="bitmap"></property>
                             <property name="label">Skills</property>
                             <property name="select">0</property>
@@ -3724,7 +3724,7 @@
                                 </object>
                             </object>
                         </object>
-                        <object class="notebookpage" expanded="0">
+                        <object class="notebookpage" expanded="1">
                             <property name="bitmap"></property>
                             <property name="label">Mod</property>
                             <property name="select">0</property>
@@ -3825,7 +3825,7 @@
                                             <property name="caption"></property>
                                             <property name="caption_visible">1</property>
                                             <property name="center_pane">0</property>
-                                            <property name="choices">&quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot;</property>
+                                            <property name="choices"></property>
                                             <property name="close_button">1</property>
                                             <property name="context_help"></property>
                                             <property name="context_menu">1</property>
@@ -3898,7 +3898,7 @@
                                 </object>
                             </object>
                         </object>
-                        <object class="notebookpage" expanded="0">
+                        <object class="notebookpage" expanded="1">
                             <property name="bitmap"></property>
                             <property name="label">Language</property>
                             <property name="select">0</property>
@@ -3999,7 +3999,7 @@
                                             <property name="caption"></property>
                                             <property name="caption_visible">1</property>
                                             <property name="center_pane">0</property>
-                                            <property name="choices">&quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot;</property>
+                                            <property name="choices"></property>
                                             <property name="close_button">1</property>
                                             <property name="context_help"></property>
                                             <property name="context_menu">1</property>
