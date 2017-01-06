@@ -266,7 +266,7 @@
                                             <property name="id">wxID_ANY</property>
                                             <property name="label">Homunculus: Attack and Evade</property>
                                             <property name="minimum_size"></property>
-                                            <property name="name">SB_HomAttackAndEvade</property>
+                                            <property name="name">SB_HomuAttackAndEvade</property>
                                             <property name="orient">wxVERTICAL</property>
                                             <property name="parent">1</property>
                                             <property name="permission">none</property>
@@ -336,7 +336,7 @@
                                                                     <property name="minimize_button">0</property>
                                                                     <property name="minimum_size"></property>
                                                                     <property name="moveable">1</property>
-                                                                    <property name="name">TXT_ATTACK_WHEN_HP</property>
+                                                                    <property name="name">TXT_AttackWhenHP</property>
                                                                     <property name="pane_border">1</property>
                                                                     <property name="pane_position"></property>
                                                                     <property name="pane_size"></property>
@@ -420,7 +420,7 @@
                                                                     <property name="minimize_button">0</property>
                                                                     <property name="minimum_size"></property>
                                                                     <property name="moveable">1</property>
-                                                                    <property name="name">CB_DONT_MOVE</property>
+                                                                    <property name="name">CB_DontMove</property>
                                                                     <property name="pane_border">1</property>
                                                                     <property name="pane_position"></property>
                                                                     <property name="pane_size"></property>
@@ -510,7 +510,7 @@
                                                             <property name="minimize_button">0</property>
                                                             <property name="minimum_size"></property>
                                                             <property name="moveable">1</property>
-                                                            <property name="name">SL_ATTACK_WHEN_HP</property>
+                                                            <property name="name">SL_AttackWhenHP</property>
                                                             <property name="pane_border">1</property>
                                                             <property name="pane_position"></property>
                                                             <property name="pane_size"></property>
@@ -619,7 +619,7 @@
                                                             <property name="minimize_button">0</property>
                                                             <property name="minimum_size"></property>
                                                             <property name="moveable">1</property>
-                                                            <property name="name">SC_ATTACK_WHEN_HP</property>
+                                                            <property name="name">SC_AttackWhenHP</property>
                                                             <property name="pane_border">1</property>
                                                             <property name="pane_position"></property>
                                                             <property name="pane_size"></property>
@@ -714,7 +714,7 @@
                                                                     <property name="minimize_button">0</property>
                                                                     <property name="minimum_size"></property>
                                                                     <property name="moveable">1</property>
-                                                                    <property name="name">TXT_EVADE_WHEN_HP</property>
+                                                                    <property name="name">TXT_EvadeWhenHP</property>
                                                                     <property name="pane_border">1</property>
                                                                     <property name="pane_position"></property>
                                                                     <property name="pane_size"></property>
@@ -798,7 +798,7 @@
                                                                     <property name="minimize_button">0</property>
                                                                     <property name="minimum_size"></property>
                                                                     <property name="moveable">1</property>
-                                                                    <property name="name">CB_CAUTIOUS</property>
+                                                                    <property name="name">CB_Cautious</property>
                                                                     <property name="pane_border">1</property>
                                                                     <property name="pane_position"></property>
                                                                     <property name="pane_size"></property>
@@ -888,7 +888,7 @@
                                                             <property name="minimize_button">0</property>
                                                             <property name="minimum_size"></property>
                                                             <property name="moveable">1</property>
-                                                            <property name="name">SL_EVADE_WHEN_HP</property>
+                                                            <property name="name">SL_EvadeWhenHP</property>
                                                             <property name="pane_border">1</property>
                                                             <property name="pane_position"></property>
                                                             <property name="pane_size"></property>
@@ -997,7 +997,7 @@
                                                             <property name="minimize_button">0</property>
                                                             <property name="minimum_size"></property>
                                                             <property name="moveable">1</property>
-                                                            <property name="name">SC_EVADE_WHEN_HP</property>
+                                                            <property name="name">SC_EvadeWhenHP</property>
                                                             <property name="pane_border">1</property>
                                                             <property name="pane_position"></property>
                                                             <property name="pane_size"></property>
@@ -1095,7 +1095,7 @@
                                                             <property name="minimize_button">0</property>
                                                             <property name="minimum_size"></property>
                                                             <property name="moveable">1</property>
-                                                            <property name="name">m_checkBox4</property>
+                                                            <property name="name">CB_HelpOwnerFirst</property>
                                                             <property name="pane_border">1</property>
                                                             <property name="pane_position"></property>
                                                             <property name="pane_size"></property>
@@ -1183,7 +1183,7 @@
                                                             <property name="minimize_button">0</property>
                                                             <property name="minimum_size"></property>
                                                             <property name="moveable">1</property>
-                                                            <property name="name">m_checkBox5</property>
+                                                            <property name="name">CB_KillEnemiesFirst</property>
                                                             <property name="pane_border">1</property>
                                                             <property name="pane_position"></property>
                                                             <property name="pane_size"></property>
@@ -1242,7 +1242,7 @@
                                             <property name="id">wxID_ANY</property>
                                             <property name="label">Kind Homunculus</property>
                                             <property name="minimum_size"></property>
-                                            <property name="name">gen_Kind_Homunculus</property>
+                                            <property name="name">SB_KindHomu</property>
                                             <property name="orient">wxVERTICAL</property>
                                             <property name="parent">1</property>
                                             <property name="permission">none</property>
@@ -1288,7 +1288,7 @@
                                                     <property name="minimize_button">0</property>
                                                     <property name="minimum_size"></property>
                                                     <property name="moveable">1</property>
-                                                    <property name="name">m_checkBox6</property>
+                                                    <property name="name">CB_NoMovingTargets</property>
                                                     <property name="pane_border">1</property>
                                                     <property name="pane_position"></property>
                                                     <property name="pane_size"></property>
@@ -1376,7 +1376,7 @@
                                                     <property name="minimize_button">0</property>
                                                     <property name="minimum_size"></property>
                                                     <property name="moveable">1</property>
-                                                    <property name="name">m_checkBox7</property>
+                                                    <property name="name">CB_AdvMotionCheck</property>
                                                     <property name="pane_border">1</property>
                                                     <property name="pane_position"></property>
                                                     <property name="pane_size"></property>
@@ -1433,7 +1433,7 @@
                                             <property name="id">wxID_ANY</property>
                                             <property name="label">Other</property>
                                             <property name="minimum_size"></property>
-                                            <property name="name">gen_Other</property>
+                                            <property name="name">SB_Other</property>
                                             <property name="orient">wxVERTICAL</property>
                                             <property name="parent">1</property>
                                             <property name="permission">none</property>
@@ -1494,7 +1494,7 @@
                                                             <property name="minimize_button">0</property>
                                                             <property name="minimum_size"></property>
                                                             <property name="moveable">1</property>
-                                                            <property name="name">m_staticText4</property>
+                                                            <property name="name">TXT_MaxEnemyDistance</property>
                                                             <property name="pane_border">1</property>
                                                             <property name="pane_position"></property>
                                                             <property name="pane_size"></property>
@@ -1579,7 +1579,7 @@
                                                             <property name="minimize_button">0</property>
                                                             <property name="minimum_size"></property>
                                                             <property name="moveable">1</property>
-                                                            <property name="name">m_spinCtrl4</property>
+                                                            <property name="name">SC_MaxEnemyDistance</property>
                                                             <property name="pane_border">1</property>
                                                             <property name="pane_position"></property>
                                                             <property name="pane_size"></property>
@@ -1665,7 +1665,7 @@
                                                             <property name="minimize_button">0</property>
                                                             <property name="minimum_size"></property>
                                                             <property name="moveable">1</property>
-                                                            <property name="name">m_staticText5</property>
+                                                            <property name="name">TXT_SkillTimeout</property>
                                                             <property name="pane_border">1</property>
                                                             <property name="pane_position"></property>
                                                             <property name="pane_size"></property>
@@ -1750,7 +1750,7 @@
                                                             <property name="minimize_button">0</property>
                                                             <property name="minimum_size"></property>
                                                             <property name="moveable">1</property>
-                                                            <property name="name">m_spinCtrl5</property>
+                                                            <property name="name">SC_SkillTimeout</property>
                                                             <property name="pane_border">1</property>
                                                             <property name="pane_position"></property>
                                                             <property name="pane_size"></property>
@@ -1839,7 +1839,7 @@
                                                     <property name="minimize_button">0</property>
                                                     <property name="minimum_size"></property>
                                                     <property name="moveable">1</property>
-                                                    <property name="name">m_checkBox8</property>
+                                                    <property name="name">CB_FollowAtOnce</property>
                                                     <property name="pane_border">1</property>
                                                     <property name="pane_position"></property>
                                                     <property name="pane_size"></property>
@@ -1927,7 +1927,7 @@
                                                     <property name="minimize_button">0</property>
                                                     <property name="minimum_size"></property>
                                                     <property name="moveable">1</property>
-                                                    <property name="name">m_checkBox9</property>
+                                                    <property name="name">CB_CircleOnIdle</property>
                                                     <property name="pane_border">1</property>
                                                     <property name="pane_position"></property>
                                                     <property name="pane_size"></property>
@@ -2015,7 +2015,7 @@
                                                     <property name="minimize_button">0</property>
                                                     <property name="minimum_size"></property>
                                                     <property name="moveable">1</property>
-                                                    <property name="name">m_checkBox10</property>
+                                                    <property name="name">CB_CanDetectNoPot</property>
                                                     <property name="pane_border">1</property>
                                                     <property name="pane_position"></property>
                                                     <property name="pane_size"></property>
