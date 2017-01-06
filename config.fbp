@@ -2071,7 +2071,7 @@
                             <property name="bitmap"></property>
                             <property name="label">Tactics</property>
                             <property name="select">0</property>
-                            <object class="wxPanel" expanded="1">
+                            <object class="wxPanel" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -2145,16 +2145,16 @@
                                 <event name="OnSetFocus"></event>
                                 <event name="OnSize"></event>
                                 <event name="OnUpdateUI"></event>
-                                <object class="wxBoxSizer" expanded="1">
+                                <object class="wxBoxSizer" expanded="0">
                                     <property name="minimum_size"></property>
                                     <property name="name">bSizer20</property>
                                     <property name="orient">wxVERTICAL</property>
                                     <property name="permission">none</property>
-                                    <object class="sizeritem" expanded="1">
+                                    <object class="sizeritem" expanded="0">
                                         <property name="border">5</property>
                                         <property name="flag">wxEXPAND|wxALIGN_CENTER_HORIZONTAL</property>
                                         <property name="proportion">0</property>
-                                        <object class="wxBoxSizer" expanded="1">
+                                        <object class="wxBoxSizer" expanded="0">
                                             <property name="minimum_size"></property>
                                             <property name="name">bSizer21</property>
                                             <property name="orient">wxHORIZONTAL</property>
@@ -2748,7 +2748,7 @@
                                 <property name="minimize_button">0</property>
                                 <property name="minimum_size"></property>
                                 <property name="moveable">1</property>
-                                <property name="name">TAB_SKILLS</property>
+                                <property name="name">TAB_Skills</property>
                                 <property name="pane_border">1</property>
                                 <property name="pane_position"></property>
                                 <property name="pane_size"></property>
@@ -2874,7 +2874,7 @@
                                             <event name="OnUpdateUI"></event>
                                             <object class="wxBoxSizer" expanded="0">
                                                 <property name="minimum_size"></property>
-                                                <property name="name">bSizer16</property>
+                                                <property name="name">BSIZER_Skills</property>
                                                 <property name="orient">wxVERTICAL</property>
                                                 <property name="permission">none</property>
                                                 <object class="sizeritem" expanded="0">
@@ -2917,7 +2917,7 @@
                                                         <property name="minimize_button">0</property>
                                                         <property name="minimum_size"></property>
                                                         <property name="moveable">1</property>
-                                                        <property name="name">m_staticText7</property>
+                                                        <property name="name">TXT_SkillsDescription</property>
                                                         <property name="pane_border">1</property>
                                                         <property name="pane_position"></property>
                                                         <property name="pane_size"></property>
@@ -2968,7 +2968,7 @@
                                                         <property name="id">wxID_ANY</property>
                                                         <property name="label">Amistr</property>
                                                         <property name="minimum_size"></property>
-                                                        <property name="name">skl_Amistr</property>
+                                                        <property name="name">SB_Skill_Amistr</property>
                                                         <property name="orient">wxVERTICAL</property>
                                                         <property name="parent">1</property>
                                                         <property name="permission">none</property>
@@ -3681,7 +3681,7 @@
                                                         <property name="id">wxID_ANY</property>
                                                         <property name="label">Filir</property>
                                                         <property name="minimum_size"></property>
-                                                        <property name="name">skl_Filir</property>
+                                                        <property name="name">SB_Skill_Filir</property>
                                                         <property name="orient">wxVERTICAL</property>
                                                         <property name="parent">1</property>
                                                         <property name="permission">none</property>
@@ -3696,7 +3696,7 @@
                                                         <property name="id">wxID_ANY</property>
                                                         <property name="label">Lif</property>
                                                         <property name="minimum_size"></property>
-                                                        <property name="name">skl_Lif</property>
+                                                        <property name="name">SB_Skill_Lif</property>
                                                         <property name="orient">wxVERTICAL</property>
                                                         <property name="parent">1</property>
                                                         <property name="permission">none</property>
@@ -3711,7 +3711,7 @@
                                                         <property name="id">wxID_ANY</property>
                                                         <property name="label">Vanilmirth</property>
                                                         <property name="minimum_size"></property>
-                                                        <property name="name">skl_Vanilmirth</property>
+                                                        <property name="name">SB_Skill_Vanilmirth</property>
                                                         <property name="orient">wxVERTICAL</property>
                                                         <property name="parent">1</property>
                                                         <property name="permission">none</property>
