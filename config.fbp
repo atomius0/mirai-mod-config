@@ -179,7 +179,7 @@
                             <property name="bitmap"></property>
                             <property name="label">General</property>
                             <property name="select">1</property>
-                            <object class="wxPanel" expanded="0">
+                            <object class="wxPanel" expanded="1">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -253,29 +253,29 @@
                                 <event name="OnSetFocus"></event>
                                 <event name="OnSize"></event>
                                 <event name="OnUpdateUI"></event>
-                                <object class="wxBoxSizer" expanded="0">
+                                <object class="wxBoxSizer" expanded="1">
                                     <property name="minimum_size"></property>
                                     <property name="name">bSizer2</property>
                                     <property name="orient">wxVERTICAL</property>
                                     <property name="permission">none</property>
-                                    <object class="sizeritem" expanded="0">
+                                    <object class="sizeritem" expanded="1">
                                         <property name="border">5</property>
                                         <property name="flag">wxEXPAND</property>
                                         <property name="proportion">0</property>
-                                        <object class="wxStaticBoxSizer" expanded="0">
+                                        <object class="wxStaticBoxSizer" expanded="1">
                                             <property name="id">wxID_ANY</property>
                                             <property name="label">Homunculus: Attack and Evade</property>
                                             <property name="minimum_size"></property>
-                                            <property name="name">gen_Attack_and_Evade</property>
+                                            <property name="name">HOM_ATTACK_AND_EVADE</property>
                                             <property name="orient">wxVERTICAL</property>
                                             <property name="parent">1</property>
                                             <property name="permission">none</property>
                                             <event name="OnUpdateUI"></event>
-                                            <object class="sizeritem" expanded="0">
+                                            <object class="sizeritem" expanded="1">
                                                 <property name="border">5</property>
                                                 <property name="flag">wxEXPAND</property>
                                                 <property name="proportion">1</property>
-                                                <object class="wxFlexGridSizer" expanded="0">
+                                                <object class="wxFlexGridSizer" expanded="1">
                                                     <property name="cols">3</property>
                                                     <property name="flexible_direction">wxBOTH</property>
                                                     <property name="growablecols">1</property>
@@ -287,11 +287,11 @@
                                                     <property name="permission">none</property>
                                                     <property name="rows">0</property>
                                                     <property name="vgap">0</property>
-                                                    <object class="sizeritem" expanded="0">
+                                                    <object class="sizeritem" expanded="1">
                                                         <property name="border">5</property>
                                                         <property name="flag">wxEXPAND</property>
                                                         <property name="proportion">0</property>
-                                                        <object class="wxBoxSizer" expanded="0">
+                                                        <object class="wxBoxSizer" expanded="1">
                                                             <property name="minimum_size"></property>
                                                             <property name="name">bSizer4</property>
                                                             <property name="orient">wxVERTICAL</property>
@@ -336,7 +336,7 @@
                                                                     <property name="minimize_button">0</property>
                                                                     <property name="minimum_size"></property>
                                                                     <property name="moveable">1</property>
-                                                                    <property name="name">m_staticText1</property>
+                                                                    <property name="name">TXT_ATTACK_WHEN_HP</property>
                                                                     <property name="pane_border">1</property>
                                                                     <property name="pane_position"></property>
                                                                     <property name="pane_size"></property>
@@ -420,7 +420,7 @@
                                                                     <property name="minimize_button">0</property>
                                                                     <property name="minimum_size"></property>
                                                                     <property name="moveable">1</property>
-                                                                    <property name="name">m_checkBox1</property>
+                                                                    <property name="name">CB_DONT_MOVE</property>
                                                                     <property name="pane_border">1</property>
                                                                     <property name="pane_position"></property>
                                                                     <property name="pane_size"></property>
@@ -510,7 +510,7 @@
                                                             <property name="minimize_button">0</property>
                                                             <property name="minimum_size"></property>
                                                             <property name="moveable">1</property>
-                                                            <property name="name">m_slider1</property>
+                                                            <property name="name">SL_ATTACK_WHEN_HP</property>
                                                             <property name="pane_border">1</property>
                                                             <property name="pane_position"></property>
                                                             <property name="pane_size"></property>
@@ -619,7 +619,7 @@
                                                             <property name="minimize_button">0</property>
                                                             <property name="minimum_size"></property>
                                                             <property name="moveable">1</property>
-                                                            <property name="name">m_spinCtrl1</property>
+                                                            <property name="name">SC_ATTACK_WHEN_HP</property>
                                                             <property name="pane_border">1</property>
                                                             <property name="pane_position"></property>
                                                             <property name="pane_size"></property>
@@ -665,11 +665,11 @@
                                                             <event name="OnUpdateUI"></event>
                                                         </object>
                                                     </object>
-                                                    <object class="sizeritem" expanded="0">
+                                                    <object class="sizeritem" expanded="1">
                                                         <property name="border">5</property>
                                                         <property name="flag">wxEXPAND</property>
                                                         <property name="proportion">0</property>
-                                                        <object class="wxBoxSizer" expanded="0">
+                                                        <object class="wxBoxSizer" expanded="1">
                                                             <property name="minimum_size"></property>
                                                             <property name="name">bSizer41</property>
                                                             <property name="orient">wxVERTICAL</property>
@@ -714,7 +714,7 @@
                                                                     <property name="minimize_button">0</property>
                                                                     <property name="minimum_size"></property>
                                                                     <property name="moveable">1</property>
-                                                                    <property name="name">m_staticText11</property>
+                                                                    <property name="name">TXT_EVADE_WHEN_HP</property>
                                                                     <property name="pane_border">1</property>
                                                                     <property name="pane_position"></property>
                                                                     <property name="pane_size"></property>
@@ -798,7 +798,7 @@
                                                                     <property name="minimize_button">0</property>
                                                                     <property name="minimum_size"></property>
                                                                     <property name="moveable">1</property>
-                                                                    <property name="name">m_checkBox11</property>
+                                                                    <property name="name">CB_CAUTIOUS</property>
                                                                     <property name="pane_border">1</property>
                                                                     <property name="pane_position"></property>
                                                                     <property name="pane_size"></property>
@@ -888,7 +888,7 @@
                                                             <property name="minimize_button">0</property>
                                                             <property name="minimum_size"></property>
                                                             <property name="moveable">1</property>
-                                                            <property name="name">m_slider11</property>
+                                                            <property name="name">SL_EVADE_WHEN_HP</property>
                                                             <property name="pane_border">1</property>
                                                             <property name="pane_position"></property>
                                                             <property name="pane_size"></property>
@@ -997,7 +997,7 @@
                                                             <property name="minimize_button">0</property>
                                                             <property name="minimum_size"></property>
                                                             <property name="moveable">1</property>
-                                                            <property name="name">m_spinCtrl11</property>
+                                                            <property name="name">SC_EVADE_WHEN_HP</property>
                                                             <property name="pane_border">1</property>
                                                             <property name="pane_position"></property>
                                                             <property name="pane_size"></property>
@@ -1045,11 +1045,11 @@
                                                     </object>
                                                 </object>
                                             </object>
-                                            <object class="sizeritem" expanded="0">
+                                            <object class="sizeritem" expanded="1">
                                                 <property name="border">5</property>
                                                 <property name="flag">wxEXPAND</property>
                                                 <property name="proportion">0</property>
-                                                <object class="wxBoxSizer" expanded="0">
+                                                <object class="wxBoxSizer" expanded="1">
                                                     <property name="minimum_size"></property>
                                                     <property name="name">bSizer14</property>
                                                     <property name="orient">wxVERTICAL</property>
@@ -1234,11 +1234,11 @@
                                             </object>
                                         </object>
                                     </object>
-                                    <object class="sizeritem" expanded="0">
+                                    <object class="sizeritem" expanded="1">
                                         <property name="border">5</property>
                                         <property name="flag">wxEXPAND</property>
                                         <property name="proportion">0</property>
-                                        <object class="wxStaticBoxSizer" expanded="0">
+                                        <object class="wxStaticBoxSizer" expanded="1">
                                             <property name="id">wxID_ANY</property>
                                             <property name="label">Kind Homunculus</property>
                                             <property name="minimum_size"></property>
@@ -1425,11 +1425,11 @@
                                             </object>
                                         </object>
                                     </object>
-                                    <object class="sizeritem" expanded="0">
+                                    <object class="sizeritem" expanded="1">
                                         <property name="border">5</property>
                                         <property name="flag">wxEXPAND</property>
                                         <property name="proportion">0</property>
-                                        <object class="wxStaticBoxSizer" expanded="0">
+                                        <object class="wxStaticBoxSizer" expanded="1">
                                             <property name="id">wxID_ANY</property>
                                             <property name="label">Other</property>
                                             <property name="minimum_size"></property>
@@ -1438,11 +1438,11 @@
                                             <property name="parent">1</property>
                                             <property name="permission">none</property>
                                             <event name="OnUpdateUI"></event>
-                                            <object class="sizeritem" expanded="0">
+                                            <object class="sizeritem" expanded="1">
                                                 <property name="border">5</property>
                                                 <property name="flag">wxEXPAND</property>
                                                 <property name="proportion">1</property>
-                                                <object class="wxFlexGridSizer" expanded="0">
+                                                <object class="wxFlexGridSizer" expanded="1">
                                                     <property name="cols">2</property>
                                                     <property name="flexible_direction">wxBOTH</property>
                                                     <property name="growablecols"></property>
@@ -4345,7 +4345,7 @@
                 </object>
             </object>
         </object>
-        <object class="Dialog" expanded="1">
+        <object class="Dialog" expanded="0">
             <property name="aui_managed">0</property>
             <property name="aui_manager_style">wxAUI_MGR_DEFAULT</property>
             <property name="bg"></property>
@@ -4407,12 +4407,12 @@
             <event name="OnSetFocus"></event>
             <event name="OnSize"></event>
             <event name="OnUpdateUI"></event>
-            <object class="wxBoxSizer" expanded="1">
+            <object class="wxBoxSizer" expanded="0">
                 <property name="minimum_size"></property>
                 <property name="name">bSizer22</property>
                 <property name="orient">wxVERTICAL</property>
                 <property name="permission">none</property>
-                <object class="sizeritem" expanded="1">
+                <object class="sizeritem" expanded="0">
                     <property name="border">5</property>
                     <property name="flag">wxEXPAND</property>
                     <property name="proportion">1</property>
@@ -5291,11 +5291,11 @@
                         </object>
                     </object>
                 </object>
-                <object class="sizeritem" expanded="1">
+                <object class="sizeritem" expanded="0">
                     <property name="border">5</property>
                     <property name="flag">wxALIGN_CENTER_HORIZONTAL</property>
                     <property name="proportion">0</property>
-                    <object class="wxStdDialogButtonSizer" expanded="1">
+                    <object class="wxStdDialogButtonSizer" expanded="0">
                         <property name="Apply">0</property>
                         <property name="Cancel">1</property>
                         <property name="ContextHelp">0</property>
