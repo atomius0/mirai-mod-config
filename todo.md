@@ -1,7 +1,7 @@
 
 ## Todo
 
-- [ ] name the widgets from TAB_Mod, TAB_Language and AddTacticDialog.
+- [ ] name the widgets from AddTacticDialog.
 - [ ] give names to all of the required widgets in the .fbp (WIP, see above)
 - [ ] test filling the TAB_Skills programmatically?
 - [x] in wxListCtrl: should we use style 'wxLC_NO_SORT_HEADER'? -> yes
