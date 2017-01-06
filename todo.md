@@ -1,7 +1,8 @@
 
 ## Todo
 
-- [ ] in wxListCtrl: should we use style 'wxLC_NO_SORT_HEADER'?
+- [ ] give names to all of the required widgets in the .fbp
+- [x] in wxListCtrl: should we use style 'wxLC_NO_SORT_HEADER'? -> yes
 - [x] maybe change the wxListBox in the Tactics tab to an excel-like table-thing? (what is the best widget for this?) (maybe wxListCtrl?) (see sample controls.wx.lua) -> wxListCtrl
 - [ ] write a library for reading/writing Config.lua (original Config.lua is in ./data/Config.lua)
 - [ ] copy stringutil.lua into project directory when it is finished and tested. (is it?)
@@ -21,7 +22,6 @@
 - [ ] write readme.md
 - [ ] add a LICENSE.txt
 
-- [ ] give names to all of the required widgets in the .fbp
 - [ ] add function to get exe directory (like AppDir in BlitzMax) (see sample: calculator.wx.lua)
 - [ ] write translation loader module
 - [ ] implement preset-feature, where you can save the current config as a preset and load them easily.
