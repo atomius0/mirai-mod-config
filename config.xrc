@@ -14,7 +14,7 @@
 					<object class="notebookpage">
 						<label>General</label>
 						<selected>1</selected>
-						<object class="wxPanel" name="TAB_GENERAL">
+						<object class="wxPanel" name="TAB_General">
 							<style>wxTAB_TRAVERSAL</style>
 							<object class="wxBoxSizer">
 								<orient>wxVERTICAL</orient>
@@ -46,7 +46,7 @@
 															<option>0</option>
 															<flag>wxLEFT</flag>
 															<border>5</border>
-															<object class="wxStaticText" name="m_staticText1">
+															<object class="wxStaticText" name="TXT_AttackWhenHP">
 																<label>Attack when HPs &gt;</label>
 																<wrap>-1</wrap>
 															</object>
@@ -55,7 +55,7 @@
 															<option>0</option>
 															<flag>wxTOP|wxBOTTOM|wxLEFT</flag>
 															<border>5</border>
-															<object class="wxCheckBox" name="m_checkBox1">
+															<object class="wxCheckBox" name="CB_DontMove">
 																<label>don&apos;t move</label>
 																<checked>0</checked>
 															</object>
@@ -66,7 +66,7 @@
 													<option>1</option>
 													<flag>wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxTOP|wxBOTTOM</flag>
 													<border>5</border>
-													<object class="wxSlider" name="m_slider1">
+													<object class="wxSlider" name="SL_AttackWhenHP">
 														<style>wxSL_HORIZONTAL</style>
 														<value>75</value>
 														<min>0</min>
@@ -77,7 +77,7 @@
 													<option>1</option>
 													<flag>wxALIGN_RIGHT|wxTOP|wxBOTTOM</flag>
 													<border>5</border>
-													<object class="wxSpinCtrl" name="m_spinCtrl1">
+													<object class="wxSpinCtrl" name="SC_AttackWhenHP">
 														<style>wxSP_ARROW_KEYS</style>
 														<size>50,-1</size>
 														<value>75</value>
@@ -95,8 +95,8 @@
 															<option>0</option>
 															<flag>wxLEFT</flag>
 															<border>5</border>
-															<object class="wxStaticText" name="m_staticText11">
-																<label>Evade when HPs &gt;</label>
+															<object class="wxStaticText" name="TXT_EvadeWhenHP">
+																<label>Evade when HPs &lt;</label>
 																<wrap>-1</wrap>
 															</object>
 														</object>
@@ -104,7 +104,7 @@
 															<option>0</option>
 															<flag>wxTOP|wxBOTTOM|wxLEFT</flag>
 															<border>5</border>
-															<object class="wxCheckBox" name="m_checkBox11">
+															<object class="wxCheckBox" name="CB_Cautious">
 																<label>cautious</label>
 																<checked>0</checked>
 															</object>
@@ -115,7 +115,7 @@
 													<option>2</option>
 													<flag>wxEXPAND|wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL</flag>
 													<border>5</border>
-													<object class="wxSlider" name="m_slider11">
+													<object class="wxSlider" name="SL_EvadeWhenHP">
 														<style>wxSL_HORIZONTAL</style>
 														<value>50</value>
 														<min>0</min>
@@ -126,7 +126,7 @@
 													<option>1</option>
 													<flag>wxTOP|wxBOTTOM|wxALIGN_RIGHT</flag>
 													<border>5</border>
-													<object class="wxSpinCtrl" name="m_spinCtrl11">
+													<object class="wxSpinCtrl" name="SC_EvadeWhenHP">
 														<style>wxSP_ARROW_KEYS</style>
 														<size>50,-1</size>
 														<value>75</value>
@@ -146,7 +146,7 @@
 													<option>0</option>
 													<flag>wxALL</flag>
 													<border>5</border>
-													<object class="wxCheckBox" name="m_checkBox4">
+													<object class="wxCheckBox" name="CB_HelpOwnerFirst">
 														<label>Switch target on battle, to go to help the owner</label>
 														<checked>0</checked>
 													</object>
@@ -155,7 +155,7 @@
 													<option>0</option>
 													<flag>wxRIGHT|wxLEFT</flag>
 													<border>5</border>
-													<object class="wxCheckBox" name="m_checkBox5">
+													<object class="wxCheckBox" name="CB_KillEnemiesFirst">
 														<label>Take care of homunculus enemies first</label>
 														<checked>0</checked>
 													</object>
@@ -175,7 +175,7 @@
 											<option>0</option>
 											<flag>wxBOTTOM|wxRIGHT|wxLEFT</flag>
 											<border>5</border>
-											<object class="wxCheckBox" name="m_checkBox6">
+											<object class="wxCheckBox" name="CB_NoMovingTargets">
 												<label>Don&apos;t attack moving monsters</label>
 												<checked>0</checked>
 											</object>
@@ -184,7 +184,7 @@
 											<option>0</option>
 											<flag>wxRIGHT|wxLEFT</flag>
 											<border>5</border>
-											<object class="wxCheckBox" name="m_checkBox7">
+											<object class="wxCheckBox" name="CB_AdvMotionCheck">
 												<label>Try to detect area spells and frozen monsters</label>
 												<checked>0</checked>
 											</object>
@@ -213,7 +213,7 @@
 													<option>0</option>
 													<flag>wxALIGN_CENTER_VERTICAL|wxBOTTOM|wxRIGHT|wxLEFT</flag>
 													<border>5</border>
-													<object class="wxStaticText" name="m_staticText4">
+													<object class="wxStaticText" name="TXT_MaxEnemyDistance">
 														<label>Max enemy distance from the alchemist:</label>
 														<wrap>-1</wrap>
 													</object>
@@ -222,7 +222,7 @@
 													<option>1</option>
 													<flag>wxALIGN_RIGHT|wxBOTTOM</flag>
 													<border>5</border>
-													<object class="wxSpinCtrl" name="m_spinCtrl4">
+													<object class="wxSpinCtrl" name="SC_MaxEnemyDistance">
 														<style>wxSP_ARROW_KEYS</style>
 														<value>0</value>
 														<min>2</min>
@@ -233,7 +233,7 @@
 													<option>0</option>
 													<flag>wxALIGN_CENTER_VERTICAL|wxBOTTOM|wxRIGHT|wxLEFT</flag>
 													<border>5</border>
-													<object class="wxStaticText" name="m_staticText5">
+													<object class="wxStaticText" name="TXT_SkillTimeout">
 														<label>Max time for skills (ms):</label>
 														<wrap>-1</wrap>
 													</object>
@@ -242,7 +242,7 @@
 													<option>1</option>
 													<flag>wxALIGN_RIGHT|wxBOTTOM</flag>
 													<border>5</border>
-													<object class="wxSpinCtrl" name="m_spinCtrl5">
+													<object class="wxSpinCtrl" name="SC_SkillTimeout">
 														<style>wxSP_ARROW_KEYS</style>
 														<value>0</value>
 														<min>0</min>
@@ -255,7 +255,7 @@
 											<option>0</option>
 											<flag>wxALL</flag>
 											<border>5</border>
-											<object class="wxCheckBox" name="m_checkBox8">
+											<object class="wxCheckBox" name="CB_FollowAtOnce">
 												<label>Follow the alchemist at once</label>
 												<checked>0</checked>
 											</object>
@@ -264,7 +264,7 @@
 											<option>0</option>
 											<flag>wxBOTTOM|wxRIGHT|wxLEFT</flag>
 											<border>5</border>
-											<object class="wxCheckBox" name="m_checkBox9">
+											<object class="wxCheckBox" name="CB_CircleOnIdle">
 												<label>Circle around the alchemist when full</label>
 												<checked>0</checked>
 											</object>
@@ -273,7 +273,7 @@
 											<option>0</option>
 											<flag>wxRIGHT|wxLEFT</flag>
 											<border>5</border>
-											<object class="wxCheckBox" name="m_checkBox10">
+											<object class="wxCheckBox" name="CB_CanDetectNoPot">
 												<label>Detect out of potion</label>
 												<checked>0</checked>
 											</object>
@@ -286,7 +286,7 @@
 					<object class="notebookpage">
 						<label>Tactics</label>
 						<selected>0</selected>
-						<object class="wxPanel" name="TAB_TACTICS">
+						<object class="wxPanel" name="TAB_Tactics">
 							<style>wxTAB_TRAVERSAL</style>
 							<object class="wxBoxSizer">
 								<orient>wxVERTICAL</orient>
@@ -300,7 +300,7 @@
 											<option>0</option>
 											<flag>wxTOP|wxRIGHT|wxLEFT</flag>
 											<border>5</border>
-											<object class="wxButton" name="m_button16">
+											<object class="wxButton" name="BUT_Edit">
 												<style>wxBU_EXACTFIT</style>
 												<label>Edit</label>
 												<default>0</default>
@@ -310,7 +310,7 @@
 											<option>0</option>
 											<flag>wxTOP|wxRIGHT|wxLEFT</flag>
 											<border>5</border>
-											<object class="wxButton" name="m_button20">
+											<object class="wxButton" name="BUT_Add">
 												<style>wxBU_EXACTFIT</style>
 												<label>Add</label>
 												<default>0</default>
@@ -320,7 +320,7 @@
 											<option>0</option>
 											<flag>wxTOP|wxRIGHT|wxLEFT</flag>
 											<border>5</border>
-											<object class="wxButton" name="m_button17">
+											<object class="wxButton" name="BUT_Remove">
 												<style>wxBU_EXACTFIT</style>
 												<label>Remove</label>
 												<default>0</default>
@@ -330,7 +330,7 @@
 											<option>0</option>
 											<flag>wxTOP|wxRIGHT|wxLEFT</flag>
 											<border>5</border>
-											<object class="wxButton" name="m_button18">
+											<object class="wxButton" name="BUT_Up">
 												<style>wxBU_EXACTFIT</style>
 												<label>Up</label>
 												<default>0</default>
@@ -340,7 +340,7 @@
 											<option>0</option>
 											<flag>wxTOP|wxRIGHT|wxLEFT</flag>
 											<border>5</border>
-											<object class="wxButton" name="m_button19">
+											<object class="wxButton" name="BUT_Down">
 												<style>wxBU_EXACTFIT</style>
 												<label>Down</label>
 												<default>0</default>
@@ -352,7 +352,7 @@
 									<option>1</option>
 									<flag>wxEXPAND|wxTOP</flag>
 									<border>5</border>
-									<object class="wxListCtrl" name="m_listCtrl1">
+									<object class="wxListCtrl" name="LC_Tactics">
 										<style>wxLC_HRULES|wxLC_REPORT|wxLC_SINGLE_SEL|wxLC_VRULES</style>
 									</object>
 								</object>
@@ -362,7 +362,7 @@
 					<object class="notebookpage">
 						<label>Skills</label>
 						<selected>0</selected>
-						<object class="wxPanel" name="TAB_SKILLS">
+						<object class="wxPanel" name="TAB_Skills">
 							<style>wxTAB_TRAVERSAL</style>
 							<object class="wxBoxSizer">
 								<orient>wxVERTICAL</orient>
@@ -379,7 +379,7 @@
 												<option>0</option>
 												<flag>wxALL</flag>
 												<border>5</border>
-												<object class="wxStaticText" name="m_staticText7">
+												<object class="wxStaticText" name="TXT_SkillsDescription">
 													<label>Please choose the minimum amount of SP for each skill and\nthe skill level to use (OFF = skill disabled).</label>
 													<wrap>-1</wrap>
 												</object>
@@ -534,7 +534,7 @@
 					<object class="notebookpage">
 						<label>Mod</label>
 						<selected>0</selected>
-						<object class="wxPanel" name="TAB_MOD">
+						<object class="wxPanel" name="TAB_Mod">
 							<style>wxTAB_TRAVERSAL</style>
 							<object class="wxBoxSizer">
 								<orient>wxVERTICAL</orient>
@@ -542,7 +542,7 @@
 									<option>1</option>
 									<flag>wxALL|wxEXPAND</flag>
 									<border>5</border>
-									<object class="wxListBox" name="m_listBox11">
+									<object class="wxListBox" name="LB_Mod">
 										<style>wxLB_ALWAYS_SB|wxLB_SINGLE</style>
 										<content>
 											<item>A</item>
@@ -558,7 +558,7 @@
 					<object class="notebookpage">
 						<label>Language</label>
 						<selected>0</selected>
-						<object class="wxPanel" name="TAB_LANGUAGE">
+						<object class="wxPanel" name="TAB_Language">
 							<style>wxTAB_TRAVERSAL</style>
 							<object class="wxBoxSizer">
 								<orient>wxVERTICAL</orient>
@@ -566,7 +566,7 @@
 									<option>1</option>
 									<flag>wxALL|wxEXPAND</flag>
 									<border>5</border>
-									<object class="wxListBox" name="m_listBox1">
+									<object class="wxListBox" name="LB_Language">
 										<style>wxLB_ALWAYS_SB|wxLB_SINGLE</style>
 										<content>
 											<item>A</item>
@@ -591,7 +591,7 @@
 						<option>1</option>
 						<flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
 						<border>5</border>
-						<object class="wxButton" name="m_button15">
+						<object class="wxButton" name="BUT_SaveConfig">
 							<label>Save configuration</label>
 							<default>0</default>
 						</object>
@@ -600,7 +600,7 @@
 						<option>0</option>
 						<flag>wxALL|wxALIGN_CENTER_VERTICAL</flag>
 						<border>5</border>
-						<object class="wxStaticText" name="m_staticText111">
+						<object class="wxStaticText" name="TXT_Version">
 							<label>Version</label>
 							<wrap>-1</wrap>
 						</object>
@@ -609,9 +609,9 @@
 						<option>0</option>
 						<flag>wxALL|wxALIGN_CENTER_VERTICAL</flag>
 						<border>5</border>
-						<object class="wxHyperlinkCtrl" name="m_hyperlink1">
+						<object class="wxHyperlinkCtrl" name="HL_Hyperlink">
 							<label>nyanro.org</label>
-							<url>http://www.wxformbuilder.org</url>
+							<url>http://nyanro.org/</url>
 							<style>wxHL_DEFAULT_STYLE</style>
 						</object>
 					</object>
