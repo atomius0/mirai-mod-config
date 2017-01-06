@@ -3763,7 +3763,7 @@
                                 <property name="minimize_button">0</property>
                                 <property name="minimum_size"></property>
                                 <property name="moveable">1</property>
-                                <property name="name">TAB_MOD</property>
+                                <property name="name">TAB_Mod</property>
                                 <property name="pane_border">1</property>
                                 <property name="pane_position"></property>
                                 <property name="pane_size"></property>
@@ -3847,7 +3847,7 @@
                                             <property name="minimize_button">0</property>
                                             <property name="minimum_size"></property>
                                             <property name="moveable">1</property>
-                                            <property name="name">m_listBox11</property>
+                                            <property name="name">LB_Mod</property>
                                             <property name="pane_border">1</property>
                                             <property name="pane_position"></property>
                                             <property name="pane_size"></property>
@@ -3937,7 +3937,7 @@
                                 <property name="minimize_button">0</property>
                                 <property name="minimum_size"></property>
                                 <property name="moveable">1</property>
-                                <property name="name">TAB_LANGUAGE</property>
+                                <property name="name">TAB_Language</property>
                                 <property name="pane_border">1</property>
                                 <property name="pane_position"></property>
                                 <property name="pane_size"></property>
@@ -4021,7 +4021,7 @@
                                             <property name="minimize_button">0</property>
                                             <property name="minimum_size"></property>
                                             <property name="moveable">1</property>
-                                            <property name="name">m_listBox1</property>
+                                            <property name="name">LB_Language</property>
                                             <property name="pane_border">1</property>
                                             <property name="pane_position"></property>
                                             <property name="pane_size"></property>
