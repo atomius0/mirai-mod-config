@@ -75,8 +75,26 @@ function MainWindow:init(xmlResource)
 		self.dialog:Destroy()
 	end
 	
+	
+	function handlers.OnAttackWhenHP(event)
+		DebugLog("MainWindow: OnAttackWhenHP")
+		event:Skip()
+		
+		local src = event:GetId()
+		if src == MainWindow.IDs.SL_AttackWhenHP then
+			DebugLog("source: SL_AttackWhenHP")
+			self.SC_AttackWhenHP:SetValue(event:GetInt())
+			
+		elseif src == MainWindow.IDs.SC_AttackWhenHP then
+			DebugLog("source: SC_AttackWhenHP")
+			self.SL_AttackWhenHP:SetValue(event:GetInt())
+		end
+	end
+	
 	-- TODO: combine these handler functions, by comparing event:GetEventType() with the wx.wxEVT_* constants
 	--       and using event:GetId() to get the ID of the event source. (look it up in MainWindow.IDs)
+	
+	--[=[
 	function handlers.OnSL_AttackWhenHP(event)
 		DebugLog("MainWindow: OnSL_AttackWhenHP")
 		event:Skip()
@@ -103,7 +121,7 @@ function MainWindow:init(xmlResource)
 		DebugLog(event:GetInt())
 		DebugLog(event:GetId())
 	end
-	
+	--]=]
 	-- TODO: remaining event handler functions, eg: "function handlers.OnSomething(event)"
 	
 	
@@ -142,10 +160,10 @@ function MainWindow:init(xmlResource)
 	
 	-- for all movement events:
 	-- (see wxWidgets docs: class "wxCommandEvent")
-	self.dialog:Connect(MainWindow.IDs.SL_AttackWhenHP, wx.wxEVT_COMMAND_SLIDER_UPDATED, handlers.OnSL_AttackWhenHP)
+	self.dialog:Connect(MainWindow.IDs.SL_AttackWhenHP, wx.wxEVT_COMMAND_SLIDER_UPDATED, handlers.OnAttackWhenHP)
 	
 	-- found the wxEVT_* constant via wxLua sample program "controls.wx.lua"
-	self.dialog:Connect(MainWindow.IDs.SC_AttackWhenHP, wx.wxEVT_COMMAND_SPINCTRL_UPDATED, handlers.OnSC_AttackWhenHP)
+	self.dialog:Connect(MainWindow.IDs.SC_AttackWhenHP, wx.wxEVT_COMMAND_SPINCTRL_UPDATED, handlers.OnAttackWhenHP)
 	
 	-- TODO: connect remaining events to handler functions
 	
