@@ -2,9 +2,9 @@
 ## Todo
 
 - [x] keep the slider and the spinCtrl for "AttackWhenHP" in sync
-- [ ] keep the slider and the spinCtrl for "EvadeWhenHP" in sync
-- [ ] link the two sliders "SL_AttackWhenHP" and "SL_EvadeWhenHP" (while keeping spinCtrls in sync!)
-- [ ] link the two pairs of slider and SpinCtrl "AttackWhenHP" and "EvadeWhenHP" (according to "ControlPanelConfigOptions.md" line 28!)
+- [x] keep the slider and the spinCtrl for "EvadeWhenHP" in sync
+- [x] link the two sliders "SL_AttackWhenHP" and "SL_EvadeWhenHP" (while keeping spinCtrls in sync!)
+- [x] link the two pairs of slider and SpinCtrl "AttackWhenHP" and "EvadeWhenHP" (according to "ControlPanelConfigOptions.md" line 28!)
 
 - [ ] hide the tab Language for now. (until translation functionality is implemented)
 - [ ] test filling the TAB_Skills programmatically (in new branch) (we will need to remove the contents of BSIZER_Skills, so make a branch before this, so that we can keep it as a reference later)
