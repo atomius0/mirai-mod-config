@@ -81,24 +81,45 @@ function MainWindow:init(xmlResource)
 		DebugLog("MainWindow: OnAttackAndEvade")
 		event:Skip()
 		
+		local attackChanged = false
+		local evadeChanged = false
+		
 		local src = event:GetId()
 		if src == MainWindow.IDs.SL_AttackWhenHP then
 			DebugLog("source: SL_AttackWhenHP")
 			self.SC_AttackWhenHP:SetValue(event:GetInt())
+			attackChanged = true
 			
 		elseif src == MainWindow.IDs.SC_AttackWhenHP then
 			DebugLog("source: SC_AttackWhenHP")
 			self.SL_AttackWhenHP:SetValue(event:GetInt())
+			attackChanged = true
 			
 		elseif src == MainWindow.IDs.SL_EvadeWhenHP then
 			DebugLog("source: SL_EvadeWhenHP")
 			self.SC_EvadeWhenHP:SetValue(event:GetInt())
+			evadeChanged = true
 			
 		elseif src == MainWindow.IDs.SC_EvadeWhenHP then
 			DebugLog("source: SC_EvadeWhenHP")
 			self.SL_EvadeWhenHP:SetValue(event:GetInt())
+			evadeChanged = true
+		end
+		
+		local attack = self.SC_AttackWhenHP:GetValue()
+		local evade = self.SC_EvadeWhenHP:GetValue()
+		if attackChanged and attack < evade then
+			DebugLog("attackChanged and attack < evade")
+			self.SC_EvadeWhenHP:SetValue(attack)
+			self.SL_EvadeWhenHP:SetValue(attack)
+			
+		elseif evadeChanged and evade > attack then
+			DebugLog("evadeChanged and evade > attack")
+			self.SC_AttackWhenHP:SetValue(evade)
+			self.SL_AttackWhenHP:SetValue(evade)
 		end
 	end
+	
 	
 	--[[
 	function handlers.OnAttackWhenHP(event)
