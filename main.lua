@@ -75,13 +75,27 @@ function MainWindow:init(xmlResource)
 		self.dialog:Destroy()
 	end
 	
+	-- TODO: combine these handler functions, by comparing event:GetEventType() with the wx.wxEVT_* constants
+	--       and using event:GetId() to get the ID of the event source. (look it up in MainWindow.IDs)
 	function handlers.OnSL_AttackWhenHP(event)
 		DebugLog("MainWindow: OnSL_AttackWhenHP")
 		event:Skip()
 		
 		DebugLog("Event: " .. tostring(event:GetEventType()))
+		
+		DebugLog(wx.wxEVT_COMMAND_SLIDER_UPDATED)
+		DebugLog(MainWindow.IDs.SL_AttackWhenHP)
+		DebugLog(event:GetId())
+		
 		DebugLog("Value: " .. tostring(self.SL_AttackWhenHP:GetValue()))
 		--TODO: handlers.OnSL_AttackWhenHP()
+	end
+	
+	function handlers.OnSC_AttackWhenHP(event)
+		DebugLog("MainWindow: OnSC_AttackWhenHP")
+		event:Skip()
+		
+		DebugLog(event:GetInt())
 	end
 	
 	-- TODO: remaining event handler functions, eg: "function handlers.OnSomething(event)"
@@ -119,9 +133,13 @@ function MainWindow:init(xmlResource)
 	--self.dialog:Connect(MainWindow.IDs.SL_AttackWhenHP, wx.wxEVT_SCROLL_THUMBTRACK, handlers.OnSL_AttackWhenHP)
 	-- for movement via keyboard:
 	--self.dialog:Connect(MainWindow.IDs.SL_AttackWhenHP, wx.wxEVT_SCROLL_CHANGED, handlers.OnSL_AttackWhenHP)
+	
 	-- for all movement events:
 	-- (see wxWidgets docs: class "wxCommandEvent")
 	self.dialog:Connect(MainWindow.IDs.SL_AttackWhenHP, wx.wxEVT_COMMAND_SLIDER_UPDATED, handlers.OnSL_AttackWhenHP)
+	
+	-- found the wxEVT_* constant via wxLua sample program "controls.wx.lua"
+	self.dialog:Connect(MainWindow.IDs.SC_AttackWhenHP, wx.wxEVT_COMMAND_SPINCTRL_UPDATED, handlers.OnSC_AttackWhenHP)
 	
 	-- TODO: connect remaining events to handler functions
 	
