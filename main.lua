@@ -63,7 +63,8 @@ function MainWindow:init(xmlResource)
 	-- TODO: self.* reference variables for the remaining input fields (eg. wxSlider, wxSpinCtrl, wxListBox)
 	self.SL_AttackWhenHP = nil
 	self.SC_AttackWhenHP = nil
-	
+	self.SL_EvadeWhenHP  = nil
+	self.SC_EvadeWhenHP  = nil
 	
 	local handlers = {} -- table for all event handler functions
 	
@@ -91,6 +92,21 @@ function MainWindow:init(xmlResource)
 		end
 	end
 	
+	function handlers.OnEvadeWhenHP(event)
+		DebugLog("MainWindow: OnEvadeWhenHP")
+		event:Skip()
+		
+		local src = event:GetId()
+		if src == MainWindow.IDs.SL_EvadeWhenHP then
+			DebugLog("source: SL_EvadeWhenHP")
+			self.SC_EvadeWhenHP:SetValue(event:GetInt())
+			
+		elseif src == MainWindow.IDs.SC_EvadeWhenHP then
+			DebugLog("source: SC_EvadeWhenHP")
+			self.SL_EvadeWhenHP:SetValue(event:GetInt())
+		end
+	end
+	
 	-- TODO: combine these handler functions, by comparing event:GetEventType() with the wx.wxEVT_* constants
 	--       and using event:GetId() to get the ID of the event source. (look it up in MainWindow.IDs)
 	
@@ -102,7 +118,9 @@ function MainWindow:init(xmlResource)
 	-- TODO: add all the remaining IDs!
 	for i, v in ipairs {
 		"SL_AttackWhenHP",
-		"SC_AttackWhenHP"
+		"SC_AttackWhenHP",
+		"SL_EvadeWhenHP",
+		"SC_EvadeWhenHP"
 	} do
 		MainWindow.IDs[v] = xmlResource.GetXRCID(v)
 	end
@@ -121,6 +139,13 @@ function MainWindow:init(xmlResource)
 	
 	self.SC_AttackWhenHP = assert(self.dialog:FindWindow(MainWindow.IDs.SC_AttackWhenHP))
 	self.SC_AttackWhenHP = assert(self.SC_AttackWhenHP:DynamicCast("wxSpinCtrl"))
+	
+	self.SL_EvadeWhenHP = assert(self.dialog:FindWindow(MainWindow.IDs.SL_EvadeWhenHP))
+	self.SL_EvadeWhenHP = assert(self.SL_EvadeWhenHP:DynamicCast("wxSlider"))
+	
+	self.SC_EvadeWhenHP = assert(self.dialog:FindWindow(MainWindow.IDs.SC_EvadeWhenHP))
+	self.SC_EvadeWhenHP = assert(self.SC_EvadeWhenHP:DynamicCast("wxSpinCtrl"))
+	
 	-- TODO: initialize the remaining reference variables for all the input fields
 	
 	
@@ -137,6 +162,9 @@ function MainWindow:init(xmlResource)
 	
 	-- found the wxEVT_* constant via wxLua sample program "controls.wx.lua"
 	self.dialog:Connect(MainWindow.IDs.SC_AttackWhenHP, wx.wxEVT_COMMAND_SPINCTRL_UPDATED, handlers.OnAttackWhenHP)
+	
+	self.dialog:Connect(MainWindow.IDs.SL_EvadeWhenHP, wx.wxEVT_COMMAND_SLIDER_UPDATED, handlers.OnEvadeWhenHP)
+	self.dialog:Connect(MainWindow.IDs.SC_EvadeWhenHP, wx.wxEVT_COMMAND_SPINCTRL_UPDATED, handlers.OnEvadeWhenHP)
 	
 	-- TODO: connect remaining events to handler functions
 	
