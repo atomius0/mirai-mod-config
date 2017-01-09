@@ -94,34 +94,7 @@ function MainWindow:init(xmlResource)
 	-- TODO: combine these handler functions, by comparing event:GetEventType() with the wx.wxEVT_* constants
 	--       and using event:GetId() to get the ID of the event source. (look it up in MainWindow.IDs)
 	
-	--[=[
-	function handlers.OnSL_AttackWhenHP(event)
-		DebugLog("MainWindow: OnSL_AttackWhenHP")
-		event:Skip()
-		
-		self.SC_AttackWhenHP:SetValue(event:GetInt())
-		
-		--[[
-		DebugLog("Event: " .. tostring(event:GetEventType()))
-		
-		DebugLog(wx.wxEVT_COMMAND_SLIDER_UPDATED)
-		DebugLog(MainWindow.IDs.SL_AttackWhenHP)
-		DebugLog(event:GetId())
-		--]]
-		DebugLog("Value: " .. tostring(self.SL_AttackWhenHP:GetValue()))
-		--TODO: handlers.OnSL_AttackWhenHP()
-	end
 	
-	function handlers.OnSC_AttackWhenHP(event)
-		DebugLog("MainWindow: OnSC_AttackWhenHP")
-		event:Skip()
-		
-		self.SL_AttackWhenHP:SetValue(event:GetInt())
-		
-		DebugLog(event:GetInt())
-		DebugLog(event:GetId())
-	end
-	--]=]
 	-- TODO: remaining event handler functions, eg: "function handlers.OnSomething(event)"
 	
 	
