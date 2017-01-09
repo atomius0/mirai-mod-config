@@ -81,12 +81,15 @@ function MainWindow:init(xmlResource)
 		DebugLog("MainWindow: OnSL_AttackWhenHP")
 		event:Skip()
 		
+		self.SC_AttackWhenHP:SetValue(event:GetInt())
+		
+		--[[
 		DebugLog("Event: " .. tostring(event:GetEventType()))
 		
 		DebugLog(wx.wxEVT_COMMAND_SLIDER_UPDATED)
 		DebugLog(MainWindow.IDs.SL_AttackWhenHP)
 		DebugLog(event:GetId())
-		
+		--]]
 		DebugLog("Value: " .. tostring(self.SL_AttackWhenHP:GetValue()))
 		--TODO: handlers.OnSL_AttackWhenHP()
 	end
@@ -95,7 +98,10 @@ function MainWindow:init(xmlResource)
 		DebugLog("MainWindow: OnSC_AttackWhenHP")
 		event:Skip()
 		
+		self.SL_AttackWhenHP:SetValue(event:GetInt())
+		
 		DebugLog(event:GetInt())
+		DebugLog(event:GetId())
 	end
 	
 	-- TODO: remaining event handler functions, eg: "function handlers.OnSomething(event)"
