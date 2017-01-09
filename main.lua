@@ -60,7 +60,10 @@ function MainWindow:init(xmlResource)
 	--       we might need it when MainWindow wants to create a child window.
 	
 	self.dialog = nil
-	-- TODO: self.* reference variables for all input fields (eg. wxSlider, wxSpinCtrl, wxListBox)
+	-- TODO: self.* reference variables for the remaining input fields (eg. wxSlider, wxSpinCtrl, wxListBox)
+	self.SL_AttackWhenHP = nil
+	self.SC_AttackWhenHP = nil
+	
 	
 	local handlers = {} -- table for all event handler functions
 	
@@ -71,10 +74,28 @@ function MainWindow:init(xmlResource)
 		self.dialog:Show(false)
 		self.dialog:Destroy()
 	end
-	-- TODO: event handler functions, eg: "function handlers.OnSomething(event)"
+	
+	function handlers.OnSL_AttackWhenHP(event)
+		DebugLog("MainWindow: OnSL_AttackWhenHP")
+		event:Skip()
+		
+		DebugLog("Event: " .. tostring(event:GetEventType()))
+		DebugLog("Value: " .. tostring(self.SL_AttackWhenHP:GetValue()))
+		--TODO: handlers.OnSL_AttackWhenHP()
+	end
+	
+	-- TODO: remaining event handler functions, eg: "function handlers.OnSomething(event)"
 	
 	
-	-- TODO: get IDs / init wxWindow ID values (yes, before loading the dialog)
+	-- get IDs / init wxWindow ID values (yes, before loading the dialog)
+	-- TODO: add all the remaining IDs!
+	for i, v in ipairs {
+		"SL_AttackWhenHP",
+		"SC_AttackWhenHP"
+	} do
+		MainWindow.IDs[v] = xmlResource.GetXRCID(v)
+	end
+	
 	
 	-- load the dialog:
 	self.dialog = wx.wxDialog()
@@ -82,10 +103,27 @@ function MainWindow:init(xmlResource)
 		"Error loading dialog 'MainWindow'"
 	)
 	
-	-- TODO: initialize the reference variables for all the input fields
+	
+	-- initialize the reference variables for the input fields
+	self.SL_AttackWhenHP = assert(self.dialog:FindWindow(MainWindow.IDs.SL_AttackWhenHP))
+	self.SL_AttackWhenHP = assert(self.SL_AttackWhenHP:DynamicCast("wxSlider"))
+	
+	self.SC_AttackWhenHP = assert(self.dialog:FindWindow(MainWindow.IDs.SC_AttackWhenHP))
+	self.SC_AttackWhenHP = assert(self.SC_AttackWhenHP:DynamicCast("wxSpinCtrl"))
+	-- TODO: initialize the remaining reference variables for all the input fields
 	
 	
-	-- TODO: connect events to handler functions
+	-- connect events to handler functions
+	
+	-- for continuous dragging with the mouse:
+	--self.dialog:Connect(MainWindow.IDs.SL_AttackWhenHP, wx.wxEVT_SCROLL_THUMBTRACK, handlers.OnSL_AttackWhenHP)
+	-- for movement via keyboard:
+	--self.dialog:Connect(MainWindow.IDs.SL_AttackWhenHP, wx.wxEVT_SCROLL_CHANGED, handlers.OnSL_AttackWhenHP)
+	-- for all movement events:
+	-- (see wxWidgets docs: class "wxCommandEvent")
+	self.dialog:Connect(MainWindow.IDs.SL_AttackWhenHP, wx.wxEVT_COMMAND_SLIDER_UPDATED, handlers.OnSL_AttackWhenHP)
+	
+	-- TODO: connect remaining events to handler functions
 	
 	-- connect the closeevent to the OnClose function:
 	self.dialog:Connect(wx.wxEVT_CLOSE_WINDOW, handlers.OnClose)
