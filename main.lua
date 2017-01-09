@@ -76,7 +76,31 @@ function MainWindow:init(xmlResource)
 		self.dialog:Destroy()
 	end
 	
+	-- manages linking of "Homunculus: Attack and Evade" sliders and spinCtrls (tab "General")
+	function handlers.OnAttackAndEvade(event)
+		DebugLog("MainWindow: OnAttackAndEvade")
+		event:Skip()
+		
+		local src = event:GetId()
+		if src == MainWindow.IDs.SL_AttackWhenHP then
+			DebugLog("source: SL_AttackWhenHP")
+			self.SC_AttackWhenHP:SetValue(event:GetInt())
+			
+		elseif src == MainWindow.IDs.SC_AttackWhenHP then
+			DebugLog("source: SC_AttackWhenHP")
+			self.SL_AttackWhenHP:SetValue(event:GetInt())
+			
+		elseif src == MainWindow.IDs.SL_EvadeWhenHP then
+			DebugLog("source: SL_EvadeWhenHP")
+			self.SC_EvadeWhenHP:SetValue(event:GetInt())
+			
+		elseif src == MainWindow.IDs.SC_EvadeWhenHP then
+			DebugLog("source: SC_EvadeWhenHP")
+			self.SL_EvadeWhenHP:SetValue(event:GetInt())
+		end
+	end
 	
+	--[[
 	function handlers.OnAttackWhenHP(event)
 		DebugLog("MainWindow: OnAttackWhenHP")
 		event:Skip()
@@ -106,6 +130,7 @@ function MainWindow:init(xmlResource)
 			self.SL_EvadeWhenHP:SetValue(event:GetInt())
 		end
 	end
+	--]]
 	
 	-- TODO: combine these handler functions, by comparing event:GetEventType() with the wx.wxEVT_* constants
 	--       and using event:GetId() to get the ID of the event source. (look it up in MainWindow.IDs)
@@ -158,13 +183,13 @@ function MainWindow:init(xmlResource)
 	
 	-- for all movement events:
 	-- (see wxWidgets docs: class "wxCommandEvent")
-	self.dialog:Connect(MainWindow.IDs.SL_AttackWhenHP, wx.wxEVT_COMMAND_SLIDER_UPDATED, handlers.OnAttackWhenHP)
+	self.dialog:Connect(MainWindow.IDs.SL_AttackWhenHP, wx.wxEVT_COMMAND_SLIDER_UPDATED, handlers.OnAttackAndEvade)
 	
 	-- found the wxEVT_* constant via wxLua sample program "controls.wx.lua"
-	self.dialog:Connect(MainWindow.IDs.SC_AttackWhenHP, wx.wxEVT_COMMAND_SPINCTRL_UPDATED, handlers.OnAttackWhenHP)
+	self.dialog:Connect(MainWindow.IDs.SC_AttackWhenHP, wx.wxEVT_COMMAND_SPINCTRL_UPDATED, handlers.OnAttackAndEvade)
 	
-	self.dialog:Connect(MainWindow.IDs.SL_EvadeWhenHP, wx.wxEVT_COMMAND_SLIDER_UPDATED, handlers.OnEvadeWhenHP)
-	self.dialog:Connect(MainWindow.IDs.SC_EvadeWhenHP, wx.wxEVT_COMMAND_SPINCTRL_UPDATED, handlers.OnEvadeWhenHP)
+	self.dialog:Connect(MainWindow.IDs.SL_EvadeWhenHP, wx.wxEVT_COMMAND_SLIDER_UPDATED, handlers.OnAttackAndEvade)
+	self.dialog:Connect(MainWindow.IDs.SC_EvadeWhenHP, wx.wxEVT_COMMAND_SPINCTRL_UPDATED, handlers.OnAttackAndEvade)
 	
 	-- TODO: connect remaining events to handler functions
 	
