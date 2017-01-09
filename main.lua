@@ -31,7 +31,7 @@ function ErrorHandler(err)
 	wx.wxMessageBox(err, APP_NAME, wx.wxOK + wx.wxICON_EXCLAMATION)
 end
 
--- TODO: test this
+
 function LoadXmlResource(xrcFile)
 	local xmlResource = wx.wxXmlResource()
 	xmlResource:InitAllHandlers()
@@ -120,43 +120,6 @@ function MainWindow:init(xmlResource)
 		end
 	end
 	
-	
-	--[[
-	function handlers.OnAttackWhenHP(event)
-		DebugLog("MainWindow: OnAttackWhenHP")
-		event:Skip()
-		
-		local src = event:GetId()
-		if src == MainWindow.IDs.SL_AttackWhenHP then
-			DebugLog("source: SL_AttackWhenHP")
-			self.SC_AttackWhenHP:SetValue(event:GetInt())
-			
-		elseif src == MainWindow.IDs.SC_AttackWhenHP then
-			DebugLog("source: SC_AttackWhenHP")
-			self.SL_AttackWhenHP:SetValue(event:GetInt())
-		end
-	end
-	
-	function handlers.OnEvadeWhenHP(event)
-		DebugLog("MainWindow: OnEvadeWhenHP")
-		event:Skip()
-		
-		local src = event:GetId()
-		if src == MainWindow.IDs.SL_EvadeWhenHP then
-			DebugLog("source: SL_EvadeWhenHP")
-			self.SC_EvadeWhenHP:SetValue(event:GetInt())
-			
-		elseif src == MainWindow.IDs.SC_EvadeWhenHP then
-			DebugLog("source: SC_EvadeWhenHP")
-			self.SL_EvadeWhenHP:SetValue(event:GetInt())
-		end
-	end
-	--]]
-	
-	-- TODO: combine these handler functions, by comparing event:GetEventType() with the wx.wxEVT_* constants
-	--       and using event:GetId() to get the ID of the event source. (look it up in MainWindow.IDs)
-	
-	
 	-- TODO: remaining event handler functions, eg: "function handlers.OnSomething(event)"
 	
 	
@@ -197,15 +160,8 @@ function MainWindow:init(xmlResource)
 	
 	-- connect events to handler functions
 	
-	-- for continuous dragging with the mouse:
-	--self.dialog:Connect(MainWindow.IDs.SL_AttackWhenHP, wx.wxEVT_SCROLL_THUMBTRACK, handlers.OnSL_AttackWhenHP)
-	-- for movement via keyboard:
-	--self.dialog:Connect(MainWindow.IDs.SL_AttackWhenHP, wx.wxEVT_SCROLL_CHANGED, handlers.OnSL_AttackWhenHP)
-	
-	-- for all movement events:
 	-- (see wxWidgets docs: class "wxCommandEvent")
 	self.dialog:Connect(MainWindow.IDs.SL_AttackWhenHP, wx.wxEVT_COMMAND_SLIDER_UPDATED, handlers.OnAttackAndEvade)
-	
 	-- found the wxEVT_* constant via wxLua sample program "controls.wx.lua"
 	self.dialog:Connect(MainWindow.IDs.SC_AttackWhenHP, wx.wxEVT_COMMAND_SPINCTRL_UPDATED, handlers.OnAttackAndEvade)
 	
@@ -216,7 +172,6 @@ function MainWindow:init(xmlResource)
 	
 	-- connect the closeevent to the OnClose function:
 	self.dialog:Connect(wx.wxEVT_CLOSE_WINDOW, handlers.OnClose)
-	-- TODO: next!
 	
 	--TODO: load Config.lua? (and if it doesn't exist, create it)
 	
@@ -225,12 +180,6 @@ function MainWindow:init(xmlResource)
 end
 
 
--- no, function LoadXMLResource will not be a member of class MainWindow, since the xml resource
--- will possibly be shared among multiple windows/dialogs.
---function MainWindow.LoadXmlResource()
-
-
---local xmlResource = LoadXmlResource(XRC_FILE)
 
 xpcall(function() --try
 	local xmlResource = LoadXmlResource(XRC_FILE)
@@ -240,6 +189,4 @@ xpcall(function() --try
 end, ErrorHandler)
 
 
-
 wx.wxGetApp():MainLoop()
-
