@@ -62,3 +62,6 @@ file:///D:/Dateien/Programming/lua/wxLua/docs/html/wx_wxwindow.html#wxwindowsetm
 - use wxDialog:ShowModal for the AddTacticDialog
 
 - write a new runtime exe later? (in C or C++)
+
+
+- [ ] look up how to get event type names? (like in one of the wxLua samples)
