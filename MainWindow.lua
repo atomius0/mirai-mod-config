@@ -139,22 +139,29 @@ function MainWindow:init(xmlResource)
 	
 	self:HideLanguageTab(xmlResource) -- TODO: remove this later
 	
-	FillSkillsTab(self.dialog, xmlResource)
+	local skills = {
+		{"Amistr", {
+			{"Bulwark", 5, "hami_defence.gif"}
+		}}
+	}
+	FillSkillsTab(self.dialog, xmlResource, skills)
 	
 	self.dialog:Center()
 	self.dialog:Show(true)
 end
 
 
-function FillSkillsTab(dialog, xmlResource) -- returns table with references to all widgets
-	--[[
-	local BSIZER_Skills = assert(self.dialog:FindWindow(xmlResource.GetXRCID("BSIZER_Skills")))
-	local TAB_Skills = assert(self.dialog:FindWindow(xmlResource.GetXRCID("TAB_Skills")))
+function FillSkillsTab(dialog, xmlResource, skills) -- returns table with references to all widgets
+	assert(type(skills) == "table")
 	
-	local scrolledWindow = wx.wxScrolledWindow(TAB_Skills, wx.wxID_ANY, wx.wxDefaultPosition,
-		wx.wxSize(-1,-1), wx.wxHSCROLL + wx.wxVSCROLL
-	)
-	--]]
+	-- constants for the "minimum SP for skill use" spinCtrl:
+	local SKILL_MINSP, SKILL_MAXSP = 0, 999999
+	
+	-- skills is a list of tables with the format:
+	-- skills[1] = {homu_name, SKILL_LIST}
+	-- where SKILL_LIST is a list of tables with the format:
+	-- SKILL_LIST[1] = {skill_name, skill_maxlvl, skill_icon}
+	
 	local SCROLLWIN_Skills = assert(dialog:FindWindow(xmlResource.GetXRCID("SCROLLWIN_Skills")))
 	local BSIZER_Skills = assert(SCROLLWIN_Skills:GetSizer())
 	
@@ -167,6 +174,7 @@ function FillSkillsTab(dialog, xmlResource) -- returns table with references to 
 	
 	local widgets = {}
 	widgets.TXT_SkillsDescription = TXT_SkillsDescription -- for translation
+	
 	
 	
 end
