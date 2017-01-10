@@ -370,7 +370,7 @@
 									<option>1</option>
 									<flag>wxEXPAND | wxALL</flag>
 									<border>5</border>
-									<object class="wxScrolledWindow" name="m_scrolledWindow1">
+									<object class="wxScrolledWindow" name="SCROLLWIN_Skills">
 										<style>wxHSCROLL|wxVSCROLL</style>
 										<scrollrate>5,5</scrollrate>
 										<object class="wxBoxSizer">
