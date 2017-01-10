@@ -139,14 +139,14 @@ function MainWindow:init(xmlResource)
 	
 	self:HideLanguageTab(xmlResource) -- TODO: remove this later
 	
-	self:FillSkills(xmlResource)
+	FillSkillsTab(self.dialog, xmlResource)
 	
 	self.dialog:Center()
 	self.dialog:Show(true)
 end
 
 
-function MainWindow:FillSkills(xmlResource) -- returns table with references to all widgets
+function FillSkillsTab(dialog, xmlResource) -- returns table with references to all widgets
 	--[[
 	local BSIZER_Skills = assert(self.dialog:FindWindow(xmlResource.GetXRCID("BSIZER_Skills")))
 	local TAB_Skills = assert(self.dialog:FindWindow(xmlResource.GetXRCID("TAB_Skills")))
@@ -155,7 +155,7 @@ function MainWindow:FillSkills(xmlResource) -- returns table with references to 
 		wx.wxSize(-1,-1), wx.wxHSCROLL + wx.wxVSCROLL
 	)
 	--]]
-	local SCROLLWIN_Skills = assert(self.dialog:FindWindow(xmlResource.GetXRCID("SCROLLWIN_Skills")))
+	local SCROLLWIN_Skills = assert(dialog:FindWindow(xmlResource.GetXRCID("SCROLLWIN_Skills")))
 	local BSIZER_Skills = assert(SCROLLWIN_Skills:GetSizer())
 	
 	local TXT_SkillsDescription = wx.wxStaticText(SCROLLWIN_Skills, wx.wxID_ANY,
@@ -164,6 +164,11 @@ function MainWindow:FillSkills(xmlResource) -- returns table with references to 
 	)
 	TXT_SkillsDescription:Wrap(-1)
 	BSIZER_Skills:Add(TXT_SkillsDescription, 0, wx.wxALL, 5)
+	
+	local widgets = {}
+	widgets.TXT_SkillsDescription = TXT_SkillsDescription -- for translation
+	
+	
 end
 
 
