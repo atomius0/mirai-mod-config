@@ -139,8 +139,31 @@ function MainWindow:init(xmlResource)
 	
 	self:HideLanguageTab(xmlResource) -- TODO: remove this later
 	
+	self:FillSkills(xmlResource)
+	
 	self.dialog:Center()
 	self.dialog:Show(true)
+end
+
+
+function MainWindow:FillSkills(xmlResource) -- returns table with references to all widgets
+	--[[
+	local BSIZER_Skills = assert(self.dialog:FindWindow(xmlResource.GetXRCID("BSIZER_Skills")))
+	local TAB_Skills = assert(self.dialog:FindWindow(xmlResource.GetXRCID("TAB_Skills")))
+	
+	local scrolledWindow = wx.wxScrolledWindow(TAB_Skills, wx.wxID_ANY, wx.wxDefaultPosition,
+		wx.wxSize(-1,-1), wx.wxHSCROLL + wx.wxVSCROLL
+	)
+	--]]
+	local SCROLLWIN_Skills = assert(self.dialog:FindWindow(xmlResource.GetXRCID("SCROLLWIN_Skills")))
+	local BSIZER_Skills = assert(SCROLLWIN_Skills:GetSizer())
+	
+	local TXT_SkillsDescription = wx.wxStaticText(SCROLLWIN_Skills, wx.wxID_ANY,
+		"Please choose the minimum amount of SP for each skill and\nthe " ..
+		"skill level to use (OFF = skill disabled).", wx.wxDefaultPosition, wx.wxDefaultSize, 0
+	)
+	TXT_SkillsDescription:Wrap(-1)
+	BSIZER_Skills:Add(TXT_SkillsDescription, 0, wx.wxALL, 5)
 end
 
 
