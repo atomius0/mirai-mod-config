@@ -175,10 +175,25 @@ function MainWindow:init(xmlResource)
 	
 	--TODO: load Config.lua? (and if it doesn't exist, create it)
 	
+	
+	self:HideLanguageTab(xmlResource) -- TODO: remove this later
+	
 	self.dialog:Center()
 	self.dialog:Show(true)
 end
 
+
+-- TEMP: hide the tab "Language" / TODO: remove this later
+function MainWindow:HideLanguageTab(xmlResource)
+	--[[
+	local TAB_Language_ID = xmlResource.GetXRCID("TAB_Language")
+	local TAB_Language = assert(self.dialog:FindWindow(xmlResource.GetXRCID("TAB_Language")))
+	TAB_Language:Show(false)
+	--]]
+	local nb = assert(self.dialog:FindWindow(xmlResource.GetXRCID("m_notebook1")))
+	nb = assert(nb:DynamicCast("wxNotebook"))
+	nb:DeletePage(4)
+end
 
 
 xpcall(function() --try
