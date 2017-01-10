@@ -142,7 +142,7 @@ function MainWindow:init(xmlResource)
 	)
 	
 	
-	-- initialize the reference variables for the input fields
+	-- initialize the reference variables for the input fields:
 	self.SL_AttackWhenHP = assert(self.dialog:FindWindow(MainWindow.IDs.SL_AttackWhenHP))
 	self.SL_AttackWhenHP = assert(self.SL_AttackWhenHP:DynamicCast("wxSlider"))
 	
@@ -158,7 +158,7 @@ function MainWindow:init(xmlResource)
 	-- TODO: initialize the remaining reference variables for all the input fields
 	
 	
-	-- connect events to handler functions
+	-- connect events to handler functions:
 	
 	-- (see wxWidgets docs: class "wxCommandEvent")
 	self.dialog:Connect(MainWindow.IDs.SL_AttackWhenHP, wx.wxEVT_COMMAND_SLIDER_UPDATED, handlers.OnAttackAndEvade)
