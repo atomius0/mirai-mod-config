@@ -31,6 +31,10 @@ function MainWindow:init(xmlResource)
 		-- TODO: check if there are unsaved changes and warn user before quitting.
 		self.dialog:Show(false)
 		self.dialog:Destroy()
+		-- for some reason, the standalone exe process does not always end
+		-- when MainWindow is closed (or does it?)
+		-- so we force it to end:
+		os.exit()
 	end
 	
 	-- manages linking of "Homunculus: Attack and Evade" sliders and spinCtrls (tab "General")
