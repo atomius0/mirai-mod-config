@@ -1,13 +1,16 @@
 
 ## Todo
 
+- [ ] plan the skills table format
+- [ ] move skills table stuff into its own source file...
+- [ ] test filling the TAB_Skills programmatically (in new branch) (we will need to remove the contents of BSIZER_Skills, so make a branch before this, so that we can keep it as a reference later)
+
 - [x] keep the slider and the spinCtrl for "AttackWhenHP" in sync
 - [x] keep the slider and the spinCtrl for "EvadeWhenHP" in sync
 - [x] link the two sliders "SL_AttackWhenHP" and "SL_EvadeWhenHP" (while keeping spinCtrls in sync!)
 - [x] link the two pairs of slider and SpinCtrl "AttackWhenHP" and "EvadeWhenHP" (according to "ControlPanelConfigOptions.md" line 28!)
 
 - [x] hide the tab Language for now. (until translation functionality is implemented)
-- [ ] test filling the TAB_Skills programmatically (in new branch) (we will need to remove the contents of BSIZER_Skills, so make a branch before this, so that we can keep it as a reference later)
 
 - [ ] write a library for reading/writing Config.lua (original Config.lua is in ./data/Config.lua)
 - [ ] copy stringutil.lua into project directory when it is finished and tested. (is it?)
