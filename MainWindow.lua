@@ -176,11 +176,6 @@ function MainWindow:InitInputs()
 	self.CB_CircleOnIdle = assert(self.CB_CircleOnIdle:DynamicCast("wxCheckBox"))
 	
 	-- TODO: initialize the remaining reference variables for all the input fields
-	
-	-- TODO: this next!! initialize all inputs here instead of in MainWindow:init()
-	-- this stuff: "-- initialize the reference variables for the input fields"
-	-- it will do all the 'self.dialog:FindWindow()' stuff
-	-- and the 'DynamicCast' stuff
 end
 
 -- saves the configuration to file 'filename'
