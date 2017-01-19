@@ -104,6 +104,7 @@ function MainWindow:init(xmlResource)
 		"SC_EvadeWhenHP",
 		
 		"CB_HelpOwnerFirst",
+		"CB_KillEnemiesFirst",
 		
 		"CB_FollowAtOnce",
 		"CB_CircleOnIdle",
@@ -179,6 +180,7 @@ function MainWindow:InitInputs()
 	
 	-- the input references below are only used by MainWindow:SaveConfig and MainWindow:LoadConfig
 	InitWidget("CB_HelpOwnerFirst", "wxCheckBox")
+	InitWidget("CB_KillEnemiesFirst", "wxCheckBox")
 	
 	-- TODO: more stuff
 	
@@ -213,6 +215,8 @@ function MainWindow:SaveConfig(filename)
 	WriteOpt("CIRCLE_ON_IDLE=" .. tostring(self.CB_CircleOnIdle:GetValue() and 1 or 0))
 	WriteOpt("FOLLOW_AT_ONCE=" .. tostring(self.CB_FollowAtOnce:GetValue() and 1 or 0))
 	WriteOpt("HELP_OWNER_1ST=" .. tostring(self.CB_HelpOwnerFirst:GetValue()))
+	WriteOpt("KILL_YOUR_ENEMIES_1ST=" .. tostring(self.CB_KillEnemiesFirst:GetValue()))
+	
 	
 	-- TODO: this (SaveConfig) !!!!!!!!!!!!!!!!!!!!!!!
 	
