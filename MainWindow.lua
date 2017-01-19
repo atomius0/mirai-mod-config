@@ -160,7 +160,23 @@ end
 
 -- initializes the reference variables for the input fields
 function MainWindow:InitInputs()
+	
+	local InitWin = function(name, widgetType)
+		local w = assert(self.dialog:FindWindow(MainWindow.IDs[name]))
+		w = assert(w:DynamicCast(widgetType))
+		self[name] = w
+		--return w
+	end
+	
+	-- TODO: NEXT!! is there a way to tell assert that the error occured above in the call stack? (like with error())
+	
 	-- these 4 input references are also used by function 'handlers.OnAttackAndEvade'
+	InitWin("SL_AttackWhenHP", "wxSlider")
+	InitWin("SC_AttackWhenHP", "wxSpinCtrl")
+	InitWin("SL_EvadeWhenHP", "wxSlider")
+	InitWin("SC_EvadeWhenHP", "wxSpinCtrl")
+	
+	--[[
 	self.SL_AttackWhenHP = assert(self.dialog:FindWindow(MainWindow.IDs.SL_AttackWhenHP))
 	self.SL_AttackWhenHP = assert(self.SL_AttackWhenHP:DynamicCast("wxSlider"))
 	
@@ -172,7 +188,7 @@ function MainWindow:InitInputs()
 	
 	self.SC_EvadeWhenHP = assert(self.dialog:FindWindow(MainWindow.IDs.SC_EvadeWhenHP))
 	self.SC_EvadeWhenHP = assert(self.SC_EvadeWhenHP:DynamicCast("wxSpinCtrl"))
-	
+	--]]
 	
 	-- the input references below are only used by MainWindow:SaveConfig and MainWindow:LoadConfig
 	self.CB_HelpOwnerFirst = assert(self.dialog:FindWindow(MainWindow.IDs.CB_HelpOwnerFirst))
