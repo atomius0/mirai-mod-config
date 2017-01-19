@@ -17,15 +17,6 @@ function MainWindow:init(xmlResource)
 	--       we might need it when MainWindow wants to create a child window.
 	
 	self.dialog = nil
-	-- TODO: self.* reference variables for the remaining input fields (eg. wxSlider, wxSpinCtrl, wxListBox)
-	self.SL_AttackWhenHP = nil
-	self.SC_AttackWhenHP = nil
-	self.SL_EvadeWhenHP  = nil
-	self.SC_EvadeWhenHP  = nil
-	
-	self.CB_CircleOnIdle = nil
-	
-	--self.BUT_SaveConfig = nil
 	
 	local handlers = {} -- table for all event handler functions
 	
