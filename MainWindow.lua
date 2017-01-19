@@ -154,15 +154,19 @@ end
 function MainWindow:InitInputs()
 	
 	local InitWidget = function(name, widgetType)
+		-- TODO: change these asserts so they point to the source of the error (use error())
 		local w = assert(self.dialog:FindWindow(MainWindow.IDs[name]))
 		w = assert(w:DynamicCast(widgetType))
 		self[name] = w
 		--return w
 	end
 	
-	-- TODO: NEXT!! is there a way to tell assert that the error occured above in the call stack? (like with error())
 	
-	-- these 4 input references are also used by function 'handlers.OnAttackAndEvade'
+	InitWidget("CB_DontMove", "wxCheckBox")
+	
+	-- the 4 input references
+	-- "SL_AttackWhenHP", "SC_AttackWhenHP", "SL_EvadeWhenHP" and "SC_EvadeWhenHP"
+	-- are also used by function 'handlers.OnAttackAndEvade'
 	InitWidget("SL_AttackWhenHP", "wxSlider")
 	InitWidget("SC_AttackWhenHP", "wxSpinCtrl")
 	InitWidget("SL_EvadeWhenHP", "wxSlider")
@@ -208,6 +212,7 @@ function MainWindow:SaveConfig(filename)
 	WriteOpt("HELP_OWNER_1ST=" .. tostring(self.CB_HelpOwnerFirst:GetValue()))
 	WriteOpt("KILL_YOUR_ENEMIES_1ST=" .. tostring(self.CB_KillEnemiesFirst:GetValue()))
 	
+	WriteOpt("LONG_RANGE_SHOOTER=" .. tostring(self.CB_DontMove:GetValue()))
 	
 	-- TODO: this (SaveConfig) !!!!!!!!!!!!!!!!!!!!!!!
 	
