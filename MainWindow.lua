@@ -176,19 +176,6 @@ function MainWindow:InitInputs()
 	InitWin("SL_EvadeWhenHP", "wxSlider")
 	InitWin("SC_EvadeWhenHP", "wxSpinCtrl")
 	
-	--[[
-	self.SL_AttackWhenHP = assert(self.dialog:FindWindow(MainWindow.IDs.SL_AttackWhenHP))
-	self.SL_AttackWhenHP = assert(self.SL_AttackWhenHP:DynamicCast("wxSlider"))
-	
-	self.SC_AttackWhenHP = assert(self.dialog:FindWindow(MainWindow.IDs.SC_AttackWhenHP))
-	self.SC_AttackWhenHP = assert(self.SC_AttackWhenHP:DynamicCast("wxSpinCtrl"))
-	
-	self.SL_EvadeWhenHP = assert(self.dialog:FindWindow(MainWindow.IDs.SL_EvadeWhenHP))
-	self.SL_EvadeWhenHP = assert(self.SL_EvadeWhenHP:DynamicCast("wxSlider"))
-	
-	self.SC_EvadeWhenHP = assert(self.dialog:FindWindow(MainWindow.IDs.SC_EvadeWhenHP))
-	self.SC_EvadeWhenHP = assert(self.SC_EvadeWhenHP:DynamicCast("wxSpinCtrl"))
-	--]]
 	
 	-- the input references below are only used by MainWindow:SaveConfig and MainWindow:LoadConfig
 	self.CB_HelpOwnerFirst = assert(self.dialog:FindWindow(MainWindow.IDs.CB_HelpOwnerFirst))
