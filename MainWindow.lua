@@ -81,6 +81,12 @@ function MainWindow:init(xmlResource)
 		end
 	end
 	
+	
+	function handlers.OnSaveConfig(event)
+		DebugLog("MainWindow: OnSaveConfig")
+		event:Skip()
+	end
+	
 	-- TODO: remaining event handler functions, eg: "function handlers.OnSomething(event)"
 	
 	
@@ -90,7 +96,9 @@ function MainWindow:init(xmlResource)
 		"SL_AttackWhenHP",
 		"SC_AttackWhenHP",
 		"SL_EvadeWhenHP",
-		"SC_EvadeWhenHP"
+		"SC_EvadeWhenHP",
+		
+		"BUT_SaveConfig",
 	} do
 		MainWindow.IDs[v] = xmlResource.GetXRCID(v)
 	end
@@ -129,6 +137,7 @@ function MainWindow:init(xmlResource)
 	self.dialog:Connect(MainWindow.IDs.SL_EvadeWhenHP, wx.wxEVT_COMMAND_SLIDER_UPDATED, handlers.OnAttackAndEvade)
 	self.dialog:Connect(MainWindow.IDs.SC_EvadeWhenHP, wx.wxEVT_COMMAND_SPINCTRL_UPDATED, handlers.OnAttackAndEvade)
 	
+	self.dialog:Connect(MainWindow.IDs.BUT_SaveConfig, wx.wxEVT_COMMAND_BUTTON_CLICKED, handlers.OnSaveConfig)
 	-- TODO: connect remaining events to handler functions
 	
 	-- connect the closeevent to the OnClose function:
