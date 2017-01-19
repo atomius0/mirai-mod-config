@@ -103,6 +103,7 @@ function MainWindow:init(xmlResource)
 		"SL_EvadeWhenHP",
 		"SC_EvadeWhenHP",
 		
+		"CB_FollowAtOnce",
 		"CB_CircleOnIdle",
 		
 		"BUT_SaveConfig",
@@ -172,6 +173,9 @@ function MainWindow:InitInputs()
 	
 	
 	-- the input references below are only used by MainWindow:SaveConfig and MainWindow:LoadConfig
+	self.CB_FollowAtOnce = assert(self.dialog:FindWindow(MainWindow.IDs.CB_FollowAtOnce))
+	self.CB_FollowAtOnce = assert(self.CB_FollowAtOnce:DynamicCast("wxCheckBox"))
+	
 	self.CB_CircleOnIdle = assert(self.dialog:FindWindow(MainWindow.IDs.CB_CircleOnIdle))
 	self.CB_CircleOnIdle = assert(self.CB_CircleOnIdle:DynamicCast("wxCheckBox"))
 	
@@ -198,8 +202,8 @@ function MainWindow:SaveConfig(filename)
 	-- save regular settings:
 	
 	-- TAB_General:
-	WriteOpt("CIRCLE_ON_IDLE=" .. tostring(self.CB_CircleOnIdle:GetValue()))
-	
+	WriteOpt("CIRCLE_ON_IDLE=" .. tostring(self.CB_CircleOnIdle:GetValue() and 1 or 0))
+	WriteOpt("FOLLOW_AT_ONCE=" .. tostring(self.CB_FollowAtOnce:GetValue() and 1 or 0))
 	
 	-- TODO: this (SaveConfig) !!!!!!!!!!!!!!!!!!!!!!!
 	
