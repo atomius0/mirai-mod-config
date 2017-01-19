@@ -225,5 +225,5 @@ the content of the selected file is written to the file "language.txt"
 
 
 ## TODO: Missing options
-- OWNER_CLOSEDISTANCE
+- OWNER_CLOSEDISTANCE=2
 
