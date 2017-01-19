@@ -119,22 +119,7 @@ function MainWindow:init(xmlResource)
 	
 	
 	-- initialize the reference variables for the input fields:
-	self.SL_AttackWhenHP = assert(self.dialog:FindWindow(MainWindow.IDs.SL_AttackWhenHP))
-	self.SL_AttackWhenHP = assert(self.SL_AttackWhenHP:DynamicCast("wxSlider"))
-	
-	self.SC_AttackWhenHP = assert(self.dialog:FindWindow(MainWindow.IDs.SC_AttackWhenHP))
-	self.SC_AttackWhenHP = assert(self.SC_AttackWhenHP:DynamicCast("wxSpinCtrl"))
-	
-	self.SL_EvadeWhenHP = assert(self.dialog:FindWindow(MainWindow.IDs.SL_EvadeWhenHP))
-	self.SL_EvadeWhenHP = assert(self.SL_EvadeWhenHP:DynamicCast("wxSlider"))
-	
-	self.SC_EvadeWhenHP = assert(self.dialog:FindWindow(MainWindow.IDs.SC_EvadeWhenHP))
-	self.SC_EvadeWhenHP = assert(self.SC_EvadeWhenHP:DynamicCast("wxSpinCtrl"))
-	
-	
-	self.CB_CircleOnIdle = assert(self.dialog:FindWindow(MainWindow.IDs.CB_CircleOnIdle))
-	self.CB_CircleOnIdle = assert(self.CB_CircleOnIdle:DynamicCast("wxCheckBox"))
-	-- TODO: initialize the remaining reference variables for all the input fields
+	self:InitInputs()
 	
 	
 	-- connect events to handler functions:
@@ -170,7 +155,28 @@ function MainWindow:init(xmlResource)
 end
 
 
-function MainWindow:InitInputs() -- parameters?
+-- initializes the reference variables for the input fields
+function MainWindow:InitInputs()
+	-- these 4 input references are also used by function 'handlers.OnAttackAndEvade'
+	self.SL_AttackWhenHP = assert(self.dialog:FindWindow(MainWindow.IDs.SL_AttackWhenHP))
+	self.SL_AttackWhenHP = assert(self.SL_AttackWhenHP:DynamicCast("wxSlider"))
+	
+	self.SC_AttackWhenHP = assert(self.dialog:FindWindow(MainWindow.IDs.SC_AttackWhenHP))
+	self.SC_AttackWhenHP = assert(self.SC_AttackWhenHP:DynamicCast("wxSpinCtrl"))
+	
+	self.SL_EvadeWhenHP = assert(self.dialog:FindWindow(MainWindow.IDs.SL_EvadeWhenHP))
+	self.SL_EvadeWhenHP = assert(self.SL_EvadeWhenHP:DynamicCast("wxSlider"))
+	
+	self.SC_EvadeWhenHP = assert(self.dialog:FindWindow(MainWindow.IDs.SC_EvadeWhenHP))
+	self.SC_EvadeWhenHP = assert(self.SC_EvadeWhenHP:DynamicCast("wxSpinCtrl"))
+	
+	
+	-- the input references below are only used by MainWindow:SaveConfig and MainWindow:LoadConfig
+	self.CB_CircleOnIdle = assert(self.dialog:FindWindow(MainWindow.IDs.CB_CircleOnIdle))
+	self.CB_CircleOnIdle = assert(self.CB_CircleOnIdle:DynamicCast("wxCheckBox"))
+	
+	-- TODO: initialize the remaining reference variables for all the input fields
+	
 	-- TODO: this next!! initialize all inputs here instead of in MainWindow:init()
 	-- this stuff: "-- initialize the reference variables for the input fields"
 	-- it will do all the 'self.dialog:FindWindow()' stuff
