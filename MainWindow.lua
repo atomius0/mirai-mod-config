@@ -85,6 +85,7 @@ function MainWindow:init(xmlResource)
 	function handlers.OnSaveConfig(event)
 		DebugLog("MainWindow: OnSaveConfig")
 		event:Skip()
+		self:SaveConfig(CONFIG_FILE)
 	end
 	
 	-- TODO: remaining event handler functions, eg: "function handlers.OnSomething(event)"
@@ -160,6 +161,27 @@ function MainWindow:init(xmlResource)
 end
 
 
+-- saves the configuration to file 'filename'
+function MainWindow:SaveConfig(filename)
+	assert(type(filename) == "string")
+	DebugLog('MainWindow:SaveConfig("' .. filename .. '")')
+	
+	-- TODO: add error handler (try/catch block) to all functions that call this one!
+	local f = assert(io.open(filename, "w"))
+	
+	-- save regular settings
+	
+	
+	-- TODO: save regular settings
+	-- TODO: save skill settings
+	-- TODO: save selected Mod
+	-- TODO: save tactics
+	-- TODO: this (SaveConfig)
+	
+	f:close()
+end
+
+
 function FillSkillsTab(dialog, xmlResource, skills) -- returns table with references to all widgets
 	assert(type(skills) == "table")
 	
@@ -184,7 +206,7 @@ function FillSkillsTab(dialog, xmlResource, skills) -- returns table with refere
 	local widgets = {}
 	widgets.TXT_SkillsDescription = TXT_SkillsDescription -- for translation
 	
-	
+	-- TODO: this (FillSkillsTab)
 	
 end
 
