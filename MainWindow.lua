@@ -181,7 +181,10 @@ function MainWindow:SaveConfig(filename)
 	-- TAB_General:
 	
 	
+	
 	-- TODO: this (SaveConfig) !!!!!!!!!!!!!!!!!!!!!!!
+	
+	-- TODO: save the auto attack stuff (with a comment that it is disabled and not configurable)
 	
 	-- TODO: save regular settings
 	-- TODO: save skill settings
