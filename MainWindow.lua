@@ -198,7 +198,7 @@ function MainWindow:SaveConfig(filename)
 	-- save regular settings:
 	
 	-- TAB_General:
-	WriteOpt("CIRCLE_ON_IDLE=" .. tostring(self.dialog:FindWindow(MainWindow.IDs.CB_CircleOnIdle):GetValue()))
+	WriteOpt("CIRCLE_ON_IDLE=" .. tostring(self.CB_CircleOnIdle:GetValue()))
 	
 	
 	-- TODO: this (SaveConfig) !!!!!!!!!!!!!!!!!!!!!!!
