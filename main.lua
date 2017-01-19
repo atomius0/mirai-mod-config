@@ -50,8 +50,6 @@ end
 xpcall(function() --try
 	local xmlResource = LoadXmlResource(XRC_FILE)
 	local mainWin = MainWindow(xmlResource)
-	
-	DebugLog(type(xmlResource)) -- debug
 end, ErrorHandler)
 
 
