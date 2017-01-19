@@ -199,7 +199,7 @@ function MainWindow:SaveConfig(filename)
 	-- TODO: add error handler (try/catch block) to all functions that call this one!
 	local f = assert(io.open(filename, "w"))
 	
-	local WriteOpt = function(o) DebugLog(o); f:write(o) end
+	local WriteOpt = function(o) DebugLog(o); f:write(o .. "\n") end
 	
 	-- write header:
 	f:write(
