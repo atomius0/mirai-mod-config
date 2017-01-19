@@ -222,3 +222,8 @@ the content of the selected file is written to the file "language.txt"
 	#### Checkbox: "Detect out of potion"
 	- [x]:  CAN_DETECT_NOPOT=true
 	- [ ]:  CAN_DETECT_NOPOT=false
+
+
+## TODO: Missing options
+- OWNER_CLOSEDISTANCE
+
