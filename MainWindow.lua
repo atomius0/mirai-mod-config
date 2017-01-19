@@ -103,6 +103,8 @@ function MainWindow:init(xmlResource)
 		"SL_EvadeWhenHP",
 		"SC_EvadeWhenHP",
 		
+		"CB_HelpOwnerFirst",
+		
 		"CB_FollowAtOnce",
 		"CB_CircleOnIdle",
 		
@@ -173,11 +175,18 @@ function MainWindow:InitInputs()
 	
 	
 	-- the input references below are only used by MainWindow:SaveConfig and MainWindow:LoadConfig
+	self.CB_HelpOwnerFirst = assert(self.dialog:FindWindow(MainWindow.IDs.CB_HelpOwnerFirst))
+	self.CB_HelpOwnerFirst = assert(self.CB_HelpOwnerFirst:DynamicCast("wxCheckBox"))
+	
+	-- TODO: more stuff
+	
 	self.CB_FollowAtOnce = assert(self.dialog:FindWindow(MainWindow.IDs.CB_FollowAtOnce))
 	self.CB_FollowAtOnce = assert(self.CB_FollowAtOnce:DynamicCast("wxCheckBox"))
 	
 	self.CB_CircleOnIdle = assert(self.dialog:FindWindow(MainWindow.IDs.CB_CircleOnIdle))
 	self.CB_CircleOnIdle = assert(self.CB_CircleOnIdle:DynamicCast("wxCheckBox"))
+	
+	-- TODO: more stuff
 	
 	-- TODO: initialize the remaining reference variables for all the input fields
 end
@@ -204,6 +213,7 @@ function MainWindow:SaveConfig(filename)
 	-- TAB_General:
 	WriteOpt("CIRCLE_ON_IDLE=" .. tostring(self.CB_CircleOnIdle:GetValue() and 1 or 0))
 	WriteOpt("FOLLOW_AT_ONCE=" .. tostring(self.CB_FollowAtOnce:GetValue() and 1 or 0))
+	WriteOpt("HELP_OWNER_1ST=" .. tostring(self.CB_HelpOwnerFirst:GetValue()))
 	
 	-- TODO: this (SaveConfig) !!!!!!!!!!!!!!!!!!!!!!!
 	
