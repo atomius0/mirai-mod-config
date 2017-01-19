@@ -161,7 +161,7 @@ end
 -- initializes the reference variables for the input fields
 function MainWindow:InitInputs()
 	
-	local InitWin = function(name, widgetType)
+	local InitWidget = function(name, widgetType)
 		local w = assert(self.dialog:FindWindow(MainWindow.IDs[name]))
 		w = assert(w:DynamicCast(widgetType))
 		self[name] = w
@@ -171,23 +171,19 @@ function MainWindow:InitInputs()
 	-- TODO: NEXT!! is there a way to tell assert that the error occured above in the call stack? (like with error())
 	
 	-- these 4 input references are also used by function 'handlers.OnAttackAndEvade'
-	InitWin("SL_AttackWhenHP", "wxSlider")
-	InitWin("SC_AttackWhenHP", "wxSpinCtrl")
-	InitWin("SL_EvadeWhenHP", "wxSlider")
-	InitWin("SC_EvadeWhenHP", "wxSpinCtrl")
+	InitWidget("SL_AttackWhenHP", "wxSlider")
+	InitWidget("SC_AttackWhenHP", "wxSpinCtrl")
+	InitWidget("SL_EvadeWhenHP", "wxSlider")
+	InitWidget("SC_EvadeWhenHP", "wxSpinCtrl")
 	
 	
 	-- the input references below are only used by MainWindow:SaveConfig and MainWindow:LoadConfig
-	self.CB_HelpOwnerFirst = assert(self.dialog:FindWindow(MainWindow.IDs.CB_HelpOwnerFirst))
-	self.CB_HelpOwnerFirst = assert(self.CB_HelpOwnerFirst:DynamicCast("wxCheckBox"))
+	InitWidget("CB_HelpOwnerFirst", "wxCheckBox")
 	
 	-- TODO: more stuff
 	
-	self.CB_FollowAtOnce = assert(self.dialog:FindWindow(MainWindow.IDs.CB_FollowAtOnce))
-	self.CB_FollowAtOnce = assert(self.CB_FollowAtOnce:DynamicCast("wxCheckBox"))
-	
-	self.CB_CircleOnIdle = assert(self.dialog:FindWindow(MainWindow.IDs.CB_CircleOnIdle))
-	self.CB_CircleOnIdle = assert(self.CB_CircleOnIdle:DynamicCast("wxCheckBox"))
+	InitWidget("CB_FollowAtOnce", "wxCheckBox")
+	InitWidget("CB_CircleOnIdle", "wxCheckBox")
 	
 	-- TODO: more stuff
 	
