@@ -89,6 +89,7 @@ function MainWindow:init(xmlResource)
 	-- get IDs / init wxWindow ID values (yes, before loading the dialog)
 	-- TODO: add all the remaining IDs!
 	for i, v in ipairs {
+		"CB_DontMove",
 		"SL_AttackWhenHP",
 		"SC_AttackWhenHP",
 		"SL_EvadeWhenHP",
@@ -154,7 +155,6 @@ end
 function MainWindow:InitInputs()
 	
 	local InitWidget = function(name, widgetType)
-		-- TODO: change these asserts so they point to the source of the error (use error())
 		local w = assert(self.dialog:FindWindow(MainWindow.IDs[name]))
 		w = assert(w:DynamicCast(widgetType))
 		self[name] = w
