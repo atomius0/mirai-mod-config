@@ -23,6 +23,10 @@ function MainWindow:init(xmlResource)
 	self.SL_EvadeWhenHP  = nil
 	self.SC_EvadeWhenHP  = nil
 	
+	self.CB_CircleOnIdle = nil
+	
+	--self.BUT_SaveConfig = nil
+	
 	local handlers = {} -- table for all event handler functions
 	
 	function handlers.OnClose(event)
@@ -99,6 +103,8 @@ function MainWindow:init(xmlResource)
 		"SL_EvadeWhenHP",
 		"SC_EvadeWhenHP",
 		
+		"CB_CircleOnIdle",
+		
 		"BUT_SaveConfig",
 	} do
 		MainWindow.IDs[v] = xmlResource.GetXRCID(v)
@@ -125,6 +131,9 @@ function MainWindow:init(xmlResource)
 	self.SC_EvadeWhenHP = assert(self.dialog:FindWindow(MainWindow.IDs.SC_EvadeWhenHP))
 	self.SC_EvadeWhenHP = assert(self.SC_EvadeWhenHP:DynamicCast("wxSpinCtrl"))
 	
+	
+	self.CB_CircleOnIdle = assert(self.dialog:FindWindow(MainWindow.IDs.CB_CircleOnIdle))
+	self.CB_CircleOnIdle = assert(self.CB_CircleOnIdle:DynamicCast("wxCheckBox"))
 	-- TODO: initialize the remaining reference variables for all the input fields
 	
 	
@@ -169,6 +178,8 @@ function MainWindow:SaveConfig(filename)
 	-- TODO: add error handler (try/catch block) to all functions that call this one!
 	local f = assert(io.open(filename, "w"))
 	
+	local WriteOpt = function(o) DebugLog(o); f:write(o) end
+	
 	-- write header:
 	f:write(
 		"--------------------------------------------------\n" ..
@@ -179,7 +190,7 @@ function MainWindow:SaveConfig(filename)
 	-- save regular settings:
 	
 	-- TAB_General:
-	
+	WriteOpt("CIRCLE_ON_IDLE=" .. tostring(self.dialog:FindWindow(MainWindow.IDs.CB_CircleOnIdle):GetValue()))
 	
 	
 	-- TODO: this (SaveConfig) !!!!!!!!!!!!!!!!!!!!!!!
