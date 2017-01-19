@@ -957,7 +957,7 @@
                                                     </object>
                                                     <object class="sizeritem" expanded="0">
                                                         <property name="border">5</property>
-                                                        <property name="flag">wxTOP|wxBOTTOM|wxALIGN_RIGHT</property>
+                                                        <property name="flag">wxTOP|wxBOTTOM|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</property>
                                                         <property name="proportion">1</property>
                                                         <object class="wxSpinCtrl" expanded="0">
                                                             <property name="BottomDockable">1</property>
@@ -1569,7 +1569,7 @@
                                                             <property name="gripper">0</property>
                                                             <property name="hidden">0</property>
                                                             <property name="id">wxID_ANY</property>
-                                                            <property name="initial">0</property>
+                                                            <property name="initial">14</property>
                                                             <property name="max">20</property>
                                                             <property name="max_size"></property>
                                                             <property name="maximize_button">0</property>
@@ -1593,7 +1593,7 @@
                                                             <property name="subclass"></property>
                                                             <property name="toolbar_pane">0</property>
                                                             <property name="tooltip"></property>
-                                                            <property name="value">14</property>
+                                                            <property name="value"></property>
                                                             <property name="window_extra_style"></property>
                                                             <property name="window_name"></property>
                                                             <property name="window_style"></property>
@@ -1740,7 +1740,7 @@
                                                             <property name="gripper">0</property>
                                                             <property name="hidden">0</property>
                                                             <property name="id">wxID_ANY</property>
-                                                            <property name="initial">0</property>
+                                                            <property name="initial">2000</property>
                                                             <property name="max">999999</property>
                                                             <property name="max_size"></property>
                                                             <property name="maximize_button">0</property>
@@ -1764,7 +1764,7 @@
                                                             <property name="subclass"></property>
                                                             <property name="toolbar_pane">0</property>
                                                             <property name="tooltip"></property>
-                                                            <property name="value">2000</property>
+                                                            <property name="value"></property>
                                                             <property name="window_extra_style"></property>
                                                             <property name="window_name"></property>
                                                             <property name="window_style"></property>
@@ -1911,7 +1911,7 @@
                                                             <property name="gripper">0</property>
                                                             <property name="hidden">0</property>
                                                             <property name="id">wxID_ANY</property>
-                                                            <property name="initial">0</property>
+                                                            <property name="initial">2</property>
                                                             <property name="max">999999</property>
                                                             <property name="max_size"></property>
                                                             <property name="maximize_button">0</property>
@@ -1935,7 +1935,7 @@
                                                             <property name="subclass"></property>
                                                             <property name="toolbar_pane">0</property>
                                                             <property name="tooltip"></property>
-                                                            <property name="value">2</property>
+                                                            <property name="value"></property>
                                                             <property name="window_extra_style"></property>
                                                             <property name="window_name"></property>
                                                             <property name="window_style"></property>

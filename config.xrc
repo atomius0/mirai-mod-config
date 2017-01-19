@@ -124,7 +124,7 @@
 												</object>
 												<object class="sizeritem">
 													<option>1</option>
-													<flag>wxTOP|wxBOTTOM|wxALIGN_RIGHT</flag>
+													<flag>wxTOP|wxBOTTOM|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
 													<border>5</border>
 													<object class="wxSpinCtrl" name="SC_EvadeWhenHP">
 														<style>wxSP_ARROW_KEYS</style>
@@ -224,7 +224,7 @@
 													<border>5</border>
 													<object class="wxSpinCtrl" name="SC_MaxEnemyDistance">
 														<style>wxSP_ARROW_KEYS</style>
-														<value>0</value>
+														<value>14</value>
 														<min>2</min>
 														<max>20</max>
 													</object>
@@ -244,7 +244,7 @@
 													<border>5</border>
 													<object class="wxSpinCtrl" name="SC_SkillTimeout">
 														<style>wxSP_ARROW_KEYS</style>
-														<value>0</value>
+														<value>2000</value>
 														<min>0</min>
 														<max>999999</max>
 													</object>
@@ -264,7 +264,7 @@
 													<border>5</border>
 													<object class="wxSpinCtrl" name="SC_OWNER_CLOSEDISTANCE">
 														<style>wxSP_ARROW_KEYS</style>
-														<value>0</value>
+														<value>2</value>
 														<min>0</min>
 														<max>999999</max>
 													</object>
