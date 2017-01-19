@@ -170,6 +170,13 @@ function MainWindow:init(xmlResource)
 end
 
 
+function MainWindow:InitInputs() -- parameters?
+	-- TODO: this next!! initialize all inputs here instead of in MainWindow:init()
+	-- this stuff: "-- initialize the reference variables for the input fields"
+	-- it will do all the 'self.dialog:FindWindow()' stuff
+	-- and the 'DynamicCast' stuff
+end
+
 -- saves the configuration to file 'filename'
 function MainWindow:SaveConfig(filename)
 	assert(type(filename) == "string")
