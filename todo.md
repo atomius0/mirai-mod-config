@@ -1,6 +1,7 @@
 
 ## Todo
 
+- [ ] start writing config-writer module
 - [ ] plan the skills table format
 - [ ] move skills table stuff into its own source file...
 - [ ] test filling the TAB_Skills programmatically (in new branch) (we will need to remove the contents of BSIZER_Skills, so make a branch before this, so that we can keep it as a reference later)
