@@ -101,6 +101,8 @@ function MainWindow:init(xmlResource)
 		"CB_FollowAtOnce",
 		"CB_CircleOnIdle",
 		
+		"SC_OwnerClosedistance",
+		
 		"BUT_SaveConfig",
 	} do
 		MainWindow.IDs[v] = xmlResource.GetXRCID(v)
@@ -182,6 +184,7 @@ function MainWindow:InitInputs()
 	InitWidget("CB_FollowAtOnce", "wxCheckBox")
 	InitWidget("CB_CircleOnIdle", "wxCheckBox")
 	
+	InitWidget("SC_OwnerClosedistance", "wxSpinCtrl")
 	-- TODO: more stuff
 	
 	-- TODO: initialize the remaining reference variables for all the input fields
@@ -211,9 +214,15 @@ function MainWindow:SaveConfig(filename)
 	WriteOpt("FOLLOW_AT_ONCE=" .. tostring(self.CB_FollowAtOnce:GetValue() and 1 or 0))
 	WriteOpt("HELP_OWNER_1ST=" .. tostring(self.CB_HelpOwnerFirst:GetValue()))
 	WriteOpt("KILL_YOUR_ENEMIES_1ST=" .. tostring(self.CB_KillEnemiesFirst:GetValue()))
-	
 	WriteOpt("LONG_RANGE_SHOOTER=" .. tostring(self.CB_DontMove:GetValue()))
 	
+	-- BOLTS_ON_CHASE_ST is not supported by mirai-mod-config
+	WriteOpt(
+		"BOLTS_ON_CHASE_ST=false -- part of 'Alchemist Auto Attacks', not supported by " .. APP_NAME
+	)
+	WriteOpt("HP_PERC_DANGER=" .. tostring(self.SC_EvadeWhenHP:GetValue()))
+	WriteOpt("HP_PERC_SAFE2ATK=" .. tostring(self.SC_AttackWhenHP:GetValue()))
+	WriteOpt("OWNER_CLOSEDISTANCE=" .. tostring(self.SC_OwnerClosedistance:GetValue()))
 	-- TODO: this (SaveConfig) !!!!!!!!!!!!!!!!!!!!!!!
 	
 	-- TODO: save the auto attack stuff (with a comment that it is disabled and not configurable)
