@@ -1,6 +1,7 @@
 
 ## Todo
 
+- [ ] remove the checkBox "CB_CanDetectNoPot" later, since it seems to be specific to "AutoAidPotion", which we don't support. (but check the mirai-mod source first, to make sure that it really is specific to AAP!!)
 - [ ] finish the config-writer function
 - [x] start writing config-writer function
 - [ ] plan the skills table format
