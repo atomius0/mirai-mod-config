@@ -193,7 +193,6 @@ function MainWindow:InitInputs()
 	
 	InitWidget("CB_FollowAtOnce", "wxCheckBox")
 	InitWidget("CB_CircleOnIdle", "wxCheckBox")
-	--CB_CanDetectNoPot
 	
 	
 	-- TODO: more stuff

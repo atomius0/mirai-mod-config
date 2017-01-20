@@ -294,6 +294,7 @@
 											<flag>wxRIGHT|wxLEFT</flag>
 											<border>5</border>
 											<object class="wxCheckBox" name="CB_CanDetectNoPot">
+												<enabled>0</enabled>
 												<label>Detect out of potion</label>
 												<checked>0</checked>
 											</object>
