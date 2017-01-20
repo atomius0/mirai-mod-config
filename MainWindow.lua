@@ -97,10 +97,14 @@ function MainWindow:init(xmlResource)
 		
 		"CB_HelpOwnerFirst",
 		"CB_KillEnemiesFirst",
+		"CB_NoMovingTargets",
+		"CB_AdvMotionCheck",
 		
 		"CB_FollowAtOnce",
 		"CB_CircleOnIdle",
 		
+		"SC_MaxEnemyDistance",
+		"SC_SkillTimeout",
 		"SC_OwnerClosedistance",
 		
 		"BUT_SaveConfig",
@@ -157,6 +161,7 @@ end
 function MainWindow:InitInputs()
 	
 	local InitWidget = function(name, widgetType)
+		DebugLog('InitWidget("' .. name .. '", "' .. widgetType .. '")')
 		local w = assert(self.dialog:FindWindow(MainWindow.IDs[name]))
 		w = assert(w:DynamicCast(widgetType))
 		self[name] = w
@@ -178,13 +183,19 @@ function MainWindow:InitInputs()
 	-- the input references below are only used by MainWindow:SaveConfig and MainWindow:LoadConfig
 	InitWidget("CB_HelpOwnerFirst", "wxCheckBox")
 	InitWidget("CB_KillEnemiesFirst", "wxCheckBox")
+	InitWidget("CB_NoMovingTargets", "wxCheckBox")
+	InitWidget("CB_AdvMotionCheck", "wxCheckBox")
 	
 	-- TODO: more stuff
+	InitWidget("SC_MaxEnemyDistance", "wxSpinCtrl")
+	InitWidget("SC_SkillTimeout", "wxSpinCtrl")
+	InitWidget("SC_OwnerClosedistance", "wxSpinCtrl")
 	
 	InitWidget("CB_FollowAtOnce", "wxCheckBox")
 	InitWidget("CB_CircleOnIdle", "wxCheckBox")
+	--CB_CanDetectNoPot
 	
-	InitWidget("SC_OwnerClosedistance", "wxSpinCtrl")
+	
 	-- TODO: more stuff
 	
 	-- TODO: initialize the remaining reference variables for all the input fields
@@ -223,6 +234,12 @@ function MainWindow:SaveConfig(filename)
 	WriteOpt("HP_PERC_DANGER=" .. tostring(self.SC_EvadeWhenHP:GetValue()))
 	WriteOpt("HP_PERC_SAFE2ATK=" .. tostring(self.SC_AttackWhenHP:GetValue()))
 	WriteOpt("OWNER_CLOSEDISTANCE=" .. tostring(self.SC_OwnerClosedistance:GetValue()))
+	WriteOpt("TOO_FAR_TARGET=" .. tostring(self.SC_MaxEnemyDistance:GetValue()))
+	WriteOpt("SKILL_TIME_OUT=" .. tostring(self.SC_SkillTimeout:GetValue()))
+	WriteOpt("NO_MOVING_TARGETS=" .. tostring(self.CB_NoMovingTargets:GetValue()))
+	
+	WriteOpt("ADV_MOTION_CHECK=" .. tostring(self.CB_AdvMotionCheck:GetValue()))
+	
 	-- TODO: this (SaveConfig) !!!!!!!!!!!!!!!!!!!!!!!
 	
 	-- TODO: save the auto attack stuff (with a comment that it is disabled and not configurable)
@@ -231,6 +248,7 @@ function MainWindow:SaveConfig(filename)
 	-- TODO: save skill settings
 	-- TODO: save selected Mod
 	-- TODO: save tactics
+	-- TODO: Checkbox "Cautious" / Option "DEFAULT_BEHA" and "DEFAULT_WITH" come right before the Tact list!
 	
 	f:close()
 end
