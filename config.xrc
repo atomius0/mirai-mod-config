@@ -253,7 +253,7 @@
 													<option>0</option>
 													<flag>wxALIGN_CENTER_VERTICAL|wxBOTTOM|wxRIGHT|wxLEFT</flag>
 													<border>5</border>
-													<object class="wxStaticText" name="TXT_OWNER_CLOSEDISTANCE">
+													<object class="wxStaticText" name="TXT_OwnerClosedistance">
 														<label>OWNER__CLOSEDISTANCE:</label>
 														<wrap>-1</wrap>
 													</object>
@@ -262,7 +262,7 @@
 													<option>1</option>
 													<flag>wxALIGN_RIGHT|wxBOTTOM</flag>
 													<border>5</border>
-													<object class="wxSpinCtrl" name="SC_OWNER_CLOSEDISTANCE">
+													<object class="wxSpinCtrl" name="SC_OwnerClosedistance">
 														<style>wxSP_ARROW_KEYS</style>
 														<value>2</value>
 														<min>0</min>
