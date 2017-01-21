@@ -273,6 +273,8 @@ function MainWindow:LoadConfig(filename)
 	
 	
 	
+	-- use method SetValue()
+	
 	-- TODO: LoadConfig!
 	
 	f:close()
