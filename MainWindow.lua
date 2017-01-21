@@ -265,8 +265,9 @@ function MainWindow:LoadConfig(filename)
 	
 	local f = io.open(filename, "r")
 	if not f then
-		DebugLog("Configuration file could not be opened, creating new file...")
-		self:SaveConfig(filename)
+		--DebugLog("Configuration file could not be opened, creating new file...")
+		--self:SaveConfig(filename)
+		DebugLog("Configuration file could not be opened, using default settings.")
 		return
 	end
 	
