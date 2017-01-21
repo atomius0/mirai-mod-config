@@ -152,6 +152,9 @@ function MainWindow:init(xmlResource)
 	}
 	FillSkillsTab(self.dialog, xmlResource, skills)
 	
+	-- load the configuration file before showing the window:
+	self:LoadConfig(CONFIG_FILE)
+	
 	self.dialog:Center()
 	self.dialog:Show(true)
 end
@@ -248,6 +251,28 @@ function MainWindow:SaveConfig(filename)
 	-- TODO: save selected Mod
 	-- TODO: save tactics
 	-- TODO: Checkbox "Cautious" / Option "DEFAULT_BEHA" and "DEFAULT_WITH" come right before the Tact list!
+	
+	f:close()
+end
+
+
+-- loads the configuration from file 'filename'
+function MainWindow:LoadConfig(filename)
+	assert(type(filename) == "string")
+	DebugLog('MainWindow:LoadConfig("' .. filename .. '")')
+	
+	-- TODO: add error handler (try/catch block) to all functions that call this one!
+	
+	local f = io.open(filename, "r")
+	if not f then
+		DebugLog("Configuration file could not be opened, creating new file...")
+		self:SaveConfig(filename)
+		return
+	end
+	
+	
+	
+	-- TODO: LoadConfig!
 	
 	f:close()
 end
