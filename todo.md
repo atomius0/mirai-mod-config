@@ -1,6 +1,7 @@
 
 ## Todo
 
+- [ ] Makefile: copy dir 'config' into build directory when building.
 - [ ] finish the config-loader function
 - [ ] skills-table stuff
 - [x] start writing config-loader function

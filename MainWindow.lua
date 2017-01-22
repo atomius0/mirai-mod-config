@@ -2,6 +2,7 @@
 -- class MainWindow
 
 local class = require "30log"
+local LoadConfigOptions = require "LoadConfigOptions"
 
 local MainWindow = class("MainWindow")
 
@@ -271,6 +272,7 @@ function MainWindow:LoadConfig(filename)
 		return
 	end
 	
+	local options = LoadConfigOptions(f)
 	
 	
 	-- use method SetValue()
