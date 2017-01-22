@@ -5,6 +5,7 @@
 - [ ] finish the config-loader function
 - [ ] skills-table stuff
 - [x] start writing config-loader function
+- [ ] remove ./data/Config.lua from project, as well as the GEN_FILES generation rules, ./tools/txt2lua.lua etc. since we don't need it.
 - [ ] remove the checkBox "CB_CanDetectNoPot" later, since it seems to be specific to "AutoAidPotion", which we don't support. (but check the mirai-mod source first, to make sure that it really is specific to AAP!!)
 - [ ] finish the config-writer function
 - [x] start writing config-writer function
