@@ -69,6 +69,7 @@ function M.StripComments(line)
 				minusfound = minusfound + 1
 				if minusfound == 2 then
 					done = true
+					minusfound = 0
 					break
 				end
 				
@@ -82,6 +83,13 @@ function M.StripComments(line)
 		until true
 		if done then break end
 	end
+	
+	-- add skipped minus character:
+	if minusfound > 0 then tmp = tmp .. "-" end
+	
+	--[[for i = 1, minusfound do
+		tmp = tmp .. "-"
+	end--]]
 	
 	line = tmp
 	
