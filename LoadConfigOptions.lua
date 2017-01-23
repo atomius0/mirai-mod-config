@@ -52,15 +52,20 @@ function M.StripComments(line)
 				tmp = tmp .. string.char(c)
 				break
 			end
-			
+			--]]
+			---[[
 			if c == dquote then
-				in_dquote = true
+				if in_dquote then
+					in_dquote = false
+				else
+					in_dquote = true
+				end
 				tmp = tmp .. string.char(c)
 				break
 				
 			elseif c == squote then
 				in_squote = true
-				tmp = tmp .. string.char(c)
+				
 				break
 			end
 			--]]
