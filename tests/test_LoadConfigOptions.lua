@@ -20,12 +20,16 @@ local lco = require "LoadConfigOptions"
 
 test_LoadConfigOptions = {
 	setUp = function()
-		print("SetUp was called!!")
+		if DEBUG then print() end -- print linebreak
 	end,
 	
 	test_StripComments = function()
-		lu.assertEquals(lco.StripComments(
+		lu.assertEquals(lco.StripComments( -- empty string should stay empty
 			""),
+			""
+		)
+		lu.assertEquals(lco.StripComments( -- spaces get stripped
+			" "),
 			""
 		)
 		lu.assertEquals(lco.StripComments( -- single minus is not a comment, stays as is.
@@ -40,6 +44,78 @@ test_LoadConfigOptions = {
 			"---"),
 			""
 		)
+		lu.assertEquals(lco.StripComments( -- more - characters
+			"----"),
+			""
+		)
+		lu.assertEquals(lco.StripComments( -- even more
+			"-----"),
+			""
+		)
+		lu.assertEquals(lco.StripComments( -- a lot of them
+			"------------------------------------------------------------------------------------"),
+			""
+		)
+		lu.assertEquals(lco.StripComments( -- no comments here
+			"a"),
+			"a"
+		)
+		lu.assertEquals(lco.StripComments(
+			"ab"),
+			"ab"
+		)
+		lu.assertEquals(lco.StripComments(
+			"foo"),
+			"foo"
+		)
+		lu.assertEquals(lco.StripComments( -- still no comment
+			"bar-"),
+			"bar-"
+		)
+		lu.assertEquals(lco.StripComments( -- comment without space
+			"bar--"),
+			"bar"
+		)
+		lu.assertEquals(lco.StripComments( -- also a comment without space
+			"bar---"),
+			"bar"
+		)
+		lu.assertEquals(lco.StripComments( -- not a comment, with space before it
+			"bar -"),
+			"bar -"
+		)
+		lu.assertEquals(lco.StripComments( -- a comment with space before it
+			"bar --"),
+			"bar"
+		)
+		lu.assertEquals(lco.StripComments( -- also a comment with space before it
+			"bar ---"),
+			"bar"
+		)
+		lu.assertEquals(lco.StripComments(
+			"Hello, World!"),
+			"Hello, World!"
+		)
+		lu.assertEquals(lco.StripComments(
+			"This--is a comment"),
+			"This"
+		)
+		
+		-- more complex tests:
+		
+		lu.assertEquals(lco.StripComments( -- no comment, but multiple single minus chars
+			"local single_minus = single - minus-test"),
+			"local single_minus = single - minus-test"
+		)
+		lu.assertEquals(lco.StripComments( -- as above, but with a comment
+			"local single_minus = single - minus-test2 -- number2"),
+			"local single_minus = single - minus-test2"
+		)
+		lu.assertEquals(lco.StripComments( -- two - separated by a space,
+			"Hello- -World -nocomment"),   -- and a word prefixed with single - at the end.
+			"Hello- -World -nocomment"
+		)
+		
 		
 		--[[ template, copy this:
 		lu.assertEquals(lco.StripComments(
@@ -48,6 +124,13 @@ test_LoadConfigOptions = {
 		)
 		--]]
 	end,
+	
+	
+	--[[
+	test_StripComments_withQuotes = function()
+		-- TODO: don't use this. keep everything related to StripComments in single function!
+	end,
+	--]]
 }
 
 
