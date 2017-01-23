@@ -23,8 +23,8 @@ local M = {} -- the module table
 
 function M.StripComments(line)
 	-- check if the line contains a comment first:
-	--if not line:find("--", 1, true) then return line end
-	--if su.startsWith(line, "--") then return "" end -- shortcut if the whole line is a comment
+	if su.startsWith(line, "--") then return "" end -- shortcut if the whole line is a comment
+	if not line:find("--", 1, true) then return su.trim(line) end
 	
 	-- character codes:
 	local minus = string.byte("-")
@@ -94,10 +94,10 @@ function M.StripComments(line)
 		tmp = tmp .. "-"
 	end--]]
 	
-	line = tmp
+	line = su.trim(tmp)
 	
 	DebugLog("StripComments: " .. line)
-	return su.trim(line)
+	return line
 end
 
 
