@@ -1,11 +1,13 @@
 
 ## Todo
 
-- [ ] add unit tests which test quotes to test_LoadConfigOptions.lua (and implement support for quotes in LoadConfigOptions.StripComments!)
+- [ ] write a file interface emulator module (using 30log). it should create objects that behave like file handles for text files. the constructor should take a string containing one or more lines as argument. (we need this for unit-testing function M.LoadConfigOptions)
+- [ ] finish LoadConfigOptions.lua
+- [ ] finish the config-loader function
+- [x] add unit tests which test quotes to test_LoadConfigOptions.lua (and implement support for quotes in LoadConfigOptions.StripComments!)
 - [ ] finish unittest module for LoadConfigOptions.lua
 - [x] Makefile: add 'test' rule to makefile, to run unittests
 - [ ] Makefile: copy dir 'config' into build directory when building.
-- [ ] finish the config-loader function
 - [ ] skills-table stuff
 - [x] start writing config-loader function
 - [ ] remove ./data/Config.lua from project, as well as the GEN_FILES generation rules, ./tools/txt2lua.lua etc. since we don't need it.
