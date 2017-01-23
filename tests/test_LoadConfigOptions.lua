@@ -116,6 +116,39 @@ test_LoadConfigOptions = {
 			"Hello- -World -nocomment"
 		)
 		
+		-- tests with quotes:
+		
+		lu.assertEquals(lco.StripComments( -- string literal, no comment
+			'testline = "-- lol"'),
+			'testline = "-- lol"'
+		)
+		lu.assertEquals(lco.StripComments( -- string literal with comment at the end
+			'testline = "-- lol" -- rofl'),
+			'testline = "-- lol"'
+		)
+		lu.assertEquals(lco.StripComments( -- as above, but with single quotes, no comment
+			"testline = '-- lol'"),
+			"testline = '-- lol'"
+		)
+		lu.assertEquals(lco.StripComments( -- as above, single quotes, comment at the end
+			"testline = '-- lol' -- rofl"),
+			"testline = '-- lol'"
+		)
+		lu.assertEquals(lco.StripComments( -- empty string literal, comment at the end
+			'"" -- test'),
+			'""'
+		)
+		lu.assertEquals(lco.StripComments( -- as above, but with single quotes.
+			"'' -- test"),
+			"''"
+		)
+		
+		-- TODO: mixed single and double quotes
+		
+		lu.assertEquals(lco.StripComments(
+			"'--'"),
+			""
+		)
 		
 		--[[ template, copy this:
 		lu.assertEquals(lco.StripComments(
