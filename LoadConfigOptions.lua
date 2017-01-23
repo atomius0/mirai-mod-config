@@ -54,17 +54,19 @@ function M.StripComments(line)
 			end
 			--]]
 			---[[
-			if c == dquote then
+			if c == dquote and not in_squote then
 				in_dquote = not in_dquote
 				tmp = tmp .. string.char(c)
 				break
 				
-			elseif c == squote then
+			elseif c == squote and not in_dquote then
 				in_squote = not in_squote
 				tmp = tmp .. string.char(c)
 				break
 			end
 			--]]
+			
+			-- TODO: support for \ escape character?
 			
 			if c == minus and not in_dquote and not in_squote then
 				minusfound = minusfound + 1
