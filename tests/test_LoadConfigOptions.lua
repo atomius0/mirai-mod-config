@@ -174,6 +174,30 @@ test_LoadConfigOptions = {
 			[['--'--']]),
 			[['--']]
 		)
+		lu.assertEquals(lco.StripComments( -- comment including a double quote
+			'foo --"bar'),
+			"foo"
+		)
+		lu.assertEquals(lco.StripComments( -- comment including a single quote
+			"foo --'bar"),
+			"foo"
+		)
+		lu.assertEquals(lco.StripComments( -- comment including a pair of double quotes
+			'foo --"bar"'),
+			"foo"
+		)
+		lu.assertEquals(lco.StripComments( -- comment including a pair of single quotes
+			"foo --'bar'"),
+			"foo"
+		)
+		lu.assertEquals(lco.StripComments( -- same as above, but with more stuff at the end (double)
+			'foo --"bar" test'),
+			"foo"
+		)
+		lu.assertEquals(lco.StripComments( -- same as above, but with more stuff at the end (single)
+			"foo --'bar' test"),
+			"foo"
+		)
 		
 		-- mixed single and double quotes:
 		
