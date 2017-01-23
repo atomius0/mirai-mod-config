@@ -166,13 +166,34 @@ test_LoadConfigOptions = {
 			"'''"),
 			"'''"
 		)
-		
-		-- TODO: mixed single and double quotes
-		
-		lu.assertEquals(lco.StripComments(
-			"'--'"),
-			""
+		lu.assertEquals(lco.StripComments( -- one pair and one separate double quote
+			[["--"--"]]),
+			[["--"]]
 		)
+		lu.assertEquals(lco.StripComments( -- one pair and one separate single quote
+			[['--'--']]),
+			[['--']]
+		)
+		
+		-- mixed single and double quotes:
+		
+		lu.assertEquals(lco.StripComments( -- a double quote inside a pair of single quotes
+			[['"--']]),
+			[['"--']]
+		)
+		lu.assertEquals(lco.StripComments( -- a single quote inside a pair of double quotes
+			[["'--"]]),
+			[["'--"]]
+		)
+		lu.assertEquals(lco.StripComments( -- as above, with comment at the end (double in single)
+			[['"--' -- comment]]),
+			[['"--']]
+		)
+		lu.assertEquals(lco.StripComments( -- as above, with comment at the end (single in double)
+			[["'--" -- comment]]),
+			[["'--"]]
+		)
+		
 		
 		--[[ template, copy this:
 		lu.assertEquals(lco.StripComments(
