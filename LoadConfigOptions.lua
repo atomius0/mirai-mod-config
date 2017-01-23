@@ -109,7 +109,7 @@ function M.LoadConfigOptions(f)
 		
 		repeat -- emulating 'continue' support, use break within this block to 'continue' the loop
 			-- strip comments:
-			line = StripComments(line)
+			line = M.StripComments(line)
 		until true
 	end
 	
@@ -126,7 +126,12 @@ function M.LoadConfigOptions(f)
 end
 
 
--- TODO: set the metatable here
+-- create a metatable, so we can call table 'M' as if it was a function:
+local mt = {
+	__call = function(t, ...)
+		return t.LoadConfigOptions(...)
+	end
+}
 
 --return LoadConfigOptions
-return M
+return setmetatable(M, mt)
