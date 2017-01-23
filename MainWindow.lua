@@ -272,8 +272,21 @@ function MainWindow:LoadConfig(filename)
 		return
 	end
 	
-	local options = LoadConfigOptions(f)
+	local options, tactics = LoadConfigOptions(f)
 	
+	if DEBUG then -- DEBUG:
+		print() -- empty line
+		DebugLog("options:")
+		for k, v in pairs(options) do
+			DebugLog(k, " = ", v)
+		end
+		print()
+		DebugLog("tactics:")
+		for k, v in pairs(tactics) do
+			DebugLog(k, " = ", v)
+		end
+		print()
+	end
 	
 	-- use method SetValue()
 	
