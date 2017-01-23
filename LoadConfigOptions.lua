@@ -2,7 +2,7 @@
 -- function LoadConfigOptions
 
 -- DONE: move all functions into a table M.
--- TODO: assing a metatable with a __call function to this table. the __call function should do:
+-- DONE: assing a metatable with a __call function to this table. the __call function should do:
 --[[
 mt.__call = function(t, ...)
 	return t.LoadConfigOptions(...)
@@ -34,7 +34,7 @@ function M.StripComments(line)
 	local tmp = ""
 	local minusfound = 0
 	local in_dquote = false -- are we inside a "double quoted string"?
-	local in_squote = false -- are we inside a 'single quoted string"?
+	local in_squote = false -- are we inside a 'single quoted string'?
 	local done = false
 	
 	for i = 1, #line do
