@@ -1,0 +1,12 @@
+# makefile for running unit tests
+
+# use with: mingw32-make -f Makefile.mingw
+
+# note: if you run this makefile directly, it will use 'lua' as the lua interpreter.
+#       but if you run the recipe 'test' from the parent directory's makefile,
+#       wxLua's lua interpreter will be used instead.
+
+LUA = lua
+
+test:
+	$(LUA) test_LoadConfigOptions.lua -v

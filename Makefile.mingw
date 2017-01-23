@@ -51,6 +51,9 @@ generate: $(GEN_FILES)
 run: $(LUA_FILES) $(GEN_FILES)
 	$(LUA) main.lua
 
+test:
+	cd tests && $(MAKE) -f Makefile.mingw32 LUA=../$(LUA)
+
 
 $(RELEASE_DIR)/$(ARCHIVE_BASENAME).7z: $(BUILD_DIR_FILES)
 	if not exist $(RELEASE_DIR) mkdir $(RELEASE_DIR)

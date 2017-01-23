@@ -2,7 +2,7 @@
 ## Todo
 
 - [ ] finish unitttest module for LoadConfigOptions.lua
-- [ ] Makefile: add 'test' rule to makefile, to run unittests
+- [x] Makefile: add 'test' rule to makefile, to run unittests
 - [ ] Makefile: copy dir 'config' into build directory when building.
 - [ ] finish the config-loader function
 - [ ] skills-table stuff
