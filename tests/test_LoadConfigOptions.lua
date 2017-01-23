@@ -142,6 +142,30 @@ test_LoadConfigOptions = {
 			"'' -- test"),
 			"''"
 		)
+		lu.assertEquals(lco.StripComments( -- single double quote, should stay as is.
+			'"'),
+			'"'
+		)
+		lu.assertEquals(lco.StripComments( -- single quote, should stay as is.
+			"'"),
+			"'"
+		)
+		lu.assertEquals(lco.StripComments( -- empty pair of double quotes, should stay as is.
+			'""'),
+			'""'
+		)
+		lu.assertEquals(lco.StripComments( -- empty pair of single quotes, should stay as is.
+			"''"),
+			"''"
+		)
+		lu.assertEquals(lco.StripComments( -- three double quotes, should stay as is.
+			'"""'),
+			'"""'
+		)
+		lu.assertEquals(lco.StripComments( -- three single quotes, should stay as is.
+			"'''"),
+			"'''"
+		)
 		
 		-- TODO: mixed single and double quotes
 		
