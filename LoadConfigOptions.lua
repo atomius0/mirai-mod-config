@@ -38,22 +38,9 @@ function M.StripComments(line)
 	local done = false
 	
 	for i = 1, #line do
-		local c = line:byte(i)
-		--print(string.char(c))
 		repeat
-			--[[if in_dquote then
-				if c == dquote then in_dquote = false end
-				tmp = tmp .. string.char(c)
-				break
-			end
+			local c = line:byte(i)
 			
-			if in_squote then
-				if c == squote then in_squote = false end
-				tmp = tmp .. string.char(c)
-				break
-			end
-			--]]
-			---[[
 			if c == dquote and not in_squote then
 				in_dquote = not in_dquote
 				tmp = tmp .. string.char(c)
@@ -64,7 +51,6 @@ function M.StripComments(line)
 				tmp = tmp .. string.char(c)
 				break
 			end
-			--]]
 			
 			-- TODO: support for \ escape character?
 			
