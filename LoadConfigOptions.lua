@@ -14,26 +14,61 @@ local function StripComments(line)
 	--if not line:find("--", 1, true) then return line end
 	--if su.startsWith(line, "--") then return "" end -- shortcut if the whole line is a comment
 	
-	local tmp = ""
+	-- character codes:
 	local minus = string.byte("-")
+	local dquote = string.byte('"')
+	local squote = string.byte("'")
+	
+	local tmp = ""
 	local minusfound = 0
+	local in_dquote = false -- are we inside a "double quoted string"?
+	local in_squote = false -- are we inside a 'single quoted string"?
+	local done = false
 	
 	for i = 1, #line do
 		local c = line:byte(i)
 		--print(string.char(c))
-		if c == minus then
-			minusfound = minusfound + 1
-			if minusfound == 2 then
+		repeat
+			--[[if in_dquote then
+				if c == dquote then in_dquote = false end
+				tmp = tmp .. string.char(c)
 				break
 			end
 			
-		elseif minusfound > 0 then -- there was a minus, but not a second one right after
-			tmp = tmp .. "-" .. string.char(c)
-			minusfound = 0
+			if in_squote then
+				if c == squote then in_squote = false end
+				tmp = tmp .. string.char(c)
+				break
+			end
 			
-		else
-			tmp = tmp .. string.char(c)
-		end
+			if c == dquote then
+				in_dquote = true
+				tmp = tmp .. string.char(c)
+				break
+				
+			elseif c == squote then
+				in_squote = true
+				tmp = tmp .. string.char(c)
+				break
+			end
+			--]]
+			
+			if c == minus and not in_dquote and not in_squote then
+				minusfound = minusfound + 1
+				if minusfound == 2 then
+					done = true
+					break
+				end
+				
+			elseif minusfound > 0 then -- there was a minus, but not a second one right after
+				tmp = tmp .. "-" .. string.char(c)
+				minusfound = 0
+				
+			else
+				tmp = tmp .. string.char(c)
+			end
+		until true
+		if done then break end
 	end
 	
 	line = tmp
