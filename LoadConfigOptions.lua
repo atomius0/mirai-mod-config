@@ -55,17 +55,20 @@ function M.StripComments(line)
 			--]]
 			---[[
 			if c == dquote then
+				in_dquote = not in_dquote
+				--[[
 				if in_dquote then
 					in_dquote = false
 				else
 					in_dquote = true
 				end
+				--]]
 				tmp = tmp .. string.char(c)
 				break
 				
 			elseif c == squote then
-				in_squote = true
-				
+				in_squote = not in_squote
+				tmp = tmp .. string.char(c)
 				break
 			end
 			--]]
