@@ -2,7 +2,7 @@
 -- function LoadConfigOptions
 
 -- DONE: move all functions into a table M.
--- DONE: assing a metatable with a __call function to this table. the __call function should do:
+-- DONE: assign a metatable with a __call function to this table. the __call function should do:
 --[[
 mt.__call = function(t, ...)
 	return t.LoadConfigOptions(...)
