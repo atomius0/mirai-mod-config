@@ -1,7 +1,7 @@
 -- mirai-mod-conf
 -- function LoadConfigOptions
 
--- TODO: move all function into a table M.
+-- DONE: move all functions into a table M.
 -- TODO: assing a metatable with a __call function to this table. the __call function should do:
 --[[
 mt.__call = function(t, ...)
@@ -19,8 +19,9 @@ if DEBUG then STRINGUTIL_ADD_STRING_METHODS = false end
 
 local su = require "stringutil"
 
+local M = {} -- the module table
 
-local function StripComments(line)
+function M.StripComments(line)
 	-- check if the line contains a comment first:
 	--if not line:find("--", 1, true) then return line end
 	--if su.startsWith(line, "--") then return "" end -- shortcut if the whole line is a comment
@@ -96,7 +97,7 @@ end
 -- tactic tables look like this:
 -- {ID, "NAME", BEHA_*, WITH_*, LVL, AAA}
 -- see file 'ControlPanelConfigOptions.md' (line 110, "## Tact List:") for details.
-local function LoadConfigOptions(f)
+function M.LoadConfigOptions(f)
 	DebugLog("LoadConfigOptions()")
 	
 	local options = {}
@@ -125,4 +126,7 @@ local function LoadConfigOptions(f)
 end
 
 
-return LoadConfigOptions
+-- TODO: set the metatable here
+
+--return LoadConfigOptions
+return M
