@@ -1,6 +1,17 @@
 -- mirai-mod-conf
 -- function LoadConfigOptions
 
+-- TODO: move all function into a table M.
+-- TODO: assing a metatable with a __call function to this table. the __call function should do:
+--[[
+mt.__call = function(t, ...)
+	return t.LoadConfigOptions(...)
+end
+--]]
+-- we do this, because then we can access all helper functions from outside this module.
+-- (for unit testing)
+-- while this module can still be 'require'd and used the same way as before.
+
 -- workaround for strict.lua
 -- without this, strict.lua complains: "variable 'STRINGUTIL_ADD_STRING_METHODS' is not declared",
 -- because stringutil.lua checks if this global variable is defined.
