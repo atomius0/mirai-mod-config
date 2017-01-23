@@ -93,7 +93,7 @@ function M.StripComments(line)
 	
 	line = tmp
 	
-	print("StripComments: " .. line)
+	DebugLog("StripComments: " .. line)
 	return su.trim(line)
 end
 
