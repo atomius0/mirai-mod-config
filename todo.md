@@ -1,7 +1,8 @@
 
 ## Todo
 
-- [ ] finish unitttest module for LoadConfigOptions.lua
+- [ ] add unit tests which test quotes to test_LoadConfigOptions.lua (and implement support for quotes in LoadConfigOptions.StripComments!)
+- [ ] finish unittest module for LoadConfigOptions.lua
 - [x] Makefile: add 'test' rule to makefile, to run unittests
 - [ ] Makefile: copy dir 'config' into build directory when building.
 - [ ] finish the config-loader function
