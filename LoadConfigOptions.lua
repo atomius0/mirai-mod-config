@@ -175,8 +175,15 @@ function M.GetTact(line)
 				end
 				tmp = tmp .. string.char(c)
 				
-			elseif state == 9 then -- read number 't_lvl', until next ","
-				if c == CC_COMMA then
+			elseif state == 9 then -- read number 't_lvl', until next "," or '}'
+				if c == CC_CURLY_BRACE_CLOSE then
+					-- there was no comma, the parameter 't_aaa' is missing
+					-- and we are at the closing brace. we are done!
+					t_aaa = -1 -- default value when AAA is not specified in the tactic
+					done = true
+				end
+				
+				if c == CC_COMMA or c == CC_CURLY_BRACE_CLOSE then
 					t_lvl = tonumber(tmp)
 					tmp = ""
 					state = state + 1
@@ -185,8 +192,9 @@ function M.GetTact(line)
 				tmp = tmp .. string.char(c)
 				
 			elseif state == 10 then -- read number 't_aaa' if it exists:
+				if done then break end -- did we finish in state 9? then skip this state.
 				if c == CC_CURLY_BRACE_CLOSE then -- if we read '}', we are done
-					if #tmp ~= 0 then
+					if #su.trim(tmp) ~= 0 then
 						t_aaa = tonumber(tmp)
 					else
 						t_aaa = -1 -- default value when AAA is not specified in the tactic
