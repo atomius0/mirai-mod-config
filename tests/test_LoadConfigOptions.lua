@@ -263,10 +263,19 @@ function test_lco.test_GetTact()
 		'Tact[1097] = {"Ant Egg", BEHA_attack_last, WITH_no_skill, 5, 0}'),
 		{1097, "Ant Egg", "BEHA_attack_last", "WITH_no_skill", 5, 0}
 	)
-	lu.assertEquals(lco.GetTact( -- missing AAA parameter
+	lu.assertEquals(lco.GetTact( -- missing AAA parameter, no comma at the end
 		'Tact[1097] = {"Ant Egg", BEHA_attack_last, WITH_no_skill, 5}'),
 		{1097, "Ant Egg", "BEHA_attack_last", "WITH_no_skill", 5, -1}
 	)
+	lu.assertEquals(lco.GetTact( -- missing AAA parameter, but with comma at the end
+		'Tact[1097] = {"Ant Egg", BEHA_attack_last, WITH_no_skill, 5,}'),
+		{1097, "Ant Egg", "BEHA_attack_last", "WITH_no_skill", 5, -1}
+	)
+	lu.assertEquals(lco.GetTact( -- missing AAA parameter, but with comma and space at the end
+		'Tact[1097] = {"Ant Egg", BEHA_attack_last, WITH_no_skill, 5, }'),
+		{1097, "Ant Egg", "BEHA_attack_last", "WITH_no_skill", 5, -1}
+	)
+	
 	
 	-- comments:
 	
