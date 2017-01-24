@@ -98,11 +98,6 @@ end
 -- comments are stored like this: (detect them by their name starting with "--")
 -- { 0, "-- comment", "BEHA_avoid", "WITH_no_skill", 1, -1}
 function M.GetTact(line)
-	--[[ TODO: remove this?
-	local function _GetID()
-		
-	end
-	--]]
 	if su.startsWith(line, "--") then -- comment:
 		return {0, line, "BEHA_avoid", "WITH_no_skill", 1, -1}
 	
@@ -126,8 +121,9 @@ function M.GetTact(line)
 	local c_square_bracket_close = string.byte("]")
 	local c_equals               = string.byte("=")
 	local c_curly_brace_open     = string.byte("{")
-	
-	--local c_curly_brace_close   = string.byte("}")
+	local c_doublequote          = string.byte('"')
+	local c_comma                = string.byte(",")
+	local c_curly_brace_close    = string.byte("}")
 	
 	for i = 1, #line do
 		repeat -- for 'continue' emulation via 'break'
@@ -149,18 +145,73 @@ function M.GetTact(line)
 			elseif state == 3 then -- read until "{"
 				if c == c_curly_brace_open then state = state + 1 end
 				
-			elseif state == 4 then
+			elseif state == 4 then -- read until double quote '"'
+				if c == c_doublequote then state = state + 1 end
 				
-				-- TODO: the rest of the states
+			elseif state == 5 then -- read string 't_name' until the next double quote '"'
+				if c == c_doublequote then
+					t_name = tmp
+					tmp = ""
+					state = state + 1
+					break
+				end
+				tmp = tmp .. string.char(c)
+				
+			elseif state == 6 then -- read until next ","
+				if c == c_comma then state = state + 1 end
+				
+			elseif state == 7 then -- read the 'BEHA_*' constant, until next ","
+				if c == c_comma then
+					t_beha = su.trim(tmp) -- trim it, since it isn't enclosed within quotes
+					tmp = ""
+					state = state + 1
+					break
+				end
+				tmp = tmp .. string.char(c)
+				
+			elseif state == 8 then -- read the 'WITH_*' constant, until next ","
+				if c == c_comma then
+					t_with = su.trim(tmp)
+					tmp = ""
+					state = state + 1
+					break
+				end
+				tmp = tmp .. string.char(c)
+				
+			elseif state == 9 then -- read number 't_lvl', until next ","
+				if c == c_comma then
+					t_lvl = tonumber(tmp)
+					tmp = ""
+					state = state + 1
+					break
+				end
+				tmp = tmp .. string.char(c)
+				
+			elseif state == 10 then -- read number 't_aaa' if it exists:
+				if c == c_curly_brace_close then -- if we read '}', we are done
+					if #tmp ~= 0 then
+						t_aaa = tonumber(tmp)
+						tmp = ""
+						state = state + 1
+					end
+					done = true
+				end
+				tmp = tmp .. string.char(c)
+				
 			else -- reached the end of the tactic:
 				-- there shouldn't be anything left in the string,
 				-- since the comments have been stripped already...
-				error("Expected end of tactic")
+				
+				-- DEBUG
+				for i,v in ipairs{t_id, t_name, t_beha, t_with, t_lvl, t_aaa} do print("++++",i,v) end
+				-- end DEBUG
+				error("Expected end of tactic: '" .. line .. "'")
 			end
 		until true
 	end
 	
-	if not done then error("Incomplete tactic: '" .. line .. "', state: " .. state) end
+	
+	assert(done, "Incomplete tactic: '" .. line .. "', state: " .. state)
 	
 	return {t_id, t_name, t_beha, t_with, t_lvl, t_aaa}
 	--[[
