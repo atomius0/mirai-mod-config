@@ -82,8 +82,20 @@ function M.StripComments(line)
 	
 	line = su.trim(tmp)
 	
-	DebugLog("StripComments: " .. line)
+	--DebugLog("StripComments: " .. line)
 	return line
+end
+
+
+-- returns a table containing the option name and its assigned value:
+-- sample input: "MY_OPTION.FOO = 123"
+-- t[1] = "MY_OPTION.FOO", t[2] = "123"
+function M.GetOption(line)
+	local opt = su.split(line, "=", true)
+	assert(#opt == 2, "invalid option: " .. line)
+	opt[1] = su.trim(opt[1])
+	opt[2] = su.trim(opt[2])
+	return opt
 end
 
 
@@ -101,12 +113,19 @@ function M.LoadConfigOptions(f)
 	local tactics = {}
 	
 	for line in f:lines() do
-		--DebugLog(line)
-		line = su.trim(line)
-		
 		repeat -- emulating 'continue' support, use break within this block to 'continue' the loop
-			-- strip comments:
+			--DebugLog(line)
+			line = su.trim(line)
 			line = M.StripComments(line)
+			
+			-- skip empty lines
+			if #line == 0 then break end
+			
+			-- read regular options:
+			local opt = M.GetOption(line)
+			
+			-- insert option 'opt' into table 'options':
+			options[opt[1]] = opt[2]
 		until true
 	end
 	
