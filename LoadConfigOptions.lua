@@ -121,7 +121,6 @@ function M.GetTact(line)
 	
 	local tmp = "" -- temporary string, used inside the state machine below
 	local t_id, t_name, t_beha, t_with, t_lvl, t_aaa
-	t_aaa = -1 -- default value when AAA is not specified in the tactic
 	
 	for i = 1, #line do
 		repeat -- for 'continue' emulation via 'break'
@@ -189,10 +188,13 @@ function M.GetTact(line)
 				if c == CC_CURLY_BRACE_CLOSE then -- if we read '}', we are done
 					if #tmp ~= 0 then
 						t_aaa = tonumber(tmp)
-						tmp = ""
-						state = state + 1
+					else
+						t_aaa = -1 -- default value when AAA is not specified in the tactic
 					end
+					tmp = ""
+					state = state + 1
 					done = true
+					break
 				end
 				tmp = tmp .. string.char(c)
 				
