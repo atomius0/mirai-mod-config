@@ -246,17 +246,118 @@ function test_lco.test_StripComments()
 	--]]
 end
 
---[[
+
 function test_lco.test_GetTact()
-	assert(false) -- TODO: test_GetTact
+	
+	-- simple tests:
+	
+	lu.assertEquals(lco.GetTact(
+		'Tact[1261] = {"Wild Rose", BEHA_react, WITH_full_power, 5, 0}'),
+		{1261, "Wild Rose", "BEHA_react", "WITH_full_power", 5, 0}
+	)
+	lu.assertEquals(lco.GetTact(
+		'Tact[1002] = {"Poring", BEHA_attack_last, WITH_no_skill, 5, -1} -- comment'),
+		{1002, "Poring", "BEHA_attack_last", "WITH_no_skill", 5, -1}
+	)
+	lu.assertEquals(lco.GetTact(
+		'Tact[1097] = {"Ant Egg", BEHA_attack_last, WITH_no_skill, 5, 0}'),
+		{1097, "Ant Egg", "BEHA_attack_last", "WITH_no_skill", 5, 0}
+	)
+	lu.assertEquals(lco.GetTact( -- missing AAA parameter
+		'Tact[1097] = {"Ant Egg", BEHA_attack_last, WITH_no_skill, 5}'),
+		{1097, "Ant Egg", "BEHA_attack_last", "WITH_no_skill", 5, -1}
+	)
+	
+	-- comments:
+	
+	lu.assertEquals(lco.GetTact(
+		'-- testing a comment'),
+		{0, "-- testing a comment", "BEHA_avoid", "WITH_no_skill", 1, -1}
+	)
+	lu.assertEquals(lco.GetTact(
+		'--'),
+		{0, "--", "BEHA_avoid", "WITH_no_skill", 1, -1}
+	)
+	
+	-- errors:
+	
+	--lco.GetTact('Tact[1048] = {"Thief Bug Egg", BEHA_attack_last, WITH_no_skill, 5, 0}-')
+	
+	lu.assertErrorMsgContains("Expected tactic, got: '", lco.GetTact, "foobar = 12")
+	lu.assertErrorMsgContains("Expected tactic, got: '", lco.GetTact, "Tact(1234) = {baz}")
+	
+	lu.assertErrorMsgContains("Expected end of tactic: '", lco.GetTact,
+		'Tact[1261] = {"Wild Rose", BEHA_react, WITH_full_power, 5, 0} -'
+	)
+	lu.assertErrorMsgContains("Expected end of tactic: '", lco.GetTact,
+		'Tact[1261] = {"Wild Rose", BEHA_react, WITH_full_power, 5, 0} e'
+	)
+	lu.assertErrorMsgContains("Expected end of tactic: '", lco.GetTact,
+		'Tact[1261] = {"Wild Rose", BEHA_react, WITH_full_power, 5, 0}; Tact[4321] = {stuff}'
+	)
+	--[[
+	lu.assertErrorMsgContains("Incomplete tactic: '", lco.GetTact,
+		'Tact[1261] = {"Wild Rose", BEHA_react, WITH_full_power, 5, 0}; Tact[4321] = {stuff}'
+	)
+	--]]
+	--[[ template:
+	lu.assertEquals(lco.GetTact(
+		''),
+		{0, "", "", "", 0, 0}
+	)
+	--]]
+	
+	--assert(false) -- TODO: test_GetTact
 end
 
 
 function test_lco.test_GetOption()
-	assert(false) -- TODO: test_GetOption
+	
+	-- simple tests:
+	
+	lu.assertEquals(lco.GetOption("option=true"), {"option", "true"}) -- normal option
+	lu.assertEquals(lco.GetOption("option = true"), {"option", "true"}) -- normal option with space
+	lu.assertEquals(lco.GetOption("="), {"", ""}) -- single equals sign
+	lu.assertEquals(lco.GetOption(" ="), {"", ""}) -- single equals with space
+	lu.assertEquals(lco.GetOption(" = "), {"", ""}) -- single equals with spaces
+	
+	-- more complex tests:
+	
+	lu.assertEquals(lco.GetOption("AS_FIL_FLTT.MinSP=70"), {"AS_FIL_FLTT.MinSP", "70"})
+	
+	lu.assertEquals(lco.GetOption( -- option with multiple spaces
+		" option with spaces  = true and false"),
+		{"option with spaces", "true and false"}
+	)
+	lu.assertEquals(lco.GetOption(
+		"CIRCLE_ON_IDLE        = 1     -- 0 disabled"),
+		{"CIRCLE_ON_IDLE", "1     -- 0 disabled"}
+	)
+	lu.assertEquals(lco.GetOption(
+		'Tact[1002] = {"Poring", BEHA_attack_last, WITH_no_skill, 5, -1}'),
+		{'Tact[1002]', '{"Poring", BEHA_attack_last, WITH_no_skill, 5, -1}'}
+	)
+	
+	-- errors:
+	
+	lu.assertErrorMsgContains("invalid option: ", lco.GetOption, "") -- no equals sign
+	lu.assertErrorMsgContains("invalid option: ", lco.GetOption, "no equals sign here")
+	lu.assertErrorMsgContains("invalid option: ", lco.GetOption, "too = many = equals")
+	lu.assertErrorMsgContains("invalid option: ", lco.GetOption, "-")
+	lu.assertErrorMsgContains("invalid option: ", lco.GetOption, "--")
+	lu.assertErrorMsgContains("invalid option: ", lco.GetOption, "---")
+	lu.assertErrorMsgContains("invalid option: ", lco.GetOption, "this == 1")
+	
+	lu.assertErrorMsgContains("invalid option: ", lco.GetOption,
+		"CIRCLE_ON_IDLE        = 1     -- 0 = disabled" -- contains two equals signs.
+	)
+	
+	--[[ -- template:
+	lu.assertEquals(lco.GetOption(""), {"", ""})
+	--]]
 end
 
-
+--[[
 function test_lco.test_LoadConfigOptions()
 	assert(false) -- TODO: test_LoadConfigOptions
 end
