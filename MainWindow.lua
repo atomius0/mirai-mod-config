@@ -283,9 +283,9 @@ function MainWindow:LoadConfig(filename)
 		end
 		print()
 		DebugLog("tactics:")
-		for k, v in pairs(tactics) do
-			--DebugLog(k, " = ", v)
-			DebugLog('"' .. k .. '"', " = ", '"' .. v .. '"')
+		for i, v in ipairs(tactics) do
+			DebugLog(i, " = ", LoadConfigOptions.TactToString(v))
+			--DebugLog('"' .. i .. '"', " = ", '"' .. LoadConfigOptions.TactToString(v) .. '"')
 		end
 		print()
 	end
