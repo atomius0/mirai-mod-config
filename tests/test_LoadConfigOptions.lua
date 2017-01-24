@@ -246,6 +246,21 @@ test_LoadConfigOptions = {
 	end,
 	
 	
+	test_GetTact = function()
+		assert(false) -- TODO: test_GetTact
+	end,
+	
+	
+	test_GetOption = function()
+		assert(false) -- TODO: test_GetOption
+	end,
+	
+	
+	test_LoadConfigOptions = function()
+		assert(false) -- TODO: test_LoadConfigOptions
+	end,
+	
+	
 	--[[
 	test_StripComments_withQuotes = function()
 		-- TODO: don't use this. keep everything related to StripComments in single function!
