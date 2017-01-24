@@ -24,6 +24,8 @@
 - [x] link the two pairs of slider and SpinCtrl "AttackWhenHP" and "EvadeWhenHP" (according to "ControlPanelConfigOptions.md" line 28!)
 
 - [x] hide the tab Language for now. (until translation functionality is implemented)
+- [ ] in save function: write the selected mod to file 'SelectedMod.lua'
+- [ ] in load function: read 'SelectedMod.lua' and return the selected mod as a string (as third return value)
 
 - [ ] write a library for reading/writing Config.lua (original Config.lua is in ./data/Config.lua)
 - [ ] copy stringutil.lua into project directory when it is finished and tested. (is it?)
