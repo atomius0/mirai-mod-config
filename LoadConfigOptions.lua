@@ -149,6 +149,8 @@ function M.GetTact(line)
 		until true
 	end
 	
+	return {t_id, t_name, t_beha, t_with, t_lvl, t_aaa}
+	--[[
 	local tact = {}
 	table.insert(tact, t_id)
 	table.insert(tact, t_name)
@@ -156,6 +158,8 @@ function M.GetTact(line)
 	table.insert(tact, t_with)
 	table.insert(tact, t_lvl)
 	table.insert(tact, t_aaa)
+	--]]
+	
 	
 	
 	--for i,v in ipairs(tact) do print("*****Tact: ", i, v) end; os.exit() -- DEBUG!!!
@@ -173,7 +177,7 @@ function M.GetTact(line)
 	
 	-- TODO: M.GetTact(line)
 	
-	return tact
+	--return tact
 end
 
 ---[[
