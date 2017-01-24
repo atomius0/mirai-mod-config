@@ -19,6 +19,17 @@ if DEBUG then STRINGUTIL_ADD_STRING_METHODS = false end
 
 local su = require "stringutil"
 
+-- character codes:
+local CC_MINUS                = string.byte("-")
+local CC_DOUBLE_QUOTE         = string.byte('"')
+local CC_SINGLE_QUOTE         = string.byte("'")
+local CC_SQUARE_BRACKET_CLOSE = string.byte("]")
+local CC_EQUALS               = string.byte("=")
+local CC_CURLY_BRACE_OPEN     = string.byte("{")
+local CC_COMMA                = string.byte(",")
+local CC_CURLY_BRACE_CLOSE    = string.byte("}")
+--TODO: remove commented out character code blocks from this module
+
 local M = {} -- the module table
 
 function M.StripComments(line)
@@ -27,9 +38,9 @@ function M.StripComments(line)
 	if not line:find("--", 1, true) then return su.trim(line) end
 	
 	-- character codes:
-	local minus = string.byte("-")
-	local dquote = string.byte('"')
-	local squote = string.byte("'")
+	--local minus = string.byte("-")
+	--local dquote = string.byte('"')
+	--local squote = string.byte("'")
 	
 	local tmp = ""
 	local minusfound = 0
@@ -41,12 +52,12 @@ function M.StripComments(line)
 		repeat
 			local c = line:byte(i)
 			
-			if c == dquote and not in_squote then
+			if c == CC_DOUBLE_QUOTE and not in_squote then
 				in_dquote = not in_dquote
 				tmp = tmp .. string.char(c)
 				break
 				
-			elseif c == squote and not in_dquote then
+			elseif c == CC_SINGLE_QUOTE and not in_dquote then
 				in_squote = not in_squote
 				tmp = tmp .. string.char(c)
 				break
@@ -54,7 +65,7 @@ function M.StripComments(line)
 			
 			-- TODO: support for \ escape character?
 			
-			if c == minus and not in_dquote and not in_squote then
+			if c == CC_MINUS and not in_dquote and not in_squote then
 				minusfound = minusfound + 1
 				if minusfound == 2 then
 					done = true
@@ -118,12 +129,12 @@ function M.GetTact(line)
 	t_aaa = -1 -- default value when AAA is not specified in the tactic
 	
 	-- character codes:
-	local c_square_bracket_close = string.byte("]")
-	local c_equals               = string.byte("=")
-	local c_curly_brace_open     = string.byte("{")
-	local c_doublequote          = string.byte('"')
-	local c_comma                = string.byte(",")
-	local c_curly_brace_close    = string.byte("}")
+	--local c_square_bracket_close = string.byte("]")
+	--local c_equals               = string.byte("=")
+	--local c_curly_brace_open     = string.byte("{")
+	--local c_doublequote          = string.byte('"')
+	--local c_comma                = string.byte(",")
+	--local c_curly_brace_close    = string.byte("}")
 	
 	for i = 1, #line do
 		repeat -- for 'continue' emulation via 'break'
@@ -131,7 +142,7 @@ function M.GetTact(line)
 			
 			if state == 1 then -- read ID: search to beginning of ID, then read until "]"
 				if i <= 5 then break end -- skip "Tact["
-				if c == c_square_bracket_close then -- reached "]", end of ID
+				if c == CC_SQUARE_BRACKET_CLOSE then -- reached "]", end of ID
 					t_id = tonumber(tmp) -- set the ID variable
 					tmp = ""
 					state = state + 1
@@ -140,16 +151,16 @@ function M.GetTact(line)
 				tmp = tmp .. string.char(c)
 				
 			elseif state == 2 then -- read until "="
-				if c == c_equals then state = state + 1 end
+				if c == CC_EQUALS then state = state + 1 end
 				
 			elseif state == 3 then -- read until "{"
-				if c == c_curly_brace_open then state = state + 1 end
+				if c == CC_CURLY_BRACE_OPEN then state = state + 1 end
 				
 			elseif state == 4 then -- read until double quote '"'
-				if c == c_doublequote then state = state + 1 end
+				if c == CC_DOUBLE_QUOTE then state = state + 1 end
 				
 			elseif state == 5 then -- read string 't_name' until the next double quote '"'
-				if c == c_doublequote then
+				if c == CC_DOUBLE_QUOTE then
 					t_name = tmp
 					tmp = ""
 					state = state + 1
@@ -158,10 +169,10 @@ function M.GetTact(line)
 				tmp = tmp .. string.char(c)
 				
 			elseif state == 6 then -- read until next ","
-				if c == c_comma then state = state + 1 end
+				if c == CC_COMMA then state = state + 1 end
 				
 			elseif state == 7 then -- read the 'BEHA_*' constant, until next ","
-				if c == c_comma then
+				if c == CC_COMMA then
 					t_beha = su.trim(tmp) -- trim it, since it isn't enclosed within quotes
 					tmp = ""
 					state = state + 1
@@ -170,7 +181,7 @@ function M.GetTact(line)
 				tmp = tmp .. string.char(c)
 				
 			elseif state == 8 then -- read the 'WITH_*' constant, until next ","
-				if c == c_comma then
+				if c == CC_COMMA then
 					t_with = su.trim(tmp)
 					tmp = ""
 					state = state + 1
@@ -179,7 +190,7 @@ function M.GetTact(line)
 				tmp = tmp .. string.char(c)
 				
 			elseif state == 9 then -- read number 't_lvl', until next ","
-				if c == c_comma then
+				if c == CC_COMMA then
 					t_lvl = tonumber(tmp)
 					tmp = ""
 					state = state + 1
@@ -188,7 +199,7 @@ function M.GetTact(line)
 				tmp = tmp .. string.char(c)
 				
 			elseif state == 10 then -- read number 't_aaa' if it exists:
-				if c == c_curly_brace_close then -- if we read '}', we are done
+				if c == CC_CURLY_BRACE_CLOSE then -- if we read '}', we are done
 					if #tmp ~= 0 then
 						t_aaa = tonumber(tmp)
 						tmp = ""
