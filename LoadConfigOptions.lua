@@ -105,6 +105,8 @@ end
 --    in the config file.
 -- tactic tables look like this:
 -- {ID, "NAME", BEHA_*, WITH_*, LVL, AAA}
+-- comments are stored like this: (detect them by their name starting with "--")
+-- { 0, "-- comment", BEHA_avoid, WITH_no_skill, 1, -1}
 -- see file 'ControlPanelConfigOptions.md' (line 110, "## Tact List:") for details.
 function M.LoadConfigOptions(f)
 	DebugLog("LoadConfigOptions()")
@@ -112,20 +114,41 @@ function M.LoadConfigOptions(f)
 	local options = {}
 	local tactics = {}
 	
+	local inTactList = false -- are we inside the tact list right now?
+	
 	for line in f:lines() do
 		repeat -- emulating 'continue' support, use break within this block to 'continue' the loop
-			--DebugLog(line)
+			DebugLog(line)
 			line = su.trim(line)
-			line = M.StripComments(line)
 			
-			-- skip empty lines
-			if #line == 0 then break end
-			
-			-- read regular options:
-			local opt = M.GetOption(line)
-			
-			-- insert option 'opt' into table 'options':
-			options[opt[1]] = opt[2]
+			if inTactList then
+				if line == "-- End Tact" then -- end of tact list
+					inTactList = false        -- go back to handling regular options
+					DebugLog("## inTactList = false ##")
+					break
+				end
+				-- TODO: handle tact list
+				
+			else -- not inTactList, handle regular options:
+				line = M.StripComments(line)
+				
+				-- skip empty lines
+				if #line == 0 then break end
+				
+				-- read regular options:
+				local opt = M.GetOption(line)
+				
+				if opt[2] == "{}" then -- if option is a table constructor:
+					if opt[1] == "Tact" then -- detect start of tactics segment
+						inTactList = true
+						DebugLog("## inTactList = true ##")
+					end
+					break -- ignore all tables (except "Tact")
+				end
+				
+				-- insert option 'opt' into table 'options':
+				options[opt[1]] = opt[2]
+			end
 		until true
 	end
 	
