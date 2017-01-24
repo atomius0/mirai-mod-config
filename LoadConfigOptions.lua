@@ -128,9 +128,18 @@ end
 if DEBUG then
 	function M.TactToString(tact)
 		assert(type(tact) == "table")
-		return string.format('{%4d, "%s", "%s", "%s", %d, %2d}',
-			tact[1], tact[2], tact[3], tact[4], tact[5], tact[6]
-		)
+		
+		if #tact == 5 then
+			return string.format('{%4d, "%s", "%s", "%s", %d}',
+				tact[1], tact[2], tact[3], tact[4], tact[5]
+			)
+		elseif #tact == 6 then
+			return string.format('{%4d, "%s", "%s", "%s", %d, %2d}',
+				tact[1], tact[2], tact[3], tact[4], tact[5], tact[6]
+			)
+		else
+			error("invalid tact table")
+		end
 	end
 end
 
