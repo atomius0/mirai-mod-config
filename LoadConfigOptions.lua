@@ -214,34 +214,7 @@ function M.GetTact(line)
 	assert(done, "Incomplete tactic: '" .. line .. "', state: " .. state)
 	
 	return {t_id, t_name, t_beha, t_with, t_lvl, t_aaa}
-	--[[
-	local tact = {}
-	table.insert(tact, t_id)
-	table.insert(tact, t_name)
-	table.insert(tact, t_beha)
-	table.insert(tact, t_with)
-	table.insert(tact, t_lvl)
-	table.insert(tact, t_aaa)
-	--]]
-	
-	
-	
-	--for i,v in ipairs(tact) do print("*****Tact: ", i, v) end; os.exit() -- DEBUG!!!
-	
-	-- DONT split line with M.GetOption() !! (otherwise, '=' will not be supported inside strings!!)
-	-- remove "Tact["
-	-- get ID:
-	-- -- go through string byte by byte,
-	-- -- if not byte == string.byte "]",
-	-- -- -- add to id_string
-	-- -- else
-	-- -- -- convert id_string to number
-	
-	
-	
-	-- TODO: M.GetTact(line)
-	
-	--return tact
+	--return {t_id, t_name, t_beha, t_with, t_lvl}
 end
 
 ---[[
