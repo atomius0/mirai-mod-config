@@ -192,8 +192,9 @@ function M.GetTact(line)
 				tmp = tmp .. string.char(c)
 				
 			elseif state == 10 then -- read number 't_aaa' if it exists:
-				if done then break end -- did we finish in state 9? then skip this state.
 				if c == CC_CURLY_BRACE_CLOSE then -- if we read '}', we are done
+					-- we have to trim tmp, otherwise whitespace after the comma will
+					-- make it think that the parameter was not omitted:
 					if #su.trim(tmp) ~= 0 then
 						t_aaa = tonumber(tmp)
 					else
