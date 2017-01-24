@@ -275,7 +275,14 @@ function test_lco.test_GetTact()
 		'Tact[1097] = {"Ant Egg", BEHA_attack_last, WITH_no_skill, 5, }'),
 		{1097, "Ant Egg", "BEHA_attack_last", "WITH_no_skill", 5, -1}
 	)
-	
+	lu.assertEquals(lco.GetTact( -- missing AAA parameter, but with comma and tab at the end
+		'Tact[1097] = {"Ant Egg", BEHA_attack_last, WITH_no_skill, 5,\t}'),
+		{1097, "Ant Egg", "BEHA_attack_last", "WITH_no_skill", 5, -1}
+	)
+	lu.assertEquals(lco.GetTact( -- missing AAA parameter, but with comma and whitespace at the end
+		'Tact[1097] = {"Ant Egg", BEHA_attack_last, WITH_no_skill, 5, \t\t  \t }'),
+		{1097, "Ant Egg", "BEHA_attack_last", "WITH_no_skill", 5, -1}
+	)
 	
 	-- comments:
 	
@@ -290,13 +297,11 @@ function test_lco.test_GetTact()
 	
 	-- errors:
 	
-	--lco.GetTact('Tact[1048] = {"Thief Bug Egg", BEHA_attack_last, WITH_no_skill, 5, 0}-')
-	
 	lu.assertErrorMsgContains("Expected tactic, got: '", lco.GetTact, "foobar = 12")
 	lu.assertErrorMsgContains("Expected tactic, got: '", lco.GetTact, "Tact(1234) = {baz}")
 	
 	lu.assertErrorMsgContains("Expected end of tactic: '", lco.GetTact,
-		'Tact[1261] = {"Wild Rose", BEHA_react, WITH_full_power, 5, 0} -'
+		'Tact[1261] = {"Wild Rose", BEHA_react, WITH_full_power, 5, 0}-'
 	)
 	lu.assertErrorMsgContains("Expected end of tactic: '", lco.GetTact,
 		'Tact[1261] = {"Wild Rose", BEHA_react, WITH_full_power, 5, 0} e'
@@ -304,11 +309,44 @@ function test_lco.test_GetTact()
 	lu.assertErrorMsgContains("Expected end of tactic: '", lco.GetTact,
 		'Tact[1261] = {"Wild Rose", BEHA_react, WITH_full_power, 5, 0}; Tact[4321] = {stuff}'
 	)
-	--[[
-	lu.assertErrorMsgContains("Incomplete tactic: '", lco.GetTact,
-		'Tact[1261] = {"Wild Rose", BEHA_react, WITH_full_power, 5, 0}; Tact[4321] = {stuff}'
+	
+	lu.assertErrorMsgContains("Incomplete tactic: '", lco.GetTact, -- missing closing brace '}'
+		'Tact[1261] = {"Wild Rose", BEHA_react, WITH_full_power, 5, 0'
 	)
-	--]]
+	lu.assertErrorMsgContains("Incomplete tactic: '", lco.GetTact, -- cut off before last parameter
+		'Tact[1261] = {"Wild Rose", BEHA_react, WITH_full_power, 5, '
+	)
+	lu.assertErrorMsgContains("Incomplete tactic: '", lco.GetTact, -- cut off even earlier
+		'Tact[1261] = {"Wild Rose", BEHA_react, WITH_full_power, 5'
+	)
+	lu.assertErrorMsgContains("Incomplete tactic: '", lco.GetTact, -- as above, even earlier
+		'Tact[1261] = {"Wild Rose", BEHA_react, WITH_full_power'
+	)
+	lu.assertErrorMsgContains("Incomplete tactic: '", lco.GetTact, -- cut in the middle of a word
+		'Tact[1261] = {"Wild Rose", BEHA_react, WITH_fu'
+	)
+	lu.assertErrorMsgContains("Incomplete tactic: '", lco.GetTact, -- as above
+		'Tact[1261] = {"Wi'
+	)
+	lu.assertErrorMsgContains("Incomplete tactic: '", lco.GetTact, -- only tact identifier left
+		'Tact['
+	)
+	
+	-- this one is not recognized as a tactic, because the identifier 'Tact[' is incomplete:
+	lu.assertErrorMsgContains("Expected tactic, got: '", lco.GetTact,
+		'Tact'
+	)
+	lu.assertErrorMsgContains("Expected tactic, got: '", lco.GetTact, -- as above
+		'Tac'
+	)
+	lu.assertErrorMsgContains("Expected tactic, got: '", lco.GetTact, -- as above
+		'T'
+	)
+	
+	-- an empty tact string results in a return value of nil:
+	lu.assertEquals(lco.GetTact(""), nil)
+	
+	
 	--[[ template:
 	lu.assertEquals(lco.GetTact(
 		''),
