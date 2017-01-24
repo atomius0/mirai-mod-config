@@ -52,7 +52,7 @@ run: $(LUA_FILES) $(GEN_FILES)
 	$(LUA) main.lua
 
 test:
-	cd tests && $(MAKE) -f Makefile.mingw32 LUA=../$(LUA)
+	cd tests && $(MAKE) -f Makefile.mingw LUA=../$(LUA)
 
 
 $(RELEASE_DIR)/$(ARCHIVE_BASENAME).7z: $(BUILD_DIR_FILES)
