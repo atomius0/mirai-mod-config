@@ -37,11 +37,6 @@ function M.StripComments(line)
 	if su.startsWith(line, "--") then return "" end -- shortcut if the whole line is a comment
 	if not line:find("--", 1, true) then return su.trim(line) end
 	
-	-- character codes:
-	--local minus = string.byte("-")
-	--local dquote = string.byte('"')
-	--local squote = string.byte("'")
-	
 	local tmp = ""
 	local minusfound = 0
 	local in_dquote = false -- are we inside a "double quoted string"?
@@ -127,14 +122,6 @@ function M.GetTact(line)
 	local tmp = "" -- temporary string, used inside the state machine below
 	local t_id, t_name, t_beha, t_with, t_lvl, t_aaa
 	t_aaa = -1 -- default value when AAA is not specified in the tactic
-	
-	-- character codes:
-	--local c_square_bracket_close = string.byte("]")
-	--local c_equals               = string.byte("=")
-	--local c_curly_brace_open     = string.byte("{")
-	--local c_doublequote          = string.byte('"')
-	--local c_comma                = string.byte(",")
-	--local c_curly_brace_close    = string.byte("}")
 	
 	for i = 1, #line do
 		repeat -- for 'continue' emulation via 'break'
