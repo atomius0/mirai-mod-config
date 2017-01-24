@@ -98,6 +98,11 @@ end
 -- comments are stored like this: (detect them by their name starting with "--")
 -- { 0, "-- comment", "BEHA_avoid", "WITH_no_skill", 1, -1}
 function M.GetTact(line)
+	--[[ TODO: remove this?
+	local function _GetID()
+		
+	end
+	--]]
 	if su.startsWith(line, "--") then -- comment:
 		return {0, line, "BEHA_avoid", "WITH_no_skill", 1, -1}
 	
@@ -109,22 +114,49 @@ function M.GetTact(line)
 	end
 	
 	local tact = {}
+	local state = 1
+	
+	local tmp = "" -- temporary string, used inside the state machine below
+	local t_id, t_name, t_beha, t_with, t_lvl, t_aaa
+	t_aaa = -1 -- default value when AAA is not specified in the tactic
+	
+	-- character codes:
+	local c_squarebracket_close = string.byte("]")
+	
+	for i = 1, #line do
+		repeat -- for 'continue' emulation via 'break'
+			local c = line:byte(i)
+			
+			if state == 1 then -- read ID: search to beginning of ID, then read until "]"
+				if i <= 5 then break end -- skip "Tact["
+				
+				
+			elseif state == 2 then
+				
+			elseif state == 3 then
+				
+			end
+		until true
+	end
+	
+	
+	-- DONT split line with M.GetOption() !! (otherwise, '=' will not be supported inside strings!!)
+	-- remove "Tact["
+	-- get ID:
+	-- -- go through string byte by byte,
+	-- -- if not byte == string.byte "]",
+	-- -- -- add to id_string
+	-- -- else
+	-- -- -- convert id_string to number
+	
 	
 	
 	-- TODO: M.GetTact(line)
 	
-	-- DEBUG
-	if tact[2] and type(tact[2]) == "string" and su.startsWith(tact[2], "--", true) then
-		return tact
-	else
-		return {0, "dummy", "BEHA_avoid", "WITH_no_skill", 1, -1}
-	end
-	-- END DEBUG
-	
 	return tact
 end
 
-
+---[[
 if DEBUG then
 	function M.TactToString(tact)
 		assert(type(tact) == "table")
@@ -142,7 +174,7 @@ if DEBUG then
 		end
 	end
 end
-
+--]]
 
 -- returns a table containing the option name and its assigned value:
 -- sample input: "MY_OPTION.FOO = 123"
