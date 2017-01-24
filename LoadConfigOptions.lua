@@ -113,7 +113,8 @@ function M.GetTact(line)
 		error('Expected tactic, got: "' .. line .. '"')
 	end
 	
-	local tact = {}
+	line = M.StripComments(line) -- strip comment from the end of the line, if there is one.
+	
 	local state = 1
 	
 	local tmp = "" -- temporary string, used inside the state machine below
@@ -129,16 +130,35 @@ function M.GetTact(line)
 			
 			if state == 1 then -- read ID: search to beginning of ID, then read until "]"
 				if i <= 5 then break end -- skip "Tact["
-				
+				if c == c_squarebracket_close then -- reached "]", end of ID
+					t_id = tonumber(tmp) -- set the ID variable
+					tmp = ""
+					break
+				end
+				tmp = tmp .. string.char(c)
 				
 			elseif state == 2 then
 				
 			elseif state == 3 then
 				
+			else -- reached the end of the tactic:
+				-- there shouldn't be anything left in the string,
+				-- since the comments have been stripped already...
+				error("Expected end of tactic")
 			end
 		until true
 	end
 	
+	local tact = {}
+	table.insert(tact, t_id)
+	table.insert(tact, t_name)
+	table.insert(tact, t_beha)
+	table.insert(tact, t_with)
+	table.insert(tact, t_lvl)
+	table.insert(tact, t_aaa)
+	
+	
+	--for i,v in ipairs(tact) do print("*****Tact: ", i, v) end; os.exit() -- DEBUG!!!
 	
 	-- DONT split line with M.GetOption() !! (otherwise, '=' will not be supported inside strings!!)
 	-- remove "Tact["
