@@ -110,19 +110,24 @@ function M.GetTact(line)
 		return nil
 		
 	elseif not su.startsWith(line, "Tact[") then -- error: not a tactic
-		error('Expected tactic, got: "' .. line .. '"')
+		error("Expected tactic, got: '" .. line .. "'")
 	end
 	
 	line = M.StripComments(line) -- strip comment from the end of the line, if there is one.
 	
 	local state = 1
+	local done  = false
 	
 	local tmp = "" -- temporary string, used inside the state machine below
 	local t_id, t_name, t_beha, t_with, t_lvl, t_aaa
 	t_aaa = -1 -- default value when AAA is not specified in the tactic
 	
 	-- character codes:
-	local c_squarebracket_close = string.byte("]")
+	local c_square_bracket_close = string.byte("]")
+	local c_equals               = string.byte("=")
+	local c_curly_brace_open     = string.byte("{")
+	
+	--local c_curly_brace_close   = string.byte("}")
 	
 	for i = 1, #line do
 		repeat -- for 'continue' emulation via 'break'
@@ -130,17 +135,23 @@ function M.GetTact(line)
 			
 			if state == 1 then -- read ID: search to beginning of ID, then read until "]"
 				if i <= 5 then break end -- skip "Tact["
-				if c == c_squarebracket_close then -- reached "]", end of ID
+				if c == c_square_bracket_close then -- reached "]", end of ID
 					t_id = tonumber(tmp) -- set the ID variable
 					tmp = ""
+					state = state + 1
 					break
 				end
 				tmp = tmp .. string.char(c)
 				
-			elseif state == 2 then
+			elseif state == 2 then -- read until "="
+				if c == c_equals then state = state + 1 end
 				
-			elseif state == 3 then
+			elseif state == 3 then -- read until "{"
+				if c == c_curly_brace_open then state = state + 1 end
 				
+			elseif state == 4 then
+				
+				-- TODO: the rest of the states
 			else -- reached the end of the tactic:
 				-- there shouldn't be anything left in the string,
 				-- since the comments have been stripped already...
@@ -148,6 +159,8 @@ function M.GetTact(line)
 			end
 		until true
 	end
+	
+	if not done then error("Incomplete tactic: '" .. line .. "', state: " .. state) end
 	
 	return {t_id, t_name, t_beha, t_with, t_lvl, t_aaa}
 	--[[
