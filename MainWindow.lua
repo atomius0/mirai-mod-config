@@ -278,12 +278,14 @@ function MainWindow:LoadConfig(filename)
 		print() -- empty line
 		DebugLog("options:")
 		for k, v in pairs(options) do
-			DebugLog(k, " = ", v)
+			--DebugLog(k, " = ", v)
+			DebugLog('"' .. k .. '"', " = ", '"' .. v .. '"')
 		end
 		print()
 		DebugLog("tactics:")
 		for k, v in pairs(tactics) do
-			DebugLog(k, " = ", v)
+			--DebugLog(k, " = ", v)
+			DebugLog('"' .. k .. '"', " = ", '"' .. v .. '"')
 		end
 		print()
 	end
