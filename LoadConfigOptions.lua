@@ -87,6 +87,54 @@ function M.StripComments(line)
 end
 
 
+-- reads the tactic from 'line' and returns it as a table.
+-- a tactic table looks like this:
+-- {ID, "NAME", 'BEHA_*', 'WITH_*', LVL, AAA}
+
+-- BEHA_* and WITH_* are strings, so their constant values don't need to be known by this module.
+-- this simplifies adding new behaviours.
+-- AAA is always -1 (disabled), because we don't support it.
+
+-- comments are stored like this: (detect them by their name starting with "--")
+-- { 0, "-- comment", "BEHA_avoid", "WITH_no_skill", 1, -1}
+function M.GetTact(line)
+	if su.startsWith(line, "--") then -- comment:
+		return {0, line, "BEHA_avoid", "WITH_no_skill", 1, -1}
+	
+	elseif #line == 0 then -- empty line:
+		return nil
+		
+	elseif not su.startsWith(line, "Tact[") then -- error: not a tactic
+		error('Expected tactic, got: "' .. line .. '"')
+	end
+	
+	local tact = {}
+	
+	
+	-- TODO: M.GetTact(line)
+	
+	-- DEBUG
+	if tact[2] and type(tact[2]) == "string" and su.startsWith(tact[2], "--", true) then
+		return tact
+	else
+		return {0, "dummy", "BEHA_avoid", "WITH_no_skill", 1, -1}
+	end
+	-- END DEBUG
+	
+	return tact
+end
+
+
+if DEBUG then
+	function M.TactToString(tact)
+		assert(type(tact) == "table")
+		return string.format('{%4d, "%s", "%s", "%s", %d, %2d}',
+			tact[1], tact[2], tact[3], tact[4], tact[5], tact[6]
+		)
+	end
+end
+
+
 -- returns a table containing the option name and its assigned value:
 -- sample input: "MY_OPTION.FOO = 123"
 -- t[1] = "MY_OPTION.FOO", t[2] = "123"
@@ -104,7 +152,7 @@ end
 -- 2. a table 'tactics', containing a table for each tactic in the same order as they are written
 --    in the config file.
 -- tactic tables look like this:
--- {ID, "NAME", BEHA_*, WITH_*, LVL, AAA}
+-- {ID, "NAME", 'BEHA_*', 'WITH_*', LVL, AAA}
 -- comments are stored like this: (detect them by their name starting with "--")
 -- { 0, "-- comment", BEHA_avoid, WITH_no_skill, 1, -1}
 -- see file 'ControlPanelConfigOptions.md' (line 110, "## Tact List:") for details.
@@ -127,7 +175,9 @@ function M.LoadConfigOptions(f)
 					DebugLog("## inTactList = false ##")
 					break
 				end
-				-- TODO: handle tact list
+				
+				local tact = M.GetTact(line) -- can return nil (ie: on empty input line)
+				if tact then table.insert(tactics, tact) end
 				
 			else -- not inTactList, handle regular options:
 				line = M.StripComments(line)
