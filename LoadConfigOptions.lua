@@ -28,7 +28,7 @@ local CC_EQUALS               = string.byte("=")
 local CC_CURLY_BRACE_OPEN     = string.byte("{")
 local CC_COMMA                = string.byte(",")
 local CC_CURLY_BRACE_CLOSE    = string.byte("}")
---TODO: remove commented out character code blocks from this module
+
 
 local M = {} -- the module table
 
@@ -200,11 +200,8 @@ function M.GetTact(line)
 				
 			else -- reached the end of the tactic:
 				-- there shouldn't be anything left in the string,
-				-- since the comments have been stripped already...
+				-- since the comments have been stripped already.
 				
-				-- DEBUG
-				for i,v in ipairs{t_id, t_name, t_beha, t_with, t_lvl, t_aaa} do print("++++",i,v) end
-				-- end DEBUG
 				error("Expected end of tactic: '" .. line .. "'")
 			end
 		until true
@@ -238,8 +235,8 @@ end
 --]]
 
 -- returns a table containing the option name and its assigned value:
--- sample input: "MY_OPTION.FOO = 123"
--- t[1] = "MY_OPTION.FOO", t[2] = "123"
+-- sample input:  "MY_OPTION.FOO = 123"
+-- sample output: t[1] = "MY_OPTION.FOO", t[2] = "123"
 function M.GetOption(line)
 	local opt = su.split(line, "=", true)
 	assert(#opt == 2, "invalid option: " .. line)

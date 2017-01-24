@@ -5,6 +5,7 @@
 - [ ] write a file interface emulator module (using 30log). it should create objects that behave like file handles for text files. the constructor should take a string containing one or more lines as argument. (we need this for unit-testing function M.LoadConfigOptions)
 - [ ] write unit tests for M.LoadConfigOptions() (we will need the file interface emulator module described above)
 
+- [ ] add error handlers to all functions that call functions containing 'assert' or 'error'.
 - [ ] finish LoadConfigOptions.lua
 - [ ] finish the config-loader function
 - [x] add unit tests which test quotes to test_LoadConfigOptions.lua (and implement support for quotes in LoadConfigOptions.StripComments!)
