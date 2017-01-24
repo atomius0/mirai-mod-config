@@ -268,7 +268,7 @@ function M.LoadConfigOptions(f)
 	
 	for line in f:lines() do
 		repeat -- emulating 'continue' support, use break within this block to 'continue' the loop
-			DebugLog(line)
+			--DebugLog(line)
 			line = su.trim(line)
 			
 			if inTactList then
@@ -303,15 +303,6 @@ function M.LoadConfigOptions(f)
 			end
 		until true
 	end
-	
-	-- for each line in f:
-	--     DebugLog(line)
-	--     line = stringutil.trim(line)
-	--     repeat
-	--         if 
-	--         if continue_condition then break end
-	--     until true
-	-- end
 	
 	return options, tactics
 end
