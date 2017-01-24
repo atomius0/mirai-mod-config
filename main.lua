@@ -4,11 +4,12 @@
 package.cpath = package.cpath..";./?.dll;./?.so;../lib/?.so;../lib/vc_dll/?.dll;../lib/bcc_dll/?.dll;../lib/mingw_dll/?.dll;"
 require("wx")
 
-DEBUG = true
+DEBUG      = true
+USE_STRICT = true
 
 if DEBUG then
 	print("### debug mode enabled ###")
-	require "strict"
+	if USE_STRICT then require "strict" end
 	function DebugLog(...) print("DEBUG: ", ...) end
 else
 	function DebugLog(...) --[[ do nothing ]] end
