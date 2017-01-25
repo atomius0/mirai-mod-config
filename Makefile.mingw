@@ -48,7 +48,7 @@ build: $(BUILD_DIR_FILES)
 
 generate: $(GEN_FILES)
 
-run: $(LUA_FILES) $(GEN_FILES)
+run: $(LUA_FILES) $(GEN_FILES) $(XRC_FILE)
 	$(LUA) main.lua
 
 test:
