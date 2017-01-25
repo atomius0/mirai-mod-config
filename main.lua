@@ -19,7 +19,7 @@ class = require "30log"
 MainWindow = require "MainWindow"
 
 -- constants:
-XRC_FILE    = "config.xrc"
+XRC_FILE    = "config/config.xrc"
 APP_NAME    = "MirAI Mod Config"
 CONFIG_FILE = "Config.lua"
 

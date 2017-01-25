@@ -1,8 +1,8 @@
 
 ## Todo
 
-- [ ] move every external file into folder "config/", including the .xrc, images and translations.
 - [ ] Makefile: copy dir 'config/' into build directory when building.
+- [x] move every external file into folder "config/", including the .xrc, images and translations.
 - [ ] finish the config-writer function
 - [ ] plan the skills table format
 - [x] write unit tests for M.GetTact()
