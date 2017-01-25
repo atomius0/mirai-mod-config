@@ -1,7 +1,9 @@
 
 ## Todo
 
-- [ ] Makefile: copy dir 'config/' into build directory when building.
+- [ ] remove ./data/Config.lua from project, as well as the GEN_FILES generation rules, ./tools/txt2lua.lua etc. since we don't need it.
+- [x] Makefile: copy dir 'config/' into build directory when building.
+- [x] Makefile: update 'release' rule. put the 'config/' dir into the release archives
 - [x] move every external file into folder "config/", including the .xrc, images and translations.
 - [ ] finish the config-writer function
 - [ ] plan the skills table format
@@ -17,7 +19,6 @@
 - [x] Makefile: add 'test' rule to makefile, to run unittests
 - [ ] skills-table stuff
 - [x] start writing config-loader function
-- [ ] remove ./data/Config.lua from project, as well as the GEN_FILES generation rules, ./tools/txt2lua.lua etc. since we don't need it.
 - [ ] remove the checkBox "CB_CanDetectNoPot" later, since it seems to be specific to "AutoAidPotion", which we don't support. (but check the mirai-mod source first, to make sure that it really is specific to AAP!!)
 - [x] start writing config-writer function
 - [ ] move skills table stuff into its own source file...
