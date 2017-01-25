@@ -347,6 +347,15 @@ function test_lco.test_GetTact()
 	lu.assertEquals(lco.GetTact(""), nil)
 	
 	
+	-- one parameter too many at the end:
+	lu.assertErrorMsgContains("Too many parameters in tactic: '", lco.GetTact,
+		'Tact[1261] = {"Wild Rose", BEHA_react, WITH_full_power, 5, 0, 7}'
+	)
+	-- additional comma at the end:
+	lu.assertErrorMsgContains("Too many parameters in tactic: '", lco.GetTact,
+		'Tact[1261] = {"Wild Rose", BEHA_react, WITH_full_power, 5, 0,}'
+	)
+	
 	--[[ template:
 	lu.assertEquals(lco.GetTact(
 		''),

@@ -196,6 +196,9 @@ function M.GetTact(line)
 					-- we have to trim tmp, otherwise whitespace after the comma will
 					-- make it think that the parameter was not omitted:
 					if #su.trim(tmp) ~= 0 then
+						if tmp:find(",") then
+							error("Too many parameters in tactic: '" .. line .. "'")
+						end
 						t_aaa = tonumber(tmp)
 					else
 						t_aaa = -1 -- default value when AAA is not specified in the tactic
