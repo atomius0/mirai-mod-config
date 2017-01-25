@@ -299,6 +299,7 @@ end
 
 
 function FillSkillsTab(dialog, xmlResource, skills) -- returns table with references to all widgets
+	DebugLog("FillSkillsTab()")
 	assert(type(skills) == "table")
 	
 	-- constants for the "minimum SP for skill use" spinCtrl:
