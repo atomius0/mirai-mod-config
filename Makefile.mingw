@@ -35,11 +35,11 @@ SQUISH_OUTPUT    = $(TEMP_DIR)/config_sq.lua
 # don't compile it, wxLuaFreeze doesn't support lua files with zero-bytes inside them!
 #COMPILED_OUTPUT  = $(TEMP_DIR)/config_sq_comp.lua
 
-XRC_FILE         = config.xrc
+CONFIG_DIR       = config
 
 APP_NAME         = config.exe
 ARCHIVE_BASENAME = mirai-mod-config_v$(VERSION)
-BUILD_DIR_FILES  = $(addprefix $(BUILD_DIR)/,$(APP_NAME) $(XRC_FILE))
+BUILD_DIR_FILES  = $(addprefix $(BUILD_DIR)/,$(APP_NAME) $(CONFIG_DIR))
 
 
 release: $(RELEASE_DIR)/$(ARCHIVE_BASENAME).7z $(RELEASE_DIR)/$(ARCHIVE_BASENAME).zip
@@ -48,7 +48,7 @@ build: $(BUILD_DIR_FILES)
 
 generate: $(GEN_FILES)
 
-run: $(LUA_FILES) $(GEN_FILES) $(XRC_FILE)
+run: $(LUA_FILES) $(GEN_FILES) $(CONFIG_DIR)
 	$(LUA) main.lua
 
 test:
@@ -79,8 +79,9 @@ $(SQUISH_OUTPUT): squishy $(LUA_FILES) $(GEN_DIR)/orig_Config.lua
 	squish
 
 
-$(BUILD_DIR)/$(XRC_FILE): $(XRC_FILE)
-	copy $(XRC_FILE) $(BUILD_DIR)\$(XRC_FILE)
+$(BUILD_DIR)/$(CONFIG_DIR): $(CONFIG_DIR)
+	if not exist $(BUILD_DIR)\$(CONFIG_DIR) mkdir $(BUILD_DIR)\$(CONFIG_DIR)
+	xcopy /E $(CONFIG_DIR) $(BUILD_DIR)\$(CONFIG_DIR)
 
 
 $(GEN_DIR)/orig_Config.lua: data/Config.lua
