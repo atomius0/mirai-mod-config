@@ -16,13 +16,10 @@ VERSION = 0.0.1
 BUILD_DIR   = build
 # contains archives with the contents of the build directory (7z and zip):
 RELEASE_DIR = release
-# contains automatically generated source files:
-GEN_DIR     = gen
 # contains intermediate files created during the build process:
 TEMP_DIR    = _temp
 
 
-TXT2LUA         = tools/txt2lua.lua
 WXLUAFREEZE     = $(WXLUA_PATH)/apps/wxluafreeze/wxluafreeze.lua
 WXLUAFREEZE_APP = $(WXLUA_PATH)/bin/wxLuaFreeze.exe
 LUA             = $(WXLUA_PATH)/bin/lua.exe
@@ -30,7 +27,6 @@ LUAC            = $(WXLUA_PATH)/bin/luac.exe
 
 
 LUA_FILES        = main.lua MainWindow.lua 30log.lua LoadConfigOptions.lua stringutil.lua
-GEN_FILES        = $(GEN_DIR)/orig_Config.lua
 SQUISH_OUTPUT    = $(TEMP_DIR)/config_sq.lua
 # don't compile it, wxLuaFreeze doesn't support lua files with zero-bytes inside them!
 #COMPILED_OUTPUT  = $(TEMP_DIR)/config_sq_comp.lua
@@ -46,9 +42,7 @@ release: $(RELEASE_DIR)/$(ARCHIVE_BASENAME).7z $(RELEASE_DIR)/$(ARCHIVE_BASENAME
 
 build: $(BUILD_DIR_FILES)
 
-generate: $(GEN_FILES)
-
-run: $(LUA_FILES) $(GEN_FILES) $(CONFIG_DIR)
+run: $(LUA_FILES) $(CONFIG_DIR)
 	$(LUA) main.lua
 
 test:
@@ -74,7 +68,7 @@ $(BUILD_DIR)/$(APP_NAME): $(SQUISH_OUTPUT)
 #	$(LUAC) -o $(COMPILED_OUTPUT) $(SQUISH_OUTPUT)
 
 
-$(SQUISH_OUTPUT): squishy $(LUA_FILES) $(GEN_DIR)/orig_Config.lua
+$(SQUISH_OUTPUT): squishy $(LUA_FILES)
 	if not exist $(TEMP_DIR) mkdir $(TEMP_DIR)
 	squish
 
@@ -84,15 +78,9 @@ $(BUILD_DIR)/$(CONFIG_DIR): $(CONFIG_DIR)
 	xcopy /E $(CONFIG_DIR) $(BUILD_DIR)\$(CONFIG_DIR)
 
 
-$(GEN_DIR)/orig_Config.lua: data/Config.lua
-	if not exist $(GEN_DIR) mkdir $(GEN_DIR)
-	$(LUA) $(TXT2LUA) data/Config.lua $(GEN_DIR)/orig_Config.lua
-
-
 clean:
 	-rmdir /S/Q $(BUILD_DIR)
 	-rmdir /S/Q $(RELEASE_DIR)
-	-rmdir /S/Q $(GEN_DIR)
 	-rmdir /S/Q $(TEMP_DIR)
 	-del Config.lua
 

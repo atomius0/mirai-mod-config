@@ -1,6 +1,5 @@
 Output "_temp/config_sq.lua"
 Main "main.lua"
---Module "gen.orig_Config"
 Module "MainWindow"
 Module "30log"
 Module "LoadConfigOptions"

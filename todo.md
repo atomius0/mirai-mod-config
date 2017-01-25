@@ -1,7 +1,7 @@
 
 ## Todo
 
-- [ ] remove ./data/Config.lua from project, as well as the GEN_FILES generation rules, ./tools/txt2lua.lua etc. since we don't need it.
+- [x] remove ./data/Config.lua from project, as well as the GEN_FILES generation rules, ./tools/txt2lua.lua etc. since we don't need it.
 - [x] Makefile: copy dir 'config/' into build directory when building.
 - [x] Makefile: update 'release' rule. put the 'config/' dir into the release archives
 - [x] move every external file into folder "config/", including the .xrc, images and translations.
