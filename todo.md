@@ -29,7 +29,7 @@
 
 - [x] hide the tab Language for now. (until translation functionality is implemented)
 - [ ] in save function: write the selected mod to file 'SelectedMod.lua'
-- [ ] in load function: read 'SelectedMod.lua' and return the selected mod as a string (as third return value)
+- [ ] in load function: read 'SelectedMod.lua' and return the selected mod as a string (as third return value in M.LoadConfigOptions?) -> write additional function 'LoadSelectedMod'
 - [ ] AddTacticDialog: treat "Monster Names" starting with "--" as comment.
 - [ ] AddTacticDialog: forbid "-- End Tact" as monster name. (this would confuse the reader function because it is the marker that tells it that the Tact List ends there)
 
