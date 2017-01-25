@@ -1,27 +1,27 @@
 
 ## Todo
 
+- [ ] plan the skills table format (in MainWindow.lua: function FillSkillsTab)
+- [ ] skills-table stuff
+- [ ] finish the config-writer function
+- [ ] finish the config-reader function
+- [ ] move skills table stuff into its own source file...
 - [x] remove ./data/Config.lua from project, as well as the GEN_FILES generation rules, ./tools/txt2lua.lua etc. since we don't need it.
 - [x] Makefile: copy dir 'config/' into build directory when building.
 - [x] Makefile: update 'release' rule. put the 'config/' dir into the release archives
 - [x] move every external file into folder "config/", including the .xrc, images and translations.
-- [ ] finish the config-writer function
-- [ ] plan the skills table format
 - [x] write unit tests for M.GetTact()
 - [x] write a file interface emulator module (using 30log). it should create objects that behave like file handles for text files. the constructor should take a string containing one or more lines as argument. (we need this for unit-testing function M.LoadConfigOptions)
 - [x] write unit tests for M.LoadConfigOptions() (we will need the file interface emulator module described above)
 
 - [ ] add error handlers to all functions that call functions containing 'assert' or 'error'.
 - [x] finish LoadConfigOptions.lua
-- [ ] finish the config-loader function
 - [x] add unit tests which test quotes to test_LoadConfigOptions.lua (and implement support for quotes in LoadConfigOptions.StripComments!)
 - [x] finish unittest module for LoadConfigOptions.lua
 - [x] Makefile: add 'test' rule to makefile, to run unittests
-- [ ] skills-table stuff
 - [x] start writing config-loader function
 - [ ] remove the checkBox "CB_CanDetectNoPot" later, since it seems to be specific to "AutoAidPotion", which we don't support. (but check the mirai-mod source first, to make sure that it really is specific to AAP!!)
 - [x] start writing config-writer function
-- [ ] move skills table stuff into its own source file...
 - [ ] test filling the TAB_Skills programmatically (in new branch) (we will need to remove the contents of BSIZER_Skills, so make a branch before this, so that we can keep it as a reference later)
 
 - [x] keep the slider and the spinCtrl for "AttackWhenHP" in sync
