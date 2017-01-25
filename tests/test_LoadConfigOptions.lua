@@ -509,7 +509,7 @@ function test_lco.test_LoadConfigOptions()
 		Tact[1152] = {"Orc Skeleton", BEHA_react, WITH_one_skill, 5, 0}
 		Tact[1111] = {"Drainliar", BEHA_attack_weak, WITH_no_skill, 1, 0}
 		Tact[1042] = {"Steel Chonchon", BEHA_attack_last, WITH_one_skill, 1, 0}
-		]]--[[-- Poring and Metaling fields
+		-- Poring and Metaling fields
 		Tact[1368] = {"Geographer", BEHA_avoid, WITH_no_skill, 5, 0}
 		Tact[1118] = {"Flora", BEHA_coward, WITH_full_power, 5, 0}
 		Tact[1613] = {"Metaling", BEHA_react, WITH_one_skill, 5, 0}
