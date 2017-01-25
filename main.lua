@@ -30,7 +30,9 @@ CONFIG_FILE = "Config.lua"
 
 
 function ErrorHandler(err)
+	DebugLog("ErrorHandler: " .. err)
 	wx.wxMessageBox(err, APP_NAME, wx.wxOK + wx.wxICON_EXCLAMATION)
+	os.exit()
 end
 
 
