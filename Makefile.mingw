@@ -85,4 +85,4 @@ clean:
 	-del Config.lua
 
 
-.PHONY: release build generate run clean
+.PHONY: release build run test clean
