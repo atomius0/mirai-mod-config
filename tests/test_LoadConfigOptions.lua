@@ -502,14 +502,14 @@ function test_lco.test_LoadConfigOptions()
 		DEFAULT_BEHA = BEHA_attack     -- \__ values assumed for any monster not listed below
 		DEFAULT_WITH = WITH_slow_power -- /
 		Tact = {}
-		Tact[1261] = {"Wild Rose", BEHA_react, WITH_full_power, 5}
+		Tact[1261] = {"Wild Rose", BEHA_react, WITH_full_power, 5, 0}
 		-- Orc Dungeon (lvl 50+ Settings)
 		Tact[1189] = {"Orc Archer", BEHA_react_1st, WITH_full_power, 5, 0}
 		Tact[1177] = {"Zenorc", BEHA_attack_1st, WITH_full_power, 5, 0}
 		Tact[1152] = {"Orc Skeleton", BEHA_react, WITH_one_skill, 5, 0}
 		Tact[1111] = {"Drainliar", BEHA_attack_weak, WITH_no_skill, 1, 0}
 		Tact[1042] = {"Steel Chonchon", BEHA_attack_last, WITH_one_skill, 1, 0}
-		-- Poring and Metaling fields
+		]]--[[-- Poring and Metaling fields
 		Tact[1368] = {"Geographer", BEHA_avoid, WITH_no_skill, 5, 0}
 		Tact[1118] = {"Flora", BEHA_coward, WITH_full_power, 5, 0}
 		Tact[1613] = {"Metaling", BEHA_react, WITH_one_skill, 5, 0}
@@ -545,12 +545,14 @@ function test_lco.test_LoadConfigOptions()
 		
 		-- empty lines:
 		
+		
 		-- Testing multiple definitions of same Tact, varied spacing and omitting AAA parameter:
 		Tact[1031]={"Poporing",BEHA_react,WITH_one_skill,5,1}
 		Tact[1031] ={"Poporing", BEHA_react , WITH_one_skill, 5, }
 		Tact[1031]= {"Poporing",   BEHA_react, WITH_one_skill  , 5,}
 		Tact[1031] = {"Poporing",BEHA_react,WITH_one_skill, 5}
 		Tact[1031] = {"Poporing",BEHA_react,WITH_one_skill,5}
+		Tact[1261] = {"Wild Rose", BEHA_react, WITH_full_power, 5}
 		-- End Tact
 	]])
 	opts, tact = lco.LoadConfigOptions(f)
@@ -627,11 +629,23 @@ function test_lco.test_LoadConfigOptions()
 		
 		--[""] = "",
 	})
-	--[[
+	
 	lu.assertEquals(tact, {
+		{1261, "Wild Rose", "BEHA_react", "WITH_full_power", 5, 0},
+		
+		{0, "-- Orc Dungeon (lvl 50+ Settings)", "BEHA_avoid", "WITH_no_skill", 1, -1},
+		{1189, "Orc Archer", "BEHA_react_1st", "WITH_full_power", 5, 0},
+		{1177, "Zenorc", "BEHA_attack_1st", "WITH_full_power", 5, 0},
+		{1152, "Orc Skeleton", "BEHA_react", "WITH_one_skill", 5, 0},
+		{1111, "Drainliar", "BEHA_attack_weak", "WITH_no_skill", 1, 0},
+		{1042, "Steel Chonchon", "BEHA_attack_last", "WITH_one_skill", 1, 0},
+		
+		--{, "", "", "", , },
+		--{0, "", "BEHA_avoid", "WITH_no_skill", 1, -1},
+		
 		-- TODO: tact
 	})
-	--]]
+	
 	
 	--[[ -- template:
 	f = femu("")
