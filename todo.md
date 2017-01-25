@@ -1,6 +1,8 @@
 
 ## Todo
 
+- [ ] move every external file into folder "config/", including the .xrc, images and translations.
+- [ ] Makefile: copy dir 'config/' into build directory when building.
 - [ ] finish the config-writer function
 - [ ] plan the skills table format
 - [x] write unit tests for M.GetTact()
@@ -13,7 +15,6 @@
 - [x] add unit tests which test quotes to test_LoadConfigOptions.lua (and implement support for quotes in LoadConfigOptions.StripComments!)
 - [x] finish unittest module for LoadConfigOptions.lua
 - [x] Makefile: add 'test' rule to makefile, to run unittests
-- [ ] Makefile: copy dir 'config' into build directory when building.
 - [ ] skills-table stuff
 - [x] start writing config-loader function
 - [ ] remove ./data/Config.lua from project, as well as the GEN_FILES generation rules, ./tools/txt2lua.lua etc. since we don't need it.
@@ -34,8 +35,7 @@
 - [ ] AddTacticDialog: forbid "-- End Tact" as monster name. (this would confuse the reader function because it is the marker that tells it that the Tact List ends there)
 
 
-- [ ] write a library for reading/writing Config.lua (original Config.lua is in ./data/Config.lua)
-- [ ] copy stringutil.lua into project directory when it is finished and tested. (is it?)
+- [x] copy stringutil.lua into project directory when it is finished and tested. (is it?)
 
 - [x] name the widgets from AddTacticDialog.
 - [x] give names to all of the required widgets in the .fbp
@@ -48,12 +48,11 @@
 - [x] add a new Dialog to the Form project? for adding new entries to the tactics list.
 - [x] add stuff to Tactics tab in wxFormBuilder project
 - [x] add rules for archive files to the makefile
-- [x] should the config.xrc file really be included inside the config.exe file? it makes updates more difficult (what if a user has an older version of the config.xrc after updating the config.exe?) -> no. we will put every external file into a folder 'config/'
 - [x] add 'build', 'release', 'gen' and '_temp' directories to .gitignore
 - [x] put a .gitignore in the project directory.
 - [x] finish Makefile.mingw (use ./tools/txt2lua.lua for converting the .xrc and Config.lua)
 - [x] put a dummy program into main lua to test the makefile.
-- [x] build a GUI with wxFormBuilder and generate an xrc file. (place the xrc file inside ./data/)
+- [x] build a GUI with wxFormBuilder and generate an xrc file.
 
 - [ ] write readme.md
 - [ ] add a LICENSE.txt
@@ -62,16 +61,10 @@
 - [ ] write translation loader module
 - [ ] implement preset-feature, where you can save the current config as a preset and load them easily.
 
+
 ##Notes
 
-- put every external file in folder "config/", including the .xrc, images and translations. (but NOT the Config.lua, that will be included in the exe)
-
 - fill the skills tab in code?
-
-- the original Config.lua is in ./data/Config.lua. it will be placed as a string inside the config program
-so that it can restore the original settings. (used when no Config.lua is found)
-
-- the Config.lua will be converted to Config_lua.lua (via txt2lua.lua) and 'require'd by the config program.
 
 - for the Tabs "Mod" and "Language" we will need to enumerate all files in the current directory (to find *_Mod.lua files). Use wxDir for that. 
 http://docs.wxwidgets.org/trunk/classwx_dir.html
@@ -81,8 +74,6 @@ file:///D:/Dateien/Programming/lua/wxLua/wxLua-2.8.12.3-Lua-5.1.5-MSW-Ansi/doc/w
 file:///D:/Dateien/Programming/lua/wxLua/docs/html/wx_wxwindow.html#wxwindowsetmaxsize
 
 - translation files should be lua scripts, maybe? (put them in a subdirectory "lang" or "translation"?)
-
-- maybe move the .xrc file (and all other additional files needed by config.exe) to a subdirectory: "config"
 
 - use wxDialog:ShowModal for the AddTacticDialog
 
