@@ -554,6 +554,9 @@ function test_lco.test_LoadConfigOptions()
 		Tact[1031] = {"Poporing",BEHA_react,WITH_one_skill,5}
 		Tact[1261] = {"Wild Rose", BEHA_react, WITH_full_power, 5}
 		-- End Tact
+		
+		-- this comment does not belong to the tact list
+		TEST_OPTION_AFTER_TACT_LIST = 123
 	]])
 	opts, tact = lco.LoadConfigOptions(f)
 	lu.assertEquals(opts, {
@@ -627,6 +630,8 @@ function test_lco.test_LoadConfigOptions()
 		["DEFAULT_BEHA"] = "BEHA_attack",
 		["DEFAULT_WITH"] = "WITH_slow_power",
 		
+		["TEST_OPTION_AFTER_TACT_LIST"] = "123",
+		
 		--[""] = "",
 	})
 	
@@ -640,7 +645,65 @@ function test_lco.test_LoadConfigOptions()
 		{1111, "Drainliar", "BEHA_attack_weak", "WITH_no_skill", 1, 0},
 		{1042, "Steel Chonchon", "BEHA_attack_last", "WITH_one_skill", 1, 0},
 		
+		{0, "-- Poring and Metaling fields", "BEHA_avoid", "WITH_no_skill", 1, -1},
+		{1368, "Geographer", "BEHA_avoid", "WITH_no_skill", 5, 0},
+		{1118, "Flora", "BEHA_coward", "WITH_full_power", 5, 0},
+		{1613, "Metaling", "BEHA_react", "WITH_one_skill", 5, 0},
+		{1031, "Poporing", "BEHA_react", "WITH_one_skill", 5, 0},
+		{1242, "Marin", "BEHA_react", "WITH_no_skill", 5, 0},
+		{1113, "Drops", "BEHA_attack", "WITH_no_skill", 5, -1},
+		{1002, "Poring", "BEHA_attack_last", "WITH_no_skill", 5, -1},
+		
+		{0, "-- Eggs", "BEHA_avoid", "WITH_no_skill", 1, -1},
+		{1008, "Pupa", "BEHA_attack_last", "WITH_no_skill", 5, 0},
+		{1048, "Thief Bug Egg", "BEHA_attack_last", "WITH_no_skill", 5, 0},
+		{1047, "Peco Peco Egg", "BEHA_attack_last", "WITH_no_skill", 5, 0},
+		{1097, "Ant Egg", "BEHA_attack_last", "WITH_no_skill", 5, 0},
+		
+		{0, "-- Summoned Plants", "BEHA_avoid", "WITH_no_skill", 1, -1},
+		{1555, "Sm. Parasite", "BEHA_avoid", "WITH_no_skill", 5, 0},
+		{1575, "Sm. Flora", "BEHA_avoid", "WITH_no_skill", 5, 0},
+		{1579, "Sm. Hydra", "BEHA_avoid", "WITH_no_skill", 5, 0},
+		{1589, "Sm. Mandragora", "BEHA_avoid", "WITH_no_skill", 5, 0},
+		{1590, "Sm. Geographer", "BEHA_avoid", "WITH_no_skill", 5, 0},
+		
+		{0, "-- WoE Guardians", "BEHA_avoid", "WITH_no_skill", 1, -1},
+		{1285, "WoE Guardian 1", "BEHA_avoid", "WITH_no_skill", 5, 0},
+		{1286, "WoE Guardian 2", "BEHA_avoid", "WITH_no_skill", 5, 0},
+		{1287, "WoE Guardian 3", "BEHA_avoid", "WITH_no_skill", 5, 0},
+		{1288, "WoE Guardian 4", "BEHA_avoid", "WITH_no_skill", 5, 0},
+		
+		{0, "-- Plants and mushrooms", "BEHA_avoid", "WITH_no_skill", 1, -1},
+		{1078, "Red Plant", "BEHA_react", "WITH_no_skill", 5, 0},
+		{1079, "Blue Plant", "BEHA_react", "WITH_no_skill", 5, 0},
+		{1080, "Green Plant", "BEHA_react", "WITH_no_skill", 5, 0},
+		{1081, "Yellow Plant", "BEHA_react", "WITH_no_skill", 5, 0},
+		{1082, "White Plant", "BEHA_react", "WITH_no_skill", 5, 0},
+		{1083, "Shining Plant", "BEHA_react", "WITH_no_skill", 5, 0},
+		{1084, "Black Mushroom", "BEHA_react", "WITH_no_skill", 5, 0},
+		{1085, "Red Mushroom", "BEHA_react", "WITH_no_skill", 5, 0},
+		
+		
+		{0, "-- empty lines:", "BEHA_avoid", "WITH_no_skill", 1, -1},
+		
+		{0,
+		"-- Testing multiple definitions of same Tact, varied spacing and omitting AAA parameter:",
+		"BEHA_avoid", "WITH_no_skill", 1, -1
+		},
+		
+		{1031, "Poporing", "BEHA_react", "WITH_one_skill", 5, 1},
+		{1031, "Poporing", "BEHA_react", "WITH_one_skill", 5, -1}, -- the AAA param was omitted here
+		{1031, "Poporing", "BEHA_react", "WITH_one_skill", 5, -1}, -- same
+		{1031, "Poporing", "BEHA_react", "WITH_one_skill", 5, -1}, -- same
+		{1031, "Poporing", "BEHA_react", "WITH_one_skill", 5, -1}, -- same
+		{1261, "Wild Rose", "BEHA_react", "WITH_full_power", 5, -1}, -- same
+		
+		-- the "-- End Tact" comment is not returned in the tact list:
+		--{0, "-- End Tact", "BEHA_avoid", "WITH_no_skill", 1, -1},
+		
+		-- template:
 		--{, "", "", "", , },
+		-- template for comments:
 		--{0, "", "BEHA_avoid", "WITH_no_skill", 1, -1},
 		
 		-- TODO: tact
@@ -653,8 +716,6 @@ function test_lco.test_LoadConfigOptions()
 	lu.assertEquals(opts, {})
 	lu.assertEquals(tact, {})
 	--]]
-	
-	--assert(false) -- TODO: test_LoadConfigOptions
 end
 
 
