@@ -262,7 +262,7 @@ end
 -- tactic tables look like this:
 -- {ID, "NAME", 'BEHA_*', 'WITH_*', LVL, AAA}
 -- comments are stored like this: (detect them by their name starting with "--")
--- { 0, "-- comment", BEHA_avoid, WITH_no_skill, 1, -1}
+-- { 0, "-- comment", "BEHA_avoid", "WITH_no_skill", 1, -1}
 -- see file 'ControlPanelConfigOptions.md' (line 110, "## Tact List:") for details.
 function M.LoadConfigOptions(f)
 	DebugLog("LoadConfigOptions()")
