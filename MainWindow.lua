@@ -366,18 +366,22 @@ function FillSkillsTab(dialog, xmlResource, skills) -- returns table with refere
 			fgSizer:AddGrowableCol(1)
 			fgSizer:SetFlexibleDirection(wx.wxBOTH)
 			fgSizer:SetNonFlexibleGrowMode(wx.wxFLEX_GROWMODE_SPECIFIED)
+			sbSizer:Add(fgSizer, 1, wx.wxEXPAND, 5)
 			
 			-- create wxStaticBitmap
 			local bitmap = LoadSkillIcon(skillIcon)
 			local staticBitmap = wx.wxStaticBitmap(
-				sbSizer:GetStaticBox(),
+				--sbSizer:GetStaticBox(),
+				SCROLLWIN_Skills,
+				
 				wx.wxID_ANY,
-				--wx.wxNullBitmap
-				--bitmap,
-				wx.wxArtProvider.GetBitmap(wx.wxART_INFORMATION, wx.wxART_TOOLBAR, wx.wxSize(16, 16)), --DEBUG
+				--wx.wxNullBitmap,
+				bitmap,
+				--wx.wxArtProvider.GetBitmap(wx.wxART_INFORMATION, wx.wxART_TOOLBAR, wx.wxSize(16, 16)), --DEBUG
 				wx.wxDefaultPosition,
-				wx.wxDefaultSize
-				--wx.wxSize(bitmap:GetWidth(), bitmap:GetHeight())
+				--wx.wxDefaultSize
+				wx.wxSize(bitmap:GetWidth(), bitmap:GetHeight())
+				--0
 			)
 			
 			-- DEBUG:
@@ -390,17 +394,18 @@ function FillSkillsTab(dialog, xmlResource, skills) -- returns table with refere
 			
 			-- create wxStaticText
 			
+			
 			-- create wxSpinCtrl
 			
 			-- create wxChoice
 			
 			-- TODO: read skillList
 			
-			sbSizer:Add(fgSizer, 1, wx.wxEXPAND, 5)
+			--sbSizer:Add(fgSizer, 1, wx.wxEXPAND, 5)
 		end
 		
 		-- TODO: do we need this?
-		--sbSizer:Layout()
+		sbSizer:Layout()
 	end
 	
 	BSIZER_Skills:Layout()
