@@ -307,6 +307,7 @@ end
 -- helper function for FillSkillsTab()
 -- loads the image 'skillIcon' from SKILL_ICON_PATH, returns a wxBitmap
 function LoadSkillIcon(skillIcon)
+	DebugLog("LoadSkillIcon: " .. skillIcon)
 	local imagePath = SKILL_ICON_PATH .. "/" .. skillIcon
 	local image = wx.wxImage()
 	assert(image:LoadFile(imagePath), "File could not be loaded: '" .. imagePath .. "'")
@@ -367,11 +368,24 @@ function FillSkillsTab(dialog, xmlResource, skills) -- returns table with refere
 			fgSizer:SetNonFlexibleGrowMode(wx.wxFLEX_GROWMODE_SPECIFIED)
 			
 			-- create wxStaticBitmap
+			local bitmap = LoadSkillIcon(skillIcon)
 			local staticBitmap = wx.wxStaticBitmap(
 				sbSizer:GetStaticBox(),
 				wx.wxID_ANY,
-				LoadSkillIcon(skillIcon)
+				--wx.wxNullBitmap
+				--bitmap,
+				wx.wxArtProvider.GetBitmap(wx.wxART_INFORMATION, wx.wxART_TOOLBAR, wx.wxSize(16, 16)), --DEBUG
+				wx.wxDefaultPosition,
+				wx.wxDefaultSize
+				--wx.wxSize(bitmap:GetWidth(), bitmap:GetHeight())
 			)
+			
+			-- DEBUG:
+			--collectgarbage("stop")
+			--staticBitmap:SetBitmap(LoadSkillIcon(skillIcon))
+			--staticBitmap:SetBitmap(bitmap)
+			-- END DEBUG
+			
 			fgSizer:Add(staticBitmap, 0, wx.wxALL, 5)
 			
 			-- create wxStaticText
