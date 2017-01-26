@@ -364,13 +364,16 @@ function FillSkillsTab(dialog, xmlResource, skills) -- returns table with refere
 			assert(type(skillMaxLvl) == "number")
 			assert(type(skillIcon) == "string")
 			
+			
+			-- create the wxFlexGridSizer containing the skill icon, name, SP- and Level Selectors:
 			local fgSizer = wx.wxFlexGridSizer(0, 4, 0, 0)
 			fgSizer:AddGrowableCol(1)
 			fgSizer:SetFlexibleDirection(wx.wxBOTH)
 			fgSizer:SetNonFlexibleGrowMode(wx.wxFLEX_GROWMODE_SPECIFIED)
 			sbSizer:Add(fgSizer, 1, wx.wxEXPAND, 5)
 			
-			-- create wxStaticBitmap
+			
+			-- create wxStaticBitmap: (for the skill icon)
 			local bitmap = LoadSkillIcon(skillIcon)
 			local staticBitmap = wx.wxStaticBitmap(
 				SCROLLWIN_Skills,
@@ -381,12 +384,15 @@ function FillSkillsTab(dialog, xmlResource, skills) -- returns table with refere
 			)
 			fgSizer:Add(staticBitmap, 0, wx.wxALL, 5)
 			
-			-- create wxStaticText
+			
+			-- create wxStaticText: (for the skill name)
 			
 			
-			-- create wxSpinCtrl
+			-- create wxSpinCtrl: (for selecting the minimum SP to use the skill)
 			
-			-- create wxChoice
+			
+			-- create wxChoice: (for selecting the maximum skill level that should be used)
+			
 			
 			-- TODO: this (FillSkillsTab)
 			
