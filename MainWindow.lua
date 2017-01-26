@@ -386,10 +386,26 @@ function FillSkillsTab(dialog, xmlResource, skills) -- returns table with refere
 			
 			
 			-- create wxStaticText: (for the skill name)
+			local staticText = wx.wxStaticText(SCROLLWIN_Skills, wx.wxID_ANY, skillName)
+			--staticText:Wrap(-1)
+			fgSizer:Add(staticText, 0, wx.wxALL + wx.wxALIGN_CENTER_VERTICAL, 5)
 			
 			
 			-- create wxSpinCtrl: (for selecting the minimum SP to use the skill)
+			local spinCtrl = wx.wxSpinCtrl(
+				SCROLLWIN_Skills,
+				wx.wxID_ANY,
+				"",
+				wx.wxDefaultPosition,
+				wx.wxDefaultSize,
+				wx.wxSP_ARROW_KEYS,
+				SKILL_MINSP, -- minimal value
+				SKILL_MAXSP, -- maximal value
+				0            -- initial value
+			)
+			fgSizer:Add(spinCtrl, 0, wx.wxALL + wx.wxALIGN_CENTER_VERTICAL + wx.wxALIGN_RIGHT, 5)
 			
+			-- TODO: add spinCtrl to widgets table!
 			
 			-- create wxChoice: (for selecting the maximum skill level that should be used)
 			
