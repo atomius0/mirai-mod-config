@@ -146,10 +146,16 @@ function MainWindow:init(xmlResource)
 	
 	self:HideLanguageTab(xmlResource) -- TODO: remove this later
 	
-	local skills = {
-		{"Amistr", {
-			{"Bulwark", 5, "hami_defence.gif"}
-		}}
+	-- TODO: move this out, into a separate file
+	local skills =
+	{ -- homus:
+		{"Amistr",
+			{ -- skills:
+				{"Bulwark", 5, "hami_defence.gif"},
+				-- add skills here
+			}
+		},
+		-- add homus here
 	}
 	FillSkillsTab(self.dialog, xmlResource, skills)
 	
@@ -298,6 +304,17 @@ function MainWindow:LoadConfig(filename)
 end
 
 
+-- helper function for FillSkillsTab()
+-- loads the image 'skillIcon' from SKILL_ICON_PATH, returns a wxBitmap
+function LoadSkillIcon(skillIcon)
+	local imagePath = SKILL_ICON_PATH .. "/" .. skillIcon
+	local image = wx.wxImage()
+	assert(image:LoadFile(imagePath), "File could not be loaded: '" .. imagePath .. "'")
+	local bitmap = assert(wx.wxBitmap(image))
+	return bitmap
+end
+
+
 function FillSkillsTab(dialog, xmlResource, skills) -- returns table with references to all widgets
 	DebugLog("FillSkillsTab()")
 	assert(type(skills) == "table")
@@ -323,8 +340,73 @@ function FillSkillsTab(dialog, xmlResource, skills) -- returns table with refere
 	local widgets = {}
 	widgets.TXT_SkillsDescription = TXT_SkillsDescription -- for translation
 	
+	
+	for i, v in ipairs(skills) do
+		assert(type(v) == "table")
+		assert(#v == 2) -- [1] = homuName, [2] = skillList
+		local homuName, skillList = v[1], v[2]
+		
+		assert(type(homuName) == "string")
+		assert(type(skillList) == "table")
+		
+		-- create wxStaticBoxSizer for homunculus:
+		local sbSizer = wx.wxStaticBoxSizer(wx.wxVERTICAL, SCROLLWIN_Skills, homuName)
+		BSIZER_Skills:Add(sbSizer, 0, wx.wxALL, 5)
+		
+		for i, v in ipairs(skillList) do
+			assert(type(v) == "table")
+			assert(#v == 3) -- skillName, maxLvl, icon
+			local skillName, skillMaxLvl, skillIcon = v[1], v[2], v[3]
+			assert(type(skillName) == "string")
+			assert(type(skillMaxLvl) == "number")
+			assert(type(skillIcon) == "string")
+			
+			local fgSizer = wx.wxFlexGridSizer(0, 4, 0, 0)
+			fgSizer:AddGrowableCol(1)
+			fgSizer:SetFlexibleDirection(wx.wxBOTH)
+			fgSizer:SetNonFlexibleGrowMode(wx.wxFLEX_GROWMODE_SPECIFIED)
+			
+			-- create wxStaticBitmap
+			local staticBitmap = wx.wxStaticBitmap(
+				sbSizer:GetStaticBox(),
+				wx.wxID_ANY,
+				LoadSkillIcon(skillIcon)
+			)
+			fgSizer:Add(staticBitmap, 0, wx.wxALL, 5)
+			
+			-- create wxStaticText
+			
+			-- create wxSpinCtrl
+			
+			-- create wxChoice
+			
+			-- TODO: read skillList
+			
+			sbSizer:Add(fgSizer, 1, wx.wxEXPAND, 5)
+		end
+		
+		-- TODO: do we need this?
+		--sbSizer:Layout()
+	end
+	
+	BSIZER_Skills:Layout()
+	
+	--[[
+	for homuName, skillList in pairs(skills) do
+		-- DEBUG:
+		for k,v in pairs(skills) do print(k,v) end
+		-- END DEBUG
+		assert(type(homuName) == "string")
+		
+		-- create wxStaticBoxSizer for homunculus:
+		local sbSizer = wx.wxStaticBoxSizer(wx.wxVERTICAL, homuName)
+	end
+	--]]
+	
+	
 	-- TODO: this (FillSkillsTab)
 	
+	return widgets
 end
 
 
