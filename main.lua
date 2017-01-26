@@ -19,9 +19,10 @@ class = require "30log"
 MainWindow = require "MainWindow"
 
 -- constants:
-XRC_FILE    = "config/config.xrc"
-APP_NAME    = "MirAI Mod Config"
-CONFIG_FILE = "Config.lua"
+XRC_FILE        = "config/config.xrc"
+APP_NAME        = "MirAI Mod Config"
+CONFIG_FILE     = "Config.lua"
+SKILL_ICON_PATH = "config"
 
 -- globals:
 -- MARK: don't make this global for now, it's probably not needed.
