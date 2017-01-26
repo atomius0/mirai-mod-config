@@ -1,8 +1,9 @@
 
 ## Todo
 
-- [ ] plan the skills table format (in MainWindow.lua: function FillSkillsTab)
-- [ ] skills-table stuff
+- [ ] why does the wxScrolledWindow not get a scrollbar? (it is more than full, and cannot be scrolled.) (try wxScrolledWindow::EnableScrolling)
+- [x] plan the skills table format (in MainWindow.lua: function FillSkillsTab)
+- [x] skills-table stuff
 - [ ] finish the config-writer function
 - [ ] finish the config-reader function
 - [ ] move skills table stuff into its own source file...
