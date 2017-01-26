@@ -328,6 +328,8 @@ function FillSkillsTab(dialog, xmlResource, skills) -- returns table with refere
 	-- where SKILL_LIST is a list of tables with the format:
 	-- SKILL_LIST[1] = {skill_name, skill_maxlvl, skill_icon}
 	
+	--TODO: add option name param to skill list (how exactly?)
+	
 	local SCROLLWIN_Skills = assert(dialog:FindWindow(xmlResource.GetXRCID("SCROLLWIN_Skills")))
 	local BSIZER_Skills = assert(SCROLLWIN_Skills:GetSizer())
 	
@@ -386,7 +388,7 @@ function FillSkillsTab(dialog, xmlResource, skills) -- returns table with refere
 			
 			-- create wxChoice
 			
-			-- TODO: read skillList
+			-- TODO: this (FillSkillsTab)
 			
 			--sbSizer:Add(fgSizer, 1, wx.wxEXPAND, 5)
 		end
@@ -408,9 +410,6 @@ function FillSkillsTab(dialog, xmlResource, skills) -- returns table with refere
 		local sbSizer = wx.wxStaticBoxSizer(wx.wxVERTICAL, homuName)
 	end
 	--]]
-	
-	
-	-- TODO: this (FillSkillsTab)
 	
 	return widgets
 end
