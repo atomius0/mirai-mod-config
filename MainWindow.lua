@@ -371,25 +371,12 @@ function FillSkillsTab(dialog, xmlResource, skills) -- returns table with refere
 			-- create wxStaticBitmap
 			local bitmap = LoadSkillIcon(skillIcon)
 			local staticBitmap = wx.wxStaticBitmap(
-				--sbSizer:GetStaticBox(),
 				SCROLLWIN_Skills,
-				
 				wx.wxID_ANY,
-				--wx.wxNullBitmap,
 				bitmap,
-				--wx.wxArtProvider.GetBitmap(wx.wxART_INFORMATION, wx.wxART_TOOLBAR, wx.wxSize(16, 16)), --DEBUG
 				wx.wxDefaultPosition,
-				--wx.wxDefaultSize
 				wx.wxSize(bitmap:GetWidth(), bitmap:GetHeight())
-				--0
 			)
-			
-			-- DEBUG:
-			--collectgarbage("stop")
-			--staticBitmap:SetBitmap(LoadSkillIcon(skillIcon))
-			--staticBitmap:SetBitmap(bitmap)
-			-- END DEBUG
-			
 			fgSizer:Add(staticBitmap, 0, wx.wxALL, 5)
 			
 			-- create wxStaticText
