@@ -151,7 +151,7 @@ function MainWindow:init(xmlResource)
 	{ -- homus:
 		{"Amistr",
 			{ -- skills:
-				{"Bulwark", 5, "hami_defence.gif"},
+				{"Bulwark", 5, "hami_defence.gif", "AS_AMI_BULW"},
 				-- add skills here
 			}
 		},
@@ -324,9 +324,9 @@ function FillSkillsTab(dialog, xmlResource, skills) -- returns table with refere
 	local SKILL_MINSP, SKILL_MAXSP = 0, 999999
 	
 	-- skills is a list of tables with the format:
-	-- skills[1] = {homu_name, SKILL_LIST}
+	-- skills[1] = {homuName, SKILL_LIST}
 	-- where SKILL_LIST is a list of tables with the format:
-	-- SKILL_LIST[1] = {skill_name, skill_maxlvl, skill_icon}
+	-- SKILL_LIST[1] = {skillName, skillMaxLvl, skillIcon, skillOptionName}
 	
 	--TODO: add option name param to skill list (how exactly?)
 	
@@ -349,8 +349,8 @@ function FillSkillsTab(dialog, xmlResource, skills) -- returns table with refere
 		assert(#v == 2) -- [1] = homuName, [2] = skillList
 		local homuName, skillList = v[1], v[2]
 		
-		assert(type(homuName) == "string")
-		assert(type(skillList) == "table")
+		assert(type(homuName ) == "string")
+		assert(type(skillList) == "table" )
 		
 		-- create wxStaticBoxSizer for homunculus:
 		local sbSizer = wx.wxStaticBoxSizer(wx.wxVERTICAL, SCROLLWIN_Skills, homuName)
@@ -358,11 +358,12 @@ function FillSkillsTab(dialog, xmlResource, skills) -- returns table with refere
 		
 		for i, v in ipairs(skillList) do
 			assert(type(v) == "table")
-			assert(#v == 3) -- skillName, maxLvl, icon
-			local skillName, skillMaxLvl, skillIcon = v[1], v[2], v[3]
-			assert(type(skillName) == "string")
-			assert(type(skillMaxLvl) == "number")
-			assert(type(skillIcon) == "string")
+			assert(#v == 4) -- skillName, skillMaxLvl, skillIcon, skillOptionName
+			local skillName, skillMaxLvl, skillIcon, skillOptionName = v[1], v[2], v[3], v[4]
+			assert(type(skillName      ) == "string")
+			assert(type(skillMaxLvl    ) == "number")
+			assert(type(skillIcon      ) == "string")
+			assert(type(skillOptionName) == "string")
 			
 			
 			-- create the wxFlexGridSizer containing the skill icon, name, SP- and Level Selectors:
@@ -405,7 +406,7 @@ function FillSkillsTab(dialog, xmlResource, skills) -- returns table with refere
 			)
 			fgSizer:Add(spinCtrl, 0, wx.wxALL + wx.wxALIGN_CENTER_VERTICAL + wx.wxALIGN_RIGHT, 5)
 			
-			-- TODO: add spinCtrl to widgets table!
+			-- TODO: add spinCtrl to widgets table! (use skillOptionName)
 			
 			-- create wxChoice: (for selecting the maximum skill level that should be used)
 			
