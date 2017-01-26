@@ -466,8 +466,6 @@ function FillSkillsTab(dialog, xmlResource, skills) -- returns table with refere
 			fgSizer:Add(choice, 0, wx.wxALL + wx.wxALIGN_CENTER_VERTICAL + wx.wxALIGN_RIGHT, 5)
 			
 			widgets[skillOptionName .. ".Level"] = choice
-			
-			--sbSizer:Add(fgSizer, 1, wx.wxEXPAND, 5)
 		end
 		
 		-- TODO: do we need this?
