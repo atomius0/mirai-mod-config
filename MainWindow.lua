@@ -406,7 +406,10 @@ function FillSkillsTab(dialog, xmlResource, skills) -- returns table with refere
 			)
 			fgSizer:Add(spinCtrl, 0, wx.wxALL + wx.wxALIGN_CENTER_VERTICAL + wx.wxALIGN_RIGHT, 5)
 			
-			-- TODO: add spinCtrl to widgets table! (use skillOptionName)
+			-- add spinCtrl to widgets table: (as skillOptionName + ".MinSp")
+			-- ie: if name is "AS_AMI_BULW" then the table index will be "AS_AMI_BULW.MinSP"
+			widgets[skillOptionName .. ".MinSP"] = spinCtrl
+			
 			
 			-- create wxChoice: (for selecting the maximum skill level that should be used)
 			
