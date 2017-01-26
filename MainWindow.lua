@@ -413,8 +413,26 @@ function FillSkillsTab(dialog, xmlResource, skills) -- returns table with refere
 			
 			-- create wxChoice: (for selecting the maximum skill level that should be used)
 			
+			-- helper function that returns a table in the format:
+			-- {"OFF", "Lvl 1", "Lvl 2", ... "Lvl "+maxLvl}
+			local genChoiceTable = function(maxLvl)
+				local t = {"OFF"}
+				for i = 1, maxLvl do
+					table.insert(t, "Lvl " .. i)
+				end
+				return t
+			end
 			
-			-- TODO: this (FillSkillsTab)
+			local choice = wx.wxChoice(
+				SCROLLWIN_Skills,
+				wx.wxID_ANY,
+				wx.wxDefaultPosition,
+				wx.wxDefaultSize,
+				genChoiceTable(skillMaxLvl)
+			)
+			fgSizer:Add(choice, 0, wx.wxALL + wx.wxALIGN_CENTER_VERTICAL + wx.wxALIGN_RIGHT, 5)
+			
+			widgets[skillOptionName .. ".Level"] = choice
 			
 			--sbSizer:Add(fgSizer, 1, wx.wxEXPAND, 5)
 		end
