@@ -364,6 +364,7 @@ function FillSkillsTab(dialog, xmlResource, skills) -- returns table with refere
 	--TODO: add option name param to skill list (how exactly?)
 	
 	local SCROLLWIN_Skills = assert(dialog:FindWindow(xmlResource.GetXRCID("SCROLLWIN_Skills")))
+	SCROLLWIN_Skills = assert(SCROLLWIN_Skills:DynamicCast("wxScrolledWindow"))
 	local BSIZER_Skills = assert(SCROLLWIN_Skills:GetSizer())
 	
 	local TXT_SkillsDescription = wx.wxStaticText(SCROLLWIN_Skills, wx.wxID_ANY,
@@ -472,7 +473,12 @@ function FillSkillsTab(dialog, xmlResource, skills) -- returns table with refere
 		sbSizer:Layout()
 	end
 	
+	--TODO: fix scrolling! (scrollbars don't appear). the line below does not work...
+	--SCROLLWIN_Skills:EnableScrolling(true, true)
+	BSIZER_Skills:Fit(SCROLLWIN_Skills) -- doesn't work either...
 	BSIZER_Skills:Layout()
+	
+	
 	
 	--[[
 	for homuName, skillList in pairs(skills) do
