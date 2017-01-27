@@ -150,4 +150,14 @@ function M.FillSkillsTab(dialog, xmlResource) -- returns table with references t
 end
 
 
+function M.SaveSkills(f, widgets)
+	--DebugLog("SaveSkills()")
+	local existingTables = {} -- stores the tables that have been initialized already
+	
+	
+	
+	-- TODO: M.SaveSkills(f)
+end
+
+
 return M
