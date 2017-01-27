@@ -142,20 +142,16 @@ function MainWindow:init(xmlResource)
 	-- connect the closeevent to the OnClose function:
 	self.dialog:Connect(wx.wxEVT_CLOSE_WINDOW, handlers.OnClose)
 	
-	--TODO: load Config.lua? (and if it doesn't exist, create it)
 	
-	
-	self:HideLanguageTab(xmlResource) -- TODO: remove this later
-	
-	
-	
-	
-	-- TODO: keep return value if FillSkillsTab in member variable of MainWindow
+	-- TODO: keep return value of FillSkillsTab in member variable of MainWindow
 	--SkillsTab.FillSkillsTab(self.dialog, xmlResource, skills)
 	SkillsTab.FillSkillsTab(self.dialog, xmlResource)
 	
 	-- load the configuration file before showing the window:
 	self:LoadConfig(CONFIG_FILE)
+	
+	
+	self:HideLanguageTab(xmlResource) -- TODO: remove this later
 	
 	self.dialog:Center()
 	self.dialog:Show(true)
@@ -270,10 +266,14 @@ function MainWindow:SaveConfig(filename)
 	-- TODO: this (SaveConfig) !!!!!!!!!!!!!!!!!!!!!!!
 	
 	
-	-- TODO: save regular settings
-	-- TODO: save skill settings
-	-- TODO: save selected Mod
+	-- TODO: are all regular settings saved?
+	
+	-- save skill settings
+	SkillsTab.SaveSkills(f)
+	
+	
 	-- TODO: save tactics
+	-- TODO: save selected Mod
 	-- TODO: Checkbox "Cautious" / Option "DEFAULT_BEHA" and "DEFAULT_WITH" come right before the Tact list!
 	
 	f:close()
