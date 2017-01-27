@@ -469,13 +469,12 @@ function FillSkillsTab(dialog, xmlResource, skills) -- returns table with refere
 			widgets[skillOptionName .. ".Level"] = choice
 		end
 		
-		-- TODO: do we need this?
-		sbSizer:Layout()
+		--sbSizer:Layout()
 	end
 	
 	BSIZER_Skills:FitInside(SCROLLWIN_Skills)
 	
-	BSIZER_Skills:Layout()
+	--BSIZER_Skills:Layout()
 	
 	return widgets
 end
