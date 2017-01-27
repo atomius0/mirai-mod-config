@@ -143,9 +143,8 @@ function MainWindow:init(xmlResource)
 	self.dialog:Connect(wx.wxEVT_CLOSE_WINDOW, handlers.OnClose)
 	
 	
-	-- TODO: keep return value of FillSkillsTab in member variable of MainWindow
-	--SkillsTab.FillSkillsTab(self.dialog, xmlResource, skills)
-	SkillsTab.FillSkillsTab(self.dialog, xmlResource)
+	-- SkillsTab.FillSkillsTab returns a a table containing references to the widgets it creates
+	self.skillWidgets = SkillsTab.FillSkillsTab(self.dialog, xmlResource)
 	
 	-- load the configuration file before showing the window:
 	self:LoadConfig(CONFIG_FILE)
@@ -269,7 +268,7 @@ function MainWindow:SaveConfig(filename)
 	-- TODO: are all regular settings saved?
 	
 	-- save skill settings
-	SkillsTab.SaveSkills(f)
+	SkillsTab.SaveSkills(f, self.skillWidgets)
 	
 	
 	-- TODO: save tactics
