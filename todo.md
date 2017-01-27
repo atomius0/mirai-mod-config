@@ -1,7 +1,7 @@
 
 ## Todo
 
-- [ ] why does the wxScrolledWindow not get a scrollbar? (it is more than full, and cannot be scrolled.) (try wxScrolledWindow::EnableScrolling) (see sample: 'picker.wx.lua')
+- [x] why does the wxScrolledWindow not get a scrollbar? (it is more than full, and cannot be scrolled.) (try wxScrolledWindow::EnableScrolling) (see sample: 'picker.wx.lua') -> fixed using method FitInside of the sizer contained in the wxScrolledWindow!
 - [x] plan the skills table format (in MainWindow.lua: function FillSkillsTab)
 - [x] skills-table stuff
 - [ ] finish the config-writer function
