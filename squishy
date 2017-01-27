@@ -4,4 +4,6 @@ Module "MainWindow"
 Module "30log"
 Module "LoadConfigOptions"
 Module "stringutil"
+Module "SkillsTab"
+Module "HomuSkillTable"
 --Module "foo" --TODO
