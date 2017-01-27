@@ -1,12 +1,12 @@
 
 ## Todo
 
+- [ ] finish the config-writer function
+- [ ] finish the config-reader function
 - [x] why does the wxScrolledWindow not get a scrollbar? (it is more than full, and cannot be scrolled.) (try wxScrolledWindow::EnableScrolling) (see sample: 'picker.wx.lua') -> fixed using method FitInside of the sizer contained in the wxScrolledWindow!
 - [x] plan the skills table format (in MainWindow.lua: function FillSkillsTab)
 - [x] skills-table stuff
-- [ ] finish the config-writer function
-- [ ] finish the config-reader function
-- [ ] move skills table stuff into its own source file...
+- [x] move skills table stuff into its own source file...
 - [x] remove ./data/Config.lua from project, as well as the GEN_FILES generation rules, ./tools/txt2lua.lua etc. since we don't need it.
 - [x] Makefile: copy dir 'config/' into build directory when building.
 - [x] Makefile: update 'release' rule. put the 'config/' dir into the release archives
