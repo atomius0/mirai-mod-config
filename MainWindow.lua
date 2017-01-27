@@ -473,26 +473,9 @@ function FillSkillsTab(dialog, xmlResource, skills) -- returns table with refere
 		sbSizer:Layout()
 	end
 	
-	--TODO: fix scrolling! (scrollbars don't appear). the line below does not work...
-	--SCROLLWIN_Skills:EnableScrolling(true, true)
-	--BSIZER_Skills:Fit(SCROLLWIN_Skills) -- doesn't work either...
 	BSIZER_Skills:FitInside(SCROLLWIN_Skills)
 	
 	BSIZER_Skills:Layout()
-	
-	
-	
-	--[[
-	for homuName, skillList in pairs(skills) do
-		-- DEBUG:
-		for k,v in pairs(skills) do print(k,v) end
-		-- END DEBUG
-		assert(type(homuName) == "string")
-		
-		-- create wxStaticBoxSizer for homunculus:
-		local sbSizer = wx.wxStaticBoxSizer(wx.wxVERTICAL, homuName)
-	end
-	--]]
 	
 	return widgets
 end
