@@ -154,7 +154,18 @@ function M.SaveSkills(f, widgets)
 	--DebugLog("SaveSkills()")
 	local existingTables = {} -- stores the tables that have been initialized already
 	
+	-- go through the homuSkillTable, get all homu names
+	-- put them into a new table ('homus') as keys.
+	-- as values, make tables containing the 'option_name's of each skill of that homu.
 	
+	-- for each homu in table 'homus':
+	-- -- write "-- homu_name" to file 'f'.
+	-- -- for each skill's option_name:
+	-- -- -- write "option_name = {}" to file 'f'.
+	-- -- -- write "option_name.MinSP = " .. widgets[option_name .. ".MinSP"].GetValue() to file 'f'
+	-- -- -- write "option_name.Level = " .. widgets[option_name .. ".Level"].GetValue() to file 'f'
+	
+	-- TODO: can you use GetValue on wxChoices?
 	
 	-- TODO: M.SaveSkills(f)
 end
