@@ -21,7 +21,7 @@
 - [x] finish unittest module for LoadConfigOptions.lua
 - [x] Makefile: add 'test' rule to makefile, to run unittests
 - [x] start writing config-loader function
-- [ ] remove the checkBox "CB_CanDetectNoPot" later, since it seems to be specific to "AutoAidPotion", which we don't support. (but check the mirai-mod source first, to make sure that it really is specific to AAP!!)
+- [ ] remove the checkBox "CB_CanDetectNoPot" later, since it seems to be specific to "AutoAidPotion", which we don't support. (but check the mirai-mod source first, to make sure that it really is specific to AAP!!) -> yes. it really is only used with AAP!
 - [x] start writing config-writer function
 - [ ] test filling the TAB_Skills programmatically (in new branch) (we will need to remove the contents of BSIZER_Skills, so make a branch before this, so that we can keep it as a reference later)
 
