@@ -15,6 +15,39 @@
 --        'option_name' is the name of the skill's option table in mirai's "Config.lua".
 
 
+---[[
+local homuSkillTable = { -- homus:
+	{"Amistr",
+		{ -- skills:
+			{"Bulwark",  5, "hami_defence.gif", "AS_AMI_BULW"},
+			{"Castling", 5, "hami_castle.gif",  "AS_AMI_CAST"},
+		}
+	},
+	{"Filir",
+		{ -- skills:
+			{"Moonlight",          5, "hfli_moon.gif",  "AS_FIL_MOON"},
+			{"Accelerated Flight", 5, "hfli_speed.gif", "AS_FIL_ACCL"},
+			{"Flitting",           5, "hfli_fleet.gif", "AS_FIL_FLTT"},
+		}
+	},
+	{"Lif",
+		{ -- skills:
+			{"Healing Touch", 5, "hlif_heal.gif",  "AS_LIF_HEAL"},
+			{"Urgent Escape", 5, "hlif_avoid.gif", "AS_LIF_ESCP"},
+		}
+	},
+	{"Vanilmirth",
+		{ -- skills:
+			{"Caprice",     5, "hvan_caprice.gif", "AS_VAN_CAPR"},
+			{"C. Blessing", 5, "hvan_chaotic.gif", "AS_VAN_BLES"},
+		}
+	},
+	-- add homus here
+}
+--]]
+
+
+--[[ Test table:
 local homuSkillTable = { -- homus:
 	{"Amistr",
 		{ -- skills:
@@ -44,5 +77,7 @@ local homuSkillTable = { -- homus:
 	}
 	-- add homus here
 }
+--]]
+
 
 return homuSkillTable
