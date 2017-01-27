@@ -190,6 +190,7 @@ function MainWindow:init(xmlResource)
 		-- add homus here
 	}
 	
+	-- TODO: keep return value if FillSkillsTab in member variable of MainWindow
 	FillSkillsTab(self.dialog, xmlResource, skills)
 	
 	-- load the configuration file before showing the window:
