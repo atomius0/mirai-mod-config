@@ -475,7 +475,9 @@ function FillSkillsTab(dialog, xmlResource, skills) -- returns table with refere
 	
 	--TODO: fix scrolling! (scrollbars don't appear). the line below does not work...
 	--SCROLLWIN_Skills:EnableScrolling(true, true)
-	BSIZER_Skills:Fit(SCROLLWIN_Skills) -- doesn't work either...
+	--BSIZER_Skills:Fit(SCROLLWIN_Skills) -- doesn't work either...
+	BSIZER_Skills:FitInside(SCROLLWIN_Skills)
+	
 	BSIZER_Skills:Layout()
 	
 	
