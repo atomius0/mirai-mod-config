@@ -186,6 +186,7 @@ function M.SaveSkills(f, widgets)
 			
 			f:write(optionName .. " = {} -- " .. skillName .. "\n")
 			
+			f:write(optionName .. ".MinSP = " .. widgets[optionName .. ".MinSP"]:GetValue() .. "\n")
 		end
 	end
 	
@@ -193,8 +194,8 @@ function M.SaveSkills(f, widgets)
 	-- -- write "-- homu_name" to file 'f'.
 	-- -- for each skill's option_name:
 	-- -- -- write "option_name = {}" to file 'f'.
-	-- -- -- write "option_name.MinSP = " .. widgets[option_name .. ".MinSP"].GetValue() to file 'f'
-	-- -- -- write "option_name.Level = " .. widgets[option_name .. ".Level"].GetValue() to file 'f'
+	-- -- -- write "option_name.MinSP = " .. widgets[option_name .. ".MinSP"]:GetValue() to file 'f'
+	-- -- -- write "option_name.Level = " .. widgets[option_name .. ".Level"]:GetValue() to file 'f'
 	
 	-- TODO: can you use GetValue on wxChoices?
 	
