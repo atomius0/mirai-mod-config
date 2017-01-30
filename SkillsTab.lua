@@ -199,6 +199,8 @@ function M.SaveSkills(f, widgets)
 			
 			-- write .Level value:
 			f:write(optionName .. ".Level = " .. selection .. "\n")
+			
+			f:write("\n")
 		end
 	end
 end
