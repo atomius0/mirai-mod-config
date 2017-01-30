@@ -359,10 +359,23 @@ function MainWindow:LoadConfig(filename)
 		end
 	end
 	
-	--if options["CIRCLE_ON_IDLE"] then
-	--	self["CB_CircleOnIdle"]:SetValue(tonumber(options["CIRCLE_ON_IDLE"]) == 1)
-	--end
+	-- TAB_General:
 	ReadOpt("CIRCLE_ON_IDLE", "CB_CircleOnIdle", true)
+	ReadOpt("FOLLOW_AT_ONCE", "CB_FollowAtOnce", true)
+	ReadOpt("HELP_OWNER_1ST", "CB_HelpOwnerFirst")
+	ReadOpt("KILL_YOUR_ENEMIES_1ST", "CB_KillEnemiesFirst")
+	ReadOpt("LONG_RANGE_SHOOTER", "CB_DontMove")
+	
+	--ReadOpt("BOLTS_ON_CHASE_ST", "") not supported by mirai-mod-config
+	
+	ReadOpt("HP_PERC_DANGER", "SC_EvadeWhenHP")
+	ReadOpt("HP_PERC_SAFE2ATK", "SC_AttackWhenHP")
+	ReadOpt("OWNER_CLOSEDISTANCE", "SC_OwnerClosedistance")
+	ReadOpt("TOO_FAR_TARGET", "SC_MaxEnemyDistance")
+	ReadOpt("SKILL_TIME_OUT", "SC_SkillTimeout")
+	ReadOpt("NO_MOVING_TARGETS", "CB_NoMovingTargets")
+	
+	ReadOpt("ADV_MOTION_CHECK", "CB_AdvMotionCheck")
 	
 	
 	-- load skill settings:
