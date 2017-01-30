@@ -183,9 +183,26 @@ function M.SaveSkills(f, widgets)
 			assert(type(skillName) == "string")
 			assert(type(optionName) == "string")
 			
+			-- write list initialization:
 			f:write(optionName .. " = {} -- " .. skillName .. "\n")
 			
+			-- write .MinSP value:
 			f:write(optionName .. ".MinSP = " .. widgets[optionName .. ".MinSP"]:GetValue() .. "\n")
+			
+			
+			-- get the selected level from the wxChoice:
+			local selection = widgets[optionName .. ".Level"]:GetSelection()
+			-- if selection is -1, nothing has been chosen in the wxChoice
+			-- that means, the wxChoice was not initialized!
+			assert(selection >= 0,
+				'invalid choice "' .. selection .. '" in wxChoice "' .. optionName .. '"'
+			)
+			
+			--print("##### Selection = " .. selection)
+			
+			
+			-- write .Level value:
+			f:write(optionName .. ".Level = " .. selection .. "\n")
 		end
 	end
 	
