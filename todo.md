@@ -1,9 +1,10 @@
 
 ## Todo
 
-- [ ] function M.SaveSkills from SkillsTab.lua
+- [ ] write function M.LoadSkills in SkillsTab.lua and add it to function MainWindow:LoadConfig
 - [ ] finish the config-writer function
 - [ ] finish the config-reader function
+- [x] function M.SaveSkills from SkillsTab.lua
 - [x] why does the wxScrolledWindow not get a scrollbar? (it is more than full, and cannot be scrolled.) (try wxScrolledWindow::EnableScrolling) (see sample: 'picker.wx.lua') -> fixed using method FitInside of the sizer contained in the wxScrolledWindow!
 - [x] plan the skills table format (in MainWindow.lua: function FillSkillsTab)
 - [x] skills-table stuff
