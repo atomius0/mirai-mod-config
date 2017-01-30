@@ -261,6 +261,7 @@ function MainWindow:SaveConfig(filename)
 		"AAP.Level=2\n"
 	)
 	
+	f:write("\n\n")
 	
 	-- TODO: this (SaveConfig) !!!!!!!!!!!!!!!!!!!!!!!
 	
