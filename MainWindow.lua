@@ -272,7 +272,8 @@ function MainWindow:SaveConfig(filename)
 	-- TODO: are all regular settings saved?
 	
 	-- save skill settings
-	SkillsTab.SaveSkills(f, self.skillWidgets)
+	-- TODO: uncomment this!!!!
+	--SkillsTab.SaveSkills(f, self.skillWidgets)
 	
 	
 	-- TODO: save tactics
@@ -317,6 +318,55 @@ function MainWindow:LoadConfig(filename)
 	end
 	
 	
+	-- load regular settings:
+	
+	-- helper func ReadOpt:
+	-- option      - the option (string)
+	-- widget      - the widget that will be set by the option (string)
+	-- isOneOrZero - if true, the option will be assumed to be boolean, but saved as either 1 or 0.
+	-- (isOneOrZero is required for options 'CIRCLE_ON_IDLE' and 'FOLLOW_AT_ONCE')
+	local ReadOpt = function(option, widget, isOneOrZero)
+		local v = options[option]
+		if v then -- if the option exists in Config.lua
+			if isOneOrZero then
+				if v == "1" then
+					v = true
+					
+				elseif v == "0" then
+					v = false
+					
+				else
+					error(
+						'Invalid value for option "' .. option ..
+						'". expected 1 or 0, got: "' .. v .. '"'
+					)
+				end
+				
+			elseif v == "true" then
+				v = true
+				
+			elseif v == "false" then
+				v = false
+				
+			else
+				v = tonumber(v)
+			end
+			DebugLog(
+				'ReadOpt("'..option..'", "'..widget..'", '..tostring(isOneOrZero)..') = '..
+				'"'..tostring(v)..'" type('..type(v)..')'
+			)
+			self[widget]:SetValue(v)
+		end
+	end
+	
+	--if options["CIRCLE_ON_IDLE"] then
+	--	self["CB_CircleOnIdle"]:SetValue(tonumber(options["CIRCLE_ON_IDLE"]) == 1)
+	--end
+	ReadOpt("CIRCLE_ON_IDLE", "CB_CircleOnIdle", true)
+	
+	
+	-- load skill settings:
+	SkillsTab.LoadSkills(f, self.skillWidgets)
 	
 	-- use method SetValue()
 	
