@@ -82,7 +82,10 @@ function MainWindow:init(xmlResource)
 	function handlers.OnSaveConfig(event)
 		DebugLog("MainWindow: OnSaveConfig")
 		event:Skip()
-		self:SaveConfig(CONFIG_FILE)
+		
+		xpcall(function()
+			self:SaveConfig(CONFIG_FILE)
+		end, ErrorHandler)
 	end
 	
 	-- TODO: remaining event handler functions, eg: "function handlers.OnSomething(event)"
