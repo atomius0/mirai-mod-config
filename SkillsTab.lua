@@ -152,11 +152,42 @@ end
 
 function M.SaveSkills(f, widgets)
 	--DebugLog("SaveSkills()")
-	local existingTables = {} -- stores the tables that have been initialized already
+	--local existingTables = {} -- stores the tables that have been initialized already
+	
+	for k,v in pairs(homuSkillTable) do
+		
+	end
 	
 	-- go through the homuSkillTable, get all homu names
 	-- put them into a new table ('homus') as keys.
 	-- as values, make tables containing the 'option_name's of each skill of that homu.
+	
+	
+	-- for each homu in table 'homus':
+	for k, v in ipairs(homuSkillTable) do
+		assert(type(v) == "table" and #v == 2)
+		
+		local homuName = v[1]
+		local skills   = v[2]
+		
+		assert(type(homuName) == "string")
+		assert(type(skills) == "table")
+		
+		f:write("-- " .. homuName .. "\n")
+		
+		for k, v in ipairs(skills) do
+			assert(type(v) == "table" and #v == 4)
+			
+			local skillName  = v[1]
+			local optionName = v[4]
+			
+			assert(type(skillName) == "string")
+			assert(type(optionName) == "string")
+			
+			f:write(optionName .. " = {} -- " .. skillName .. "\n")
+			
+		end
+	end
 	
 	-- for each homu in table 'homus':
 	-- -- write "-- homu_name" to file 'f'.
