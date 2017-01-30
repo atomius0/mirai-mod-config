@@ -160,7 +160,6 @@ function M.SaveSkills(f, widgets)
 	-- -- -- write "option_name.MinSP = " .. widgets[option_name .. ".MinSP"]:GetValue() to file 'f'
 	-- -- -- write "option_name.Level = " .. widgets[option_name .. ".Level"]:GetValue() to file 'f'
 	
-	-- TODO: can you use GetValue on wxChoices?
 	
 	-- for each homu in table 'homus':
 	for k, v in ipairs(homuSkillTable) do
@@ -198,15 +197,10 @@ function M.SaveSkills(f, widgets)
 				'invalid choice "' .. selection .. '" in wxChoice "' .. optionName .. '"'
 			)
 			
-			--print("##### Selection = " .. selection)
-			
-			
 			-- write .Level value:
 			f:write(optionName .. ".Level = " .. selection .. "\n")
 		end
 	end
-	
-	-- TODO: M.SaveSkills(f)
 end
 
 
