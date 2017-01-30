@@ -206,4 +206,13 @@ function M.SaveSkills(f, widgets)
 end
 
 
+function M.LoadSkills(f, widgets)
+	DebugLog("LoadSkills()")
+	
+	
+	
+	-- TODO: M.LoadSkills
+end
+
+
 return M
