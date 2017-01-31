@@ -97,6 +97,7 @@ function MainWindow:init(xmlResource)
 		"CB_DontMove",
 		"SL_AttackWhenHP",
 		"SC_AttackWhenHP",
+		"CB_Cautious",
 		"SL_EvadeWhenHP",
 		"SC_EvadeWhenHP",
 		
@@ -179,6 +180,9 @@ function MainWindow:InitInputs()
 	-- are also used by function 'handlers.OnAttackAndEvade'
 	InitWidget("SL_AttackWhenHP", "wxSlider")
 	InitWidget("SC_AttackWhenHP", "wxSpinCtrl")
+	
+	InitWidget("CB_Cautious", "wxCheckBox")
+	
 	InitWidget("SL_EvadeWhenHP", "wxSlider")
 	InitWidget("SC_EvadeWhenHP", "wxSpinCtrl")
 	
@@ -288,6 +292,11 @@ function MainWindow:SaveConfig(filename)
 		"-- Tact list: behaviour for each monster\n" ..
 		"--------------------------------------------------\n"
 	)
+	
+	WriteOpt("DEFAULT_BEHA=" .. (self.CB_Cautious:GetValue() and "BEHA_react" or "BEHA_attack"))
+	
+	-- TODO: write 'DEFAULT_WITH'
+	-- TODO: write tact list!
 	
 	-- TODO: save tactics
 	-- TODO: save selected Mod
