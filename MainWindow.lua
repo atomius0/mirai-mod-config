@@ -293,9 +293,10 @@ function MainWindow:SaveConfig(filename)
 		"--------------------------------------------------\n"
 	)
 	
-	WriteOpt("DEFAULT_BEHA=" .. (self.CB_Cautious:GetValue() and "BEHA_react" or "BEHA_attack"))
+	WriteOpt("DEFAULT_BEHA = " .. (self.CB_Cautious:GetValue() and "BEHA_react" or "BEHA_attack"))
 	
-	-- TODO: write 'DEFAULT_WITH'
+	WriteOpt("DEFAULT_WITH = WITH_slow_power -- not configurable with " .. APP_NAME)
+	
 	-- TODO: write tact list!
 	
 	-- TODO: save tactics
