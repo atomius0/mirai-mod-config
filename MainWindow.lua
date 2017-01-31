@@ -169,7 +169,7 @@ function MainWindow:init(xmlResource)
 		
 		
 		--"TAB_Skills", -- Tab 'Skills' ------------------------------------------------------------
-		-- TODO: TAB_Skills
+		--"SCROLLWIN_Skills", -- we don't need this, SkillsTab.lua manages this by itself.
 		
 		
 		--"TAB_Mod", -- Tab 'Mod' ------------------------------------------------------------------
