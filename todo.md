@@ -1,8 +1,9 @@
 
 ## Todo
 
-- [ ] test loading and saving of all options in tab 'General'
-- [ ] write function M.LoadSkills in SkillsTab.lua and add it to function MainWindow:LoadConfig
+- [ ] finish writing function M.LoadSkills in SkillsTab.lua
+- [ ] uncomment call to 'SkillsTab.SaveSkills' in function 'MainWindow:SaveConfig' (line 286)
+- [x] test loading and saving of all options in tab 'General'
 - [ ] finish the config-writer function
 - [ ] finish the config-reader function
 - [x] checkbox "cautious" / "CB_Cautious" isn't saved/loaded...
