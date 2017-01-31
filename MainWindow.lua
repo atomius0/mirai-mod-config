@@ -281,7 +281,13 @@ function MainWindow:SaveConfig(filename)
 	-- TODO: uncomment this!!!!
 	--SkillsTab.SaveSkills(f, self.skillWidgets)
 	
+	f:write("\n\n")
 	
+	f:write(
+		"--------------------------------------------------\n" ..
+		"-- Tact list: behaviour for each monster\n" ..
+		"--------------------------------------------------\n"
+	)
 	
 	-- TODO: save tactics
 	-- TODO: save selected Mod
