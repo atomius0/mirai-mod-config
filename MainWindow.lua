@@ -79,6 +79,41 @@ function MainWindow:init(xmlResource)
 	end
 	
 	
+	function handlers.OnButtonEdit(event)
+		DebugLog("MainWindow: OnButtonEdit")
+		event:Skip()
+		-- TODO: handlers.OnButtonEdit
+	end
+	
+	
+	function handlers.OnButtonAdd(event)
+		DebugLog("MainWindow: OnButtonAdd")
+		event:Skip()
+		-- TODO: handlers.OnButtonAdd
+	end
+	
+	
+	function handlers.OnButtonRemove(event)
+		DebugLog("MainWindow: OnButtonRemove")
+		event:Skip()
+		-- TODO: handlers.OnButtonRemove
+	end
+	
+	
+	function handlers.OnButtonUp(event)
+		DebugLog("MainWindow: OnButtonUp")
+		event:Skip()
+		-- TODO: handlers.OnButtonUp
+	end
+	
+	
+	function handlers.OnButtonDown(event)
+		DebugLog("MainWindow: OnButtonDown")
+		event:Skip()
+		-- TODO: handlers.OnButtonDown
+	end
+	
+	
 	function handlers.OnSaveConfig(event)
 		DebugLog("MainWindow: OnSaveConfig")
 		event:Skip()
@@ -125,7 +160,12 @@ function MainWindow:init(xmlResource)
 		
 		
 		--"TAB_Tactics", -- Tab 'Tactics' ----------------------------------------------------------
-		-- TODO: TAB_Tactics
+		"BUT_Edit",
+		"BUT_Add",
+		"BUT_Remove",
+		"BUT_Up",
+		"BUT_Down",
+		"LC_Tactics",
 		
 		
 		--"TAB_Skills", -- Tab 'Skills' ------------------------------------------------------------
@@ -166,6 +206,12 @@ function MainWindow:init(xmlResource)
 	
 	self.dialog:Connect(MainWindow.IDs.SL_EvadeWhenHP, wx.wxEVT_COMMAND_SLIDER_UPDATED, handlers.OnAttackAndEvade)
 	self.dialog:Connect(MainWindow.IDs.SC_EvadeWhenHP, wx.wxEVT_COMMAND_SPINCTRL_UPDATED, handlers.OnAttackAndEvade)
+	
+	self.dialog:Connect(MainWindow.IDs.BUT_Edit, wx.wxEVT_COMMAND_BUTTON_CLICKED, handlers.OnButtonEdit)
+	self.dialog:Connect(MainWindow.IDs.BUT_Add, wx.wxEVT_COMMAND_BUTTON_CLICKED, handlers.OnButtonAdd)
+	self.dialog:Connect(MainWindow.IDs.BUT_Remove, wx.wxEVT_COMMAND_BUTTON_CLICKED, handlers.OnButtonRemove)
+	self.dialog:Connect(MainWindow.IDs.BUT_Up, wx.wxEVT_COMMAND_BUTTON_CLICKED, handlers.OnButtonUp)
+	self.dialog:Connect(MainWindow.IDs.BUT_Down, wx.wxEVT_COMMAND_BUTTON_CLICKED, handlers.OnButtonDown)
 	
 	self.dialog:Connect(MainWindow.IDs.BUT_SaveConfig, wx.wxEVT_COMMAND_BUTTON_CLICKED, handlers.OnSaveConfig)
 	-- TODO: connect remaining events to handler functions
