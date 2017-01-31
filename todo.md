@@ -1,6 +1,7 @@
 
 ## Todo
 
+- [ ] write support for tab 'Tactics' (+ read and save support)
 - [ ] finish the config-writer function
 - [ ] finish the config-reader function
 - [x] finish writing function M.LoadSkills in SkillsTab.lua
