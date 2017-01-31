@@ -94,7 +94,7 @@ function MainWindow:init(xmlResource)
 	-- get IDs / init wxWindow ID values (yes, before loading the dialog)
 	-- TODO: add all the remaining IDs!
 	for i, v in ipairs {
-		--"TAB_General", -- Tab 'General'         --------------------------------------------------
+		--"TAB_General", -- Tab 'General' ----------------------------------------------------------
 		--"SB_HomuAttackAndEvade",
 		--"TXT_AttackWhenHP",
 		"CB_DontMove",
@@ -124,19 +124,19 @@ function MainWindow:init(xmlResource)
 		--"CB_CanDetectNoPot", -- will be removed/replaced later
 		
 		
-		--"TAB_Tactics", -- Tab 'Tactics'         --------------------------------------------------
+		--"TAB_Tactics", -- Tab 'Tactics' ----------------------------------------------------------
 		-- TODO: TAB_Tactics
 		
 		
-		--"TAB_Skills", -- Tab 'Skills'           --------------------------------------------------
+		--"TAB_Skills", -- Tab 'Skills' ------------------------------------------------------------
 		-- TODO: TAB_Skills
 		
 		
-		--"TAB_Mod", -- Tab 'Mod'                 --------------------------------------------------
+		--"TAB_Mod", -- Tab 'Mod' ------------------------------------------------------------------
 		-- TODO: TAB_Mod
 		
 		
-		--"TAB_Language", -- Tab 'Language'       --------------------------------------------------
+		--"TAB_Language", -- Tab 'Language' --------------------------------------------------------
 		-- TODO: TAB_Language
 		
 		
