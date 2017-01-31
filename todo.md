@@ -1,6 +1,7 @@
 
 ## Todo
 
+- [ ] wire up the buttons in tab tactics
 - [ ] write support for tab 'Tactics' (+ read and save support)
 - [ ] finish the config-writer function
 - [ ] finish the config-reader function
