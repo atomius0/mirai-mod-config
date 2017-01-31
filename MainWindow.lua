@@ -1,9 +1,10 @@
 -- mirai-mod-conf
 -- class MainWindow
 
-local class = require "30log"
+local class             = require "30log"
 local LoadConfigOptions = require "LoadConfigOptions"
-local SkillsTab = require "SkillsTab"
+local SkillsTab         = require "SkillsTab"
+local TacticsTab        = require "TacticsTab"
 
 local MainWindow = class("MainWindow")
 
@@ -82,35 +83,35 @@ function MainWindow:init(xmlResource)
 	function handlers.OnButtonEdit(event)
 		DebugLog("MainWindow: OnButtonEdit")
 		event:Skip()
-		-- TODO: handlers.OnButtonEdit
+		TacticsTab.OnEdit(self.LC_Tactics)
 	end
 	
 	
 	function handlers.OnButtonAdd(event)
 		DebugLog("MainWindow: OnButtonAdd")
 		event:Skip()
-		-- TODO: handlers.OnButtonAdd
+		TacticsTab.OnAdd(self.LC_Tactics)
 	end
 	
 	
 	function handlers.OnButtonRemove(event)
 		DebugLog("MainWindow: OnButtonRemove")
 		event:Skip()
-		-- TODO: handlers.OnButtonRemove
+		TacticsTab.OnRemove(self.LC_Tactics)
 	end
 	
 	
 	function handlers.OnButtonUp(event)
 		DebugLog("MainWindow: OnButtonUp")
 		event:Skip()
-		-- TODO: handlers.OnButtonUp
+		TacticsTab.OnUp(self.LC_Tactics)
 	end
 	
 	
 	function handlers.OnButtonDown(event)
 		DebugLog("MainWindow: OnButtonDown")
 		event:Skip()
-		-- TODO: handlers.OnButtonDown
+		TacticsTab.OnDown(self.LC_Tactics)
 	end
 	
 	
@@ -274,6 +275,7 @@ function MainWindow:InitInputs()
 	InitWidget("CB_FollowAtOnce", "wxCheckBox")
 	InitWidget("CB_CircleOnIdle", "wxCheckBox")
 	
+	InitWidget("LC_Tactics", "wxListCtrl")
 	
 	-- TODO: more stuff
 	

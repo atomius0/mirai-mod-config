@@ -6,4 +6,6 @@ Module "LoadConfigOptions"
 Module "stringutil"
 Module "SkillsTab"
 Module "HomuSkillTable"
+Module "TacticsTab"
+Module "ListCtrlHelper"
 --Module "foo" --TODO
