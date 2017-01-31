@@ -347,8 +347,11 @@ function MainWindow:LoadConfig(filename)
 	-- option      - the option (string)
 	-- widget      - the widget that will be set by the option (string)
 	-- isOneOrZero - if true, the option will be assumed to be boolean, but saved as either 1 or 0.
+	-- isDEFAULT_BEHA - if true, the option will be assumed to be 
+	--                     "BEHA_react" for true,
+	--                  or "BEHA_attack" (or anything else) for false.
 	-- (isOneOrZero is required for options 'CIRCLE_ON_IDLE' and 'FOLLOW_AT_ONCE')
-	local ReadOpt = function(option, widget, isOneOrZero)
+	local ReadOpt = function(option, widget, isOneOrZero, isDEFAULT_BEHA)
 		local v = options[option]
 		if v then -- if the option exists in Config.lua
 			if isOneOrZero then
@@ -365,6 +368,14 @@ function MainWindow:LoadConfig(filename)
 					)
 				end
 				
+			elseif isDEFAULT_BEHA then
+				if v == "BEHA_react" then
+					v = true
+					
+				else --if v == "BEHA_attack" then
+					v = false
+				end
+				
 			elseif v == "true" then
 				v = true
 				
@@ -375,7 +386,8 @@ function MainWindow:LoadConfig(filename)
 				v = tonumber(v)
 			end
 			DebugLog(
-				'ReadOpt("'..option..'", "'..widget..'", '..tostring(isOneOrZero)..') = '..
+				'ReadOpt("'..option..'", "'..widget..'", '..tostring(isOneOrZero)..', '..
+				tostring(isDEFAULT_BEHA)..') = '..
 				'"'..tostring(v)..'" type('..type(v)..')'
 			)
 			self[widget]:SetValue(v)
@@ -405,6 +417,7 @@ function MainWindow:LoadConfig(filename)
 	
 	ReadOpt("ADV_MOTION_CHECK", "CB_AdvMotionCheck")
 	
+	ReadOpt("DEFAULT_BEHA", "CB_Cautious", false, true)
 	
 	-- load skill settings:
 	SkillsTab.LoadSkills(f, self.skillWidgets)
