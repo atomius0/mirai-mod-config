@@ -368,8 +368,13 @@ function MainWindow:LoadConfig(filename)
 	
 	--ReadOpt("BOLTS_ON_CHASE_ST", "") not supported by mirai-mod-config
 	
-	ReadOpt("HP_PERC_DANGER", "SC_EvadeWhenHP")
-	ReadOpt("HP_PERC_SAFE2ATK", "SC_AttackWhenHP")
+	-- read this option into both: SpinCtrl and Slider:
+	ReadOpt("HP_PERC_DANGER", "SC_EvadeWhenHP") -- SpinCtrl
+	ReadOpt("HP_PERC_DANGER", "SL_EvadeWhenHP") -- Slider
+	-- see above:
+	ReadOpt("HP_PERC_SAFE2ATK", "SC_AttackWhenHP") -- SpinCtrl
+	ReadOpt("HP_PERC_SAFE2ATK", "SL_AttackWhenHP") -- Slider
+	
 	ReadOpt("OWNER_CLOSEDISTANCE", "SC_OwnerClosedistance")
 	ReadOpt("TOO_FAR_TARGET", "SC_MaxEnemyDistance")
 	ReadOpt("SKILL_TIME_OUT", "SC_SkillTimeout")
