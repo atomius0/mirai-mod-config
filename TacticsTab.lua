@@ -1,19 +1,26 @@
 -- mirai-mod-conf
 -- TacticsTab functions
 
+local AddTacticDialog = require "AddTacticDialog"
 local lch = require "ListCtrlHelper"
 
 local M = {}
 
 
-function M.OnEdit(listCtrl)
+-- OnEdit and OnAdd need the xmlResource parameter, because they create a new window using
+-- AddTacticDialog from the xrc file.
+function M.OnEdit(listCtrl, xmlResource)
 	assert(listCtrl)
+	assert(xmlResource)
 	-- TODO: this
 end
 
 
-function M.OnAdd(listCtrl)
+function M.OnAdd(listCtrl, xmlResource)
 	assert(listCtrl)
+	assert(xmlResource)
+	
+	AddTacticDialog(xmlResource, add) -- call constructor to show modal dialog
 	-- TODO: this
 end
 

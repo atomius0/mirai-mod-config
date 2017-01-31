@@ -7,5 +7,6 @@ Module "stringutil"
 Module "SkillsTab"
 Module "HomuSkillTable"
 Module "TacticsTab"
+Module "AddTacticDialog"
 Module "ListCtrlHelper"
 --Module "foo" --TODO

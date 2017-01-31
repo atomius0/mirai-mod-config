@@ -27,7 +27,8 @@ LUAC            = $(WXLUA_PATH)/bin/luac.exe
 
 
 LUA_FILES        = main.lua MainWindow.lua 30log.lua LoadConfigOptions.lua stringutil.lua \
-                   SkillsTab.lua HomuSkillTable.lua TacticsTab.lua ListCtrlHelper.lua
+                   SkillsTab.lua HomuSkillTable.lua TacticsTab.lua AddTacticDialog.lua \
+                   ListCtrlHelper.lua
 SQUISH_OUTPUT    = $(TEMP_DIR)/config_sq.lua
 # don't compile it, wxLuaFreeze doesn't support lua files with zero-bytes inside them!
 #COMPILED_OUTPUT  = $(TEMP_DIR)/config_sq_comp.lua
