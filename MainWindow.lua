@@ -275,15 +275,8 @@ function MainWindow:SaveConfig(filename)
 		"-- Homunculus Skills: minimum SP to activate\n" ..
 		"--------------------------------------------------\n"
 	)
-	
-	-- TODO: this (SaveConfig) !!!!!!!!!!!!!!!!!!!!!!!
-	
-	
-	-- TODO: are all regular settings saved?
-	
 	-- save skill settings
-	-- TODO: uncomment this!!!!
-	--SkillsTab.SaveSkills(f, self.skillWidgets)
+	SkillsTab.SaveSkills(f, self.skillWidgets)
 	
 	f:write("\n\n")
 	
@@ -420,7 +413,7 @@ function MainWindow:LoadConfig(filename)
 	ReadOpt("DEFAULT_BEHA", "CB_Cautious", false, true)
 	
 	-- load skill settings:
-	SkillsTab.LoadSkills(f, self.skillWidgets)
+	SkillsTab.LoadSkills(options, self.skillWidgets)
 	
 	-- use method SetValue()
 	

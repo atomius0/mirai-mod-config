@@ -1,11 +1,11 @@
 
 ## Todo
 
-- [ ] finish writing function M.LoadSkills in SkillsTab.lua
-- [ ] uncomment call to 'SkillsTab.SaveSkills' in function 'MainWindow:SaveConfig' (line 286)
-- [x] test loading and saving of all options in tab 'General'
 - [ ] finish the config-writer function
 - [ ] finish the config-reader function
+- [x] finish writing function M.LoadSkills in SkillsTab.lua
+- [x] uncomment call to 'SkillsTab.SaveSkills' in function 'MainWindow:SaveConfig' (line 286)
+- [x] test loading and saving of all options in tab 'General'
 - [x] checkbox "cautious" / "CB_Cautious" isn't saved/loaded...
 - [x] function M.SaveSkills from SkillsTab.lua
 - [x] why does the wxScrolledWindow not get a scrollbar? (it is more than full, and cannot be scrolled.) (try wxScrolledWindow::EnableScrolling) (see sample: 'picker.wx.lua') -> fixed using method FitInside of the sizer contained in the wxScrolledWindow!

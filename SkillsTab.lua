@@ -2,6 +2,7 @@
 -- SkillsTab functions
 
 local homuSkillTable = require "HomuSkillTable"
+local su = require "stringutil"
 
 local M = {}
 
@@ -206,12 +207,35 @@ function M.SaveSkills(f, widgets)
 end
 
 
-function M.LoadSkills(f, widgets)
+function M.LoadSkills(options, widgets)
 	DebugLog("LoadSkills()")
+	assert(type(options) == "table")
+	assert(type(widgets) == "table")
 	
-	
-	
-	-- TODO: M.LoadSkills
+	for k, v in pairs(widgets) do
+		assert(type(k) == "string")
+		
+		local opt = tonumber(options[k]) -- tonumber(nil) returns nil, so this is fine.
+		
+		if su.endsWith(k, ".MinSP") then
+			if opt then
+				v:SetValue(opt)
+			else
+				v:SetValue(0)
+			end
+			
+		elseif su.endsWith(k, ".Level") then
+			if opt then
+				v:SetSelection(opt)
+			else
+				v:SetSelection(0) -- if we don't set this to 0, the wxChoice will stay empty!
+			end
+			
+		elseif k ~= "TXT_SkillsDescription" then -- ignore TXT_SkillsDescription
+			-- everything else is an error:
+			error("unexpected key in table 'widgets': " .. k)
+		end
+	end
 end
 
 
