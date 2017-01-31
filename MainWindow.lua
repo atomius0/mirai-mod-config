@@ -249,26 +249,31 @@ function MainWindow:SaveConfig(filename)
 	
 	-- save the auto attack stuff (with a comment that it is disabled and not configurable)
 	f:write(
-		"\n\n-- Alchemist Auto Attacks (AAA) -- (These options are not supported by " ..
-		APP_NAME .. ")\n" ..
+		"\n" ..
+		"--------------------------------------------------\n" ..
+		"-- Alchemist automatic skills\n" ..
+		"-- (These options are not supported by " .. APP_NAME .. ")\n" ..
+		"--------------------------------------------------\n" ..
+		"-- Alchemist Auto Attacks (AAA)\n" ..
 		"AAA_MinHP=100\n" ..
 		"AAA_MaxHP=32000\n" ..
+		"-- Auto Cart Revolution (ACR)\n" ..
 		"ACR = {}\n" ..
 		"ACR.MinEnemies=2\n" ..
 		"ACR.MinSP=20\n" ..
+		"Auto Single Target (AST)" ..
 		"AST = {}\n" ..
 		"AST.SkillID=0\n" ..
 		"AST.MinSP=20\n" ..
 		"AST.Level=5\n" ..
-		"-- Auto-Aid Potion (AAP) (not supported)\n" ..
+		"-- Auto Aid Potion (AAP)\n" ..
 		"CAN_DETECT_NOPOT=true\n" ..
 		"AAP = {}\n" ..
 		"AAP.Mode=3\n" ..
 		"AAP.HP_Perc=65\n" ..
-		"AAP.Level=2\n"
+		"AAP.Level=2\n\n"
 	)
 	
-	f:write("\n\n")
 	
 	f:write(
 		"--------------------------------------------------\n" ..
