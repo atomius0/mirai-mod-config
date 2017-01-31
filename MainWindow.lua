@@ -94,24 +94,51 @@ function MainWindow:init(xmlResource)
 	-- get IDs / init wxWindow ID values (yes, before loading the dialog)
 	-- TODO: add all the remaining IDs!
 	for i, v in ipairs {
+		--"TAB_General", -- Tab 'General'         --------------------------------------------------
+		--"SB_HomuAttackAndEvade",
+		--"TXT_AttackWhenHP",
 		"CB_DontMove",
 		"SL_AttackWhenHP",
 		"SC_AttackWhenHP",
+		--"TXT_EvadeWhenHP",
 		"CB_Cautious",
 		"SL_EvadeWhenHP",
 		"SC_EvadeWhenHP",
-		
 		"CB_HelpOwnerFirst",
 		"CB_KillEnemiesFirst",
+		
+		--"SB_KindHomu",
 		"CB_NoMovingTargets",
 		"CB_AdvMotionCheck",
 		
+		--"SB_Other",
+		--"TXT_MaxEnemyDistance",
+		"SC_MaxEnemyDistance",
+		--"TXT_SkillTimeout",
+		"SC_SkillTimeout",
+		--"TXT_OwnerClosedistance",
+		"SC_OwnerClosedistance",
+		
 		"CB_FollowAtOnce",
 		"CB_CircleOnIdle",
+		--"CB_CanDetectNoPot", -- will be removed/replaced later
 		
-		"SC_MaxEnemyDistance",
-		"SC_SkillTimeout",
-		"SC_OwnerClosedistance",
+		
+		--"TAB_Tactics", -- Tab 'Tactics'         --------------------------------------------------
+		-- TODO: TAB_Tactics
+		
+		
+		--"TAB_Skills", -- Tab 'Skills'           --------------------------------------------------
+		-- TODO: TAB_Skills
+		
+		
+		--"TAB_Mod", -- Tab 'Mod'                 --------------------------------------------------
+		-- TODO: TAB_Mod
+		
+		
+		--"TAB_Language", -- Tab 'Language'       --------------------------------------------------
+		-- TODO: TAB_Language
+		
 		
 		"BUT_SaveConfig",
 	} do
