@@ -1,8 +1,9 @@
 
 ## Todo
 
-- [ ] wire up the buttons in tab tactics
+- [ ] create new file 'TacticsTab.lua' and add all functionality related to tab 'Tactics' there.
 - [ ] write support for tab 'Tactics' (+ read and save support)
+- [x] wire up the buttons in tab tactics
 - [ ] finish the config-writer function
 - [ ] finish the config-reader function
 - [x] finish writing function M.LoadSkills in SkillsTab.lua
