@@ -266,6 +266,12 @@ function MainWindow:SaveConfig(filename)
 	
 	f:write("\n\n")
 	
+	f:write(
+		"--------------------------------------------------\n" ..
+		"-- Homunculus Skills: minimum SP to activate\n" ..
+		"--------------------------------------------------\n"
+	)
+	
 	-- TODO: this (SaveConfig) !!!!!!!!!!!!!!!!!!!!!!!
 	
 	
@@ -274,6 +280,7 @@ function MainWindow:SaveConfig(filename)
 	-- save skill settings
 	-- TODO: uncomment this!!!!
 	--SkillsTab.SaveSkills(f, self.skillWidgets)
+	
 	
 	
 	-- TODO: save tactics
