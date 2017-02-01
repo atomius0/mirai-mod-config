@@ -11,6 +11,7 @@ AddTacticDialog.IDs = {}
 function AddTacticDialog:init(xmlResource, parent, tactic)
 	assert(xmlResource)
 	assert(parent)
+	assert(type(tactic) == "table")
 	
 	self.dialog = nil
 	
@@ -73,12 +74,11 @@ function AddTacticDialog:init(xmlResource, parent, tactic)
 	self.dialog:Connect(AddTacticDialog.IDs.wxID_CANCEL, wx.wxEVT_COMMAND_BUTTON_CLICKED, handlers.OnCancel)
 	
 	
-	if tactic then -- was the 'tactic' parameter given?
-		assert(type(tactic) == "table")
+	if next(tactic) then -- if tactic table is not empty
+		-- fill the input fields with the values from table 'tactic'
 		
-		-- fill the input fields with the values from table 'tactics':
 		
-		-- TODO: fill the input fields with the values from table 'tactics'
+		-- TODO: fill the input fields with the values from table 'tactic'
 	end
 	
 	-- we won't show the dialog from this function:
@@ -114,7 +114,7 @@ end
 return function(xmlResource, parent, tactic) -- function ShowAddTacticDialog(xmlResource, tactic)
 	assert(xmlResource)
 	assert(parent)
-	if tactic then assert(type(tactic) == "table") end
+	tactic = tactic or {}
 	
 	-- the dialog constructor needs the 'tactic' table to fill its widgets with the values from it.
 	local dlg = AddTacticDialog(xmlResource, parent, tactic)
@@ -123,9 +123,20 @@ return function(xmlResource, parent, tactic) -- function ShowAddTacticDialog(xml
 	dlg.dialog:Center()
 	local r = dlg.dialog:ShowModal()
 	
-	DebugLog("AddTacticDialog returned: " .. tostring(r))
-	DebugLog("wx.wxID_OK = " .. wx.wxID_OK)
-	DebugLog("wx.wxID_CANCEL = " .. wx.wxID_CANCEL)
+	-- DEBUG --
+	do
+		DebugLog("AddTacticDialog returned: " .. tostring(r))
+		DebugLog("wx.wxID_OK = " .. wx.wxID_OK)
+		DebugLog("wx.wxID_CANCEL = " .. wx.wxID_CANCEL)
+		
+		DebugLog("tactic:")
+		for i,v in ipairs(tactic) do
+			print(i, v)
+		end
+		DebugLog("end tactic")
+	end
+	-- DEBUG END --
+	
 	
 	-- TODO: refactor this, we don't need variable 'r'
 	-- TODO: parameter 'tactic' of AddTacticDialog constructor should not be optional!
