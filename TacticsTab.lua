@@ -94,7 +94,7 @@ function M.LoadTactics(tactics, listCtrl)
 			assert(type(beha ) == "string")
 			assert(type(use  ) == "string")
 			assert(type(level) == "number")
-			--assert(type(aaa  ) == "number")
+			--assert(type(aaa  ) == "number") -- we don't need this
 		end
 		
 		-- TODO: convert fields properly (numbers to string, cut BEHA_* and WITH_* prefixes)
@@ -113,17 +113,6 @@ function M.LoadTactics(tactics, listCtrl)
 		
 		lch.InsertRow(listCtrl, {id, name, beha, use, level})
 	end
-	
-	--DEBUG
-	DebugLog("TacticsTab.LoadTactics:")
-	for i,v in ipairs(tactics) do
-		--        n   , s     , s     , s     , n    , n
-		--return {t_id, t_name, t_beha, t_with, t_lvl, t_aaa}
-		assert(type(v) == "table" and #v == 6)
-		print(unpack(v))
-		for i = 1, 6 do print(type(v[i])) end
-	end
-	--END DEBUG
 	
 	-- TODO: LoadTactics
 end
