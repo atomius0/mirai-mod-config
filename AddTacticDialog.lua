@@ -3,6 +3,55 @@
 
 local class = require "30log"
 
+
+local _BEHA_MAP = { -- used by helper functions BEHA2ID and ID2BEHA
+	[0] = "BEHA_avoid",
+	[1] = "BEHA_coward",
+	[2] = "BEHA_react_1st",
+	[3] = "BEHA_react",
+	[4] = "BEHA_react_last",
+	[5] = "BEHA_attack_1st",
+	[6] = "BEHA_attack",
+	[7] = "BEHA_attack_last",
+	[8] = "BEHA_attack_weak"
+}
+local _WITH_MAP = { -- used by helper functions WITH2ID and ID2WITH
+	[0] = "WITH_no_skill",
+	[1] = "WITH_one_skill",
+	[2] = "WITH_two_skills",
+	[3] = "WITH_max_skills",
+	[4] = "WITH_full_power",
+	[5] = "WITH_slow_power"
+}
+
+-- helper functions for converting the IDs of the behavior and with/use skill wxChoice menus
+-- to their tactic strings and back:
+local function BEHA2ID(beha)
+	for i = 0, #_BEHA_MAP do
+		if _BEHA_MAP[i] == beha then return i end
+	end
+	return -1
+end
+
+
+local function ID2BEHA(id)
+	return _BEHA_MAP[id]
+end
+
+
+local function WITH2ID(with)
+	fir i = 0, #_WITH_MAP do
+		if _WITH_MAP[i] == with then return i end
+	end
+	return -1
+end
+
+
+local function ID2WITH(id)
+	return _WITH_MAP[id]
+end
+
+
 local AddTacticDialog = class("AddTacticDialog")
 
 AddTacticDialog.IDs = {}
@@ -22,7 +71,7 @@ function AddTacticDialog:init(xmlResource, parent, tactic)
 		event:Skip()
 		
 		
-		-- TODO
+		-- TODO: insert stuff into table 'tactic'
 	end
 	
 	
@@ -77,8 +126,15 @@ function AddTacticDialog:init(xmlResource, parent, tactic)
 	if next(tactic) then -- if tactic table is not empty
 		-- fill the input fields with the values from table 'tactic'
 		
+		local id, name, beha, use, level = tactic[1], tactic[2], tactic[3], tactic[4], tactic[5]
 		
+		self.IC_ID:SetValue(id)
+		self.TC_MonsterName:SetValue(name)
+		self.CHOICE_Behavior:SetSelection()
 		-- TODO: fill the input fields with the values from table 'tactic'
+		
+	else -- if it is empty, fill it with default values:
+		-- TODO
 	end
 	
 	-- we won't show the dialog from this function:
