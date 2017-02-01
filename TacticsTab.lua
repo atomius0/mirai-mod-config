@@ -69,17 +69,25 @@ function M.OnAdd(listCtrl, xmlResource, parent)
 	assert(listCtrl)
 	assert(xmlResource)
 	assert(parent)
-	--[[
+	---[[
 	local tactic = AddTacticDialog(xmlResource, parent)
 	
 	if tactic then
-		-- insert new tactic after the currently selected one:
 		local selected = lch.GetFirstSelected(listCtrl)
 		
-		lch.InsertRow(listCtrl, selected, tactic)
+		
+		if selected then
+			-- insert new tactic after the currently selected one:
+			lch.InsertRow(listCtrl, selected+1, Tactic2ListCtrl(tactic))
+			
+		else -- if nothing was selected, add the tactic to the end of the list:
+			lch.InsertRow(listCtrl, Tactic2ListCtrl(tactic))
+		end
+		
+		
 	end
 	--]]
-	AddTacticDialog(xmlResource, parent, {1234, "Poring", "BEHA_coward", "WITH_slow_power", 4}) -- TODO: DEBUG!!
+	--AddTacticDialog(xmlResource, parent, {1234, "Poring", "BEHA_coward", "WITH_slow_power", 4}) -- TODO: DEBUG!!
 	-- TODO: this
 end
 
