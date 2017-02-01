@@ -84,14 +84,14 @@ function MainWindow:init(xmlResource)
 		DebugLog("MainWindow: OnButtonEdit")
 		event:Skip()
 		-- TODO: add exception handling to all 'OnButton*' functions!!
-		TacticsTab.OnEdit(self.LC_Tactics, xmlResource)
+		TacticsTab.OnEdit(self.LC_Tactics, xmlResource, self.dialog)
 	end
 	
 	
 	function handlers.OnButtonAdd(event)
 		DebugLog("MainWindow: OnButtonAdd")
 		event:Skip()
-		TacticsTab.OnAdd(self.LC_Tactics, xmlResource)
+		TacticsTab.OnAdd(self.LC_Tactics, xmlResource, self.dialog)
 	end
 	
 	

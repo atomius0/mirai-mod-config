@@ -9,18 +9,21 @@ local M = {}
 
 -- OnEdit and OnAdd need the xmlResource parameter, because they create a new window using
 -- AddTacticDialog from the xrc file.
-function M.OnEdit(listCtrl, xmlResource)
+function M.OnEdit(listCtrl, xmlResource, parent)
 	assert(listCtrl)
 	assert(xmlResource)
+	assert(parent)
+	
 	-- TODO: this
 end
 
 
-function M.OnAdd(listCtrl, xmlResource)
+function M.OnAdd(listCtrl, xmlResource, parent)
 	assert(listCtrl)
 	assert(xmlResource)
+	assert(parent)
 	
-	AddTacticDialog(xmlResource, add) -- call constructor to show modal dialog
+	AddTacticDialog(xmlResource, parent)
 	-- TODO: this
 end
 
