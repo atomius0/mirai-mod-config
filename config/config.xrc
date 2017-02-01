@@ -499,7 +499,7 @@
 					<growablerows></growablerows>
 					<object class="sizeritem">
 						<option>0</option>
-						<flag>wxALL</flag>
+						<flag>wxALL|wxALIGN_CENTER_VERTICAL</flag>
 						<border>5</border>
 						<object class="wxStaticText" name="TXT_ID">
 							<label>ID:</label>
@@ -508,7 +508,7 @@
 					</object>
 					<object class="sizeritem">
 						<option>0</option>
-						<flag>wxALL|wxEXPAND</flag>
+						<flag>wxALL|wxEXPAND|wxALIGN_CENTER_VERTICAL</flag>
 						<border>5</border>
 						<object class="wxTextCtrl" name="TC_ID">
 							<style>wxTE_RIGHT</style>
@@ -517,7 +517,7 @@
 					</object>
 					<object class="sizeritem">
 						<option>0</option>
-						<flag>wxALL</flag>
+						<flag>wxALL|wxALIGN_CENTER_VERTICAL</flag>
 						<border>5</border>
 						<object class="wxStaticText" name="TXT_MonsterName">
 							<label>Monster Name:</label>
@@ -526,7 +526,7 @@
 					</object>
 					<object class="sizeritem">
 						<option>0</option>
-						<flag>wxALL|wxEXPAND</flag>
+						<flag>wxALL|wxEXPAND|wxALIGN_CENTER_VERTICAL</flag>
 						<border>5</border>
 						<object class="wxTextCtrl" name="TC_MonsterName">
 							<value></value>
@@ -534,7 +534,7 @@
 					</object>
 					<object class="sizeritem">
 						<option>0</option>
-						<flag>wxALL</flag>
+						<flag>wxALL|wxALIGN_CENTER_VERTICAL</flag>
 						<border>5</border>
 						<object class="wxStaticText" name="TXT_Behavior">
 							<label>Behavior:</label>
@@ -543,7 +543,7 @@
 					</object>
 					<object class="sizeritem">
 						<option>0</option>
-						<flag>wxALL|wxEXPAND</flag>
+						<flag>wxALL|wxEXPAND|wxALIGN_CENTER_VERTICAL</flag>
 						<border>5</border>
 						<object class="wxChoice" name="CHOICE_Behavior">
 							<selection>3</selection>
@@ -563,7 +563,7 @@
 					</object>
 					<object class="sizeritem">
 						<option>0</option>
-						<flag>wxALL</flag>
+						<flag>wxALL|wxALIGN_CENTER_VERTICAL</flag>
 						<border>5</border>
 						<object class="wxStaticText" name="TXT_SkillUse">
 							<label>Use:</label>
@@ -572,7 +572,7 @@
 					</object>
 					<object class="sizeritem">
 						<option>0</option>
-						<flag>wxALL|wxEXPAND</flag>
+						<flag>wxALL|wxEXPAND|wxALIGN_CENTER_VERTICAL</flag>
 						<border>5</border>
 						<object class="wxChoice" name="CHOICE_SkillUse">
 							<selection>1</selection>
@@ -588,7 +588,7 @@
 					</object>
 					<object class="sizeritem">
 						<option>0</option>
-						<flag>wxALL</flag>
+						<flag>wxALL|wxALIGN_CENTER_VERTICAL</flag>
 						<border>5</border>
 						<object class="wxStaticText" name="TXT_Level">
 							<label>Level:</label>
@@ -597,7 +597,7 @@
 					</object>
 					<object class="sizeritem">
 						<option>0</option>
-						<flag>wxALL|wxEXPAND</flag>
+						<flag>wxALL|wxEXPAND|wxALIGN_CENTER_VERTICAL</flag>
 						<border>5</border>
 						<object class="wxChoice" name="CHOICE_Level">
 							<selection>4</selection>
