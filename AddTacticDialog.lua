@@ -108,7 +108,7 @@ function AddTacticDialog:init(xmlResource, parent, tactic)
 		tactic[3] = beha
 		tactic[4] = with
 		tactic[5] = level
-		tactic[6] = 0 -- AAA, not supported
+		tactic[6] = -1 -- AAA, not supported
 	end
 	
 	
