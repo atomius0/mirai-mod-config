@@ -61,7 +61,23 @@ function M.OnEdit(listCtrl, xmlResource, parent)
 	assert(xmlResource)
 	assert(parent)
 	
-	-- TODO: this
+	-- check if a tactic is selected, if not: show MessageBox
+	local selected = lch.GetFirstSelected(listCtrl)
+	
+	if not selected then
+		return wx.wxMessageBox("Select a tactic to edit!", APP_NAME, wx.wxOK)
+	end
+	
+	-- read tactic from listCtrl
+	local tactic = ListCtrl2Tactic(lch.ReadRow(listCtrl, selected))
+	
+	-- call AddTacticDialog
+	local newTactic = AddTacticDialog(xmlResource, parent, tactic)
+	
+	-- if AddTacticDialog returned a tactic, insert it, replacing the old one:
+	if newTactic then
+		lch.ReplaceRow(listCtrl, selected, Tactic2ListCtrl(tactic))
+	end
 end
 
 
@@ -87,7 +103,7 @@ function M.OnAdd(listCtrl, xmlResource, parent)
 	end
 	
 	--AddTacticDialog(xmlResource, parent, {1234, "Poring", "BEHA_coward", "WITH_slow_power", 4}) -- TODO: DEBUG!!
-	-- TODO: this
+	-- TODO: this (or is it done?)
 end
 
 
