@@ -109,7 +109,14 @@ end
 
 function M.OnRemove(listCtrl)
 	assert(listCtrl)
-	-- TODO: this
+	
+	local selected = lch.GetFirstSelected(listCtrl)
+	
+	if not selected then
+		return wx.wxMessageBox("Select a tactic to remove!", APP_NAME, wx.wxOK)
+	end
+	
+	lch.DeleteRow(listCtrl, selected)
 end
 
 
