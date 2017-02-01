@@ -340,7 +340,7 @@ function MainWindow:SaveConfig(filename)
 		"ACR = {}\n" ..
 		"ACR.MinEnemies=2\n" ..
 		"ACR.MinSP=20\n" ..
-		"Auto Single Target (AST)" ..
+		"-- Auto Single Target (AST)\n" ..
 		"AST = {}\n" ..
 		"AST.SkillID=0\n" ..
 		"AST.MinSP=20\n" ..
