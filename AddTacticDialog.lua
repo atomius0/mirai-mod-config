@@ -20,7 +20,6 @@ function AddTacticDialog:init(xmlResource, parent, tactic)
 		DebugLog("AddTacticDialog: OnOK")
 		event:Skip()
 		
-		-- NOTE: use self.dialog:EndModal(retCode) here and in OnCancel!
 		
 		-- TODO
 	end
@@ -74,9 +73,13 @@ function AddTacticDialog:init(xmlResource, parent, tactic)
 	self.dialog:Connect(AddTacticDialog.IDs.wxID_CANCEL, wx.wxEVT_COMMAND_BUTTON_CLICKED, handlers.OnCancel)
 	
 	
-	-- TODO: was the 'tactic' given? check that it's a table and put its values into the widgets.
-	
-	-- TODO: this
+	if tactic then -- was the 'tactic' parameter given?
+		assert(type(tactic) == "table")
+		
+		-- fill the input fields with the values from table 'tactics':
+		
+		-- TODO: fill the input fields with the values from table 'tactics'
+	end
 	
 	-- we won't show the dialog from this function:
 	--self.dialog:Center()
@@ -107,7 +110,12 @@ end
 
 -- instead, we return a function 'ShowAddTacticDialog',
 -- which opens a modal dialog and returns the new (or modified) tactic as a table
+-- returns nil if user clicked cancel.
 return function(xmlResource, parent, tactic) -- function ShowAddTacticDialog(xmlResource, tactic)
+	assert(xmlResource)
+	assert(parent)
+	if tactic then assert(type(tactic) == "table") end
+	
 	-- the dialog constructor needs the 'tactic' table to fill its widgets with the values from it.
 	local dlg = AddTacticDialog(xmlResource, parent, tactic)
 	
@@ -116,6 +124,16 @@ return function(xmlResource, parent, tactic) -- function ShowAddTacticDialog(xml
 	local r = dlg.dialog:ShowModal()
 	
 	DebugLog("AddTacticDialog returned: " .. tostring(r))
+	DebugLog("wx.wxID_OK = " .. wx.wxID_OK)
+	DebugLog("wx.wxID_CANCEL = " .. wx.wxID_CANCEL)
 	
-	-- TODO: this
+	-- TODO: refactor this, we don't need variable 'r'
+	-- TODO: parameter 'tactic' of AddTacticDialog constructor should not be optional!
+	--       since we pass the tactic through it!
+	
+	if r == wx.wxID_OK then
+		return tactic
+	else -- wx.wxID_CANCEL
+		return nil
+	end
 end
