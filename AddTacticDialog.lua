@@ -19,6 +19,6 @@ end
 
 -- instead, we return a function 'ShowAddTacticDialog',
 -- which opens a modal dialog and returns the new (or modified) tactic as a table
-return function ShowAddTacticDialog(xmlResource, tactic)
+return function(xmlResource, tactic) -- function ShowAddTacticDialog(xmlResource, tactic)
 	-- TODO: this
 end
