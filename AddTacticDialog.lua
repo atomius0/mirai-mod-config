@@ -2,6 +2,7 @@
 -- class AddTacticDialog
 
 local class = require "30log"
+local su    = require "stringutil"
 
 
 local _BEHA_MAP = { -- used by helper functions BEHA2ID and ID2BEHA
@@ -30,7 +31,7 @@ local function BEHA2ID(beha)
 	for i = 0, #_BEHA_MAP do
 		if _BEHA_MAP[i] == beha then return i end
 	end
-	return -1
+	return error("Unknown BEHA_* constant: " .. beha)
 end
 
 
@@ -40,10 +41,10 @@ end
 
 
 local function WITH2ID(with)
-	fir i = 0, #_WITH_MAP do
+	for i = 0, #_WITH_MAP do
 		if _WITH_MAP[i] == with then return i end
 	end
-	return -1
+	return error("Unknown WITH_* constant: " .. with)
 end
 
 
@@ -70,15 +71,51 @@ function AddTacticDialog:init(xmlResource, parent, tactic)
 		DebugLog("AddTacticDialog: OnOK")
 		event:Skip()
 		
+		local id, name, beha, with, level
 		
-		-- TODO: insert stuff into table 'tactic'
+		-- get values from input fields:
+		id    = self.TC_ID:GetValue()
+		name  = self.TC_MonsterName:GetValue()
+		beha  = ID2BEHA(self.CHOICE_Behavior:GetSelection())
+		with  = ID2WITH(self.CHOICE_SkillUse:GetSelection())
+		level = self.CHOICE_Level:GetSelection()
+		
+		-- check if inputs are valid:
+		
+		-- is 'name' a comment?
+		if su.startsWith(name, "--") then 
+			if id ~= "" then -- id must be empty for comments
+				wx.wxMessageBox("ID must be empty for comments", APP_NAME, wx.wxOK)
+				event:Skip(false)
+			end
+			-- set all values to default for comments:
+			id    = 0
+			beha  = "BEHA_avoid"
+			with  = "WITH_no_skill"
+			level = 1
+			
+			-- if 'name' is a comment, we don't need to check whether the id is valid.
+		elseif id ~= tostring(tonumber(id)) then -- is 'id' a valid number?
+			-- id is not a valid number (there are other characters in it?)
+			wx.wxMessageBox("Invalid ID", APP_NAME, wx.wxOK)
+			event:Skip(false) -- don't close this dialog
+		end
+		
+		
+		-- fill tactic table:
+		tactic[1] = tonumber(id)
+		tactic[2] = name
+		tactic[3] = beha
+		tactic[4] = with
+		tactic[5] = level
+		tactic[6] = 0 -- AAA, not supported
 	end
 	
 	
 	function handlers.OnCancel(event)
 		DebugLog("AddTacticDialog: OnCancel")
 		event:Skip()
-		-- TODO
+		-- do nothing
 	end
 	
 	
@@ -126,15 +163,20 @@ function AddTacticDialog:init(xmlResource, parent, tactic)
 	if next(tactic) then -- if tactic table is not empty
 		-- fill the input fields with the values from table 'tactic'
 		
-		local id, name, beha, use, level = tactic[1], tactic[2], tactic[3], tactic[4], tactic[5]
+		local id, name, beha, with, level = tactic[1], tactic[2], tactic[3], tactic[4], tactic[5]
 		
-		self.IC_ID:SetValue(id)
+		self.TC_ID:SetValue(tostring(id))
 		self.TC_MonsterName:SetValue(name)
-		self.CHOICE_Behavior:SetSelection()
-		-- TODO: fill the input fields with the values from table 'tactic'
+		self.CHOICE_Behavior:SetSelection(BEHA2ID(beha))
+		self.CHOICE_SkillUse:SetSelection(WITH2ID(with))
+		self.CHOICE_Level:SetSelection(level)
 		
 	else -- if it is empty, fill it with default values:
-		-- TODO
+		self.TC_ID:SetValue("")
+		self.TC_MonsterName:SetValue("")
+		self.CHOICE_Behavior:SetSelection(0)
+		self.CHOICE_SkillUse:SetSelection(0)
+		self.CHOICE_Level:SetSelection(0)
 	end
 	
 	-- we won't show the dialog from this function:

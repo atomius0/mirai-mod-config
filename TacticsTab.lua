@@ -24,7 +24,8 @@ function M.OnAdd(listCtrl, xmlResource, parent)
 	assert(xmlResource)
 	assert(parent)
 	
-	AddTacticDialog(xmlResource, parent)
+	--AddTacticDialog(xmlResource, parent)
+	AddTacticDialog(xmlResource, parent, {1234, "Poring", "BEHA_coward", "WITH_slow_power", 4}) -- TODO: DEBUG!!
 	-- TODO: this
 end
 
