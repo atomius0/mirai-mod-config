@@ -225,8 +225,11 @@ function MainWindow:init(xmlResource)
 	-- SkillsTab.FillSkillsTab returns a a table containing references to the widgets it creates
 	self.skillWidgets = SkillsTab.FillSkillsTab(self.dialog, xmlResource)
 	
+	-- Initialize the TacticsTab:
+	TacticsTab.Init(self.LC_Tactics)
+	
 	-- load the configuration file before showing the window:
-	self:LoadConfig(CONFIG_FILE)
+	self:LoadConfig(CONFIG_FILE) --TODO: add self.LC_Tactics parameter here!
 	
 	
 	self:HideLanguageTab(xmlResource) -- TODO: remove this later
@@ -495,8 +498,7 @@ function MainWindow:LoadConfig(filename)
 	
 	-- load skill settings:
 	SkillsTab.LoadSkills(options, self.skillWidgets)
-	
-	-- use method SetValue()
+	--TacticsTab.Load -- TODO: TacticsTab.Load...
 	
 	-- TODO: LoadConfig!
 	

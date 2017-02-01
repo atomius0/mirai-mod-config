@@ -46,6 +46,27 @@ function M.OnDown(listCtrl)
 end
 
 
+function M.Init(listCtrl)
+	assert(listCtrl)
+	
+	--[[
+	lch.InitColumns(listCtrl, {
+		"ID",
+		"Monster Name",
+		"Behavior",
+		"Use",
+		"Level"
+	})
+	--]]
+	lch.InitColumns(listCtrl, {
+		{"ID",           60},
+		{"Monster Name", 85},
+		{"Behavior",     20}, -- TODO: widths
+		{"Use",          20},
+		{"Level",        20}
+	})
+end
+
 -- TODO: load and save functions
 
 

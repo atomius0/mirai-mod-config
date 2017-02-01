@@ -1,6 +1,7 @@
 
 ## Todo
 
+- [ ] write widths in TacticsTab.lua, line 64
 - [ ] finish writing 'TacticsTab.lua'
 - [ ] write support for tab 'Tactics' (+ read and save support)
 - [x] update makefile and squishy with new files "TacticsTab.lua" and "ListCtrlHelper.lua"
