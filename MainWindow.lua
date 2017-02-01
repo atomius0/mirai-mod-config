@@ -374,9 +374,8 @@ function MainWindow:SaveConfig(filename)
 	
 	WriteOpt("DEFAULT_WITH = WITH_slow_power -- not configurable with " .. APP_NAME)
 	
-	-- TODO: write tact list!
+	TacticsTab.SaveTactics(f, self.LC_Tactics)
 	
-	-- TODO: save tactics
 	-- TODO: save selected Mod
 	-- TODO: Checkbox "Cautious" / Option "DEFAULT_BEHA" and "DEFAULT_WITH" come right before the Tact list!
 	

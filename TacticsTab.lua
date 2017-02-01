@@ -113,13 +113,36 @@ function M.LoadTactics(tactics, listCtrl)
 		
 		lch.InsertRow(listCtrl, {id, name, beha, use, level})
 	end
-	
-	-- TODO: LoadTactics
 end
 
 
-function M.SaveTactics(listCtrl)
+function M.SaveTactics(f, listCtrl)
 	assert(listCtrl)
+	assert(f)
+	
+	f:write("Tact = {}\n")
+	
+	for i = 1, listCtrl:GetItemCount() do
+		-- i-1 because the loop index is 1 based, but ReadRow is 0 based:
+		local tact = lch.ReadRow(listCtrl, i-1)
+		assert(#tact == 5)
+		local id, name, beha, use, level = tact[1], tact[2], tact[3], tact[4], tact[5]
+		
+		-- id and name stay as they are
+		beha = "BEHA_" .. beha
+		use  = "WITH_" .. beha
+		-- level stays as is
+		
+		local s 
+		if su.startsWith(name, "--") then -- is this tactic a comment?
+			s = name .. "\n"
+		else
+			s = string.format('Tact[%s] = {"%s", %s, %s, %s, 0}\n', id, name, beha, use, level)
+		end
+		
+		DebugLog(s)
+		f:write(s)
+	end
 	
 	-- TODO: SaveTactics
 end
