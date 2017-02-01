@@ -80,8 +80,24 @@ function M.Init(listCtrl)
 end
 
 
-function M.LoadTactics(listCtrl)
+function M.LoadTactics(tactics, listCtrl)
+	assert(type(tactics) == "table")
 	assert(listCtrl)
+	
+	for i, v in ipairs(tactics) do
+		
+	end
+	
+	--DEBUG
+	DebugLog("TacticsTab.LoadTactics:")
+	for i,v in ipairs(tactics) do
+		--        n   , s     , s     , s     , n    , n
+		--return {t_id, t_name, t_beha, t_with, t_lvl, t_aaa}
+		assert(type(v) == "table" and #v == 6)
+		print(unpack(v))
+		for i = 1, 6 do print(type(v[i])) end
+	end
+	--END DEBUG
 	
 	-- TODO: LoadTactics
 end

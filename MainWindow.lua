@@ -498,7 +498,8 @@ function MainWindow:LoadConfig(filename)
 	
 	-- load skill settings:
 	SkillsTab.LoadSkills(options, self.skillWidgets)
-	--TacticsTab.Load -- TODO: TacticsTab.Load...
+	
+	TacticsTab.LoadTactics(tactics, self.LC_Tactics)
 	
 	-- TODO: LoadConfig!
 	
