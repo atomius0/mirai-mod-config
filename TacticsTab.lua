@@ -59,15 +59,39 @@ function M.Init(listCtrl)
 	})
 	--]]
 	lch.InitColumns(listCtrl, {
-		{"ID",           60},
-		{"Monster Name", 85},
-		{"Behavior",     20}, -- TODO: widths
-		{"Use",          20},
-		{"Level",        20}
+		{"ID",            45},
+		{"Monster Name", 100},
+		{"Behavior",      75},
+		{"Use",           70},
+		{"Level",         38}
 	})
+	
+	--[[ -- DEBUG
+	lch.InsertRow(listCtrl, {"77777", "Steel Chonchon", "avoid",       "slow_power",   "7"})
+	lch.InsertRow(listCtrl, {"00000", "Wild Rose",      "coward",      "no_skill",   "500"})
+	lch.InsertRow(listCtrl, {"00000", "Wild Rose",      "react_1st",   "one_skill",   "50"})
+	lch.InsertRow(listCtrl, {"00000", "Wild Rose",      "react",       "two_skills",  "77"})
+	lch.InsertRow(listCtrl, {"00000", "Wild Rose",      "react_last",  "max_skills", "999"})
+	lch.InsertRow(listCtrl, {"00000", "Wild Rose",      "attack_1st",  "full_power", "666"})
+	lch.InsertRow(listCtrl, {"00000", "Wild Rose",      "attack",      "slow_power", "777"})
+	lch.InsertRow(listCtrl, {"00000", "Wild Rose",      "attack_last", "max_skills", "888"})
+	lch.InsertRow(listCtrl, {"00000", "Wild Rose",      "attack_weak", "max_skills",   "5"})
+	--]] -- END DEBUG
 end
 
--- TODO: load and save functions
+
+function M.LoadTactics(listCtrl)
+	assert(listCtrl)
+	
+	-- TODO: LoadTactics
+end
+
+
+function M.SaveTactics(listCtrl)
+	assert(listCtrl)
+	
+	-- TODO: SaveTactics
+end
 
 
 return M
