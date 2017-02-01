@@ -3,6 +3,7 @@
 
 local AddTacticDialog = require "AddTacticDialog"
 local lch = require "ListCtrlHelper"
+local su  = require "stringutil"
 
 local M = {}
 
@@ -97,11 +98,18 @@ function M.LoadTactics(tactics, listCtrl)
 		end
 		
 		-- TODO: convert fields properly (numbers to string, cut BEHA_* and WITH_* prefixes)
-		
-		--debug
+		-- convert the fields before inserting them into the listCtrl:
 		id = tostring(id)
+		
+		-- name stays as is
+		
+		assert(su.startsWith(beha, "BEHA_"))
+		beha = beha:sub(6) -- cut off "BEHA_"
+		
+		assert(su.startsWith(use, "WITH_"))
+		use = use:sub(6) -- cut off "WITH_"
+		
 		level = tostring(level)
-		--end debug
 		
 		lch.InsertRow(listCtrl, {id, name, beha, use, level})
 	end
