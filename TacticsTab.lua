@@ -85,7 +85,25 @@ function M.LoadTactics(tactics, listCtrl)
 	assert(listCtrl)
 	
 	for i, v in ipairs(tactics) do
+		assert(type(v) == "table" and #v == 6)
+		local id, name, beha, use, level, aaa = v[1], v[2], v[3], v[4], v[5], v[6]
+		if DEBUG then
+			assert(type(id   ) == "number")
+			assert(type(name ) == "string")
+			assert(type(beha ) == "string")
+			assert(type(use  ) == "string")
+			assert(type(level) == "number")
+			--assert(type(aaa  ) == "number")
+		end
 		
+		-- TODO: convert fields properly (numbers to string, cut BEHA_* and WITH_* prefixes)
+		
+		--debug
+		id = tostring(id)
+		level = tostring(level)
+		--end debug
+		
+		lch.InsertRow(listCtrl, {id, name, beha, use, level})
 	end
 	
 	--DEBUG
