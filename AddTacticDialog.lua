@@ -83,9 +83,18 @@ function AddTacticDialog:init(xmlResource, parent, tactic)
 		-- check if inputs are valid:
 		
 		-- is 'name' a comment?
-		if su.startsWith(name, "--") then 
+		if su.startsWith(name, "--") then
 			if id ~= "" then -- id must be empty for comments
 				wx.wxMessageBox("ID must be empty for comments", APP_NAME, wx.wxOK)
+				event:Skip(false)
+				
+			elseif name == "-- End Tact" then
+				-- this comment is recognized as the end of the tact list by 'LoadConfigOptions.lua'
+				-- so it is not allowed:
+				wx.wxMessageBox(
+					string.format('Comment "%s" is not allowed!', name),
+					APP_NAME, wx.wxOK
+				)
 				event:Skip(false)
 			end
 			-- set all values to default for comments:
