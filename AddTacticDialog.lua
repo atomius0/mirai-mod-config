@@ -78,7 +78,8 @@ function AddTacticDialog:init(xmlResource, parent, tactic)
 		name  = self.TC_MonsterName:GetValue()
 		beha  = ID2BEHA(self.CHOICE_Behavior:GetSelection())
 		with  = ID2WITH(self.CHOICE_SkillUse:GetSelection())
-		level = self.CHOICE_Level:GetSelection()
+		level = self.CHOICE_Level:GetSelection() + 1 -- wxChoice selection indices start at 0, levels start at 1.
+		
 		
 		-- check if inputs are valid:
 		
@@ -178,7 +179,7 @@ function AddTacticDialog:init(xmlResource, parent, tactic)
 		self.TC_MonsterName:SetValue(name)
 		self.CHOICE_Behavior:SetSelection(BEHA2ID(beha))
 		self.CHOICE_SkillUse:SetSelection(WITH2ID(with))
-		self.CHOICE_Level:SetSelection(level)
+		self.CHOICE_Level:SetSelection(level - 1) -- selection ID starts a 0, level starts at 1.
 		
 	else -- if it is empty, fill it with default values:
 		self.TC_ID:SetValue("")
