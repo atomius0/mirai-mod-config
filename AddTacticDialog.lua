@@ -236,8 +236,7 @@ return function(xmlResource, parent, tactic) -- function ShowAddTacticDialog(xml
 	dlg.dialog:Center()
 	local r = dlg.dialog:ShowModal()
 	
-	-- DEBUG --
-	do
+	if DEBUG then
 		DebugLog("AddTacticDialog returned: " .. tostring(r))
 		DebugLog("wx.wxID_OK = " .. wx.wxID_OK)
 		DebugLog("wx.wxID_CANCEL = " .. wx.wxID_CANCEL)
@@ -248,12 +247,6 @@ return function(xmlResource, parent, tactic) -- function ShowAddTacticDialog(xml
 		end
 		DebugLog("end tactic")
 	end
-	-- DEBUG END --
-	
-	
-	-- TODO: refactor this, we don't need variable 'r'
-	-- TODO: parameter 'tactic' of AddTacticDialog constructor should not be optional!
-	--       since we pass the tactic through it!
 	
 	if r == wx.wxID_OK then
 		return tactic
