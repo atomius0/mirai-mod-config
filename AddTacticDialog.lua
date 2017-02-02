@@ -180,7 +180,12 @@ function AddTacticDialog:init(xmlResource, parent, tactic)
 		local maxLevel = self.CHOICE_Level:GetCount()
 		if level > maxLevel then level = maxLevel end
 		
-		self.TC_ID:SetValue(tostring(id))
+		if su.startsWith(name, "--") then
+			-- leave the 'ID' textCtrl empty when the provided tactic is a comment
+			self.TC_ID:SetValue("")
+		else
+			self.TC_ID:SetValue(tostring(id))
+		end
 		self.TC_MonsterName:SetValue(name)
 		self.CHOICE_Behavior:SetSelection(BEHA2ID(beha))
 		self.CHOICE_SkillUse:SetSelection(WITH2ID(with))
