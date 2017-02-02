@@ -116,6 +116,18 @@ function M.OnRemove(listCtrl)
 	end
 	
 	lch.DeleteRow(listCtrl, selected)
+	
+	
+	-- get the smaller index of either:
+	-- -- the position where the deleted row was,
+	-- or: 
+	-- -- the last item in the list
+	
+	-- MARK: uncomment the line below if nothing should be selected after deleting the last list element:
+	selected = math.min(selected, listCtrl:GetItemCount()-1)
+	
+	-- after deleting a row, select the next one:
+	lch.SelectRow(listCtrl, selected)
 end
 
 
