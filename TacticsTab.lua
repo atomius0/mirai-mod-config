@@ -130,13 +130,21 @@ function M.OnUp(listCtrl)
 		-- select the row that was moved:
 		lch.SelectRow(listCtrl, selected-1)
 	end
-	-- TODO: this
+	-- TODO: add out-of-bounds check!
 end
 
 
 function M.OnDown(listCtrl)
 	assert(listCtrl)
-	-- TODO: this
+	
+	local selected = lch.GetFirstSelected(listCtrl)
+	
+	if selected then
+		lch.SwapRows(listCtrl, selected, selected+1)
+		-- select the row that was moved:
+		lch.SelectRow(listCtrl, selected+1)
+	end
+	-- TODO: add out-of-bounds check!
 end
 
 
