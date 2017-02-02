@@ -127,7 +127,8 @@ function M.OnUp(listCtrl)
 	
 	if selected then
 		lch.SwapRows(listCtrl, selected, selected-1)
-		-- TODO: select the row that was moved
+		-- select the row that was moved:
+		lch.SelectRow(listCtrl, selected-1)
 	end
 	-- TODO: this
 end
