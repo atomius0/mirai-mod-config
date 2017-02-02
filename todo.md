@@ -1,6 +1,7 @@
 
 ## Todo
 
+- [ ] write support for Tab 'Mod' (+ load and save support)
 - [x] write function "ListCtrlHelper.SelectRow(listCtrl, pos)": selects the item at index 'pos'
 - [x] finish writing 'TacticsTab.lua'
 - [x] write support for tab 'Tactics' (+ read and save support)
