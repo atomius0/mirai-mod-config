@@ -1,6 +1,7 @@
 
 ## Todo
 
+- [ ] write function "ListCtrlHelper.SelectRow(listCtrl, pos)": selects the item at index 'pos'
 - [ ] finish writing 'TacticsTab.lua'
 - [ ] write support for tab 'Tactics' (+ read and save support)
 - [ ] add ctrl+S hotkey to save settings (how? use accelerator-tables or something?)

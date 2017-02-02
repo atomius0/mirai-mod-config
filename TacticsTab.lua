@@ -122,6 +122,13 @@ end
 
 function M.OnUp(listCtrl)
 	assert(listCtrl)
+	
+	local selected = lch.GetFirstSelected(listCtrl)
+	
+	if selected then
+		lch.SwapRows(listCtrl, selected, selected-1)
+		-- TODO: select the row that was moved
+	end
 	-- TODO: this
 end
 
