@@ -98,8 +98,6 @@ function M.OnAdd(listCtrl, xmlResource, parent)
 		else -- if nothing was selected, add the tactic to the end of the list:
 			lch.InsertRow(listCtrl, Tactic2ListCtrl(tactic))
 		end
-		
-		
 	end
 end
 
