@@ -377,7 +377,7 @@ function MainWindow:SaveConfig(filename)
 	TacticsTab.SaveTactics(f, self.LC_Tactics)
 	
 	-- TODO: save selected Mod
-	-- TODO: Checkbox "Cautious" / Option "DEFAULT_BEHA" and "DEFAULT_WITH" come right before the Tact list!
+	
 	
 	f:close()
 end
