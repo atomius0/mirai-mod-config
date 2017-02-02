@@ -201,7 +201,7 @@ function M.SaveTactics(f, listCtrl)
 		f:write(s)
 	end
 	
-	-- TODO: SaveTactics
+	f:write("-- End Tact\n")
 end
 
 
