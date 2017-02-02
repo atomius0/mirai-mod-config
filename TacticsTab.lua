@@ -91,13 +91,17 @@ function M.OnAdd(listCtrl, xmlResource, parent)
 	if tactic then
 		local selected = lch.GetFirstSelected(listCtrl)
 		
+		local newItemPos -- position of the newly added item. needed to select the new item.
+		
 		if selected then
 			-- insert new tactic after the currently selected one:
-			lch.InsertRow(listCtrl, selected+1, Tactic2ListCtrl(tactic))
+			newItemPos = lch.InsertRow(listCtrl, selected+1, Tactic2ListCtrl(tactic))
 			
 		else -- if nothing was selected, add the tactic to the end of the list:
-			lch.InsertRow(listCtrl, Tactic2ListCtrl(tactic))
+			newItemPos = lch.InsertRow(listCtrl, Tactic2ListCtrl(tactic))
 		end
+		
+		lch.SelectRow(listCtrl, newItemPos)
 	end
 end
 
