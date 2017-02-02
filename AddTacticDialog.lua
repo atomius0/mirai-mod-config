@@ -175,6 +175,11 @@ function AddTacticDialog:init(xmlResource, parent, tactic)
 		
 		local id, name, beha, with, level = tactic[1], tactic[2], tactic[3], tactic[4], tactic[5]
 		
+		-- if level was saved as 0, that would become selection ID -1, which would be invalid.
+		if level <= 0 then level = 1 end
+		local maxLevel = self.CHOICE_Level:GetCount()
+		if level > maxLevel then level = maxLevel end
+		
 		self.TC_ID:SetValue(tostring(id))
 		self.TC_MonsterName:SetValue(name)
 		self.CHOICE_Behavior:SetSelection(BEHA2ID(beha))
