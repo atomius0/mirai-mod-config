@@ -1,9 +1,9 @@
 
 ## Todo
 
-- [ ] write function "ListCtrlHelper.SelectRow(listCtrl, pos)": selects the item at index 'pos'
-- [ ] finish writing 'TacticsTab.lua'
-- [ ] write support for tab 'Tactics' (+ read and save support)
+- [x] write function "ListCtrlHelper.SelectRow(listCtrl, pos)": selects the item at index 'pos'
+- [x] finish writing 'TacticsTab.lua'
+- [x] write support for tab 'Tactics' (+ read and save support)
 - [ ] add ctrl+S hotkey to save settings (how? use accelerator-tables or something?)
 - [x] write widths in TacticsTab.lua, line 64
 - [x] update makefile and squishy with new files "TacticsTab.lua" and "ListCtrlHelper.lua"

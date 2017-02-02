@@ -101,9 +101,6 @@ function M.OnAdd(listCtrl, xmlResource, parent)
 		
 		
 	end
-	
-	--AddTacticDialog(xmlResource, parent, {1234, "Poring", "BEHA_coward", "WITH_slow_power", 4}) -- TODO: DEBUG!!
-	-- TODO: this (or is it done?)
 end
 
 
@@ -127,8 +124,7 @@ function M.OnUp(listCtrl)
 	
 	if selected and selected > 0 then
 		lch.SwapRows(listCtrl, selected, selected-1)
-		-- select the row that was moved:
-		lch.SelectRow(listCtrl, selected-1)
+		lch.SelectRow(listCtrl, selected-1) -- select the row that was moved
 	end
 end
 
@@ -138,10 +134,9 @@ function M.OnDown(listCtrl)
 	
 	local selected = lch.GetFirstSelected(listCtrl)
 	
-	if selected  and selected < listCtrl:GetItemCount()-1 then
+	if selected and selected < listCtrl:GetItemCount()-1 then
 		lch.SwapRows(listCtrl, selected, selected+1)
-		-- select the row that was moved:
-		lch.SelectRow(listCtrl, selected+1)
+		lch.SelectRow(listCtrl, selected+1) -- select the row that was moved
 	end
 end
 
@@ -149,7 +144,7 @@ end
 function M.Init(listCtrl)
 	assert(listCtrl)
 	
-	--[[
+	--[[ -- no widths specified
 	lch.InitColumns(listCtrl, {
 		"ID",
 		"Monster Name",
@@ -158,6 +153,7 @@ function M.Init(listCtrl)
 		"Level"
 	})
 	--]]
+	---[[ -- with widths
 	lch.InitColumns(listCtrl, {
 		{"ID",            45},
 		{"Monster Name", 100},
@@ -165,18 +161,7 @@ function M.Init(listCtrl)
 		{"Use",           70},
 		{"Level",         38}
 	})
-	
-	--[[ -- DEBUG
-	lch.InsertRow(listCtrl, {"77777", "Steel Chonchon", "avoid",       "slow_power",   "7"})
-	lch.InsertRow(listCtrl, {"00000", "Wild Rose",      "coward",      "no_skill",   "500"})
-	lch.InsertRow(listCtrl, {"00000", "Wild Rose",      "react_1st",   "one_skill",   "50"})
-	lch.InsertRow(listCtrl, {"00000", "Wild Rose",      "react",       "two_skills",  "77"})
-	lch.InsertRow(listCtrl, {"00000", "Wild Rose",      "react_last",  "max_skills", "999"})
-	lch.InsertRow(listCtrl, {"00000", "Wild Rose",      "attack_1st",  "full_power", "666"})
-	lch.InsertRow(listCtrl, {"00000", "Wild Rose",      "attack",      "slow_power", "777"})
-	lch.InsertRow(listCtrl, {"00000", "Wild Rose",      "attack_last", "max_skills", "888"})
-	lch.InsertRow(listCtrl, {"00000", "Wild Rose",      "attack_weak", "max_skills",   "5"})
-	--]] -- END DEBUG
+	--]]
 end
 
 
