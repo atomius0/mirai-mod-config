@@ -201,4 +201,33 @@ function M.SwapRows(listCtrl, pos1, pos2)
 end
 
 
+-- SelectRow(listCtrl, pos)
+-- selects the row at index 'pos' (zero based index)
+-- if deselect is true, the row will be deselected instead of selected.
+function M.SelectRow(listCtrl, pos, deselect)
+	assert(listCtrl)
+	assert(type(pos) == "number")
+	--[[ -- not needed
+	-- get the item:
+	local item = wx.wxListItem()
+	item:SetId(pos)
+	item:SetMask(wx.wxLIST_MASK_STATE)
+	item:SetColumn(pos)
+	listCtrl:GetItem(item)
+	
+	-- read its state:
+	--local state = listCtrl:GetItemState()
+	--]]
+	-- add/remove selected state:
+	if deselect then -- deselect the item
+		-- from: https://wiki.wxwidgets.org/WxListCtrl
+		-- "Select or Deselect an Item"
+		listCtrl:SetItemState(pos, 0, wx.wxLIST_STATE_SELECTED + wx.wxLIST_STATE_FOCUSED)
+		
+	else -- select the item
+		listCtrl:SetItemState(pos, wx.wxLIST_STATE_SELECTED, wx.wxLIST_STATE_SELECTED)
+	end
+end
+
+
 return M

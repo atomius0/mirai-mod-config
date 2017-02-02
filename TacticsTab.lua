@@ -136,6 +136,7 @@ end
 function M.OnDown(listCtrl)
 	assert(listCtrl)
 	-- TODO: this
+	lch.SelectRow(listCtrl, 4) -- TODO: debug
 end
 
 
