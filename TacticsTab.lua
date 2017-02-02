@@ -125,12 +125,11 @@ function M.OnUp(listCtrl)
 	
 	local selected = lch.GetFirstSelected(listCtrl)
 	
-	if selected then
+	if selected and selected > 0 then
 		lch.SwapRows(listCtrl, selected, selected-1)
 		-- select the row that was moved:
 		lch.SelectRow(listCtrl, selected-1)
 	end
-	-- TODO: add out-of-bounds check!
 end
 
 
@@ -139,12 +138,11 @@ function M.OnDown(listCtrl)
 	
 	local selected = lch.GetFirstSelected(listCtrl)
 	
-	if selected then
+	if selected  and selected < listCtrl:GetItemCount()-1 then
 		lch.SwapRows(listCtrl, selected, selected+1)
 		-- select the row that was moved:
 		lch.SelectRow(listCtrl, selected+1)
 	end
-	-- TODO: add out-of-bounds check!
 end
 
 
