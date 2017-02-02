@@ -16,9 +16,6 @@ function MainWindow:init(xmlResource)
 	-- no parent parameter for this function,
 	-- since we will only ever have one instance of MainWindow
 	
-	-- TODO: keep a reference to xmlResource?
-	--       we might need it when MainWindow wants to create a child window.
-	
 	self.dialog = nil
 	
 	local handlers = {} -- table for all event handler functions
@@ -83,7 +80,6 @@ function MainWindow:init(xmlResource)
 	function handlers.OnButtonEdit(event)
 		DebugLog("MainWindow: OnButtonEdit")
 		event:Skip()
-		-- TODO: add exception handling to all 'OnButton*' functions!!
 		TacticsTab.OnEdit(self.LC_Tactics, xmlResource, self.dialog)
 	end
 	
@@ -129,7 +125,6 @@ function MainWindow:init(xmlResource)
 	
 	
 	-- get IDs / init wxWindow ID values (yes, before loading the dialog)
-	-- TODO: add all the remaining IDs!
 	for i, v in ipairs {
 		--"TAB_General", -- Tab 'General' ----------------------------------------------------------
 		--"SB_HomuAttackAndEvade",
@@ -216,7 +211,6 @@ function MainWindow:init(xmlResource)
 	self.dialog:Connect(MainWindow.IDs.BUT_Down, wx.wxEVT_COMMAND_BUTTON_CLICKED, handlers.OnButtonDown)
 	
 	self.dialog:Connect(MainWindow.IDs.BUT_SaveConfig, wx.wxEVT_COMMAND_BUTTON_CLICKED, handlers.OnSaveConfig)
-	-- TODO: connect remaining events to handler functions
 	
 	-- connect the closeevent to the OnClose function:
 	self.dialog:Connect(wx.wxEVT_CLOSE_WINDOW, handlers.OnClose)
@@ -229,7 +223,7 @@ function MainWindow:init(xmlResource)
 	TacticsTab.Init(self.LC_Tactics)
 	
 	-- load the configuration file before showing the window:
-	self:LoadConfig(CONFIG_FILE) --TODO: add self.LC_Tactics parameter here!
+	self:LoadConfig(CONFIG_FILE)
 	
 	
 	self:HideLanguageTab(xmlResource) -- TODO: remove this later
@@ -271,7 +265,6 @@ function MainWindow:InitInputs()
 	InitWidget("CB_NoMovingTargets", "wxCheckBox")
 	InitWidget("CB_AdvMotionCheck", "wxCheckBox")
 	
-	-- TODO: more stuff
 	InitWidget("SC_MaxEnemyDistance", "wxSpinCtrl")
 	InitWidget("SC_SkillTimeout", "wxSpinCtrl")
 	InitWidget("SC_OwnerClosedistance", "wxSpinCtrl")
@@ -281,8 +274,6 @@ function MainWindow:InitInputs()
 	
 	InitWidget("LC_Tactics", "wxListCtrl")
 	
-	-- TODO: more stuff
-	
 	-- TODO: initialize the remaining reference variables for all the input fields
 end
 
@@ -291,7 +282,7 @@ function MainWindow:SaveConfig(filename)
 	assert(type(filename) == "string")
 	DebugLog('MainWindow:SaveConfig("' .. filename .. '")')
 	
-	-- TODO: add error handler (try/catch block) to all functions that call this one!
+	-- NOTE: add error handler (try/catch block) to all functions that call this one!
 	local f = assert(io.open(filename, "w"))
 	
 	local WriteOpt = function(o) DebugLog(o); f:write(o .. "\n") end
@@ -388,7 +379,7 @@ function MainWindow:LoadConfig(filename)
 	assert(type(filename) == "string")
 	DebugLog('MainWindow:LoadConfig("' .. filename .. '")')
 	
-	-- TODO: add error handler (try/catch block) to all functions that call this one!
+	-- NOTE: add error handler (try/catch block) to all functions that call this one!
 	
 	local f = io.open(filename, "r")
 	if not f then
@@ -500,7 +491,7 @@ function MainWindow:LoadConfig(filename)
 	
 	TacticsTab.LoadTactics(tactics, self.LC_Tactics)
 	
-	-- TODO: LoadConfig!
+	-- TODO: load selected Mod
 	
 	f:close()
 end
