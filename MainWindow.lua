@@ -224,7 +224,7 @@ function MainWindow:init(xmlResource)
 	TacticsTab.Init(self.LC_Tactics)
 	
 	-- Initialize the ModTab:
-	ModTab.Init(self.LB_Mod) -- TODO: init mod tab
+	ModTab.Init(self.LB_Mod)
 	
 	-- load the configuration file before showing the window:
 	self:LoadConfig(CONFIG_FILE)

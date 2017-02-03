@@ -77,7 +77,7 @@
 - [ ] write readme.md
 - [ ] add a LICENSE.txt
 
-- [ ] add function to get exe directory (like AppDir in BlitzMax) (see sample: calculator.wx.lua)
+- [ ] add function to get exe directory (like AppDir in BlitzMax) (see sample: calculator.wx.lua) -> http://stackoverflow.com/questions/25819812/wxwidgets-getting-application-path
 - [ ] write translation loader module
 - [ ] implement preset-feature, where you can save the current config as a preset and load them easily.
 
