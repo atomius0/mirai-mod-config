@@ -46,6 +46,30 @@ function M.LoadMod(listBox, fileName)
 	DebugLog("ModTab.LoadMod")
 	-- TODO: LoadMod
 	-- TODO: how to read the selected mod?
+	
+	-- select listBox entry with name returned by: GetSelectedMod(fileName)
+	
+	-- put the stuff below into a helper function: GetSelectedMod
+	
+	-- read file line by line, if line starts with "--" then:
+	-- -- skip it.
+	-- else:
+	-- -- local path = GetStringLiteral(line)
+	-- -- if not path then: continue
+	-- -- local modName = ModNameFromPath(path)
+	-- -- if not modName then: continue
+	
+	-- local function GetStringLiteral(line): extracts a string literal from string 'line':
+	-- -- read from first '"' until next '"', store everything in between in variable 's', return 's'
+	
+	-- local function ModNameFromPath(path): returns the module name from path 'path'
+	-- -- if path ends with ".lua" then: -- old way, relative path:
+	-- -- -- if path contains "/": split path by "/", path = last element of split-table
+	-- -- -- return path
+	-- -- else: new way
+	-- -- -- if path contains ".": split path by ".", path = last element of split-table
+	-- -- -- return path
+	-- TODO (check if path contains "/")
 end
 
 
