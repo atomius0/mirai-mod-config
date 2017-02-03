@@ -1,6 +1,7 @@
 
 ## Todo
 
+- [ ] delete the "*_Mod.lua" files later! (before merging into master) they are just for testing.
 - [x] fix memory leak with wxDialog::Destroy()?
 - [ ] write support for Tab 'Mod' (+ load and save support)
 
