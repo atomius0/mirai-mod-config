@@ -22,6 +22,8 @@ MainWindow = require "MainWindow"
 XRC_FILE        = "config/config.xrc"
 APP_NAME        = "MirAI Mod Config"
 CONFIG_FILE     = "Config.lua"
+MOD_FILE        = "SelectedMod.lua"
+MOD_TEMPLATE    = "config/SelectedModTemplate.lua"
 SKILL_ICON_PATH = "config"
 
 -- globals:

@@ -9,4 +9,5 @@ Module "HomuSkillTable"
 Module "TacticsTab"
 Module "AddTacticDialog"
 Module "ListCtrlHelper"
+Module "ModTab"
 --Module "foo" --TODO

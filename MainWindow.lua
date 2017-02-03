@@ -5,6 +5,7 @@ local class             = require "30log"
 local LoadConfigOptions = require "LoadConfigOptions"
 local SkillsTab         = require "SkillsTab"
 local TacticsTab        = require "TacticsTab"
+local ModTab            = require "ModTab"
 
 local MainWindow = class("MainWindow")
 
@@ -170,7 +171,7 @@ function MainWindow:init(xmlResource)
 		
 		
 		--"TAB_Mod", -- Tab 'Mod' ------------------------------------------------------------------
-		-- TODO: TAB_Mod
+		"LB_Mod",
 		
 		
 		--"TAB_Language", -- Tab 'Language' --------------------------------------------------------
@@ -221,6 +222,9 @@ function MainWindow:init(xmlResource)
 	
 	-- Initialize the TacticsTab:
 	TacticsTab.Init(self.LC_Tactics)
+	
+	-- Initialize the ModTab:
+	ModTab.Init(self.LB_Mod) -- TODO: init mod tab
 	
 	-- load the configuration file before showing the window:
 	self:LoadConfig(CONFIG_FILE)
@@ -273,6 +277,7 @@ function MainWindow:InitInputs()
 	InitWidget("CB_CircleOnIdle", "wxCheckBox")
 	
 	InitWidget("LC_Tactics", "wxListCtrl")
+	InitWidget("LB_Mod", "wxListBox")
 	
 	-- TODO: initialize the remaining reference variables for all the input fields
 end
@@ -367,10 +372,10 @@ function MainWindow:SaveConfig(filename)
 	
 	TacticsTab.SaveTactics(f, self.LC_Tactics)
 	
-	-- TODO: save selected Mod
-	
-	
 	f:close()
+	
+	-- save selected Mod:
+	ModTab.SaveMod(self.LB_Mod, MOD_FILE, MOD_TEMPLATE)
 end
 
 
@@ -491,7 +496,7 @@ function MainWindow:LoadConfig(filename)
 	
 	TacticsTab.LoadTactics(tactics, self.LC_Tactics)
 	
-	-- TODO: load selected Mod
+	ModTab.LoadMod(self.LB_Mod, MOD_FILE)
 	
 	f:close()
 end
