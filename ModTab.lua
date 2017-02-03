@@ -80,6 +80,18 @@ function M.SaveMod(listBox, fileName, selectedModTemplate)
 	assert(fileName)
 	assert(selectedModTemplate)
 	DebugLog("ModTab.SaveMod")
+	
+	-- get selected string from listBox: 'selection', if no selection: return without doing anything
+	
+	-- strip ".lua" from end of string 'selection'
+	
+	-- read contents of file 'selectedModTemplate' into a string 'modTemplate'
+	-- outstring = modTemplate:gsub("%%MOD%%", selection)
+	
+	-- write outstring to file 'fileName'
+	
+	-- return.
+	
 	-- TODO: SaveMod
 end
 
