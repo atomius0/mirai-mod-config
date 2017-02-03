@@ -93,6 +93,10 @@ function M.SaveMod(listBox, fileName, selectedModTemplate)
 	-- return.
 	
 	-- TODO: SaveMod
+	
+	-- NOTE: check these links:
+	-- file:///D:/Dateien/Programming/lua/wxLua/docs/html/wx_wxlistbox.html#wxlistboxinsertitems
+	-- file:///D:/Dateien/Programming/lua/wxLua/docs/html/wx_wxcontrolwithitems.html#wxcontrolwithitems
 end
 
 
