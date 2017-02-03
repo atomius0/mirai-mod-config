@@ -2,6 +2,12 @@
 ## Todo
 
 - [ ] write support for Tab 'Mod' (+ load and save support)
+
+- [ ] in save function: write the selected mod to file 'SelectedMod.lua'
+- [ ] in load function: read 'SelectedMod.lua' and return the selected mod as a string (as third return value in M.LoadConfigOptions?) -> write additional function 'LoadSelectedMod'
+
+- [ ] remove the checkBox "CB_CanDetectNoPot" later, since it seems to be specific to "AutoAidPotion", which we don't support. (but check the mirai-mod source first, to make sure that it really is specific to AAP!!) -> yes. it really is only used with AAP! -> replace it with OldHomunType later!
+
 - [x] write function "ListCtrlHelper.SelectRow(listCtrl, pos)": selects the item at index 'pos'
 - [x] finish writing 'TacticsTab.lua'
 - [x] write support for tab 'Tactics' (+ read and save support)
@@ -35,9 +41,8 @@
 - [x] finish unittest module for LoadConfigOptions.lua
 - [x] Makefile: add 'test' rule to makefile, to run unittests
 - [x] start writing config-loader function
-- [ ] remove the checkBox "CB_CanDetectNoPot" later, since it seems to be specific to "AutoAidPotion", which we don't support. (but check the mirai-mod source first, to make sure that it really is specific to AAP!!) -> yes. it really is only used with AAP!
 - [x] start writing config-writer function
-- [ ] test filling the TAB_Skills programmatically (in new branch) (we will need to remove the contents of BSIZER_Skills, so make a branch before this, so that we can keep it as a reference later)
+- [x] test filling the TAB_Skills programmatically (in new branch) (we will need to remove the contents of BSIZER_Skills, so make a branch before this, so that we can keep it as a reference later)
 
 - [x] keep the slider and the spinCtrl for "AttackWhenHP" in sync
 - [x] keep the slider and the spinCtrl for "EvadeWhenHP" in sync
@@ -45,10 +50,8 @@
 - [x] link the two pairs of slider and SpinCtrl "AttackWhenHP" and "EvadeWhenHP" (according to "ControlPanelConfigOptions.md" line 28!)
 
 - [x] hide the tab Language for now. (until translation functionality is implemented)
-- [ ] in save function: write the selected mod to file 'SelectedMod.lua'
-- [ ] in load function: read 'SelectedMod.lua' and return the selected mod as a string (as third return value in M.LoadConfigOptions?) -> write additional function 'LoadSelectedMod'
-- [ ] AddTacticDialog: treat "Monster Names" starting with "--" as comment.
-- [ ] AddTacticDialog: forbid "-- End Tact" as monster name. (this would confuse the reader function because it is the marker that tells it that the Tact List ends there)
+- [x] AddTacticDialog: treat "Monster Names" starting with "--" as comment.
+- [x] AddTacticDialog: forbid "-- End Tact" as monster name. (this would confuse the reader function because it is the marker that tells it that the Tact List ends there)
 
 
 - [x] copy stringutil.lua into project directory when it is finished and tested. (is it?)
