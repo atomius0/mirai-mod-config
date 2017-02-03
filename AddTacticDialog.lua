@@ -240,6 +240,7 @@ return function(xmlResource, parent, tactic) -- function ShowAddTacticDialog(xml
 	assert(dlg.dialog)
 	dlg.dialog:Center()
 	local r = dlg.dialog:ShowModal()
+	dlg.dialog:Destroy() -- fix for memory leak
 	
 	if DEBUG then
 		DebugLog("AddTacticDialog returned: " .. tostring(r))

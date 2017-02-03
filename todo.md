@@ -1,6 +1,7 @@
 
 ## Todo
 
+- [x] fix memory leak with wxDialog::Destroy()?
 - [ ] write support for Tab 'Mod' (+ load and save support)
 
 - [ ] in save function: write the selected mod to file 'SelectedMod.lua'
