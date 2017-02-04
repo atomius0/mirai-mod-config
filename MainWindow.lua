@@ -288,7 +288,7 @@ function MainWindow:SaveConfig(filename)
 	DebugLog('MainWindow:SaveConfig("' .. filename .. '")')
 	
 	-- NOTE: add error handler (try/catch block) to all functions that call this one!
-	local f = assert(io.open(filename, "w"))
+	local f = assert(io.open(filename, "w"), string.format('Could not open file "%s"', filename))
 	
 	local WriteOpt = function(o) DebugLog(o); f:write(o .. "\n") end
 	
