@@ -47,6 +47,87 @@ function M.LoadMod(listBox, fileName)
 	-- TODO: LoadMod
 	-- TODO: how to read the selected mod?
 	
+	-- construct a new environment table with a getModule function
+	-- the getModule function is stored with the keys "dofile" and "require"
+	-- load and execute fileName as a coroutine
+	-- the getModule function will yield once it is called, and return the name of the selected mod.
+	
+	local function GetModule(path)
+		if su.endsWith(path, ".lua") then -- old way, relative path separated by forward slashes:
+			if path:find("/", 1, true) then -- if path contains "/":
+				local sp = su.split(path, "/", true) -- split path by "/"
+				path = sp[#sp] -- path = last element of split path (the filename)
+			end
+			
+		else -- new way, module identifier separated by "."
+			if path:find(".", 1, true) then -- if path contains ".":
+				local sp = su.split(path, ".", true)
+				path = sp[#sp]
+			end
+			-- add ".lua" extension to filename,
+			-- since the module path does not contain the extension:
+			path = path .. ".lua"
+		end
+		
+		coroutine.yield(path)
+	end
+	
+	-- construct an environment table for the SelectedMod.lua
+	local env = {
+		["_G"] = nil, -- defined below
+		["dofile"]  = GetModule,
+		["require"] = GetModule,
+	}
+	env._G = env
+	
+	-- load the SelectedMod.lua into function f:
+	local f = loadfile(fileName)
+	assert(f)
+	--if not f then
+	--	if DEBUG then
+	--end
+	
+	-- set table 'env' as environment of function f:
+	setfenv(f, env)
+	-- now, set f to be a wrapper function for running the function we just loaded as a coroutine:
+	f = coroutine.wrap(f)
+	
+	-- call it, catching all errors:
+	local ok, s = pcall(f)
+	
+	if DEBUG then -- in debug mode, errors will be escalated, not silently ignored:
+		assert(ok, s)
+	end
+	
+	if not ok then
+		return -- if an error occured, do not select the module, just return silently.
+	end
+	
+	DebugLog(string.format('SelectedMod: "%s"', s))
+	
+	
+	-- finally, select the mod in the listBox:
+	--ok = listBox:SetStringSelection(s) -- this selects, but it doesn't return anything...
+	local function listBoxSetStringSelection(listBox, s) -- diy fix...
+		for i = 1, listBox:GetCount() do
+			local c = listBox:GetString(i-1)
+			if c == s then
+				listBox:SetSelection(i-1)
+				return true
+			end
+		end
+		return false
+	end
+	
+	ok = listBoxSetStringSelection(listBox, s)
+	
+	if DEBUG then
+		assert(ok, "SelectedMod could not be found in listCtrl!")
+	end
+	
+	
+	-- old plan:
+	
 	-- select listBox entry with name returned by: GetSelectedMod(fileName)
 	
 	-- put the stuff below into a helper function: GetSelectedMod
