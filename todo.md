@@ -1,10 +1,10 @@
 
 ## Todo
 
-- [ ] finish writing "ModTab.lua" (NEXT: M.LoadMod)
 - [ ] delete the "*_Mod.lua" files later! (before merging into master) they are just for testing.
+- [x] finish writing "ModTab.lua" (NEXT: M.LoadMod)
 - [x] fix memory leak with wxDialog::Destroy()?
-- [ ] write support for Tab 'Mod' (+ load and save support)
+- [x] write support for Tab 'Mod' (+ load and save support)
 
 - [ ] in save function: write the selected mod to file 'SelectedMod.lua'
 - [ ] in load function: read 'SelectedMod.lua' and return the selected mod as a string (as third return value in M.LoadConfigOptions?) -> write additional function 'LoadSelectedMod'
