@@ -85,6 +85,7 @@ clean:
 	-rmdir /S/Q $(RELEASE_DIR)
 	-rmdir /S/Q $(TEMP_DIR)
 	-del Config.lua
+	-del SelectedMod.lua
 
 
 .PHONY: release build run test clean
