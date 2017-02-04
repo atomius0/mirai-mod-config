@@ -179,6 +179,7 @@ function MainWindow:init(xmlResource)
 		
 		
 		"BUT_SaveConfig",
+		"TXT_Version",
 	} do
 		MainWindow.IDs[v] = xmlResource.GetXRCID(v)
 	end
@@ -230,6 +231,9 @@ function MainWindow:init(xmlResource)
 	self:LoadConfig(CONFIG_FILE)
 	
 	
+	-- Set the version number staticText:
+	self.TXT_Version:SetLabel(APP_VERSION)
+	
 	self:HideLanguageTab(xmlResource) -- TODO: remove this later
 	
 	self.dialog:Center()
@@ -278,6 +282,8 @@ function MainWindow:InitInputs()
 	
 	InitWidget("LC_Tactics", "wxListCtrl")
 	InitWidget("LB_Mod", "wxListBox")
+	
+	InitWidget("TXT_Version", "wxStaticText")
 	
 	-- TODO: initialize the remaining reference variables for all the input fields
 end

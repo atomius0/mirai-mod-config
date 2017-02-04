@@ -1,6 +1,8 @@
 
 ## Todo
 
+- [ ] clean up todo.md
+- [x] set wxStaticText 'TXT_Version' to the version number
 - [x] delete the "*_Mod.lua" files later! (before merging into master) they are just for testing.
 - [x] finish writing "ModTab.lua" (NEXT: M.LoadMod)
 - [x] fix memory leak with wxDialog::Destroy()?
