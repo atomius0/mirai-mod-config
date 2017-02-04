@@ -124,7 +124,8 @@ function M.LoadMod(listBox, fileName)
 	if DEBUG then
 		assert(ok, "SelectedMod could not be found in listCtrl!")
 	end
-	
+	-- if debug mode is disabled,
+	-- then we won't do anything if the SelectedMod does not exist in the listCtrl.
 	
 	-- old plan:
 	--[[

@@ -1,7 +1,7 @@
 
 ## Todo
 
-- [ ] delete the "*_Mod.lua" files later! (before merging into master) they are just for testing.
+- [x] delete the "*_Mod.lua" files later! (before merging into master) they are just for testing.
 - [x] finish writing "ModTab.lua" (NEXT: M.LoadMod)
 - [x] fix memory leak with wxDialog::Destroy()?
 - [x] write support for Tab 'Mod' (+ load and save support)
