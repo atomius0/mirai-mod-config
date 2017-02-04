@@ -81,11 +81,13 @@ function M.LoadMod(listBox, fileName)
 	env._G = env
 	
 	-- load the SelectedMod.lua into function f:
-	local f = loadfile(fileName)
-	assert(f)
-	--if not f then
-	--	if DEBUG then
-	--end
+	local f, err = loadfile(fileName)
+	if not f then
+		if DEBUG then
+			error(err)
+		end
+		return -- file could not be opened or an error occured while reading: return
+	end
 	
 	-- set table 'env' as environment of function f:
 	setfenv(f, env)
