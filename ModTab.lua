@@ -44,8 +44,6 @@ function M.LoadMod(listBox, fileName)
 	assert(listBox)
 	assert(fileName)
 	DebugLog("ModTab.LoadMod")
-	-- TODO: LoadMod
-	-- TODO: how to read the selected mod?
 	
 	-- construct a new environment table with a getModule function
 	-- the getModule function is stored with the keys "dofile" and "require"
@@ -129,6 +127,7 @@ function M.LoadMod(listBox, fileName)
 	
 	
 	-- old plan:
+	--[[
 	
 	-- select listBox entry with name returned by: GetSelectedMod(fileName)
 	
@@ -152,7 +151,7 @@ function M.LoadMod(listBox, fileName)
 	-- -- else: new way
 	-- -- -- if path contains ".": split path by ".", path = last element of split-table
 	-- -- -- return path
-	-- TODO (check if path contains "/")
+	--]]
 end
 
 
