@@ -82,7 +82,8 @@ function M.LoadMod(listBox, fileName)
 	local f, err = loadfile(fileName)
 	if not f then
 		if DEBUG then
-			error(err)
+			-- only raise an error if the file could be found, but there was some other error:
+			if not err:find("No such file or directory", 1, true) then error(err) end
 		end
 		return -- file could not be opened or an error occured while reading: return
 	end
