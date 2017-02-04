@@ -77,26 +77,38 @@ end
 -- uses file named selectedModTemplate as template
 function M.SaveMod(listBox, fileName, selectedModTemplate)
 	assert(listBox)
-	assert(fileName)
-	assert(selectedModTemplate)
+	assert(type(fileName) == "string")
+	assert(type(selectedModTemplate) == "string")
 	DebugLog("ModTab.SaveMod")
 	
-	-- get selected string from listBox: 'selection', if no selection: return without doing anything
+	-- get selected string from listBox:
+	local selection = listBox:GetStringSelection()
+	if selection == "" then return end -- if nothing was selected: return without saving
 	
-	-- strip ".lua" from end of string 'selection'
+	-- strip ".lua" from end of string 'selection':
+	-- cut off the last 4 characters, ".lua" (-1 means "until end of string": -1 - 4 = -5)
+	selection = selection:sub(1, -5)
 	
 	-- read contents of file 'selectedModTemplate' into a string 'modTemplate'
-	-- outstring = modTemplate:gsub("%%MOD%%", selection)
+	local f = assert(
+		io.open(selectedModTemplate, "r"),
+		string.format('Could not open file "%s"', selectedModTemplate)
+	)
+	local modTemplate = f:read("*a") -- read whole file into string modTemplate
+	f:close()
+	assert(#modTemplate > 0) -- string should not be empty
 	
-	-- write outstring to file 'fileName'
+	-- replace the substring '%MOD%' from template with the selected Mod:
+	local out, num = modTemplate:gsub("%%MOD%%", selection)
+	-- make sure that at least one instance of '%MOD%' was replaced:
+	assert(num >= 1,
+		string.format('Could not find substring "%%MOD%%" in file "%s', selectedModTemplate)
+	)
 	
-	-- return.
-	
-	-- TODO: SaveMod
-	
-	-- NOTE: check these links:
-	-- file:///D:/Dateien/Programming/lua/wxLua/docs/html/wx_wxlistbox.html#wxlistboxinsertitems
-	-- file:///D:/Dateien/Programming/lua/wxLua/docs/html/wx_wxcontrolwithitems.html#wxcontrolwithitems
+	-- write string 'out' to file 'fileName'
+	f = assert(io.open(fileName, "w"), string.format('Could not open file "%s"', fileName))
+	f:write(out)
+	f:close()
 end
 
 
