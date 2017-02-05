@@ -1,22 +1,23 @@
 
 ## Todo
 
+- [ ] ask before quitting
 - [ ] clean up todo.md
+- [ ] remove the checkBox "CB_CanDetectNoPot" later, since it seems to be specific to "AutoAidPotion", which we don't support. (but check the mirai-mod source first, to make sure that it really is specific to AAP!!) -> yes. it really is only used with AAP! -> replace it with OldHomunType later!
+- [ ] add ctrl+S hotkey to save settings (how? use accelerator-tables or something?)
+
 - [x] set wxStaticText 'TXT_Version' to the version number
 - [x] delete the "*_Mod.lua" files later! (before merging into master) they are just for testing.
 - [x] finish writing "ModTab.lua" (NEXT: M.LoadMod)
 - [x] fix memory leak with wxDialog::Destroy()?
 - [x] write support for Tab 'Mod' (+ load and save support)
 
-- [ ] in save function: write the selected mod to file 'SelectedMod.lua'
-- [ ] in load function: read 'SelectedMod.lua' and return the selected mod as a string (as third return value in M.LoadConfigOptions?) -> write additional function 'LoadSelectedMod'
-
-- [ ] remove the checkBox "CB_CanDetectNoPot" later, since it seems to be specific to "AutoAidPotion", which we don't support. (but check the mirai-mod source first, to make sure that it really is specific to AAP!!) -> yes. it really is only used with AAP! -> replace it with OldHomunType later!
+- [x] in save function: write the selected mod to file 'SelectedMod.lua'
+- [x] in load function: read 'SelectedMod.lua' and return the selected mod as a string (as third return value in M.LoadConfigOptions?) -> write additional function 'LoadSelectedMod'
 
 - [x] write function "ListCtrlHelper.SelectRow(listCtrl, pos)": selects the item at index 'pos'
 - [x] finish writing 'TacticsTab.lua'
 - [x] write support for tab 'Tactics' (+ read and save support)
-- [ ] add ctrl+S hotkey to save settings (how? use accelerator-tables or something?)
 - [x] write widths in TacticsTab.lua, line 64
 - [x] update makefile and squishy with new files "TacticsTab.lua" and "ListCtrlHelper.lua"
 - [x] create new file 'TacticsTab.lua' and add all functionality related to tab 'Tactics' there.
