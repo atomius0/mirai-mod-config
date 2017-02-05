@@ -32,8 +32,6 @@ function M.FillSkillsTab(dialog, xmlResource) -- returns table with references t
 	-- where SKILL_LIST is a list of tables with the format:
 	-- SKILL_LIST[1] = {skillName, skillMaxLvl, skillIcon, skillOptionName}
 	
-	--TODO: add option name param to skill list (how exactly?)
-	
 	local SCROLLWIN_Skills = assert(dialog:FindWindow(xmlResource.GetXRCID("SCROLLWIN_Skills")))
 	SCROLLWIN_Skills = assert(SCROLLWIN_Skills:DynamicCast("wxScrolledWindow"))
 	local BSIZER_Skills = assert(SCROLLWIN_Skills:GetSizer())

@@ -1,10 +1,11 @@
 
 ## Todo
 
-- [x] ask before quitting
 - [ ] clean up todo.md
-- [ ] remove the checkBox "CB_CanDetectNoPot" later, since it seems to be specific to "AutoAidPotion", which we don't support. (but check the mirai-mod source first, to make sure that it really is specific to AAP!!) -> yes. it really is only used with AAP! -> replace it with OldHomunType later!
 - [ ] add ctrl+S hotkey to save settings (how? use accelerator-tables or something?)
+- [ ] replace hidden checkBox "CB_CanDetectNoPot" with OldHomunType wxChoice later!
+- [x] ask before quitting
+- [x] remove the checkBox "CB_CanDetectNoPot" later, since it seems to be specific to "AutoAidPotion", which we don't support. (but check the mirai-mod source first, to make sure that it really is specific to AAP!!) -> yes. it really is only used with AAP! -> replace it with OldHomunType later!
 
 - [x] set wxStaticText 'TXT_Version' to the version number
 - [x] delete the "*_Mod.lua" files later! (before merging into master) they are just for testing.
@@ -22,8 +23,8 @@
 - [x] update makefile and squishy with new files "TacticsTab.lua" and "ListCtrlHelper.lua"
 - [x] create new file 'TacticsTab.lua' and add all functionality related to tab 'Tactics' there.
 - [x] wire up the buttons in tab tactics
-- [ ] finish the config-writer function
-- [ ] finish the config-reader function
+- [x] finish the config-writer function
+- [x] finish the config-reader function
 - [x] finish writing function M.LoadSkills in SkillsTab.lua
 - [x] uncomment call to 'SkillsTab.SaveSkills' in function 'MainWindow:SaveConfig' (line 286)
 - [x] test loading and saving of all options in tab 'General'
@@ -41,7 +42,7 @@
 - [x] write a file interface emulator module (using 30log). it should create objects that behave like file handles for text files. the constructor should take a string containing one or more lines as argument. (we need this for unit-testing function M.LoadConfigOptions)
 - [x] write unit tests for M.LoadConfigOptions() (we will need the file interface emulator module described above)
 
-- [ ] add error handlers to all functions that call functions containing 'assert' or 'error'.
+- [x] add error handlers to all functions that call functions containing 'assert' or 'error'.
 - [x] finish LoadConfigOptions.lua
 - [x] add unit tests which test quotes to test_LoadConfigOptions.lua (and implement support for quotes in LoadConfigOptions.StripComments!)
 - [x] finish unittest module for LoadConfigOptions.lua

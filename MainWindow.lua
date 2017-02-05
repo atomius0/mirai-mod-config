@@ -24,7 +24,6 @@ function MainWindow:init(xmlResource)
 	function handlers.OnClose(event)
 		DebugLog("MainWindow: OnClose")
 		event:Skip()
-		-- TODO: check if there are unsaved changes and warn user before quitting.
 		
 		-- ask user if he wants to save before quitting:
 		local r = wx.wxMessageBox(
