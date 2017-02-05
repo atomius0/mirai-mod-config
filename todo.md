@@ -1,7 +1,7 @@
 
 ## Todo
 
-- [ ] ask before quitting
+- [x] ask before quitting
 - [ ] clean up todo.md
 - [ ] remove the checkBox "CB_CanDetectNoPot" later, since it seems to be specific to "AutoAidPotion", which we don't support. (but check the mirai-mod source first, to make sure that it really is specific to AAP!!) -> yes. it really is only used with AAP! -> replace it with OldHomunType later!
 - [ ] add ctrl+S hotkey to save settings (how? use accelerator-tables or something?)

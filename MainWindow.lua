@@ -25,6 +25,32 @@ function MainWindow:init(xmlResource)
 		DebugLog("MainWindow: OnClose")
 		event:Skip()
 		-- TODO: check if there are unsaved changes and warn user before quitting.
+		
+		-- ask user if he wants to save before quitting:
+		local r = wx.wxMessageBox(
+			"Save changes before Quitting?",
+			"Save?",
+			wx.wxYES_NO + wx.wxCANCEL,
+			self.dialog
+		)
+		if r == wx.wxYES then -- save settings and quit
+			DebugLog("YES")
+			xpcall(function()
+				self:SaveConfig(CONFIG_FILE)
+			end, ErrorHandler)
+			-- fall through
+			
+		elseif r == wx.wxNO then -- quit without saving
+			DebugLog("NO")
+			-- fall through
+			
+		elseif r == wx.wxCANCEL then -- cancel: don't save, don't quit
+			DebugLog("CANCEL")
+			event:Skip(false) -- don't accept the close event
+			return -- return without quitting
+		end
+		
+		
 		self.dialog:Show(false)
 		self.dialog:Destroy()
 		-- for some reason, the standalone exe process does not always end
