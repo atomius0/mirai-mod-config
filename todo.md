@@ -1,9 +1,11 @@
 
 ## Todo
 
+- [ ] add 'OLD_HOMUN_TYPE' variable to MainWindow save and load functions
+- [ ] replace hidden checkBox "CB_CanDetectNoPot" with OldHomunType wxChoice
+- [ ] write translation loader module
 - [ ] clean up todo.md
 - [ ] add ctrl+S hotkey to save settings (how? use accelerator-tables or something?)
-- [ ] replace hidden checkBox "CB_CanDetectNoPot" with OldHomunType wxChoice later!
 - [x] ask before quitting
 - [x] remove the checkBox "CB_CanDetectNoPot" later, since it seems to be specific to "AutoAidPotion", which we don't support. (but check the mirai-mod source first, to make sure that it really is specific to AAP!!) -> yes. it really is only used with AAP! -> replace it with OldHomunType later!
 
@@ -84,7 +86,6 @@
 - [ ] add a LICENSE.txt
 
 - [ ] add function to get exe directory (like AppDir in BlitzMax) (see sample: calculator.wx.lua) -> http://stackoverflow.com/questions/25819812/wxwidgets-getting-application-path
-- [ ] write translation loader module
 - [ ] implement preset-feature, where you can save the current config as a preset and load them easily.
 
 

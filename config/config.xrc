@@ -269,6 +269,29 @@
 														<max>999999</max>
 													</object>
 												</object>
+												<object class="sizeritem">
+													<option>0</option>
+													<flag>wxALL</flag>
+													<border>5</border>
+													<object class="wxStaticText" name="TXT_OldHomunType">
+														<label>OLD__HOMUN__TYPE:</label>
+														<wrap>-1</wrap>
+													</object>
+												</object>
+												<object class="sizeritem">
+													<option>1</option>
+													<flag>wxALIGN_RIGHT|wxBOTTOM</flag>
+													<border>5</border>
+													<object class="wxChoice" name="CHOICE_OldHomunType">
+														<selection>0</selection>
+														<content>
+															<item>Lif</item>
+															<item>Filir</item>
+															<item>Amistr</item>
+															<item>Vanilmirth</item>
+														</content>
+													</object>
+												</object>
 											</object>
 										</object>
 										<object class="sizeritem">
@@ -286,17 +309,6 @@
 											<border>5</border>
 											<object class="wxCheckBox" name="CB_CircleOnIdle">
 												<label>Circle around the alchemist when full</label>
-												<checked>0</checked>
-											</object>
-										</object>
-										<object class="sizeritem">
-											<option>0</option>
-											<flag>wxRIGHT|wxLEFT</flag>
-											<border>5</border>
-											<object class="wxCheckBox" name="CB_CanDetectNoPot">
-												<enabled>0</enabled>
-												<hidden>1</hidden>
-												<label>Detect out of potion</label>
 												<checked>0</checked>
 											</object>
 										</object>
