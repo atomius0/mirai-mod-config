@@ -500,6 +500,9 @@ function MainWindow:LoadConfig(filename)
 					v = false
 				end
 				
+			elseif option == "OLD_HOMUN_TYPE" then
+				v = OLD_HOMUN_TYPE2ID(v)
+				
 			elseif v == "true" then
 				v = true
 				
@@ -510,11 +513,16 @@ function MainWindow:LoadConfig(filename)
 				v = tonumber(v)
 			end
 			DebugLog(
-				'ReadOpt("'..option..'", "'..widget..'", '..tostring(isOneOrZero)..', '..
-				tostring(isDEFAULT_BEHA)..') = '..
+				'ReadOpt("'..option..'", "'..widget..'", '..tostring(isOneOrZero)..') = '..
 				'"'..tostring(v)..'" type('..type(v)..')'
 			)
-			self[widget]:SetValue(v)
+			
+			-- OLD_HOMUN_TYPE is a wxChoice, which has a 'SetSelection' method instead of 'SetValue'
+			if option == "OLD_HOMUN_TYPE" then
+				self[widget]:SetSelection(v)
+			else
+				self[widget]:SetValue(v)
+			end
 		end
 	end
 	
@@ -541,7 +549,7 @@ function MainWindow:LoadConfig(filename)
 	
 	ReadOpt("ADV_MOTION_CHECK", "CB_AdvMotionCheck")
 	
-	--ReadOpt("OLD_HOMUN_TYPE", "CHOICE_OldHomunType")
+	ReadOpt("OLD_HOMUN_TYPE", "CHOICE_OldHomunType")
 	
 	ReadOpt("DEFAULT_BEHA", "CB_Cautious", false, true)
 	
