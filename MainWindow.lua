@@ -551,7 +551,7 @@ function MainWindow:LoadConfig(filename)
 	
 	ReadOpt("OLD_HOMUN_TYPE", "CHOICE_OldHomunType")
 	
-	ReadOpt("DEFAULT_BEHA", "CB_Cautious", false, true)
+	ReadOpt("DEFAULT_BEHA", "CB_Cautious")
 	
 	-- load skill settings:
 	SkillsTab.LoadSkills(options, self.skillWidgets)
