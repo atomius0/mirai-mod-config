@@ -1,11 +1,11 @@
 
 ## Todo
 
-- [ ] test OLD_HOMUN_TYPE and DEFAULT_BEHA saving and loading again
-- [ ] there seems to be a bug with an invalid choice in the skills tab when 'Config.lua' does not exist!
+- [ ] write translation loader module
 - [ ] disable debug and strict mode before release
 - [ ] update version number before release
-- [ ] write translation loader module
+- [x] there seems to be a bug with an invalid choice in the skills tab when 'Config.lua' does not exist!
+- [x] test OLD_HOMUN_TYPE and DEFAULT_BEHA saving and loading again
 - [ ] clean up todo.md
 - [ ] add ctrl+S hotkey to save settings (how? use accelerator-tables or something?)
 - [x] add 'OLD_HOMUN_TYPE' variable to MainWindow save and load functions

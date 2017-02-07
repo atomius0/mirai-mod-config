@@ -133,6 +133,9 @@ function M.FillSkillsTab(dialog, xmlResource) -- returns table with references t
 				wx.wxDefaultSize,
 				genChoiceTable(skillMaxLvl)
 			)
+			-- set the selection in the wxChoice to "OFF". without this, the selection would be -1
+			choice:SetSelection(0)
+			
 			fgSizer:Add(choice, 0, wx.wxALL + wx.wxALIGN_CENTER_VERTICAL + wx.wxALIGN_RIGHT, 5)
 			
 			widgets[skillOptionName .. ".Level"] = choice
