@@ -1,12 +1,15 @@
 
 ## Todo
 
-- [ ] add 'OLD_HOMUN_TYPE' variable to MainWindow save and load functions
+- [ ] test OLD_HOMUN_TYPE saving and loading again
 - [ ] there seems to be a bug with an invalid choice in the skills tab when 'Config.lua' does not exist!
-- [ ] replace hidden checkBox "CB_CanDetectNoPot" with OldHomunType wxChoice
+- [ ] disable debug and strict mode before release
+- [ ] update version number before release
 - [ ] write translation loader module
 - [ ] clean up todo.md
 - [ ] add ctrl+S hotkey to save settings (how? use accelerator-tables or something?)
+- [x] add 'OLD_HOMUN_TYPE' variable to MainWindow save and load functions
+- [x] replace hidden checkBox "CB_CanDetectNoPot" with OldHomunType wxChoice
 - [x] ask before quitting
 - [x] remove the checkBox "CB_CanDetectNoPot" later, since it seems to be specific to "AutoAidPotion", which we don't support. (but check the mirai-mod source first, to make sure that it really is specific to AAP!!) -> yes. it really is only used with AAP! -> replace it with OldHomunType later!
 
