@@ -474,11 +474,8 @@ function MainWindow:LoadConfig(filename)
 	-- option      - the option (string)
 	-- widget      - the widget that will be set by the option (string)
 	-- isOneOrZero - if true, the option will be assumed to be boolean, but saved as either 1 or 0.
-	-- isDEFAULT_BEHA - if true, the option will be assumed to be 
-	--                     "BEHA_react" for true,
-	--                  or "BEHA_attack" (or anything else) for false.
 	-- (isOneOrZero is required for options 'CIRCLE_ON_IDLE' and 'FOLLOW_AT_ONCE')
-	local ReadOpt = function(option, widget, isOneOrZero, isDEFAULT_BEHA)
+	local ReadOpt = function(option, widget, isOneOrZero)
 		local v = options[option]
 		if v then -- if the option exists in Config.lua
 			if isOneOrZero then
@@ -495,7 +492,7 @@ function MainWindow:LoadConfig(filename)
 					)
 				end
 				
-			elseif isDEFAULT_BEHA then
+			elseif option == "DEFAULT_BEHA" then
 				if v == "BEHA_react" then
 					v = true
 					
@@ -543,6 +540,8 @@ function MainWindow:LoadConfig(filename)
 	ReadOpt("NO_MOVING_TARGETS", "CB_NoMovingTargets")
 	
 	ReadOpt("ADV_MOTION_CHECK", "CB_AdvMotionCheck")
+	
+	--ReadOpt("OLD_HOMUN_TYPE", "CHOICE_OldHomunType")
 	
 	ReadOpt("DEFAULT_BEHA", "CB_Cautious", false, true)
 	
