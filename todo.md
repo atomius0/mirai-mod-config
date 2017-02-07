@@ -1,7 +1,8 @@
 
 ## Todo
 
-- [ ] write translation loader module
+- [ ] implement translation (load it using the loader module, finish LanguageTab.lua, use '_T()' calls, write translation files (english and german).
+- [x] write translation loader module
 - [ ] disable debug and strict mode before release
 - [ ] update version number before release
 - [x] there seems to be a bug with an invalid choice in the skills tab when 'Config.lua' does not exist!

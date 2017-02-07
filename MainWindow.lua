@@ -6,7 +6,7 @@ local LoadConfigOptions = require "LoadConfigOptions"
 local SkillsTab         = require "SkillsTab"
 local TacticsTab        = require "TacticsTab"
 local ModTab            = require "ModTab"
-
+local LanguageTab       = require "LanguageTab"
 
 local _OLD_HOMUN_TYPE_MAP = { -- used by helper functions OLD_HOMUN_TYPE2ID and ID2OLD_HOMUN_TYPE
 	[0] = "LIF",
@@ -224,7 +224,7 @@ function MainWindow:init(xmlResource)
 		
 		
 		--"TAB_Language", -- Tab 'Language' --------------------------------------------------------
-		-- TODO: TAB_Language
+		"LB_Language",
 		
 		
 		"BUT_SaveConfig",
@@ -276,14 +276,17 @@ function MainWindow:init(xmlResource)
 	-- Initialize the ModTab:
 	ModTab.Init(self.LB_Mod)
 	
+	-- Initialize the LanguageTab:
+	LanguageTab.Init(self.LB_Language)
+	
+	
 	-- load the configuration file before showing the window:
 	self:LoadConfig(CONFIG_FILE)
-	
 	
 	-- Set the version number staticText:
 	self.TXT_Version:SetLabel(APP_VERSION)
 	
-	self:HideLanguageTab(xmlResource) -- TODO: remove this later
+	--self:HideLanguageTab(xmlResource) -- TODO: remove this later
 	
 	self.dialog:Center()
 	self.dialog:Show(true)
@@ -332,6 +335,7 @@ function MainWindow:InitInputs()
 	
 	InitWidget("LC_Tactics", "wxListCtrl")
 	InitWidget("LB_Mod", "wxListBox")
+	InitWidget("LB_Language", "wxListBox")
 	
 	InitWidget("TXT_Version", "wxStaticText")
 	
@@ -566,13 +570,13 @@ end
 
 
 
-
+--[[
 -- TEMP: hide the tab "Language" / TODO: remove this later
 function MainWindow:HideLanguageTab(xmlResource)
 	local nb = assert(self.dialog:FindWindow(xmlResource.GetXRCID("m_notebook1")))
 	nb = assert(nb:DynamicCast("wxNotebook"))
 	nb:DeletePage(4)
 end
-
+--]]
 
 return MainWindow

@@ -17,15 +17,18 @@ end
 
 class = require "30log"
 MainWindow = require "MainWindow"
+--_T = require "TranslationLoader"
 
 -- constants:
-APP_VERSION     = "v0.1.0"
-XRC_FILE        = "config/config.xrc"
-APP_NAME        = "MirAI Mod Config"
-CONFIG_FILE     = "Config.lua"
-MOD_FILE        = "SelectedMod.lua"
-MOD_TEMPLATE    = "config/SelectedModTemplate.lua"
-SKILL_ICON_PATH = "config"
+APP_VERSION      = "v0.1.0"
+XRC_FILE         = "config/config.xrc"
+APP_NAME         = "MirAI Mod Config"
+CONFIG_FILE      = "Config.lua"
+MOD_FILE         = "SelectedMod.lua"
+MOD_TEMPLATE     = "config/SelectedModTemplate.lua"
+SKILL_ICON_PATH  = "config"
+TRANSLATION_PATH = "config/lang"
+SEL_LANG_FILE    = "config/lang/lang"
 
 -- globals:
 -- MARK: don't make this global for now, it's probably not needed.
