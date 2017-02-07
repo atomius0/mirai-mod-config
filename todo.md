@@ -1,7 +1,7 @@
 
 ## Todo
 
-- [ ] test OLD_HOMUN_TYPE saving and loading again
+- [ ] test OLD_HOMUN_TYPE and DEFAULT_BEHA saving and loading again
 - [ ] there seems to be a bug with an invalid choice in the skills tab when 'Config.lua' does not exist!
 - [ ] disable debug and strict mode before release
 - [ ] update version number before release
