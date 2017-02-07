@@ -7,6 +7,30 @@ local SkillsTab         = require "SkillsTab"
 local TacticsTab        = require "TacticsTab"
 local ModTab            = require "ModTab"
 
+
+local _OLD_HOMUN_TYPE_MAP = { -- used by helper functions OLD_HOMUN_TYPE2ID and ID2OLD_HOMUN_TYPE
+	[0] = "LIF",
+	[1] = "FILIR",
+	[2] = "AMISTR",
+	[3] = "VANILMIRTH",
+}
+
+-- helper functions for converting the IDs of the OLD_HOMUN_TYPE wxChoice menu
+-- to their constants and back:
+local function OLD_HOMUN_TYPE2ID(oht)
+	for i = 0, #_OLD_HOMUN_TYPE_MAP do
+		if _OLD_HOMUN_TYPE_MAP[i] == oht then return i end
+	end
+	return error("Unknown OLD_HOMUN_TYPE constant: " .. oht)
+end
+
+
+local function ID2OLD_HOMUN_TYPE(id)
+	return _OLD_HOMUN_TYPE_MAP[id]
+end
+
+
+
 local MainWindow = class("MainWindow")
 
 MainWindow.IDs = {}
@@ -176,10 +200,10 @@ function MainWindow:init(xmlResource)
 		"SC_SkillTimeout",
 		--"TXT_OwnerClosedistance",
 		"SC_OwnerClosedistance",
-		
+		--"TXT_OldHomunType",
+		"CHOICE_OldHomunType",
 		"CB_FollowAtOnce",
 		"CB_CircleOnIdle",
-		--"CB_CanDetectNoPot", -- will be removed/replaced later
 		
 		
 		--"TAB_Tactics", -- Tab 'Tactics' ----------------------------------------------------------
@@ -301,6 +325,7 @@ function MainWindow:InitInputs()
 	InitWidget("SC_MaxEnemyDistance", "wxSpinCtrl")
 	InitWidget("SC_SkillTimeout", "wxSpinCtrl")
 	InitWidget("SC_OwnerClosedistance", "wxSpinCtrl")
+	InitWidget("CHOICE_OldHomunType", "wxChoice")
 	
 	InitWidget("CB_FollowAtOnce", "wxCheckBox")
 	InitWidget("CB_CircleOnIdle", "wxCheckBox")
@@ -349,9 +374,8 @@ function MainWindow:SaveConfig(filename)
 	WriteOpt("TOO_FAR_TARGET=" .. tostring(self.SC_MaxEnemyDistance:GetValue()))
 	WriteOpt("SKILL_TIME_OUT=" .. tostring(self.SC_SkillTimeout:GetValue()))
 	WriteOpt("NO_MOVING_TARGETS=" .. tostring(self.CB_NoMovingTargets:GetValue()))
-	
 	WriteOpt("ADV_MOTION_CHECK=" .. tostring(self.CB_AdvMotionCheck:GetValue()))
-	
+	WriteOpt("OLD_HOMUN_TYPE=" .. ID2OLD_HOMUN_TYPE(self.CHOICE_OldHomunType:GetSelection()))
 	
 	-- save the auto attack stuff (with a comment that it is disabled and not configurable)
 	f:write(

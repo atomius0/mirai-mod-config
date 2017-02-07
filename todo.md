@@ -2,6 +2,7 @@
 ## Todo
 
 - [ ] add 'OLD_HOMUN_TYPE' variable to MainWindow save and load functions
+- [ ] there seems to be a bug with an invalid choice in the skills tab when 'Config.lua' does not exist!
 - [ ] replace hidden checkBox "CB_CanDetectNoPot" with OldHomunType wxChoice
 - [ ] write translation loader module
 - [ ] clean up todo.md
