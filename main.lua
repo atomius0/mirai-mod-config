@@ -15,9 +15,9 @@ else
 	function DebugLog(...) --[[ do nothing ]] end
 end
 
-class = require "30log"
-MainWindow = require "MainWindow"
-_T = require "TranslationLoader"
+local class = require "30log"
+local MainWindow = require "MainWindow"
+--local _T = require "TranslationLoader"
 
 -- constants:
 APP_VERSION      = "v0.1.0"
