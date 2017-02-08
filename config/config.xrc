@@ -10,7 +10,7 @@
 				<option>1</option>
 				<flag>wxEXPAND | wxALL</flag>
 				<border>5</border>
-				<object class="wxNotebook" name="m_notebook1">
+				<object class="wxNotebook" name="NB_Notebook">
 					<object class="notebookpage">
 						<label>General</label>
 						<selected>1</selected>

@@ -177,6 +177,7 @@ function MainWindow:init(xmlResource)
 	
 	-- get IDs / init wxWindow ID values (yes, before loading the dialog)
 	for i, v in ipairs {
+		"NB_Notebook",
 		"TAB_General", -- Tab 'General' ----------------------------------------------------------
 		--"SB_HomuAttackAndEvade",
 		--"TXT_AttackWhenHP",
@@ -289,8 +290,7 @@ function MainWindow:init(xmlResource)
 	
 	--self:HideLanguageTab(xmlResource) -- TODO: remove this later
 	
-	--self:ApplyTranslation()
-	self:ApplyTranslation(xmlResource) -- TODO: parameter is part of the dirty hack, remove later!
+	self:ApplyTranslation()
 	
 	self.dialog:Center()
 	self.dialog:Show(true)
@@ -308,7 +308,7 @@ function MainWindow:InitInputs()
 		--return w
 	end
 	
-	
+	InitWidget("NB_Notebook", "wxNotebook")
 	InitWidget("TAB_General", "wxPanel")
 	InitWidget("CB_DontMove", "wxCheckBox")
 	
@@ -348,17 +348,8 @@ function MainWindow:InitInputs()
 end
 
 
---function MainWindow:ApplyTranslation()
-function MainWindow:ApplyTranslation(xmlResource) -- TODO: parameter is part of the dirty hack, remove later!
-	--self.TAB_General:SetLabel(_T"General")
-	--self.TAB_General:SetLabel("testing")
-	
-	---[[ TODO: dirty hack, just for testing. do this properly if it works
-	local nb = assert(self.dialog:FindWindow(xmlResource.GetXRCID("m_notebook1")))
-	nb = assert(nb:DynamicCast("wxNotebook"))
-	
-	nb:SetPageText(0, _T"General")
-	--]]
+function MainWindow:ApplyTranslation()
+	self.NB_Notebook:SetPageText(0, _T"General")
 	
 	-- TODO: ApplyTranslation
 end
