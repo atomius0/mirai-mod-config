@@ -8,8 +8,8 @@ return {
 	-- MainWindow, form strings:
 	-- TAB_General:
 	"Allgemein",
-	
+	"Homunculus: Angriff und Verteidigung",
 	-- TODO: rest of form strings
 	
 }
---TODO: copy contents of this file into deutsch.lua
+--TODO: copy contents of this file into 'config/lang/lang'

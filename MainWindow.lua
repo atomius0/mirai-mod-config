@@ -178,9 +178,9 @@ function MainWindow:init(xmlResource)
 	-- get IDs / init wxWindow ID values (yes, before loading the dialog)
 	for i, v in ipairs {
 		"NB_Notebook",
-		"TAB_General", -- Tab 'General' ----------------------------------------------------------
-		--"SB_HomuAttackAndEvade",
-		--"TXT_AttackWhenHP",
+		--"TAB_General", -- Tab 'General' ----------------------------------------------------------
+		"HNDL_HomuAttackAndEvade",
+		"TXT_AttackWhenHP",
 		"CB_DontMove",
 		"SL_AttackWhenHP",
 		"SC_AttackWhenHP",
@@ -309,7 +309,10 @@ function MainWindow:InitInputs()
 	end
 	
 	InitWidget("NB_Notebook", "wxNotebook")
-	InitWidget("TAB_General", "wxPanel")
+	
+	-- hidden widget used to get a handle of the containing wxStaticBoxSizer:
+	InitWidget("HNDL_HomuAttackAndEvade", "wxWindow") -- actually a wxStaticText, but wxWindow is enough
+	InitWidget("TXT_AttackWhenHP", "wxStaticText")
 	InitWidget("CB_DontMove", "wxCheckBox")
 	
 	-- the 4 input references
@@ -349,7 +352,24 @@ end
 
 
 function MainWindow:ApplyTranslation()
+	local function SetStaticBoxSizerLabel(hndlObj, label)
+		-- hndlObj is a wxWindow object contained in the sizer
+		-- whose static box's label we want to set.
+		assert(hndlObj)
+		assert(type(label) == "string")
+		
+		local sizer = assert(hndlObj:GetContainingSizer())
+		sizer = assert(sizer:DynamicCast("wxStaticBoxSizer"))
+		local sb = sizer:GetStaticBox()
+		sb:SetLabel(label)
+	end
+	
 	self.NB_Notebook:SetPageText(0, _T"General")
+	SetStaticBoxSizerLabel(self.HNDL_HomuAttackAndEvade, _T"Homunculus: Attack and Evade")
+	self.TXT_AttackWhenHP:SetLabel(_T"Attack when HPs >")
+	
+	
+	--self.____:SetLabel(_T"")
 	
 	-- TODO: ApplyTranslation
 end

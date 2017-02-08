@@ -8,7 +8,7 @@ return {
 	-- MainWindow, form strings:
 	-- TAB_General:
 	"General",
-	
+	"Homunculus: Attack and Evade",
 	-- TODO: rest of form strings
 	
 }
