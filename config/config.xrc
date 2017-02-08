@@ -26,6 +26,17 @@
 										<orient>wxVERTICAL</orient>
 										<label>Homunculus: Attack and Evade</label>
 										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxALL</flag>
+											<border>5</border>
+											<object class="wxStaticText" name="HNDL_HomuAttackAndEvade">
+												<enabled>0</enabled>
+												<hidden>1</hidden>
+												<label></label>
+												<wrap>-1</wrap>
+											</object>
+										</object>
+										<object class="sizeritem">
 											<option>1</option>
 											<flag>wxEXPAND</flag>
 											<border>5</border>
