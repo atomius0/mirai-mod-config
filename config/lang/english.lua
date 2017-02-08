@@ -9,6 +9,7 @@ return {
 	-- TAB_General:
 	"General",
 	"Homunculus: Attack and Evade",
+	"Attack when HPs >",
 	-- TODO: rest of form strings
 	
 }

@@ -364,10 +364,26 @@ function MainWindow:ApplyTranslation()
 		sb:SetLabel(label)
 	end
 	
+	local function ForceSizerRefresh(dlg)
+		-- force a sizer refresh by changing the size of the dialog, then changing it back.
+		local size = dlg:GetSize()
+		local w, h = size:GetWidth(), size:GetHeight()
+		dlg:SetSize(w+1, h+1)
+		dlg:SetSize(w, h)
+	end
+	
 	self.NB_Notebook:SetPageText(0, _T"General")
 	SetStaticBoxSizerLabel(self.HNDL_HomuAttackAndEvade, _T"Homunculus: Attack and Evade")
 	self.TXT_AttackWhenHP:SetLabel(_T"Attack when HPs >")
 	
+	-- force a sizer refresh: (NOTE: is there a better way?)
+	ForceSizerRefresh(self.dialog)
+	
+	-- TODO: force sizer refresh by changing main window's size here? or is there a better way?
+	--self.dialog:Layout() -- doesn't work
+	--self.dialog:GetSizer():RecalcSizes() -- doesn't work
+	--print(self.dialog:GetSize())
+	--io.read() --DEBUG
 	
 	--self.____:SetLabel(_T"")
 	
