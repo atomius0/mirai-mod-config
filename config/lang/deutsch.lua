@@ -10,6 +10,15 @@ return {
 	"Allgemein",
 	"Homunculus: Angriff und Verteidigung",
 	"Angreifen wenn HP >",
+	"nicht folgen",
+	"Ausweichen wenn HP <",
+	"vorsichtig",
+	"Ziel im Kampf wechseln um dem Besitzer zu helfen",
+	"Gegner des Homunculus zuerst töten",
+	"Freundlicher Homunculus",
+	"Greife Monster die sich bewegen nicht an",
+	"Versuche, AoE Skills und eingefrorene Monster zu erkennen",
+	"Anderes",
 	-- TODO: rest of form strings
 	
 }

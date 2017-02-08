@@ -184,18 +184,18 @@ function MainWindow:init(xmlResource)
 		"CB_DontMove",
 		"SL_AttackWhenHP",
 		"SC_AttackWhenHP",
-		--"TXT_EvadeWhenHP",
+		"TXT_EvadeWhenHP",
 		"CB_Cautious",
 		"SL_EvadeWhenHP",
 		"SC_EvadeWhenHP",
 		"CB_HelpOwnerFirst",
 		"CB_KillEnemiesFirst",
 		
-		--"SB_KindHomu",
+		"HNDL_KindHomu",
 		"CB_NoMovingTargets",
 		"CB_AdvMotionCheck",
 		
-		--"SB_Other",
+		"HNDL_Other",
 		--"TXT_MaxEnemyDistance",
 		"SC_MaxEnemyDistance",
 		--"TXT_SkillTimeout",
@@ -321,18 +321,20 @@ function MainWindow:InitInputs()
 	InitWidget("SL_AttackWhenHP", "wxSlider")
 	InitWidget("SC_AttackWhenHP", "wxSpinCtrl")
 	
+	InitWidget("TXT_EvadeWhenHP", "wxStaticText")
 	InitWidget("CB_Cautious", "wxCheckBox")
-	
 	InitWidget("SL_EvadeWhenHP", "wxSlider")
 	InitWidget("SC_EvadeWhenHP", "wxSpinCtrl")
-	
 	
 	-- the input references below are only used by MainWindow:SaveConfig and MainWindow:LoadConfig
 	InitWidget("CB_HelpOwnerFirst", "wxCheckBox")
 	InitWidget("CB_KillEnemiesFirst", "wxCheckBox")
+	
+	InitWidget("HNDL_KindHomu", "wxWindow") -- hidden widget for wxStaticBoxSizer handle
 	InitWidget("CB_NoMovingTargets", "wxCheckBox")
 	InitWidget("CB_AdvMotionCheck", "wxCheckBox")
 	
+	InitWidget("HNDL_Other", "wxWindow") -- hidden widget for wxStaticBoxSizer handle
 	InitWidget("SC_MaxEnemyDistance", "wxSpinCtrl")
 	InitWidget("SC_SkillTimeout", "wxSpinCtrl")
 	InitWidget("SC_OwnerClosedistance", "wxSpinCtrl")
@@ -372,10 +374,22 @@ function MainWindow:ApplyTranslation()
 		dlg:SetSize(w, h)
 	end
 	
+	-- TAB_General ---------------------------------------------------------------------------------
 	self.NB_Notebook:SetPageText(0, _T"General")
 	SetStaticBoxSizerLabel(self.HNDL_HomuAttackAndEvade, _T"Homunculus: Attack and Evade")
 	self.TXT_AttackWhenHP:SetLabel(_T"Attack when HPs >")
+	self.CB_DontMove:SetLabel(_T"don't chase")
+	self.TXT_EvadeWhenHP:SetLabel(_T"Evade when HPs <")
+	self.CB_Cautious:SetLabel(_T"cautious")
+	self.CB_HelpOwnerFirst:SetLabel(_T"Switch target on battle, to go to help the owner")
+	self.CB_KillEnemiesFirst:SetLabel(_T"Take care of homunculus enemies first")
 	
+	SetStaticBoxSizerLabel(self.HNDL_KindHomu, _T"Kind Homunculus")
+	self.CB_NoMovingTargets:SetLabel(_T"Don't attack moving monsters")
+	self.CB_AdvMotionCheck:SetLabel(_T"Try to detect area spells and frozen monsters")
+	
+	SetStaticBoxSizerLabel(self.HNDL_Other, _T"Other")
+	--self.____:SetLabel(_T"")
 	
 	-- TODO: ApplyTranslation
 	

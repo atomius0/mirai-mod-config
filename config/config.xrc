@@ -67,7 +67,7 @@
 															<flag>wxTOP|wxBOTTOM|wxLEFT</flag>
 															<border>5</border>
 															<object class="wxCheckBox" name="CB_DontMove">
-																<label>don&apos;t move</label>
+																<label>don&apos;t chase</label>
 																<checked>0</checked>
 															</object>
 														</object>
@@ -184,6 +184,17 @@
 										<label>Kind Homunculus</label>
 										<object class="sizeritem">
 											<option>0</option>
+											<flag>wxALL</flag>
+											<border>5</border>
+											<object class="wxStaticText" name="HNDL_KindHomu">
+												<enabled>0</enabled>
+												<hidden>1</hidden>
+												<label></label>
+												<wrap>-1</wrap>
+											</object>
+										</object>
+										<object class="sizeritem">
+											<option>0</option>
 											<flag>wxBOTTOM|wxRIGHT|wxLEFT</flag>
 											<border>5</border>
 											<object class="wxCheckBox" name="CB_NoMovingTargets">
@@ -209,6 +220,17 @@
 									<object class="wxStaticBoxSizer">
 										<orient>wxVERTICAL</orient>
 										<label>Other</label>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxALL</flag>
+											<border>5</border>
+											<object class="wxStaticText" name="HNDL_Other">
+												<enabled>0</enabled>
+												<hidden>1</hidden>
+												<label></label>
+												<wrap>-1</wrap>
+											</object>
+										</object>
 										<object class="sizeritem">
 											<option>1</option>
 											<flag>wxEXPAND</flag>
