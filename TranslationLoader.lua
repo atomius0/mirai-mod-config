@@ -23,6 +23,15 @@ end
 
 -- the translation function:
 function M._T(s)
+	--[[ old debug code:
+	if M.trans[s] then
+		DebugLog(string.format("_T: '%s' = '%s'", s, M.trans[s]))
+	else
+		DebugLog(string.format("_T, no translation: '%s'", s))
+		for k,v in pairs(M.trans) do print(k,v) end
+		io.read()
+	end
+	--]]
 	return M.trans[s] or s
 end
 
