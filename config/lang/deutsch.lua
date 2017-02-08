@@ -1,11 +1,29 @@
 return {
-	-- MainWindow, program strings:
+	-- program strings ----------
+	-- MainWindow.lua
 	"Änderungen vor dem Beenden speichern?",
 	"Speichern?",
 	"Fehler beim Laden des Dialogs 'MainWindow'",
 	'Datei "%s" konnte nicht geöffnet werden',
 	'Ungültiger Wert für Option "%s". erwartet: 1 oder 0, erhalten: "%s"',
-	-- MainWindow, form strings:
+	
+	-- TacticsTab.lua
+	"Bearbeiten: Wähle eine Taktik!",
+	"Entfernen: Wähle eine Taktik!",
+	-- columns:
+	"ID",
+	"Monstername",
+	"Verhalten",
+	"Benutze",
+	"Level",
+	
+	-- AddTacticDialog.lua
+	"ID muss bei Kommentaren leer sein",
+	'Kommentar "%s" ist nicht erlaubt!',
+	"Ungültige ID",
+	
+	-- form strings ----------
+	-- MainWindow
 	-- TAB_General:
 	"Allgemein",
 	"Homunculus: Angriff und Verteidigung",
@@ -32,10 +50,14 @@ return {
 	"Entf.",
 	"Hoch",
 	"Runter",
-	
-	-- TODO: rest of form strings
-	
-	-- ---------------------------------------------------------------------------------------------
+	-- BUT_SaveConfig
 	"Konfiguration speichern",
+	
+	-- AddTacticDialog
+	"ID:",
+	"Monstername:",
+	"Verhalten:",
+	"Benutze:",
+	"Level:",
 }
 --TODO: copy contents of this file into 'config/lang/lang'

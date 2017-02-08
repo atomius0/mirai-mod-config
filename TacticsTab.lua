@@ -4,6 +4,7 @@
 local AddTacticDialog = require "AddTacticDialog"
 local lch = require "ListCtrlHelper"
 local su  = require "stringutil"
+local _T  = require "TranslationLoader"
 
 local M = {}
 
@@ -65,7 +66,7 @@ function M.OnEdit(listCtrl, xmlResource, parent)
 	local selected = lch.GetFirstSelected(listCtrl)
 	
 	if not selected then
-		return wx.wxMessageBox("Select a tactic to edit!", APP_NAME, wx.wxOK)
+		return wx.wxMessageBox(_T"Select a tactic to edit!", APP_NAME, wx.wxOK)
 	end
 	
 	-- read tactic from listCtrl
@@ -112,7 +113,7 @@ function M.OnRemove(listCtrl)
 	local selected = lch.GetFirstSelected(listCtrl)
 	
 	if not selected then
-		return wx.wxMessageBox("Select a tactic to remove!", APP_NAME, wx.wxOK)
+		return wx.wxMessageBox(_T"Select a tactic to remove!", APP_NAME, wx.wxOK)
 	end
 	
 	lch.DeleteRow(listCtrl, selected)
@@ -169,11 +170,11 @@ function M.Init(listCtrl)
 	--]]
 	---[[ -- with widths
 	lch.InitColumns(listCtrl, {
-		{"ID",            45},
-		{"Monster Name", 100},
-		{"Behavior",      75},
-		{"Use",           70},
-		{"Level",         38}
+		{_T"ID",            45},
+		{_T"Monster Name", 100},
+		{_T"Behavior",      75},
+		{_T"Use",           70},
+		{_T"Level",         38}
 	})
 	--]]
 end

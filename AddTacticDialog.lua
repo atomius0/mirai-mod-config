@@ -3,6 +3,7 @@
 
 local class = require "30log"
 local su    = require "stringutil"
+local _T    = require "TranslationLoader"
 
 
 local _BEHA_MAP = { -- used by helper functions BEHA2ID and ID2BEHA
@@ -86,14 +87,14 @@ function AddTacticDialog:init(xmlResource, parent, tactic)
 		-- is 'name' a comment?
 		if su.startsWith(name, "--") then
 			if id ~= "" then -- id must be empty for comments
-				wx.wxMessageBox("ID must be empty for comments", APP_NAME, wx.wxOK)
+				wx.wxMessageBox(_T"ID must be empty for comments", APP_NAME, wx.wxOK)
 				event:Skip(false)
 				
 			elseif name == "-- End Tact" then
 				-- this comment is recognized as the end of the tact list by 'LoadConfigOptions.lua'
 				-- so it is not allowed:
 				wx.wxMessageBox(
-					string.format('Comment "%s" is not allowed!', name),
+					string.format(_T'Comment "%s" is not allowed!', name),
 					APP_NAME, wx.wxOK
 				)
 				event:Skip(false)
@@ -107,7 +108,7 @@ function AddTacticDialog:init(xmlResource, parent, tactic)
 			-- if 'name' is a comment, we don't need to check whether the id is valid.
 		elseif id ~= tostring(tonumber(id)) then -- is 'id' a valid number?
 			-- id is not a valid number (there are other characters in it?)
-			wx.wxMessageBox("Invalid ID", APP_NAME, wx.wxOK)
+			wx.wxMessageBox(_T"Invalid ID", APP_NAME, wx.wxOK)
 			event:Skip(false) -- don't close this dialog
 		end
 		
@@ -135,15 +136,15 @@ function AddTacticDialog:init(xmlResource, parent, tactic)
 	if not next(AddTacticDialog.IDs) then
 		-- get IDs / init wxWindow ID values:
 		for i, v in ipairs {
-			--"TXT_ID",
+			"TXT_ID",
 			"TC_ID",
-			--"TXT_MonsterName",
+			"TXT_MonsterName",
 			"TC_MonsterName",
-			--"TXT_Behavior",
+			"TXT_Behavior",
 			"CHOICE_Behavior",
-			--"TXT_SkillUse",
+			"TXT_SkillUse",
 			"CHOICE_SkillUse",
-			--"TXT_Level",
+			"TXT_Level",
 			"CHOICE_Level",
 			
 			"wxID_OK",
@@ -199,6 +200,9 @@ function AddTacticDialog:init(xmlResource, parent, tactic)
 		self.CHOICE_Level:SetSelection(0)
 	end
 	
+	
+	self:ApplyTranslation()
+	
 	-- we won't show the dialog from this function:
 	--self.dialog:Center()
 	--self.dialog:Show(true)
@@ -215,11 +219,35 @@ function AddTacticDialog:InitInputs()
 		--return w
 	end
 	
+	InitWidget("TXT_ID", "wxStaticText")
 	InitWidget("TC_ID", "wxTextCtrl")
+	InitWidget("TXT_MonsterName", "wxStaticText")
 	InitWidget("TC_MonsterName", "wxTextCtrl")
+	InitWidget("TXT_Behavior", "wxStaticText")
 	InitWidget("CHOICE_Behavior", "wxChoice")
+	InitWidget("TXT_SkillUse", "wxStaticText")
 	InitWidget("CHOICE_SkillUse", "wxChoice")
+	InitWidget("TXT_Level", "wxStaticText")
 	InitWidget("CHOICE_Level", "wxChoice")
+end
+
+
+function AddTacticDialog:ApplyTranslation()
+	local function ForceSizerRefresh(dlg)
+		-- force a sizer refresh by changing the size of the dialog, then changing it back.
+		local size = dlg:GetSize()
+		local w, h = size:GetWidth(), size:GetHeight()
+		dlg:SetSize(w+1, h+1)
+		dlg:SetSize(w, h)
+	end
+	
+	self.TXT_ID:SetLabel(_T"ID:")
+	self.TXT_MonsterName:SetLabel(_T"Monster Name:")
+	self.TXT_Behavior:SetLabel(_T"Behavior:")
+	self.TXT_SkillUse:SetLabel(_T"Use:")
+	self.TXT_Level:SetLabel(_T"Level:")
+	
+	ForceSizerRefresh(self.dialog)
 end
 
 

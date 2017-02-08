@@ -1,11 +1,29 @@
 return {
-	-- MainWindow, program strings:
+	-- program strings ----------
+	-- MainWindow.lua
 	"Save changes before Quitting?",
 	"Save?",
 	"Error loading dialog 'MainWindow'",
 	'Could not open file "%s"',
 	'Invalid value for option "%s". expected 1 or 0, got: "%s"',
-	-- MainWindow, form strings:
+	
+	-- TacticsTab.lua
+	"Select a tactic to edit!",
+	"Select a tactic to remove!",
+	-- columns:
+	"ID",
+	"Monster Name",
+	"Behavior",
+	"Use",
+	"Level",
+	
+	-- AddTacticDialog.lua
+	"ID must be empty for comments",
+	'Comment "%s" is not allowed!',
+	"Invalid ID",
+	
+	-- form strings ----------
+	-- MainWindow
 	-- TAB_General:
 	"General",
 	"Homunculus: Attack and Evade",
@@ -32,9 +50,13 @@ return {
 	"Remove",
 	"Up",
 	"Down",
-	
-	-- TODO: rest of form strings
-	
-	-- ---------------------------------------------------------------------------------------------
+	-- BUT_SaveConfig
 	"Save configuration",
+	
+	-- AddTacticDialog
+	"ID:",
+	"Monster Name:",
+	"Behavior:",
+	"Use:",
+	"Level:",
 }
