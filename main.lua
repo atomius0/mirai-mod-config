@@ -17,7 +17,7 @@ end
 
 local class = require "30log"
 local MainWindow = require "MainWindow"
---local _T = require "TranslationLoader"
+local _T = require "TranslationLoader"
 
 -- constants:
 APP_VERSION      = "v0.1.0"

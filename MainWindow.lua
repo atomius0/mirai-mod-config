@@ -7,6 +7,7 @@ local SkillsTab         = require "SkillsTab"
 local TacticsTab        = require "TacticsTab"
 local ModTab            = require "ModTab"
 local LanguageTab       = require "LanguageTab"
+local _T = require "TranslationLoader"
 
 local _OLD_HOMUN_TYPE_MAP = { -- used by helper functions OLD_HOMUN_TYPE2ID and ID2OLD_HOMUN_TYPE
 	[0] = "LIF",
@@ -51,8 +52,8 @@ function MainWindow:init(xmlResource)
 		
 		-- ask user if he wants to save before quitting:
 		local r = wx.wxMessageBox(
-			"Save changes before Quitting?",
-			"Save?",
+			_T"Save changes before Quitting?",
+			_T"Save?",
 			wx.wxYES_NO + wx.wxCANCEL,
 			self.dialog
 		)
