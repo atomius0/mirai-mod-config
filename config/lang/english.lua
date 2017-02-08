@@ -19,6 +19,13 @@ return {
 	"Don't attack moving monsters",
 	"Try to detect area spells and frozen monsters",
 	"Other",
+	"Max enemy distance from the alchemist:",
+	"Max time for skills (ms):",
+	"OWNER_CLOSEDISTANCE:",
+	"OLD_HOMUN_TYPE:",
+	"Follow the alchemist at once",
+	"Circle around the alchemist when full",
 	-- TODO: rest of form strings
 	
+	"Save configuration",
 }

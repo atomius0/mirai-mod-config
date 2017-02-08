@@ -19,7 +19,14 @@ return {
 	"Greife Monster die sich bewegen nicht an",
 	"Versuche, AoE Skills und eingefrorene Monster zu erkennen",
 	"Anderes",
+	"Maximale Distanz des Gegners:",
+	"Maximale Zeit für Skills (ms):",
+	"OWNER_CLOSEDISTANCE:",
+	"OLD_HOMUN_TYPE:",
+	"Folge dem Alchemisten sofort",
+	"Umkreise den Alchemisten bei vollen HP/SP",
 	-- TODO: rest of form strings
 	
+	"Konfiguration speichern",
 }
 --TODO: copy contents of this file into 'config/lang/lang'

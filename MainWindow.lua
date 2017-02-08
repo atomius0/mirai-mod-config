@@ -196,13 +196,13 @@ function MainWindow:init(xmlResource)
 		"CB_AdvMotionCheck",
 		
 		"HNDL_Other",
-		--"TXT_MaxEnemyDistance",
+		"TXT_MaxEnemyDistance",
 		"SC_MaxEnemyDistance",
-		--"TXT_SkillTimeout",
+		"TXT_SkillTimeout",
 		"SC_SkillTimeout",
-		--"TXT_OwnerClosedistance",
+		"TXT_OwnerClosedistance",
 		"SC_OwnerClosedistance",
-		--"TXT_OldHomunType",
+		"TXT_OldHomunType",
 		"CHOICE_OldHomunType",
 		"CB_FollowAtOnce",
 		"CB_CircleOnIdle",
@@ -335,9 +335,13 @@ function MainWindow:InitInputs()
 	InitWidget("CB_AdvMotionCheck", "wxCheckBox")
 	
 	InitWidget("HNDL_Other", "wxWindow") -- hidden widget for wxStaticBoxSizer handle
+	InitWidget("TXT_MaxEnemyDistance", "wxStaticText")
 	InitWidget("SC_MaxEnemyDistance", "wxSpinCtrl")
+	InitWidget("TXT_SkillTimeout", "wxStaticText")
 	InitWidget("SC_SkillTimeout", "wxSpinCtrl")
+	InitWidget("TXT_OwnerClosedistance", "wxStaticText")
 	InitWidget("SC_OwnerClosedistance", "wxSpinCtrl")
+	InitWidget("TXT_OldHomunType", "wxStaticText")
 	InitWidget("CHOICE_OldHomunType", "wxChoice")
 	
 	InitWidget("CB_FollowAtOnce", "wxCheckBox")
@@ -347,6 +351,7 @@ function MainWindow:InitInputs()
 	InitWidget("LB_Mod", "wxListBox")
 	InitWidget("LB_Language", "wxListBox")
 	
+	InitWidget("BUT_SaveConfig", "wxButton") -- only required by 'ApplyTranslation'
 	InitWidget("TXT_Version", "wxStaticText")
 	
 	-- TODO: initialize the remaining reference variables for all the input fields
@@ -389,11 +394,19 @@ function MainWindow:ApplyTranslation()
 	self.CB_AdvMotionCheck:SetLabel(_T"Try to detect area spells and frozen monsters")
 	
 	SetStaticBoxSizerLabel(self.HNDL_Other, _T"Other")
+	self.TXT_MaxEnemyDistance:SetLabel(_T"Max enemy distance from the alchemist:")
+	self.TXT_SkillTimeout:SetLabel(_T"Max time for skills (ms):")
+	self.TXT_OwnerClosedistance:SetLabel(_T"OWNER_CLOSEDISTANCE:")
+	self.TXT_OldHomunType:SetLabel(_T"OLD_HOMUN_TYPE:")
+	self.CB_FollowAtOnce:SetLabel(_T"Follow the alchemist at once")
+	self.CB_CircleOnIdle:SetLabel(_T"Circle around the alchemist when full")
 	--self.____:SetLabel(_T"")
 	
 	-- TODO: ApplyTranslation
 	
 	--self.____:SetLabel(_T"")
+	
+	self.BUT_SaveConfig:SetLabel(_T"Save configuration")
 	
 	-- force a sizer refresh: (NOTE: is there a better way?)
 	ForceSizerRefresh(self.dialog)
