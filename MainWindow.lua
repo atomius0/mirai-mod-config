@@ -238,7 +238,7 @@ function MainWindow:init(xmlResource)
 	-- load the dialog:
 	self.dialog = wx.wxDialog()
 	assert(xmlResource:LoadDialog(self.dialog, wx.NULL, "MainWindow"), 
-		"Error loading dialog 'MainWindow'"
+		_T"Error loading dialog 'MainWindow'"
 	)
 	
 	
@@ -349,7 +349,7 @@ function MainWindow:SaveConfig(filename)
 	DebugLog('MainWindow:SaveConfig("' .. filename .. '")')
 	
 	-- NOTE: add error handler (try/catch block) to all functions that call this one!
-	local f = assert(io.open(filename, "w"), string.format('Could not open file "%s"', filename))
+	local f = assert(io.open(filename, "w"), string.format(_T'Could not open file "%s"', filename))
 	
 	local WriteOpt = function(o) DebugLog(o); f:write(o .. "\n") end
 	
@@ -491,10 +491,10 @@ function MainWindow:LoadConfig(filename)
 					v = false
 					
 				else
-					error(
-						'Invalid value for option "' .. option ..
-						'". expected 1 or 0, got: "' .. v .. '"'
-					)
+					error(string.format(
+						_T'Invalid value for option "%s". expected 1 or 0, got: "%s"',
+						option, v
+					))
 				end
 				
 			elseif option == "DEFAULT_BEHA" then
