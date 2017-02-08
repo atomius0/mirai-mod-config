@@ -376,18 +376,13 @@ function MainWindow:ApplyTranslation()
 	SetStaticBoxSizerLabel(self.HNDL_HomuAttackAndEvade, _T"Homunculus: Attack and Evade")
 	self.TXT_AttackWhenHP:SetLabel(_T"Attack when HPs >")
 	
-	-- force a sizer refresh: (NOTE: is there a better way?)
-	ForceSizerRefresh(self.dialog)
 	
-	-- TODO: force sizer refresh by changing main window's size here? or is there a better way?
-	--self.dialog:Layout() -- doesn't work
-	--self.dialog:GetSizer():RecalcSizes() -- doesn't work
-	--print(self.dialog:GetSize())
-	--io.read() --DEBUG
+	-- TODO: ApplyTranslation
 	
 	--self.____:SetLabel(_T"")
 	
-	-- TODO: ApplyTranslation
+	-- force a sizer refresh: (NOTE: is there a better way?)
+	ForceSizerRefresh(self.dialog)
 end
 
 
