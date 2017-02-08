@@ -17,7 +17,7 @@ end
 
 class = require "30log"
 MainWindow = require "MainWindow"
---_T = require "TranslationLoader"
+_T = require "TranslationLoader"
 
 -- constants:
 APP_VERSION      = "v0.1.0"
@@ -57,7 +57,28 @@ function LoadXmlResource(xrcFile)
 end
 
 
+local function LoadTranslation()
+	
+	local function LoadSelLang()
+		-- we don't use dofile here,
+		-- because we want nothing to happen if the file cannot be read.
+		-- (dofile throws an error if the file does not exist)
+		local f = io.open(SEL_LANG_FILE)
+		if not f then return nil end
+		local s = f:read("*a")
+		return assert(loadstring(s))()
+	end
+	
+	-- baseLang is a table containing the strings to be translated:
+	local baseLang  = require(TRANSLATION_PATH:gsub("/", ".") .. ".english")
+	local transLang = LoadSelLang()
+	if not transLang then return end -- if there was no language selected, don't load it.
+	_T.load(baseLang, transLang)
+end
+
+
 xpcall(function() --try
+	LoadTranslation()
 	local xmlResource = LoadXmlResource(XRC_FILE)
 	local mainWin = MainWindow(xmlResource)
 end, ErrorHandler)

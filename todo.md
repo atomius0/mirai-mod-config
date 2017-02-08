@@ -1,6 +1,8 @@
 
 ## Todo
 
+- [ ] add 'TranslationLoader.lua' and 'config/lang/english.lua' to squishy and makefile!
+
 - [ ] implement translation (load it using the loader module, finish LanguageTab.lua, use '_T()' calls, write translation files (english and german).
 - [x] write translation loader module
 - [ ] disable debug and strict mode before release
