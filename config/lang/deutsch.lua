@@ -25,8 +25,17 @@ return {
 	"OLD_HOMUN_TYPE:",
 	"Folge dem Alchemisten sofort",
 	"Umkreise den Alchemisten bei vollen HP/SP",
+	-- TAB_Tactics:
+	"Taktiken",
+	"Bearbeiten",
+	"Neu",
+	"Entf.",
+	"Hoch",
+	"Runter",
+	
 	-- TODO: rest of form strings
 	
+	-- ---------------------------------------------------------------------------------------------
 	"Konfiguration speichern",
 }
 --TODO: copy contents of this file into 'config/lang/lang'

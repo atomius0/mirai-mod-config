@@ -25,7 +25,16 @@ return {
 	"OLD_HOMUN_TYPE:",
 	"Follow the alchemist at once",
 	"Circle around the alchemist when full",
+	-- TAB_Tactics:
+	"Tactics",
+	"Edit",
+	"Add",
+	"Remove",
+	"Up",
+	"Down",
+	
 	-- TODO: rest of form strings
 	
+	-- ---------------------------------------------------------------------------------------------
 	"Save configuration",
 }

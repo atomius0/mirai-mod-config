@@ -347,7 +347,13 @@ function MainWindow:InitInputs()
 	InitWidget("CB_FollowAtOnce", "wxCheckBox")
 	InitWidget("CB_CircleOnIdle", "wxCheckBox")
 	
+	InitWidget("BUT_Edit", "wxButton")
+	InitWidget("BUT_Add", "wxButton")
+	InitWidget("BUT_Remove", "wxButton")
+	InitWidget("BUT_Up", "wxButton")
+	InitWidget("BUT_Down", "wxButton")
 	InitWidget("LC_Tactics", "wxListCtrl")
+	
 	InitWidget("LB_Mod", "wxListBox")
 	InitWidget("LB_Language", "wxListBox")
 	
@@ -400,7 +406,14 @@ function MainWindow:ApplyTranslation()
 	self.TXT_OldHomunType:SetLabel(_T"OLD_HOMUN_TYPE:")
 	self.CB_FollowAtOnce:SetLabel(_T"Follow the alchemist at once")
 	self.CB_CircleOnIdle:SetLabel(_T"Circle around the alchemist when full")
-	--self.____:SetLabel(_T"")
+	
+	-- TAB_Tactics ---------------------------------------------------------------------------------
+	self.NB_Notebook:SetPageText(1, _T"Tactics")
+	self.BUT_Edit:SetLabel(_T"Edit")
+	self.BUT_Add:SetLabel(_T"Add")
+	self.BUT_Remove:SetLabel(_T"Remove")
+	self.BUT_Up:SetLabel(_T"Up")
+	self.BUT_Down:SetLabel(_T"Down")
 	
 	-- TODO: ApplyTranslation
 	
