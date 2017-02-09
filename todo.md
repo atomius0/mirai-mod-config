@@ -1,6 +1,9 @@
 
 ## Todo
 
+- [ ] implement translation feature in the rest of the source files
+- [ ] finish 'LanguageTab.lua'
+- [ ] run unit tests again after adding translation feature to everything else
 - [ ] add 'TranslationLoader.lua' and 'config/lang/english.lua' to squishy and makefile!
 
 - [ ] implement translation (load it using the loader module, finish LanguageTab.lua, use '_T()' calls, write translation files (english and german).
