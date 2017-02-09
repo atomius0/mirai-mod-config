@@ -1,8 +1,9 @@
 
 ## Todo
 
+- [ ] translate the remaining tabs in MainWindow.lua
 - [ ] implement translation feature in the rest of the source files
-- [ ] finish 'LanguageTab.lua'
+- [ ] finish 'LanguageTab.lua' (look up event id for selecting an element in a listCtrl!)
 - [ ] run unit tests again after adding translation feature to everything else
 - [ ] add 'TranslationLoader.lua' and 'config/lang/english.lua' to squishy and makefile!
 
