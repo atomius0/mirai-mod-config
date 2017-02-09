@@ -15,7 +15,7 @@ function M.Init(listBox)
 	
 	local files = GetFilesEndingWith("_Mod.lua", wx.wxGetCwd())
 	
-	for k, v in pairs(files) do
+	for i, v in ipairs(files) do
 		listBox:Append(v)
 	end
 end
