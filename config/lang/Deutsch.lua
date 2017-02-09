@@ -77,4 +77,3 @@ return {
 	"Benutze:",
 	"Level:",
 }
---TODO: copy contents of this file into 'config/lang/lang'

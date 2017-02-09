@@ -77,4 +77,3 @@ return {
 	"Use:",
 	"Level:",
 }
-
