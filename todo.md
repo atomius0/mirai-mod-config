@@ -1,7 +1,7 @@
 
 ## Todo
 
-- [ ] capitalize language file names
+- [x] capitalize language file names
 - [ ] finish 'LanguageTab.lua' (look up event id for selecting an element in a listCtrl!)
 - [ ] run unit tests again after adding translation feature to everything else
 - [ ] add 'TranslationLoader.lua' and 'config/lang/english.lua' to squishy and makefile!
