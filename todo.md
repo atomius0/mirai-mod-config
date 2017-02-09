@@ -1,6 +1,6 @@
 
 ## Todo
-
+- [ ] add 'GetFilesEndingWith.lua' to squishy and makefile.
 - [ ] move helper function 'GetFilesEndingWith' from 'ModTab.lua' into its own file, because we will also need that function in 'LanguageTab.lua'
 - [ ] finish 'LanguageTab.lua' (look up event id for selecting an element in a listCtrl!)
 - [ ] run unit tests again after adding translation feature to everything else
