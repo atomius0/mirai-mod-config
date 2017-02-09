@@ -532,6 +532,9 @@ function MainWindow:SaveConfig(filename)
 	
 	-- save selected Mod:
 	ModTab.SaveMod(self.LB_Mod, MOD_FILE, MOD_TEMPLATE)
+	
+	-- save selected language:
+	LanguageTab.SaveLang(self.LB_Language, TRANSLATION_PATH, SEL_LANG_FILE)
 end
 
 
