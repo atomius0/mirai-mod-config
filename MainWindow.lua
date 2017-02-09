@@ -417,6 +417,10 @@ function MainWindow:ApplyTranslation()
 	
 	-- TAB_Skills ----------------------------------------------------------------------------------
 	self.NB_Notebook:SetPageText(2, _T"Skills")
+	self.skillWidgets.TXT_SkillsDescription:SetLabel(
+		_T("Please choose the minimum amount of SP for each skill and\n" ..
+		"the skill level to use (OFF = skill disabled).")
+	)
 	
 	-- TAB_Mod -------------------------------------------------------------------------------------
 	self.NB_Notebook:SetPageText(3, _T"Mod")

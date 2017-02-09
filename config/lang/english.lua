@@ -2,6 +2,7 @@ return {
 	-- program strings ----------
 	-- main.lua
 	"Error loading file: %s",
+	
 	-- MainWindow.lua
 	"Save changes before Quitting?",
 	"Save?",
@@ -18,6 +19,10 @@ return {
 	"Behavior",
 	"Use",
 	"Level",
+	
+	-- SkillsTab.lua
+	"Please choose the minimum amount of SP for each skill and\n" ..
+	"the skill level to use (OFF = skill disabled).",
 	
 	-- AddTacticDialog.lua
 	"ID must be empty for comments",

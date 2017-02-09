@@ -2,6 +2,7 @@ return {
 	-- program strings ----------
 	-- main.lua
 	"Fehler beim Laden der Datei: %s",
+	
 	-- MainWindow.lua
 	"Änderungen vor dem Beenden speichern?",
 	"Speichern?",
@@ -18,6 +19,10 @@ return {
 	"Verhalten",
 	"Benutze",
 	"Level",
+	
+	-- SkillsTab.lua
+	"Wähle das SP-Minimum für jeden Skill und den Skill-Level\n" ..
+	"der genutzt werden soll. (OFF = Skill deaktiviert)",
 	
 	-- AddTacticDialog.lua
 	"ID muss bei Kommentaren leer sein",
