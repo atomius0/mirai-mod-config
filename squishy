@@ -10,5 +10,9 @@ Module "TacticsTab"
 Module "AddTacticDialog"
 Module "ListCtrlHelper"
 Module "ModTab"
+Module "LanguageTab"
 Module "GetFilesEndingWith"
+
+Module "TranslationLoader"
+Module "config.lang.english" -- default language file. used as a base for other translations.
 --Module "foo" --TODO

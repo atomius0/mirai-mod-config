@@ -28,7 +28,8 @@ LUAC            = $(WXLUA_PATH)/bin/luac.exe
 
 LUA_FILES        = main.lua MainWindow.lua 30log.lua LoadConfigOptions.lua stringutil.lua \
                    SkillsTab.lua HomuSkillTable.lua TacticsTab.lua AddTacticDialog.lua \
-                   ListCtrlHelper.lua ModTab.lua GetFilesEndingWith.lua
+                   ListCtrlHelper.lua ModTab.lua LanguageTab.lua GetFilesEndingWith.lua \
+                   TranslationLoader.lua config/lang/english.lua
 SQUISH_OUTPUT    = $(TEMP_DIR)/config_sq.lua
 # don't compile it, wxLuaFreeze doesn't support lua files with zero-bytes inside them!
 #COMPILED_OUTPUT  = $(TEMP_DIR)/config_sq_comp.lua
@@ -86,6 +87,7 @@ clean:
 	-rmdir /S/Q $(TEMP_DIR)
 	-del Config.lua
 	-del SelectedMod.lua
+	-del config\lang\lang
 
 
 .PHONY: release build run test clean
