@@ -279,7 +279,7 @@ function MainWindow:init(xmlResource)
 	ModTab.Init(self.LB_Mod)
 	
 	-- Initialize the LanguageTab:
-	LanguageTab.Init(self.LB_Language)
+	LanguageTab.Init(self.LB_Language, TRANSLATION_PATH)
 	
 	
 	-- load the configuration file before showing the window:

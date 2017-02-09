@@ -1,6 +1,7 @@
 -- mirai-mod-conf
 -- LanguageTab functions
 
+local GetFilesEndingWith = require "GetFilesEndingWith"
 local M = {}
 
 
@@ -8,8 +9,14 @@ local M = {}
 -- (use const 'TRANSLATION_PATH' for 'langPath')
 function M.Init(listBox, langPath)
 	assert(listBox)
+	assert(type(langPath) == "string")
 	DebugLog("LanguageTab.Init")
-	-- TODO: Init
+	
+	local files = GetFilesEndingWith(".lua", wx.wxGetCwd() .. "/" .. langPath)
+	
+	for i, v in ipairs(files) do
+		listBox:Append(v:sub(1, -5)) -- cut off the last 4 chars '.lua' (-1 means "until end of string": -1 - 4 = -5)
+	end
 end
 
 --[[ no, we will put this in another file which will be 'require'd by main.lua
