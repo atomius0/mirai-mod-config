@@ -56,7 +56,13 @@ return {
 	"Remove",
 	"Up",
 	"Down",
-	-- BUT_SaveConfig
+	-- TAB_Skills:
+	"Skills",
+	-- TAB_Mod:
+	"Mod",
+	-- TAB_Language:
+	"Language",
+	-- BUT_SaveConfig:
 	"Save configuration",
 	
 	-- AddTacticDialog
@@ -66,3 +72,4 @@ return {
 	"Use:",
 	"Level:",
 }
+

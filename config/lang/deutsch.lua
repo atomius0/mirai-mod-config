@@ -56,7 +56,13 @@ return {
 	"Entf.",
 	"Hoch",
 	"Runter",
-	-- BUT_SaveConfig
+	-- TAB_Skills:
+	"Skills",
+	-- TAB_Mod:
+	"Mod",
+	-- TAB_Language:
+	"Sprache",
+	-- BUT_SaveConfig:
 	"Konfiguration speichern",
 	
 	-- AddTacticDialog

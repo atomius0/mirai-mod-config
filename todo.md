@@ -3,11 +3,11 @@
 
 - [ ] translate the line "Please choose the minimum amount of SP for each skill [...]" in file 'SkillsTab.lua' at line 41. (but do it in the 'ApplyTranslation' method in MainWindow.lua) (the wxStaticText is called 'widgets.TXT_SkillsDescription') (line 48)
 - [ ] move helper function 'GetFilesEndingWith' from 'ModTab.lua' into its own file, because we will also need that function in 'LanguageTab.lua'
-- [ ] translate the remaining tabs in MainWindow.lua
-- [ ] implement translation feature in the rest of the source files
 - [ ] finish 'LanguageTab.lua' (look up event id for selecting an element in a listCtrl!)
 - [ ] run unit tests again after adding translation feature to everything else
 - [ ] add 'TranslationLoader.lua' and 'config/lang/english.lua' to squishy and makefile!
+- [x] translate the remaining tabs in MainWindow.lua
+- [x] implement translation feature in the rest of the source files
 
 - [ ] implement translation (load it using the loader module, finish LanguageTab.lua, use '_T()' calls, write translation files (english and german).
 - [x] write translation loader module

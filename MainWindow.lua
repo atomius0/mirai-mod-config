@@ -415,6 +415,15 @@ function MainWindow:ApplyTranslation()
 	self.BUT_Up:SetLabel(_T"Up")
 	self.BUT_Down:SetLabel(_T"Down")
 	
+	-- TAB_Skills ----------------------------------------------------------------------------------
+	self.NB_Notebook:SetPageText(2, _T"Skills")
+	
+	-- TAB_Mod -------------------------------------------------------------------------------------
+	self.NB_Notebook:SetPageText(3, _T"Mod")
+	
+	-- TAB_Language --------------------------------------------------------------------------------
+	self.NB_Notebook:SetPageText(4, _T"Language")
+	
 	-- TODO: ApplyTranslation
 	
 	--self.____:SetLabel(_T"")
