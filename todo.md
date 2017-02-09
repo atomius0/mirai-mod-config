@@ -1,9 +1,9 @@
 
 ## Todo
 
-- [ ] finish 'LanguageTab.lua' (look up event id for selecting an element in a listCtrl!)
-- [ ] run unit tests again after adding translation feature to everything else
 - [ ] add 'TranslationLoader.lua' and 'config/lang/english.lua' to squishy and makefile!
+- [x] finish 'LanguageTab.lua' (look up event id for selecting an element in a listCtrl!)
+- [x] run unit tests again after adding translation feature to everything else
 - [x] capitalize language file names
 - [x] add 'GetFilesEndingWith.lua' to squishy and makefile.
 - [x] move helper function 'GetFilesEndingWith' from 'ModTab.lua' into its own file, because we will also need that function in 'LanguageTab.lua'
