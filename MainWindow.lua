@@ -163,6 +163,16 @@ function MainWindow:init(xmlResource)
 	end
 	
 	
+	function handlers.OnSelectLanguage(event)
+		DebugLog("MainWindow: OnSelectLanguage")
+		event:Skip()
+		
+		xpcall(function()
+			LanguageTab.OnSelect(self.LB_Language, self)
+		end, ErrorHandler)
+	end
+	
+	
 	function handlers.OnSaveConfig(event)
 		DebugLog("MainWindow: OnSaveConfig")
 		event:Skip()
@@ -262,6 +272,9 @@ function MainWindow:init(xmlResource)
 	self.dialog:Connect(MainWindow.IDs.BUT_Remove, wx.wxEVT_COMMAND_BUTTON_CLICKED, handlers.OnButtonRemove)
 	self.dialog:Connect(MainWindow.IDs.BUT_Up, wx.wxEVT_COMMAND_BUTTON_CLICKED, handlers.OnButtonUp)
 	self.dialog:Connect(MainWindow.IDs.BUT_Down, wx.wxEVT_COMMAND_BUTTON_CLICKED, handlers.OnButtonDown)
+	
+	self.dialog:Connect(MainWindow.IDs.LB_Language, wx.wxEVT_COMMAND_LISTBOX_SELECTED, handlers.OnSelectLanguage)
+	--self.dialog:Connect(MainWindow.IDs.LB_Language, wx.wxEVT_COMMAND_LISTBOX_DOUBLECLICKED, handlers.OnSelectLanguage)
 	
 	self.dialog:Connect(MainWindow.IDs.BUT_SaveConfig, wx.wxEVT_COMMAND_BUTTON_CLICKED, handlers.OnSaveConfig)
 	

@@ -7,6 +7,23 @@ local _T = require "TranslationLoader"
 local M = {}
 
 
+-- loads the selected language on the fly, without having to restart the application
+function M.OnSelect(listBox, mainWindow)
+	assert(listBox)
+	assert(mainWindow)
+	
+	local selection = listBox:GetStringSelection()
+	if selection == "" then return end -- if nothing was selected: return without saving
+	
+	selection = TRANSLATION_PATH .. "/" .. selection .. ".lua"
+	
+	local baseLang = require(TRANSLATION_PATH:gsub("/", ".") .. ".english")
+	local transLang = dofile(selection)
+	_T.load(baseLang, transLang)
+	mainWindow:ApplyTranslation()
+end
+
+
 -- puts all files from directory 'langPath' ending with '.lua' into the listBox
 -- (use const 'TRANSLATION_PATH' for 'langPath')
 function M.Init(listBox, langPath)
