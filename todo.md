@@ -1,6 +1,7 @@
 
 ## Todo
 
+- [ ] translate the line "Please choose the minimum amount of SP for each skill [...]" in file 'SkillsTab.lua' at line 41. (but do it in the 'ApplyTranslation' method in MainWindow.lua) (the wxStaticText is called 'widgets.TXT_SkillsDescription') (line 48)
 - [ ] move helper function 'GetFilesEndingWith' from 'ModTab.lua' into its own file, because we will also need that function in 'LanguageTab.lua'
 - [ ] translate the remaining tabs in MainWindow.lua
 - [ ] implement translation feature in the rest of the source files

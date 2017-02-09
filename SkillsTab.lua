@@ -3,6 +3,7 @@
 
 local homuSkillTable = require "HomuSkillTable"
 local su = require "stringutil"
+local _T = require "TranslationLoader"
 
 local M = {}
 
@@ -12,7 +13,7 @@ function M.LoadSkillIcon(skillIcon)
 	DebugLog("LoadSkillIcon: " .. skillIcon)
 	local imagePath = SKILL_ICON_PATH .. "/" .. skillIcon
 	local image = wx.wxImage()
-	assert(image:LoadFile(imagePath), "File could not be loaded: '" .. imagePath .. "'")
+	assert(image:LoadFile(imagePath), string.format(_T"Error loading file: %s", imagePath))
 	local bitmap = assert(wx.wxBitmap(image))
 	return bitmap
 end
