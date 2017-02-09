@@ -1,5 +1,7 @@
 return {
 	-- program strings ----------
+	-- main.lua
+	"Fehler beim Laden der Datei: %s",
 	-- MainWindow.lua
 	"Änderungen vor dem Beenden speichern?",
 	"Speichern?",

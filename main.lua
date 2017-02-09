@@ -49,7 +49,7 @@ function LoadXmlResource(xrcFile)
 	
 	--local logNo = wx.wxLogNull() -- temporarily disable wx error messages
 	
-	assert(xmlResource:Load(xrcFile), "Error loading File: " .. xrcFile)
+	assert(xmlResource:Load(xrcFile), string.format(_T"Error loading file: %s", xrcFile))
 	
 	--logNo:delete() -- re-enable error messages
 	

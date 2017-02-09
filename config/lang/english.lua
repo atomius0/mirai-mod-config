@@ -1,5 +1,7 @@
 return {
 	-- program strings ----------
+	-- main.lua
+	"Error loading file: %s",
 	-- MainWindow.lua
 	"Save changes before Quitting?",
 	"Save?",
