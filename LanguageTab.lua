@@ -5,7 +5,7 @@ local M = {}
 
 
 -- puts all files from directory 'langPath' ending with '.lua' into the listBox
--- (use const 'TRANSLATION_PATH' for 'langPath'
+-- (use const 'TRANSLATION_PATH' for 'langPath')
 function M.Init(listBox, langPath)
 	assert(listBox)
 	DebugLog("LanguageTab.Init")
