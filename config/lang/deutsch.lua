@@ -24,6 +24,10 @@ return {
 	'Kommentar "%s" ist nicht erlaubt!',
 	"Ungültige ID",
 	
+	-- ModTab.lua
+	"Fehler beim Öffnen des Ordners: %s",
+	'Substring "%%MOD%%" konnte in Datei "%s" nicht gefunden werden.',
+	
 	-- form strings ----------
 	-- MainWindow
 	-- TAB_General:

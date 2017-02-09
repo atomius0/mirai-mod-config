@@ -24,6 +24,10 @@ return {
 	'Comment "%s" is not allowed!',
 	"Invalid ID",
 	
+	-- ModTab.lua
+	"Error opening directory: %s",
+	'Could not find substring "%%MOD%%" in file "%s"',
+	
 	-- form strings ----------
 	-- MainWindow
 	-- TAB_General:

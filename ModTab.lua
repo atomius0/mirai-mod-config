@@ -2,6 +2,7 @@
 -- ModTab functions
 
 local su = require "stringutil"
+local _T = require "TranslationLoader"
 
 local M = {}
 
@@ -10,7 +11,7 @@ local M = {}
 -- whose names end with string 'with' from directory 'dir'
 local function GetFilesEndingWith(with, dir)
 	local dh = wx.wxDir(dir)
-	assert(dh, string.format("Error opening directory: %s", dir))
+	assert(dh, string.format(_T"Error opening directory: %s", dir))
 	
 	local files = {}
 	
@@ -176,7 +177,7 @@ function M.SaveMod(listBox, fileName, selectedModTemplate)
 	-- read contents of file 'selectedModTemplate' into a string 'modTemplate'
 	local f = assert(
 		io.open(selectedModTemplate, "r"),
-		string.format('Could not open file "%s"', selectedModTemplate)
+		string.format(_T'Could not open file "%s"', selectedModTemplate)
 	)
 	local modTemplate = f:read("*a") -- read whole file into string modTemplate
 	f:close()
@@ -186,11 +187,11 @@ function M.SaveMod(listBox, fileName, selectedModTemplate)
 	local out, num = modTemplate:gsub("%%MOD%%", selection)
 	-- make sure that at least one instance of '%MOD%' was replaced:
 	assert(num >= 1,
-		string.format('Could not find substring "%%MOD%%" in file "%s', selectedModTemplate)
+		string.format(_T'Could not find substring "%%MOD%%" in file "%s"', selectedModTemplate)
 	)
 	
 	-- write string 'out' to file 'fileName'
-	f = assert(io.open(fileName, "w"), string.format('Could not open file "%s"', fileName))
+	f = assert(io.open(fileName, "w"), string.format(_T'Could not open file "%s"', fileName))
 	f:write(out)
 	f:close()
 end

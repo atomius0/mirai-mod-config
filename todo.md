@@ -1,6 +1,7 @@
 
 ## Todo
 
+- [ ] move helper function 'GetFilesEndingWith' from 'ModTab.lua' into its own file, because we will also need that function in 'LanguageTab.lua'
 - [ ] translate the remaining tabs in MainWindow.lua
 - [ ] implement translation feature in the rest of the source files
 - [ ] finish 'LanguageTab.lua' (look up event id for selecting an element in a listCtrl!)
