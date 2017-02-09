@@ -1,7 +1,17 @@
 
 ## Todo
 
-- [ ] add 'TranslationLoader.lua' and 'config/lang/english.lua' to squishy and makefile!
+- [ ] add ctrl+S hotkey to save settings (how? use accelerator-tables or something?)
+
+- [ ] disable debug and strict mode before release
+- [ ] update version number before release
+- [ ] write readme.md
+- [ ] add a LICENSE.txt
+
+- [ ] implement preset-feature, where you can save the current config as a preset and load them easily.
+
+- [x] clean up todo.md
+- [x] add 'TranslationLoader.lua' and 'config/lang/english.lua' to squishy and makefile!
 - [x] finish 'LanguageTab.lua' (look up event id for selecting an element in a listCtrl!)
 - [x] run unit tests again after adding translation feature to everything else
 - [x] capitalize language file names
@@ -11,14 +21,10 @@
 - [x] translate the remaining tabs in MainWindow.lua
 - [x] implement translation feature in the rest of the source files
 
-- [ ] implement translation (load it using the loader module, finish LanguageTab.lua, use '_T()' calls, write translation files (english and german).
+- [x] implement translation (load it using the loader module, finish LanguageTab.lua, use '_T()' calls, write translation files (english and german).
 - [x] write translation loader module
-- [ ] disable debug and strict mode before release
-- [ ] update version number before release
 - [x] there seems to be a bug with an invalid choice in the skills tab when 'Config.lua' does not exist!
 - [x] test OLD_HOMUN_TYPE and DEFAULT_BEHA saving and loading again
-- [ ] clean up todo.md
-- [ ] add ctrl+S hotkey to save settings (how? use accelerator-tables or something?)
 - [x] add 'OLD_HOMUN_TYPE' variable to MainWindow save and load functions
 - [x] replace hidden checkBox "CB_CanDetectNoPot" with OldHomunType wxChoice
 - [x] ask before quitting
@@ -97,16 +103,11 @@
 - [x] put a dummy program into main lua to test the makefile.
 - [x] build a GUI with wxFormBuilder and generate an xrc file.
 
-- [ ] write readme.md
-- [ ] add a LICENSE.txt
-
-- [ ] add function to get exe directory (like AppDir in BlitzMax) (see sample: calculator.wx.lua) -> http://stackoverflow.com/questions/25819812/wxwidgets-getting-application-path
-- [ ] implement preset-feature, where you can save the current config as a preset and load them easily.
 
 
 ##Notes
 
-- fill the skills tab in code?
+- add function to get exe directory? (like AppDir in BlitzMax) (see sample: calculator.wx.lua) -> http://stackoverflow.com/questions/25819812/wxwidgets-getting-application-path
 
 - for the Tabs "Mod" and "Language" we will need to enumerate all files in the current directory (to find *_Mod.lua files). Use wxDir for that. 
 http://docs.wxwidgets.org/trunk/classwx_dir.html
@@ -115,11 +116,4 @@ file:///D:/Dateien/Programming/lua/wxLua/wxLua-2.8.12.3-Lua-5.1.5-MSW-Ansi/doc/w
 - use wxWindow::SetMaxSize for the wxScrolledWindow in tab "Skills", whenever the window size changes and when the window is initialized. So that the long list inside it won't enlarge the window unnecessarily. (the MaxSize is set to a very low value for this reason) (get the size from TAB_GENERAL's main sizer via wxSizer::GetSize)
 file:///D:/Dateien/Programming/lua/wxLua/docs/html/wx_wxwindow.html#wxwindowsetmaxsize
 
-- translation files should be lua scripts, maybe? (put them in a subdirectory "lang" or "translation"?)
-
-- use wxDialog:ShowModal for the AddTacticDialog
-
 - write a new runtime exe later? (in C or C++)
-
-
-- [ ] look up how to get event type names? (like in one of the wxLua samples)
