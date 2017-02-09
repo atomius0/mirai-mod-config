@@ -158,7 +158,7 @@ function AddTacticDialog:init(xmlResource, parent, tactic)
 	-- load the dialog:
 	self.dialog = wx.wxDialog()
 	assert(xmlResource:LoadDialog(self.dialog, parent, "AddTacticDialog"),
-		"Error loading dialog 'MainWindow'"
+		string.format(_T"Error loading dialog '%s'", "AddTacticDialog")
 	)
 	
 	-- initialize the reference variables for the input fields:

@@ -5,7 +5,7 @@ return {
 	-- MainWindow.lua
 	"Änderungen vor dem Beenden speichern?",
 	"Speichern?",
-	"Fehler beim Laden des Dialogs 'MainWindow'",
+	"Fehler beim Laden des Dialogs '%s'",
 	'Datei "%s" konnte nicht geöffnet werden',
 	'Ungültiger Wert für Option "%s". erwartet: 1 oder 0, erhalten: "%s"',
 	

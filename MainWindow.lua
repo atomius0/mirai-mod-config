@@ -239,7 +239,7 @@ function MainWindow:init(xmlResource)
 	-- load the dialog:
 	self.dialog = wx.wxDialog()
 	assert(xmlResource:LoadDialog(self.dialog, wx.NULL, "MainWindow"), 
-		_T"Error loading dialog 'MainWindow'"
+		string.format(_T"Error loading dialog '%s'", "MainWindow")
 	)
 	
 	
