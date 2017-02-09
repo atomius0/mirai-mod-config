@@ -2,8 +2,8 @@
 -- ModTab functions
 
 local su = require "stringutil"
-local _T = require "TranslationLoader"
 local GetFilesEndingWith = require "GetFilesEndingWith"
+local _T = require "TranslationLoader"
 
 local M = {}
 
