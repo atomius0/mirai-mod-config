@@ -1,15 +1,15 @@
 
 ## Todo
 
-- [ ] add ctrl+S hotkey to save settings (how? use accelerator-tables or something?)
 
 - [ ] disable debug and strict mode before release
 - [ ] update version number before release
-- [ ] write readme.md
 - [ ] add a LICENSE.txt
 
 - [ ] implement preset-feature, where you can save the current config as a preset and load them easily.
+- [ ] write readme.md
 
+- [x] add ctrl+S hotkey to save settings (how? use accelerator-tables or something?)
 - [x] clean up todo.md
 - [x] add 'TranslationLoader.lua' and 'config/lang/english.lua' to squishy and makefile!
 - [x] finish 'LanguageTab.lua' (look up event id for selecting an element in a listCtrl!)

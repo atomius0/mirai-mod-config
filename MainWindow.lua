@@ -303,6 +303,8 @@ function MainWindow:init(xmlResource)
 	
 	--self:HideLanguageTab(xmlResource) -- TODO: remove this later
 	
+	self:InitHotkeys()
+	
 	self:ApplyTranslation()
 	
 	self.dialog:Center()
@@ -374,6 +376,14 @@ function MainWindow:InitInputs()
 	InitWidget("TXT_Version", "wxStaticText")
 	
 	-- TODO: initialize the remaining reference variables for all the input fields
+end
+
+
+function MainWindow:InitHotkeys()
+	local accelTable = wx.wxAcceleratorTable({
+		{ wx.wxACCEL_CTRL, string.byte('s'), MainWindow.IDs.BUT_SaveConfig } -- ctrl+S: save config
+	})
+	self.dialog:SetAcceleratorTable(accelTable)
 end
 
 
