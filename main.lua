@@ -4,8 +4,8 @@
 package.cpath = package.cpath..";./?.dll;./?.so;../lib/?.so;../lib/vc_dll/?.dll;../lib/bcc_dll/?.dll;../lib/mingw_dll/?.dll;"
 require("wx")
 
-DEBUG      = true
-USE_STRICT = true
+DEBUG      = false
+USE_STRICT = false
 
 if DEBUG then
 	print("### debug mode enabled ###")
@@ -20,7 +20,7 @@ local MainWindow = require "MainWindow"
 local _T = require "TranslationLoader"
 
 -- constants:
-APP_VERSION      = "v0.1.0"
+APP_VERSION      = "v1.0.0"
 XRC_FILE         = "config/config.xrc"
 APP_NAME         = "MirAI Mod Config"
 CONFIG_FILE      = "Config.lua"

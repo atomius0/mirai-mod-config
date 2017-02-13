@@ -2,9 +2,9 @@
 ## Todo
 
 
-- [ ] disable debug and strict mode before release
-- [ ] update version number before release
-- [ ] add a LICENSE.txt
+- [x] disable debug and strict mode before release
+- [x] update version number before release
+- [x] add a LICENSE.txt
 
 - [ ] implement preset-feature, where you can save the current config as a preset and load them easily.
 - [ ] write readme.md

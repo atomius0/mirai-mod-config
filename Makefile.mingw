@@ -9,7 +9,7 @@ WXLUA_PATH = ../../wxLua-2.8.12.3-Lua-5.1.5-MSW-Ansi
 # -- END OF SETTINGS. NO NEED TO CHANGE ANYTHING BELOW THIS LINE --------------
 
 
-VERSION = 0.1.0
+VERSION = 1.0.0
 
 # Directories created by this makefile:
 # contains the final executable and readme files:
